@@ -1,0 +1,14 @@
+{
+  "name": "rempi-core",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "tsconfig": "*",
+    "typescript": "^4.5.3"
+  }
+}

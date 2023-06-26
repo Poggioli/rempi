@@ -1,6 +1,8 @@
 export default function Page() {
   return (
-    <span>
+    <span style={{
+      color: 'var(--colors-error12)'
+    }}>
       Docs
     </span>
   );
