@@ -1,4 +1,4 @@
-import { createTheme, rempiDefaultConfig } from "rempi-core";
+import { createTheme, rempiDefaultConfig } from "@rempi-ui/core";
 
 export default function RootLayout({
   children,

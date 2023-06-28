@@ -915,9 +915,9 @@ export function createTheme(selector: string, theme: RempiConfigCreateTheme) {
     Object.entries(value).forEach(([keyVal, valueVal]) => {
       cssVariables[`--${toDashLowerCase(key)}-${keyVal}`] = valueVal as string;
     });
-  });
+  })
 
-  function innerHTML() {
+  function innerHTML(): string {
     const themeArray = Object.entries(cssVariables).map(([key, value]) => {
       return `${key}: ${value}`;
     });
@@ -925,7 +925,7 @@ export function createTheme(selector: string, theme: RempiConfigCreateTheme) {
     return `.${selector}{${themeArray.join(";")}}`;
   }
 
-  function render() {
+  function render(): string {
     if (typeof window !== "undefined") {
       const styleSheet =
         document.querySelector("#rempi") || document.createElement("style");

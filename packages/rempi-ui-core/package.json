@@ -1,5 +1,5 @@
 {
-  "name": "rempi-core",
+  "name": "@rempi-ui/core",
   "main": "src/index.ts",
   "types": "src/index.ts",
   "version": "1.0.0",
@@ -8,6 +8,7 @@
   "dependencies": {},
   "devDependencies": {
     "eslint-config-custom": "*",
+    "sass": "^1.63.6",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   }
