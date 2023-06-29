@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@rempi-ui/button": "*",
     "@rempi-ui/core": "*",
     "next": "^13.4.1",
     "react": "^18.2.0",

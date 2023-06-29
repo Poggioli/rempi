@@ -16,7 +16,7 @@ export default function RootLayout({
       <body
         style={{
           color: 'var(--colors-error12)',
-          backgroundColor: 'var(--colors-primary2)',
+          backgroundColor: 'var(--colors-primary1)',
         }}>
           {children}
       </body>
