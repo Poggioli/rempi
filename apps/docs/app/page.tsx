@@ -1,12 +1,9 @@
 import { Button } from "@rempi-ui/button";
+import { Flex } from "@rempi-ui/flex";
 
 export default function Page() {
   return (
-    <span
-      style={{
-        color: "var(--colors-error12)",
-      }}
-    >
+    <Flex direction="column" alignItems="center">
       <Button color="primary" variant="contained" buttonSize="standard">
         Hello
       </Button>
@@ -45,6 +42,6 @@ export default function Page() {
       <Button color="error" variant="outlined" buttonSize="standard">
         Hello
       </Button>
-    </span>
+    </Flex>
   );
 }

@@ -1,0 +1,318 @@
+@use '@rempi-ui/core/src/config/rempi-variables' as rempiVars;
+
+.rempi-flex {
+  box-sizing: border-box;
+  display: flex;
+
+  &--direction {
+    &-column {
+      flex-direction: column;
+    }
+
+    &-column-reverse {
+      flex-direction: column-reverse;
+    }
+
+    &-inherit {
+      flex-direction: inherit;
+    }
+
+    &-initial {
+      flex-direction: initial;
+    }
+
+    &-revert {
+      flex-direction: revert;
+    }
+
+    &-row {
+      flex-direction: row;
+    }
+
+    &-row-reverse {
+      flex-direction: row-reverse;
+    }
+
+    &-unset {
+      flex-direction: unset;
+    }
+  }
+
+  &--wrap {
+    &-inherit {
+      flex-wrap: inherit;
+    }
+
+    &-initial {
+      flex-wrap: initial;
+    }
+
+    &-nowrap {
+      flex-wrap: nowrap;
+    }
+
+    &-revert {
+      flex-wrap: revert;
+    }
+
+    &-unset {
+      flex-wrap: unset;
+    }
+
+    &-wrap {
+      flex-wrap: wrap;
+    }
+
+    &-wrap-reverse {
+      flex-wrap: wrap-reverse;
+    }
+  }
+
+  &--justify-content {
+    &-center {
+      justify-content: center;
+    }
+
+    &-end {
+      justify-content: end;
+    }
+
+    &-flex-end {
+      justify-content: flex-end;
+    }
+
+    &-flex-start {
+      justify-content: flex-start;
+    }
+
+    &-inherit {
+      justify-content: inherit;
+    }
+
+    &-initial {
+      justify-content: initial;
+    }
+
+    &-left {
+      justify-content: left;
+    }
+
+    &-normal {
+      justify-content: normal;
+    }
+
+    &-revert {
+      justify-content: revert;
+    }
+
+    &-right {
+      justify-content: right;
+    }
+
+    &-space-around {
+      justify-content: space-around;
+    }
+
+    &-space-between {
+      justify-content: space-between;
+    }
+
+    &-space-evenly {
+      justify-content: space-evenly;
+    }
+
+    &-start {
+      justify-content: start;
+    }
+
+    &-stretch {
+      justify-content: stretch;
+    }
+
+    &-unset {
+      justify-content: unset;
+    }
+  }
+
+  &--align-items {
+    &-baseline {
+      align-items: baseline;
+    }
+
+    &-center {
+      align-items: center;
+    }
+
+    &-end {
+      align-items: end;
+    }
+
+    &-flex-end {
+      align-items: flex-end;
+    }
+
+    &-flex-start {
+      align-items: flex-start;
+    }
+
+    &-inherit {
+      align-items: inherit;
+    }
+
+    &-initial {
+      align-items: initial;
+    }
+
+    &-normal {
+      align-items: normal;
+    }
+
+    &-revert {
+      align-items: revert;
+    }
+
+    &-self-end {
+      align-items: self-end;
+    }
+
+    &-self-start {
+      align-items: self-start;
+    }
+
+    &-start {
+      align-items: start;
+    }
+
+    &-stretch {
+      align-items: stretch;
+    }
+
+    &-unset {
+      align-items: unset;
+    }
+  }
+
+  &--align-content {
+    &-baseline {
+      align-content: baseline;
+    }
+
+    &-center {
+      align-content: center;
+    }
+
+    &-end {
+      align-content: end;
+    }
+
+    &-flex-end {
+      align-content: flex-end;
+    }
+
+    &-flex-start {
+      align-content: flex-start;
+    }
+
+    &-inherit {
+      align-content: inherit;
+    }
+
+    &-initial {
+      align-content: initial;
+    }
+
+    &-normal {
+      align-content: normal;
+    }
+
+    &-revert {
+      align-content: revert;
+    }
+
+    &-space-around {
+      align-content: space-around;
+    }
+
+    &-space-between {
+      align-content: space-between;
+    }
+
+    &-space-evenly {
+      align-content: space-evenly;
+    }
+
+    &-start {
+      align-content: start;
+    }
+
+    &-stretch {
+      align-content: stretch;
+    }
+
+    &-unset {
+      align-content: unset;
+    }
+  }
+
+  &--align-self {
+    &-auto {
+      align-self: auto;
+    }
+
+    &-baseline {
+      align-self: baseline;
+    }
+
+    &-center {
+      align-self: center;
+    }
+
+    &-end {
+      align-self: end;
+    }
+
+    &-flex-end {
+      align-self: flex-end;
+    }
+
+    &-flex-start {
+      align-self: flex-start;
+    }
+
+    &-inherit {
+      align-self: inherit;
+    }
+
+    &-initial {
+      align-self: initial;
+    }
+
+    &-normal {
+      align-self: normal;
+    }
+
+    &-revert {
+      align-self: revert;
+    }
+
+    &-self-end {
+      align-self: self-end;
+    }
+
+    &-self-start {
+      align-self: self-start;
+    }
+
+    &-start {
+      align-self: start;
+    }
+
+    &-stretch {
+      align-self: stretch;
+    }
+
+    &-unset {
+      align-self: unset;
+    }
+  }
+}
