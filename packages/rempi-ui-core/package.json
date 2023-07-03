@@ -11,5 +11,8 @@
     "sass": "^1.63.6",
     "tsconfig": "*",
     "typescript": "^4.5.3"
+  },
+  "peerDependencies": {
+    "react": ">=^18.2.0"
   }
 }

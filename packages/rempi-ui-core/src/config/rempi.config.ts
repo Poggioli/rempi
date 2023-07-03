@@ -207,18 +207,18 @@ export type RempiConfigCreateTheme = Partial<{
 
 export const rempiDefaultConfig: RempiConfig = {
   colors: {
-    primary1: '#161618',
-    primary2: '#1c1c1f',
-    primary3: '#232326',
-    primary4: '#28282c',
-    primary5: '#2e2e32',
-    primary6: '#34343a',
-    primary7: '#3e3e44',
-    primary8: '#504f57',
-    primary9: '#706f78',
-    primary10: '#7e7d86',
-    primary11: '#a09fa6',
-    primary12: '#ededef',
+    primary1: "#161618",
+    primary2: "#1c1c1f",
+    primary3: "#232326",
+    primary4: "#28282c",
+    primary5: "#2e2e32",
+    primary6: "#34343a",
+    primary7: "#3e3e44",
+    primary8: "#504f57",
+    primary9: "#706f78",
+    primary10: "#7e7d86",
+    primary11: "#a09fa6",
+    primary12: "#ededef",
 
     secondary1: "#1b141d",
     secondary2: "#221527",
@@ -791,24 +791,12 @@ export function createTheme(selector: string, theme: RempiConfigCreateTheme) {
     },
     fontWeights: {
       ...(theme.fontWeights || {}),
-      1: convertToPxIfValueIsNumber(
-        useValue(theme.fontWeights?.[1], rempiDefaultConfig.fontWeights[1])
-      ),
-      2: convertToPxIfValueIsNumber(
-        useValue(theme.fontWeights?.[2], rempiDefaultConfig.fontWeights[2])
-      ),
-      3: convertToPxIfValueIsNumber(
-        useValue(theme.fontWeights?.[3], rempiDefaultConfig.fontWeights[3])
-      ),
-      4: convertToPxIfValueIsNumber(
-        useValue(theme.fontWeights?.[4], rempiDefaultConfig.fontWeights[4])
-      ),
-      5: convertToPxIfValueIsNumber(
-        useValue(theme.fontWeights?.[5], rempiDefaultConfig.fontWeights[5])
-      ),
-      6: convertToPxIfValueIsNumber(
-        useValue(theme.fontWeights?.[6], rempiDefaultConfig.fontWeights[6])
-      ),
+      1: useValue(theme.fontWeights?.[1], rempiDefaultConfig.fontWeights[1]),
+      2: useValue(theme.fontWeights?.[2], rempiDefaultConfig.fontWeights[2]),
+      3: useValue(theme.fontWeights?.[3], rempiDefaultConfig.fontWeights[3]),
+      4: useValue(theme.fontWeights?.[4], rempiDefaultConfig.fontWeights[4]),
+      5: useValue(theme.fontWeights?.[5], rempiDefaultConfig.fontWeights[5]),
+      6: useValue(theme.fontWeights?.[6], rempiDefaultConfig.fontWeights[6]),
     },
     lineHeights: {
       ...(theme.lineHeights || {}),
