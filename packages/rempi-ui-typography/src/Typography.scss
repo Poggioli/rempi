@@ -1,0 +1,180 @@
+@use '@rempi-ui/core/src/config/rempi-variables' as rempiVars;
+
+.rempi-typography {
+  -webkit-font-smoothing: antialiased;
+  color: rempiVars.$colors-primary-12;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.05rem;
+
+  &>strong {
+    font-weight: rempiVars.$font-weights-5;
+  }
+
+  &--align {
+
+    &-left,
+    * {
+      text-align: left;
+    }
+
+    &-center,
+    * {
+      text-align: center;
+    }
+
+    &-right,
+    * {
+      text-align: right;
+    }
+  }
+
+  &--font-size {
+
+    &-2xsm,
+    * {
+      font-size: rempiVars.$font-sizes-1 !important;
+    }
+
+    &-xsm,
+    * {
+      font-size: rempiVars.$font-sizes-2 !important;
+    }
+
+    &-sm,
+    * {
+      font-size: rempiVars.$font-sizes-3 !important;
+    }
+
+    &-md,
+    * {
+      font-size: rempiVars.$font-sizes-4 !important;
+    }
+
+    &-lg,
+    * {
+      font-size: rempiVars.$font-sizes-5 !important;
+    }
+
+    &-xlg,
+    * {
+      font-size: rempiVars.$font-sizes-6 !important;
+    }
+
+  }
+
+  &--truncated {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  &--font-weight {
+
+    &-tiny,
+    * {
+      font-weight: rempiVars.$font-weights-1 !important;
+    }
+
+    &-normal,
+    * {
+      font-weight: rempiVars.$font-weights-2 !important;
+    }
+
+    &-regular,
+    * {
+      font-weight: rempiVars.$font-weights-3 !important;
+    }
+
+    &-semi-bold,
+    * {
+      font-weight: rempiVars.$font-weights-4 !important;
+    }
+
+    &-bold,
+    * {
+      font-weight: rempiVars.$font-weights-5 !important;
+    }
+
+    &-extra-bold,
+    * {
+      font-weight: rempiVars.$font-weights-6 !important;
+    }
+
+  }
+
+  &--line-height {
+
+    &-1,
+    * {
+      line-height: rempiVars.$line-heights-1 !important;
+    }
+
+    &-2,
+    * {
+      line-height: rempiVars.$line-heights-2 !important;
+    }
+
+  }
+
+  &--color {
+
+    &-high-contrast,
+    * {
+      color: rempiVars.$colors-primary-12
+    }
+
+    &-low-contrast,
+    * {
+      color: rempiVars.$colors-primary-11
+    }
+
+  }
+
+  &--variant {
+
+    &-lead1,
+    * {
+      line-height: rempiVars.$line-heights-1;
+      font-weight: rempiVars.$font-weights-3;
+      font-size: rempiVars.$font-sizes-6;
+    }
+
+    &-lead2,
+    * {
+      line-height: rempiVars.$line-heights-1;
+      font-weight: rempiVars.$font-weights-3;
+      font-size: rempiVars.$font-sizes-5;
+    }
+
+    &-body1,
+    * {
+      line-height: rempiVars.$line-heights-2;
+      font-weight: rempiVars.$font-weights-2;
+      font-size: rempiVars.$font-sizes-4;
+    }
+
+    &-body2,
+    * {
+      line-height: rempiVars.$line-heights-2;
+      font-weight: rempiVars.$font-weights-2;
+      font-size: rempiVars.$font-sizes-3;
+    }
+
+    &-caption,
+    * {
+      line-height: rempiVars.$line-heights-1;
+      font-weight: rempiVars.$font-weights-1;
+      font-size: rempiVars.$font-sizes-2;
+    }
+
+    &-subtitle,
+    * {
+      line-height: rempiVars.$line-heights-1;
+      font-weight: rempiVars.$font-weights-1;
+      font-size: rempiVars.$font-sizes-1;
+    }
+
+  }
+}
