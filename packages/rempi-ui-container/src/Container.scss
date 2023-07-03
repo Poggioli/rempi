@@ -1,0 +1,91 @@
+@use '@rempi-ui/core/src/config/rempi-variables' as rempiVars;
+
+.rempi-container {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0 rempiVars.$spaces-4;
+
+  &--centered {
+    margin: 0 auto;
+  }
+
+  @media (min-width: 576px) {
+
+    &,
+    &--sm {
+      max-width: 540px;
+    }
+
+    &--md,
+    &--lg,
+    &--xlg,
+    &--2xlg,
+    &--fluid {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 768px) {
+
+    &,
+    &--sm,
+    &--md {
+      max-width: 720px;
+    }
+
+    &--lg,
+    &--xlg,
+    &--2xlg,
+    &--fluid {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 992px) {
+
+    &,
+    &--sm,
+    &--md,
+    &--lg {
+      max-width: 960px;
+    }
+
+    &--xlg,
+    &--2xlg,
+    &--fluid {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 1200px) {
+
+    &,
+    &--sm,
+    &--md,
+    &--lg,
+    &--xlg {
+      max-width: 1140px;
+    }
+
+    &--2xlg,
+    &--fluid {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 1400px) {
+
+    &,
+    &--sm,
+    &--md,
+    &--lg,
+    &--xlg,
+    &--2xlg {
+      max-width: 1320px;
+    }
+
+    &--fluid {
+      max-width: 100%;
+    }
+  }
+}
