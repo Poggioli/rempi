@@ -1,5 +1,5 @@
+import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import classnames from "classnames";
-import { forwardRef, HTMLProps, PropsWithoutRef } from "react";
 import "./Button.scss";
 
 type ButtonSize = "small" | "standard" | "large";
@@ -31,7 +31,7 @@ const buttonColorClasses: Record<ButtonColor, string> = {
   error: "rempi-button--color-error",
 };
 
-export type ButtonProps = PropsWithoutRef<HTMLProps<HTMLButtonElement>> & {
+export type ButtonProps = HTMLRempiProps<"button"> & {
   type?: "button" | "submit" | "reset";
   buttonSize?: ButtonSize;
   variant?: ButtonVariant;
@@ -40,7 +40,7 @@ export type ButtonProps = PropsWithoutRef<HTMLProps<HTMLButtonElement>> & {
   upperCase?: boolean;
 };
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<"button", ButtonProps>(
   (
     {
       children,
@@ -49,12 +49,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       shape = "smoth",
       color = "primary",
       upperCase,
+      as: Component = 'button',
       ...props
     },
     ref
   ) => {
     return (
-      <button
+      <Component
         {...props}
         ref={ref}
         className={`rempi-button ${classnames(
@@ -66,7 +67,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}`}
       >
         {children}
-      </button>
+      </Component>
     );
   }
 );
@@ -77,7 +78,7 @@ export type IconButtonProps = ButtonProps & {
   "aria-label": string;
 };
 
-export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+export const IconButton = forwardRef<'button', IconButtonProps>(
   ({ children, ...props }, ref) => {
     return (
       <Button {...props} ref={ref}>
