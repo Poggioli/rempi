@@ -1,5 +1,6 @@
 import { Button } from "@rempi-ui/button";
 import { Flex } from "@rempi-ui/flex";
+import { Heading } from "@rempi-ui/heading";
 import { Typography } from "@rempi-ui/typography";
 
 export default function Page() {
@@ -25,25 +26,31 @@ export default function Page() {
       <Button color="secondary" variant="contained" buttonSize="standard">
         Hello
       </Button>
-      <Typography isTruncated variant="lead1">Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 </Typography>
-      <Typography as="a" href="https://google.com.br" isTruncated variant="lead1">Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 </Typography>
-      <Typography as="h1" isTruncated variant="lead1">Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 </Typography>
-      <Typography variant="lead2">Teste 2</Typography>
-      <Typography variant="body1">Teste 3</Typography>
-      <Typography variant="body2">Teste 4</Typography>
-      <Typography variant="caption">Teste 5</Typography>
-      <Typography variant="subtitle">Teste 6</Typography>
-      <Typography
-        variant="subtitle"
-        fontSize="xlg"
-        color="low-contrast"
-        fontWeight="extra-bold"
-        lineHeight={2}
-        align="right"
-        isTruncated
-      >
-        Teste 6 Teste 6 Teste 6 Teste 6 Teste 6 Teste 6 Teste 6 Teste 6 Teste 6 Teste 6 
-      </Typography>
+      <Typography variant="lead1">Typography 1</Typography>
+      <Typography variant="lead2">Typography 2</Typography>
+      <Typography variant="body1">Typography 3</Typography>
+      <Typography variant="body2">Typography 4</Typography>
+      <Typography variant="caption">Typography 5</Typography>
+      <Typography variant="subtitle">Typography 6</Typography>
+
+      <Heading as="h1" variant="1">
+        Heading 1
+      </Heading>
+      <Heading as="h2" variant="2">
+        Heading 2
+      </Heading>
+      <Heading as="h3" variant="3">
+        Heading 3
+      </Heading>
+      <Heading as="h4" variant="4">
+        Heading 4
+      </Heading>
+      <Heading as="h5" variant="5">
+        Heading 5
+      </Heading>
+      <Heading as="h6" variant="6">
+        Heading 6
+      </Heading>
     </Flex>
   );
 }

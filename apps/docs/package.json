@@ -12,6 +12,7 @@
     "@rempi-ui/button": "*",
     "@rempi-ui/core": "*",
     "@rempi-ui/flex": "*",
+    "@rempi-ui/heading": "*",
     "@rempi-ui/typography": "*",
     "next": "^13.4.1",
     "react": "^18.2.0",
