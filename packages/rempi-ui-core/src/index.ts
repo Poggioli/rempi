@@ -1,6 +1,8 @@
-export { createTheme, rempiDefaultConfig, } from "./config/rempi.config";
+export { createTheme, rempiDefaultConfig } from "./config/rempi.config";
 
 export type {
   RempiConfig,
   RempiConfigCreateTheme,
 } from "./config/rempi.config";
+
+export * from "./types";
