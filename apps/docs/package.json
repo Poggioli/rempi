@@ -11,6 +11,7 @@
   "dependencies": {
     "@rempi-ui/button": "*",
     "@rempi-ui/core": "*",
+    "@rempi-ui/container": "*",
     "@rempi-ui/flex": "*",
     "@rempi-ui/heading": "*",
     "@rempi-ui/typography": "*",
