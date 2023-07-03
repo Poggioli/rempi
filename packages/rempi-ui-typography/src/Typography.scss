@@ -14,17 +14,17 @@
   &--align {
 
     &-left,
-    * {
+    &-left * {
       text-align: left;
     }
 
     &-center,
-    * {
+    &-center * {
       text-align: center;
     }
 
     &-right,
-    * {
+    &-right * {
       text-align: right;
     }
   }
@@ -32,32 +32,32 @@
   &--font-size {
 
     &-2xsm,
-    * {
+    &-2xsm * {
       font-size: rempiVars.$font-sizes-1 !important;
     }
 
     &-xsm,
-    * {
+    &-xsm * {
       font-size: rempiVars.$font-sizes-2 !important;
     }
 
     &-sm,
-    * {
+    &-sm * {
       font-size: rempiVars.$font-sizes-3 !important;
     }
 
     &-md,
-    * {
+    &-md * {
       font-size: rempiVars.$font-sizes-4 !important;
     }
 
     &-lg,
-    * {
+    &-lg * {
       font-size: rempiVars.$font-sizes-5 !important;
     }
 
     &-xlg,
-    * {
+    &-xlg * {
       font-size: rempiVars.$font-sizes-6 !important;
     }
 
@@ -73,32 +73,32 @@
   &--font-weight {
 
     &-tiny,
-    * {
+    &-tiny * {
       font-weight: rempiVars.$font-weights-1 !important;
     }
 
     &-normal,
-    * {
+    &-normal * {
       font-weight: rempiVars.$font-weights-2 !important;
     }
 
     &-regular,
-    * {
+    &-regular * {
       font-weight: rempiVars.$font-weights-3 !important;
     }
 
     &-semi-bold,
-    * {
+    &-semi-bold * {
       font-weight: rempiVars.$font-weights-4 !important;
     }
 
     &-bold,
-    * {
+    &-bold * {
       font-weight: rempiVars.$font-weights-5 !important;
     }
 
     &-extra-bold,
-    * {
+    &-extra-bold * {
       font-weight: rempiVars.$font-weights-6 !important;
     }
 
@@ -107,12 +107,12 @@
   &--line-height {
 
     &-1,
-    * {
+    &-1 * {
       line-height: rempiVars.$line-heights-1 !important;
     }
 
     &-2,
-    * {
+    &-2 * {
       line-height: rempiVars.$line-heights-2 !important;
     }
 
@@ -121,12 +121,12 @@
   &--color {
 
     &-high-contrast,
-    * {
+    &-high-contrast * {
       color: rempiVars.$colors-primary-12
     }
 
     &-low-contrast,
-    * {
+    &-low-contrast * {
       color: rempiVars.$colors-primary-11
     }
 
@@ -135,42 +135,42 @@
   &--variant {
 
     &-lead1,
-    * {
+    &-lead1 * {
       line-height: rempiVars.$line-heights-1;
       font-weight: rempiVars.$font-weights-3;
       font-size: rempiVars.$font-sizes-6;
     }
 
     &-lead2,
-    * {
+    &-lead2 * {
       line-height: rempiVars.$line-heights-1;
       font-weight: rempiVars.$font-weights-3;
       font-size: rempiVars.$font-sizes-5;
     }
 
     &-body1,
-    * {
+    &-body1 * {
       line-height: rempiVars.$line-heights-2;
       font-weight: rempiVars.$font-weights-2;
       font-size: rempiVars.$font-sizes-4;
     }
 
     &-body2,
-    * {
+    &-body2 * {
       line-height: rempiVars.$line-heights-2;
       font-weight: rempiVars.$font-weights-2;
       font-size: rempiVars.$font-sizes-3;
     }
 
     &-caption,
-    * {
+    &-caption * {
       line-height: rempiVars.$line-heights-1;
       font-weight: rempiVars.$font-weights-1;
       font-size: rempiVars.$font-sizes-2;
     }
 
     &-subtitle,
-    * {
+    &-subtitle * {
       line-height: rempiVars.$line-heights-1;
       font-weight: rempiVars.$font-weights-1;
       font-size: rempiVars.$font-sizes-1;
