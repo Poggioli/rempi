@@ -1,5 +1,6 @@
+import { HTMLRempiProps } from "@rempi-ui/core";
 import classnames from "classnames";
-import { forwardRef, HTMLProps, PropsWithoutRef } from "react";
+import { forwardRef } from "react";
 import "./Flex.scss";
 
 type FlexDirection =
@@ -176,7 +177,7 @@ const flexAlignSelfClasses: Record<AlignSelf, string> = {
   unset: "rempi-flex--align-self-unset",
 };
 
-export type FlexProps = PropsWithoutRef<HTMLProps<HTMLDivElement>> & {
+export type FlexProps = HTMLRempiProps<"div"> & {
   direction?: FlexDirection;
   wrap?: FlexWrap;
   justifyContent?: JustifyContent;
@@ -185,7 +186,7 @@ export type FlexProps = PropsWithoutRef<HTMLProps<HTMLDivElement>> & {
   alignSelf?: AlignSelf;
 };
 
-export const Flex = forwardRef<HTMLDivElement, FlexProps>(
+export const Flex = forwardRef<"div", FlexProps>(
   (
     {
       children,
@@ -195,12 +196,13 @@ export const Flex = forwardRef<HTMLDivElement, FlexProps>(
       alignItems = "flex-start",
       alignContents,
       alignSelf,
+      as: Component = "div",
       ...props
     },
     ref
   ) => {
     return (
-      <div
+      <Component
         {...props}
         ref={ref}
         className={`rempi-flex ${classnames(
@@ -213,7 +215,7 @@ export const Flex = forwardRef<HTMLDivElement, FlexProps>(
         )}`}
       >
         {children}
-      </div>
+      </Component>
     );
   }
 );
