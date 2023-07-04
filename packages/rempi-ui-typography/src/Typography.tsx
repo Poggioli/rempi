@@ -85,6 +85,7 @@ export const Typography = forwardRef<"span", TypographyProps>(
       isTruncated,
       align,
       variant = "body1",
+      className,
       ...props
     },
     ref
@@ -100,7 +101,8 @@ export const Typography = forwardRef<"span", TypographyProps>(
           fontWeight && typographyWeightClasses[fontWeight],
           lineHeight && typographyLineHeightClasses[lineHeight],
           align && typographyAlignClasses[align],
-          { "rempi-typography--truncated": isTruncated }
+          { "rempi-typography--truncated": isTruncated },
+          className
         )}`}
       >
         {children}

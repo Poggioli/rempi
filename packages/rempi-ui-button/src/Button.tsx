@@ -49,7 +49,8 @@ export const Button = forwardRef<"button", ButtonProps>(
       shape = "smoth",
       color = "primary",
       upperCase,
-      as: Component = 'button',
+      as: Component = "button",
+      className,
       ...props
     },
     ref
@@ -63,7 +64,8 @@ export const Button = forwardRef<"button", ButtonProps>(
           buttonVariantClasses[variant],
           buttonShapeClasses[shape],
           buttonColorClasses[color],
-          { "rempi-button--is-upercase": upperCase }
+          { "rempi-button--is-upercase": upperCase },
+          className
         )}`}
       >
         {children}
@@ -78,7 +80,7 @@ export type IconButtonProps = ButtonProps & {
   "aria-label": string;
 };
 
-export const IconButton = forwardRef<'button', IconButtonProps>(
+export const IconButton = forwardRef<"button", IconButtonProps>(
   ({ children, ...props }, ref) => {
     return (
       <Button {...props} ref={ref}>

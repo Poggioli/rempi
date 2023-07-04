@@ -197,6 +197,7 @@ export const Flex = forwardRef<"div", FlexProps>(
       alignContents,
       alignSelf,
       as: Component = "div",
+      className,
       ...props
     },
     ref
@@ -211,7 +212,8 @@ export const Flex = forwardRef<"div", FlexProps>(
           flexJustifyContentClasses[justifyContent],
           wrap && flexWrapClasses[wrap],
           alignContents && flexAlignContentClasses[alignContents],
-          alignSelf && flexAlignSelfClasses[alignSelf]
+          alignSelf && flexAlignSelfClasses[alignSelf],
+          className
         )}`}
       >
         {children}

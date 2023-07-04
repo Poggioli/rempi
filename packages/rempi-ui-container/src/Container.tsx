@@ -19,14 +19,25 @@ export type ContainerProps = HTMLRempiProps<"div"> & {
 };
 
 export const Container = forwardRef<"div", ContainerProps>(
-  ({ children, variant, centered = true, as: Component = "div", ...props }, ref) => {
+  (
+    {
+      children,
+      variant,
+      centered = true,
+      as: Component = "div",
+      className,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <Component
         {...props}
         ref={ref}
         className={`rempi-container ${classnames(
           variant && containerVariantClasses[variant],
-          { "rempi-container--centered": centered }
+          { "rempi-container--centered": centered },
+          className
         )}`}
       >
         {children}

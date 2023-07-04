@@ -1,5 +1,6 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import classnames from "classnames";
 import "./Accordion.scss";
 
 export type AccordionRootProps = HTMLRempiProps<typeof Accordion.Root> &
@@ -8,9 +9,13 @@ export type AccordionRootProps = HTMLRempiProps<typeof Accordion.Root> &
 export const AccordionRoot = forwardRef<
   typeof Accordion.Root,
   AccordionRootProps
->(({ children, as: Component = Accordion.Root, ...props }, ref) => {
+>(({ children, as: Component = Accordion.Root, className, ...props }, ref) => {
   return (
-    <Component {...props} ref={ref} className="rempi-accordion">
+    <Component
+      {...props}
+      ref={ref}
+      className={`rempi-accordion ${classnames(className)}`}
+    >
       {children}
     </Component>
   );
@@ -24,9 +29,13 @@ export type AccordionItemProps = HTMLRempiProps<typeof Accordion.Item> &
 export const AccordionItem = forwardRef<
   typeof Accordion.Item,
   AccordionItemProps
->(({ children, as: Component = Accordion.Item, ...props }, ref) => {
+>(({ children, as: Component = Accordion.Item, className, ...props }, ref) => {
   return (
-    <Component {...props} ref={ref} className="rempi-accordion__item">
+    <Component
+      {...props}
+      ref={ref}
+      className={`rempi-accordion__item ${classnames(className)}`}
+    >
       {children}
     </Component>
   );
@@ -40,13 +49,22 @@ export type AccordionHeaderProps = HTMLRempiProps<typeof Accordion.Header> &
 export const AccordionHeader = forwardRef<
   typeof Accordion.Header,
   AccordionHeaderProps
->(({ children, as: Component = Accordion.Header, ...props }, ref) => {
-  return (
-    <Component {...props} ref={ref} className="rempi-accordion__header">
-      {children}
-    </Component>
-  );
-});
+>(
+  (
+    { children, as: Component = Accordion.Header, className, ...props },
+    ref
+  ) => {
+    return (
+      <Component
+        {...props}
+        ref={ref}
+        className={`rempi-accordion__header ${classnames(className)}`}
+      >
+        {children}
+      </Component>
+    );
+  }
+);
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -56,13 +74,22 @@ export type AccordionTriggerProps = HTMLRempiProps<typeof Accordion.Trigger> &
 export const AccordionTrigger = forwardRef<
   typeof Accordion.Trigger,
   AccordionTriggerProps
->(({ children, as: Component = Accordion.Trigger, ...props }, ref) => {
-  return (
-    <Component {...props} ref={ref} className="rempi-accordion__trigger">
-      {children}
-    </Component>
-  );
-});
+>(
+  (
+    { children, as: Component = Accordion.Trigger, className, ...props },
+    ref
+  ) => {
+    return (
+      <Component
+        {...props}
+        ref={ref}
+        className={`rempi-accordion__trigger ${classnames(className)}`}
+      >
+        {children}
+      </Component>
+    );
+  }
+);
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -72,10 +99,19 @@ export type AccordionContentProps = HTMLRempiProps<typeof Accordion.Content> &
 export const AccordionContent = forwardRef<
   typeof Accordion.Content,
   AccordionContentProps
->(({ children, as: Component = Accordion.Content, ...props }, ref) => {
-  return (
-    <Component {...props} ref={ref} className="rempi-accordion__content">
-      <div className="rempi-accordion__content__container">{children}</div>
-    </Component>
-  );
-});
+>(
+  (
+    { children, as: Component = Accordion.Content, className, ...props },
+    ref
+  ) => {
+    return (
+      <Component
+        {...props}
+        ref={ref}
+        className={`rempi-accordion__content ${classnames(className)}`}
+      >
+        <div className="rempi-accordion__content__container">{children}</div>
+      </Component>
+    );
+  }
+);

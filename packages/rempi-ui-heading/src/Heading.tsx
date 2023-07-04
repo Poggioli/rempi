@@ -40,13 +40,7 @@ const headingColorClasses: Record<HeadingColor, string> = {
   "low-contrast": "rempi-heading--color-low-contrast",
 };
 
-type HeadingVariant =
-  | "1"
-  | "2"
-  | "3"
-  | "4"
-  | "5"
-  | "6";
+type HeadingVariant = "1" | "2" | "3" | "4" | "5" | "6";
 const headingVariantClasses: Record<HeadingVariant, string> = {
   1: "rempi-heading--variant-1",
   2: "rempi-heading--variant-2",
@@ -83,6 +77,7 @@ export const Heading = forwardRef<"h1", HeadingProps>(
       lineHeight,
       align,
       variant = "1",
+      className,
       ...props
     },
     ref
@@ -98,6 +93,7 @@ export const Heading = forwardRef<"h1", HeadingProps>(
           fontWeight && headingWeightClasses[fontWeight],
           lineHeight && headingLineHeightClasses[lineHeight],
           align && headingAlignClasses[align],
+          className
         )}`}
       >
         {children}
