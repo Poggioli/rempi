@@ -71,6 +71,30 @@ type Color = {
   info10: string;
   info11: string;
   info12: string;
+  black1: string;
+  black2: string;
+  black3: string;
+  black4: string;
+  black5: string;
+  black6: string;
+  black7: string;
+  black8: string;
+  black9: string;
+  black10: string;
+  black11: string;
+  black12: string;
+  white1: string;
+  white2: string;
+  white3: string;
+  white4: string;
+  white5: string;
+  white6: string;
+  white7: string;
+  white8: string;
+  white9: string;
+  white10: string;
+  white11: string;
+  white12: string;
 } & {
   [key: string]: string;
 };
@@ -284,6 +308,32 @@ export const rempiDefaultConfig: RempiConfig = {
     info10: "#369eff",
     info11: "#52a9ff",
     info12: "#eaf6ff",
+
+    black1: "hsla(0, 0%, 0%, 0.012)",
+    black2: "hsla(0, 0%, 0%, 0.027)",
+    black3: "hsla(0, 0%, 0%, 0.047)",
+    black4: "hsla(0, 0%, 0%, 0.071)",
+    black5: "hsla(0, 0%, 0%, 0.090)",
+    black6: "hsla(0, 0%, 0%, 0.114)",
+    black7: "hsla(0, 0%, 0%, 0.141)",
+    black8: "hsla(0, 0%, 0%, 0.220)",
+    black9: "hsla(0, 0%, 0%, 0.439)",
+    black10: "hsla(0, 0%, 0%, 0.478)",
+    black11: "hsla(0, 0%, 0%, 0.565)",
+    black12: "hsla(0, 0%, 0%, 0.910)",
+
+    white1: "hsla(0, 0%, 100%, 0)",
+    white2: "hsla(0, 0%, 100%, 0.013)",
+    white3: "hsla(0, 0%, 100%, 0.034)",
+    white4: "hsla(0, 0%, 100%, 0.056)",
+    white5: "hsla(0, 0%, 100%, 0.086)",
+    white6: "hsla(0, 0%, 100%, 0.124)",
+    white7: "hsla(0, 0%, 100%, 0.176)",
+    white8: "hsla(0, 0%, 100%, 0.249)",
+    white9: "hsla(0, 0%, 100%, 0.386)",
+    white10: "hsla(0, 0%, 100%, 0.446)",
+    white11: "hsla(0, 0%, 100%, 0.592)",
+    white12: "hsla(0, 0%, 100%, 0.923)",
   },
   spaces: {
     0: ".125rem",
@@ -346,10 +396,10 @@ export const rempiDefaultConfig: RempiConfig = {
     pill: "999px",
   },
   shadows: {
-    1: "var(--colors-primary12) 0 .5rem 1.5rem",
-    2: "var(--colors-primary12) 0 .25rem .75rem",
-    3: "var(--colors-primary11) 0 .0625rem .1875rem 0, var(--colors-primary12) 0 .0625rem .125rem 0",
-    4: "var(--colors-primary12) 0 0 0 .0625rem",
+    1: "var(--colors-black6) 0 .5rem 1.5rem",
+    2: "var(--colors-black6) 0 .25rem .75rem",
+    3: "var(--colors-black5) 0 .0625rem .1875rem 0, var(--colors-primary12) 0 .0625rem .125rem 0",
+    4: "var(--colors-black6) 0 0 0 .0625rem",
   },
   zIndices: {
     1: 1000,
@@ -682,6 +732,104 @@ export function createTheme(selector: string, theme: RempiConfigCreateTheme) {
       info12: useValue(
         theme.colors?.info12,
         rempiDefaultConfig.colors.info12
+      ) as string,
+
+      black1: useValue(
+        theme.colors?.black1,
+        rempiDefaultConfig.colors.black1
+      ) as string,
+      black2: useValue(
+        theme.colors?.black2,
+        rempiDefaultConfig.colors.black2
+      ) as string,
+      black3: useValue(
+        theme.colors?.black3,
+        rempiDefaultConfig.colors.black3
+      ) as string,
+      black4: useValue(
+        theme.colors?.black4,
+        rempiDefaultConfig.colors.black4
+      ) as string,
+      black5: useValue(
+        theme.colors?.black5,
+        rempiDefaultConfig.colors.black5
+      ) as string,
+      black6: useValue(
+        theme.colors?.black6,
+        rempiDefaultConfig.colors.black6
+      ) as string,
+      black7: useValue(
+        theme.colors?.black7,
+        rempiDefaultConfig.colors.black7
+      ) as string,
+      black8: useValue(
+        theme.colors?.black8,
+        rempiDefaultConfig.colors.black8
+      ) as string,
+      black9: useValue(
+        theme.colors?.black9,
+        rempiDefaultConfig.colors.black9
+      ) as string,
+      black10: useValue(
+        theme.colors?.black10,
+        rempiDefaultConfig.colors.black10
+      ) as string,
+      black11: useValue(
+        theme.colors?.black11,
+        rempiDefaultConfig.colors.black11
+      ) as string,
+      black12: useValue(
+        theme.colors?.black12,
+        rempiDefaultConfig.colors.black12
+      ) as string,
+
+      white1: useValue(
+        theme.colors?.white1,
+        rempiDefaultConfig.colors.white1
+      ) as string,
+      white2: useValue(
+        theme.colors?.white2,
+        rempiDefaultConfig.colors.white2
+      ) as string,
+      white3: useValue(
+        theme.colors?.white3,
+        rempiDefaultConfig.colors.white3
+      ) as string,
+      white4: useValue(
+        theme.colors?.white4,
+        rempiDefaultConfig.colors.white4
+      ) as string,
+      white5: useValue(
+        theme.colors?.white5,
+        rempiDefaultConfig.colors.white5
+      ) as string,
+      white6: useValue(
+        theme.colors?.white6,
+        rempiDefaultConfig.colors.white6
+      ) as string,
+      white7: useValue(
+        theme.colors?.white7,
+        rempiDefaultConfig.colors.white7
+      ) as string,
+      white8: useValue(
+        theme.colors?.white8,
+        rempiDefaultConfig.colors.white8
+      ) as string,
+      white9: useValue(
+        theme.colors?.white9,
+        rempiDefaultConfig.colors.white9
+      ) as string,
+      white10: useValue(
+        theme.colors?.white10,
+        rempiDefaultConfig.colors.white10
+      ) as string,
+      white11: useValue(
+        theme.colors?.white11,
+        rempiDefaultConfig.colors.white11
+      ) as string,
+      white12: useValue(
+        theme.colors?.white12,
+        rempiDefaultConfig.colors.white12
       ) as string,
     },
     spaces: {
