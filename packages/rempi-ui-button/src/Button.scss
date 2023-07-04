@@ -21,7 +21,7 @@
     cursor: not-allowed;
   }
 
-  &:focus-visible {
+  &:focus-visible, &:focus {
     outline-color: rempiVars.$colors-info-9;
     outline-style: solid;
     outline-width: rempiVars.$border-widths-1;

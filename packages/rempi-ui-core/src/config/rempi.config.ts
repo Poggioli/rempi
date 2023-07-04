@@ -398,7 +398,7 @@ export const rempiDefaultConfig: RempiConfig = {
   shadows: {
     1: "var(--colors-black6) 0 .5rem 1.5rem",
     2: "var(--colors-black6) 0 .25rem .75rem",
-    3: "var(--colors-black5) 0 .0625rem .1875rem 0, var(--colors-primary12) 0 .0625rem .125rem 0",
+    3: "var(--colors-black5) 0 .0625rem .1875rem 0, var(--colors-black6) 0 .0625rem .125rem 0",
     4: "var(--colors-black6) 0 0 0 .0625rem",
   },
   zIndices: {

@@ -1,0 +1,48 @@
+import {
+  AlertDialogRootProps,
+  AlertDialogTriggerProps,
+  AlertDialogPortalProps,
+  AlertDialogOverlayProps,
+  AlertDialogContentProps,
+  AlertDialogCancelProps,
+  AlertDialogActionProps,
+  AlertDialogTitleProps,
+  AlertDialogDescriptionProps,
+  AlertDialogFooterProps,
+  AlertDialogRoot,
+  AlertDialogTrigger,
+  AlertDialogPortal,
+  AlertDialogOverlay,
+  AlertDialogContent,
+  AlertDialogCancel,
+  AlertDialogAction,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+} from "./AlertDialog";
+
+export const AlertDialog = {
+  Root: AlertDialogRoot,
+  Trigger: AlertDialogTrigger,
+  Portal: AlertDialogPortal,
+  Overlay: AlertDialogOverlay,
+  Content: AlertDialogContent,
+  Cancel: AlertDialogCancel,
+  Action: AlertDialogAction,
+  Title: AlertDialogTitle,
+  Description: AlertDialogDescription,
+  Footer: AlertDialogFooter,
+};
+
+export type {
+  AlertDialogRootProps,
+  AlertDialogTriggerProps,
+  AlertDialogPortalProps,
+  AlertDialogOverlayProps,
+  AlertDialogContentProps,
+  AlertDialogCancelProps,
+  AlertDialogActionProps,
+  AlertDialogTitleProps,
+  AlertDialogDescriptionProps,
+  AlertDialogFooterProps,
+};
