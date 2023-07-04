@@ -38,6 +38,10 @@
       outline-width: rempiVars.$border-widths-1;
       position: relative;
       z-index: 1;
+
+      .rempi-accordion__trigger {
+        text-decoration: underline;
+      }
     }
   }
 
