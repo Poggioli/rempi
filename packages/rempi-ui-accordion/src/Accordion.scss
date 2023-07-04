@@ -1,0 +1,86 @@
+@use '@rempi-ui/core/src/config/rempi-variables' as rempiVars;
+
+@keyframes openning {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes closing {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+.rempi-accordion {
+  border-radius: rempiVars.$radiis-3;
+
+  &__item {
+    border-bottom-width: 1px;
+    border-color: rempiVars.$colors-primary-8;
+    border-style: solid;
+
+    &:first-child {
+      margin-top: 1px;
+    }
+
+    &:focus-within {
+      position: relative;
+      z-index: 1;
+      outline-color: rempiVars.$colors-info-9;
+      outline-style: solid;
+      outline-width: rempiVars.$border-widths-1;
+    }
+  }
+
+  &__header {
+    display: flex;
+  }
+
+  &__trigger {
+    padding: rempiVars.$spaces-4 rempiVars.$spaces-1 rempiVars.$spaces-4 rempiVars.$spaces-2;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: rempiVars.$font-sizes-5;
+    line-height: rempiVars.$line-heights-1;
+    font-weight: rempiVars.$font-weights-4;
+    color: rempiVars.$colors-primary-12;
+
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  &__content {
+    overflow: hidden;
+    font-size: rempiVars.$font-sizes-4;
+    font-weight: rempiVars.$font-weights-3 ;
+    color: rempiVars.$colors-primary-12;
+    line-height: rempiVars.$line-heights-2;
+    background-color: rempiVars.$colors-primary-2;
+
+    &[data-state="open"] {
+      animation: openning 400ms cubic-bezier(0.87, 0, 0.13, 1);
+    }
+
+    &[data-state="closed"] {
+      animation: closing 400ms cubic-bezier(0.87, 0, 0.13, 1);
+    }
+
+    &__container {
+      padding: rempiVars.$spaces-2 rempiVars.$spaces-4 rempiVars.$spaces-4 rempiVars.$spaces-2
+    }
+  }
+}
