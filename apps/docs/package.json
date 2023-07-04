@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@rempi-ui/accordion": "*",
+    "@rempi-ui/alert-dialog": "*",
     "@rempi-ui/button": "*",
     "@rempi-ui/container": "*",
     "@rempi-ui/core": "*",
