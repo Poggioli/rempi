@@ -7,6 +7,8 @@ import { Heading } from "@rempi-ui/heading";
 import { Typography } from "@rempi-ui/typography";
 import { Accordion } from "@rempi-ui/accordion";
 import { AlertDialog } from "@rempi-ui/alert-dialog";
+import { Checkbox } from "@rempi-ui/checkbox";
+import { Collapsible } from "@rempi-ui/collpasible";
 
 export default function Page() {
   return (
@@ -72,26 +74,10 @@ export default function Page() {
         </Accordion.Item>
       </Accordion.Root>
       <Flex direction="column" alignItems="center">
-        <Button
-          as="a"
-          href="https://google.com.br"
-          color="primary"
-          variant="contained"
-          buttonSize="standard"
-        >
-          Hello
-        </Button>
-        <Button
-          as="div"
-          color="secondary"
-          variant="contained"
-          buttonSize="standard"
-        >
-          Hello
-        </Button>
         <Button color="secondary" variant="contained" buttonSize="standard">
           Hello
         </Button>
+
         <Typography variant="lead1">Typography 1</Typography>
         <Typography variant="lead2">Typography 2</Typography>
         <Typography variant="body1">Typography 3</Typography>
@@ -117,6 +103,93 @@ export default function Page() {
         <Heading as="h6" variant="6">
           Heading 6
         </Heading>
+
+        <br />
+        <br />
+        <Collapsible.Root>
+          <Flex alignItems="center" justifyContent="space-between" style={{ gap: '8px'}}>
+            <Typography>
+              @peduarte starred 3 repositories
+            </Typography>
+            <Collapsible.Trigger>
+              <Button>Abrir/Fechar</Button>
+            </Collapsible.Trigger>
+          </Flex>
+
+          <div style={{
+            backgroundColor: "white",
+            borderRadius: "4px",
+            margin: "10px 0",
+            padding: "10px",
+          }}>
+            <Typography style={{ color: "var(--colors-primary-2)" }}>@radix-ui/primitives</Typography>
+          </div>
+
+          <Collapsible.Content>
+            <div style={{
+              backgroundColor: "white",
+              borderRadius: "4px",
+              margin: "10px 0",
+              padding: "10px",
+            }}>
+              <Typography style={{ color: "var(--colors-primary-2)" }}>@radix-ui/colors</Typography>
+            </div>
+            <div style={{
+              backgroundColor: "white",
+              borderRadius: "4px",
+              margin: "10px 0",
+              padding: "10px",
+            }}>
+              <Typography style={{ color: "var(--colors-primary-2)" }}>@stitches/react</Typography>
+            </div>
+          </Collapsible.Content>
+        </Collapsible.Root>
+        <br />
+        <br />
+        <Collapsible.Root>
+          <Flex alignItems="center" justifyContent="space-between" style={{ gap: '8px'}}>
+            <Typography>
+              @peduarte starred 3 repositories
+            </Typography>
+            <Collapsible.Trigger>
+              <Button>Abrir/Fechar</Button>
+            </Collapsible.Trigger>
+          </Flex>
+
+          <div style={{
+            backgroundColor: "white",
+            borderRadius: "4px",
+            margin: "10px 0",
+            padding: "10px",
+          }}>
+            <Typography style={{ color: "var(--colors-primary-2)" }}>@radix-ui/primitives</Typography>
+          </div>
+
+          <Collapsible.Content direction="horizontal">
+            <div style={{
+              backgroundColor: "white",
+              borderRadius: "4px",
+              margin: "10px 0",
+              padding: "10px",
+            }}>
+              <Typography style={{ color: "var(--colors-primary-2)" }}>@radix-ui/colors</Typography>
+            </div>
+            <div style={{
+              backgroundColor: "white",
+              borderRadius: "4px",
+              margin: "10px 0",
+              padding: "10px",
+            }}>
+              <Typography style={{ color: "var(--colors-primary-2)" }}>@stitches/react</Typography>
+            </div>
+          </Collapsible.Content>
+        </Collapsible.Root>
+        <br />
+        <br />
+        <Checkbox.Container>
+          <Checkbox.Check id="teste" />
+          <Checkbox.Label htmlFor="teste">Teste 1234</Checkbox.Label>
+        </Checkbox.Container>
 
         <AlertDialog.Root>
           <AlertDialog.Trigger>

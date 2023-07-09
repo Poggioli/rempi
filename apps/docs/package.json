@@ -12,6 +12,8 @@
     "@rempi-ui/accordion": "*",
     "@rempi-ui/alert-dialog": "*",
     "@rempi-ui/button": "*",
+    "@rempi-ui/checkbox": "*",
+    "@rempi-ui/collpasible": "*",
     "@rempi-ui/container": "*",
     "@rempi-ui/core": "*",
     "@rempi-ui/flex": "*",
