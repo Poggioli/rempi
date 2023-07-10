@@ -28,11 +28,11 @@
   }
 
   &.rempi-button--variant-contained:disabled {
-    background-color: rempiVars.$colors-primary-3;
+    background-color: rempiVars.$colors-grey-3;
 
     &,
     * {
-      color: rempiVars.$colors-primary-8;
+      color: rempiVars.$colors-grey-8;
     }
   }
 
@@ -41,17 +41,17 @@
 
     &,
     * {
-      color: rempiVars.$colors-primary-8;
+      color: rempiVars.$colors-grey-8;
     }
   }
 
   &.rempi-button--variant-outlined:disabled {
-    background-color: rempiVars.$colors-primary-2;
-    border-color: rempiVars.$colors-primary-7;
+    background-color: rempiVars.$colors-grey-2;
+    border-color: rempiVars.$colors-grey-7;
 
     &,
     * {
-      color: rempiVars.$colors-primary-8;
+      color: rempiVars.$colors-grey-8;
     }
   }
 
@@ -98,7 +98,7 @@
           color: rempiVars.$colors-primary-12;
         }
 
-        &:hover {
+        &:hover:enabled {
           background-color: rempiVars.$colors-primary-5;
         }
 
@@ -118,7 +118,7 @@
           color: rempiVars.$colors-primary-11;
         }
 
-        &:hover {
+        &:hover:enabled {
           background-color: rempiVars.$colors-primary-4;
           border-color: rempiVars.$colors-primary-8;
         }
@@ -136,7 +136,7 @@
           color: rempiVars.$colors-primary-12;
         }
 
-        &:hover {
+        &:hover:enabled {
           background-color: rempiVars.$colors-primary-4;
         }
 
@@ -155,7 +155,7 @@
           color: rempiVars.$colors-secondary-12;
         }
 
-        &:hover {
+        &:hover:enabled {
           background-color: rempiVars.$colors-secondary-5;
         }
 
@@ -175,7 +175,7 @@
           color: rempiVars.$colors-secondary-11;
         }
 
-        &:hover {
+        &:hover:enabled {
           background-color: rempiVars.$colors-secondary-4;
           border-color: rempiVars.$colors-secondary-8;
         }
@@ -193,7 +193,7 @@
           color: rempiVars.$colors-secondary-11;
         }
 
-        &:hover {
+        &:hover:enabled {
           background-color: rempiVars.$colors-secondary-4;
         }
 
@@ -212,7 +212,7 @@
           color: rempiVars.$colors-success-12;
         }
 
-        &:hover {
+        &:hover:enabled {
           background-color: rempiVars.$colors-success-5;
         }
 
@@ -232,7 +232,7 @@
           color: rempiVars.$colors-success-11;
         }
 
-        &:hover {
+        &:hover:enabled {
           background-color: rempiVars.$colors-success-4;
           border-color: rempiVars.$colors-success-8;
         }
@@ -250,7 +250,7 @@
           color: rempiVars.$colors-success-11;
         }
 
-        &:hover {
+        &:hover:enabled {
           background-color: rempiVars.$colors-success-4;
         }
 
@@ -269,7 +269,7 @@
           color: rempiVars.$colors-error-12;
         }
 
-        &:hover {
+        &:hover:enabled {
           background-color: rempiVars.$colors-error-5;
         }
 
@@ -289,7 +289,7 @@
           color: rempiVars.$colors-error-11;
         }
 
-        &:hover {
+        &:hover:enabled {
           background-color: rempiVars.$colors-error-4;
           border-color: rempiVars.$colors-error-8;
         }
@@ -307,7 +307,7 @@
           color: rempiVars.$colors-error-11;
         }
 
-        &:hover {
+        &:hover:enabled {
           background-color: rempiVars.$colors-error-4;
         }
 

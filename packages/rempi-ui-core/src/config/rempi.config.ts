@@ -95,6 +95,18 @@ type Color = {
   white10: string;
   white11: string;
   white12: string;
+  grey1: string;
+  grey2: string;
+  grey3: string;
+  grey4: string;
+  grey5: string;
+  grey6: string;
+  grey7: string;
+  grey8: string;
+  grey9: string;
+  grey10: string;
+  grey11: string;
+  grey12: string;
 } & {
   [key: string]: string;
 };
@@ -334,6 +346,19 @@ export const rempiDefaultConfig: RempiConfig = {
     white10: "hsla(0, 0%, 100%, 0.446)",
     white11: "hsla(0, 0%, 100%, 0.592)",
     white12: "hsla(0, 0%, 100%, 0.923)",
+
+    grey1: "#161618",
+    grey2: "#1c1c1f",
+    grey3: "#232326",
+    grey4: "#28282c",
+    grey5: "#2e2e32",
+    grey6: "#34343a",
+    grey7: "#3e3e44",
+    grey8: "#504f57",
+    grey9: "#706f78",
+    grey10: "#7e7d86",
+    grey11: "#a09fa6",
+    grey12: "#ededef",
   },
   spaces: {
     0: ".125rem",
@@ -830,6 +855,55 @@ export function createTheme(selector: string, theme: RempiConfigCreateTheme) {
       white12: useValue(
         theme.colors?.white12,
         rempiDefaultConfig.colors.white12
+      ) as string,
+
+      grey1: useValue(
+        theme.colors?.grey1,
+        rempiDefaultConfig.colors.grey1
+      ) as string,
+      grey2: useValue(
+        theme.colors?.grey2,
+        rempiDefaultConfig.colors.grey2
+      ) as string,
+      grey3: useValue(
+        theme.colors?.grey3,
+        rempiDefaultConfig.colors.grey3
+      ) as string,
+      grey4: useValue(
+        theme.colors?.grey4,
+        rempiDefaultConfig.colors.grey4
+      ) as string,
+      grey5: useValue(
+        theme.colors?.grey5,
+        rempiDefaultConfig.colors.grey5
+      ) as string,
+      grey6: useValue(
+        theme.colors?.grey6,
+        rempiDefaultConfig.colors.grey6
+      ) as string,
+      grey7: useValue(
+        theme.colors?.grey7,
+        rempiDefaultConfig.colors.grey7
+      ) as string,
+      grey8: useValue(
+        theme.colors?.grey8,
+        rempiDefaultConfig.colors.grey8
+      ) as string,
+      grey9: useValue(
+        theme.colors?.grey9,
+        rempiDefaultConfig.colors.grey9
+      ) as string,
+      grey10: useValue(
+        theme.colors?.grey10,
+        rempiDefaultConfig.colors.grey10
+      ) as string,
+      grey11: useValue(
+        theme.colors?.grey11,
+        rempiDefaultConfig.colors.grey11
+      ) as string,
+      grey12: useValue(
+        theme.colors?.grey12,
+        rempiDefaultConfig.colors.grey12
       ) as string,
     },
     spaces: {

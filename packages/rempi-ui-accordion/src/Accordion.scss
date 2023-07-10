@@ -25,7 +25,7 @@
 
   &__item {
     border-bottom-width: 1px;
-    border-color: rempiVars.$colors-primary-8;
+    border-color: rempiVars.$colors-grey-8;
     border-style: solid;
 
     &:first-child {
@@ -52,7 +52,7 @@
   &__trigger {
     align-items: center;
     background-color: rempiVars.$colors-primary-2;
-    color: rempiVars.$colors-primary-12;
+    color: rempiVars.$colors-grey-12;
     display: flex;
     flex: 1;
     font-size: rempiVars.$font-sizes-5;
@@ -65,11 +65,17 @@
       cursor: pointer;
       text-decoration: underline;
     }
+
+    &[data-disabled] {
+      color: rempiVars.$colors-grey-8;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
   }
 
   &__content {
     background-color: rempiVars.$colors-primary-2;
-    color: rempiVars.$colors-primary-12;
+    color: rempiVars.$colors-grey-12;
     font-size: rempiVars.$font-sizes-4;
     font-weight: rempiVars.$font-weights-3 ;
     line-height: rempiVars.$line-heights-2;

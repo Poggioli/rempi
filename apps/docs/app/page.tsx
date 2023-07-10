@@ -1,19 +1,99 @@
 "use client";
 
-import { Button } from "@rempi-ui/button";
-import { Container } from "@rempi-ui/container";
-import { Flex } from "@rempi-ui/flex";
-import { Heading } from "@rempi-ui/heading";
-import { Typography } from "@rempi-ui/typography";
 import { Accordion } from "@rempi-ui/accordion";
 import { AlertDialog } from "@rempi-ui/alert-dialog";
+import { Button } from "@rempi-ui/button";
 import { Checkbox } from "@rempi-ui/checkbox";
-import { Collapsible } from "@rempi-ui/collpasible";
+import { Container } from "@rempi-ui/container";
+import { ContextMenu } from "@rempi-ui/context-menu";
+import { Flex } from "@rempi-ui/flex";
+import { Typography } from "@rempi-ui/typography";
+import { useState } from "react";
 
 export default function Page() {
+  const [bookmarksChecked, setBookmarksChecked] = useState(true);
+  const [urlsChecked, setUrlsChecked] = useState(true);
+  const [person, setPerson] = useState("pedro");
+
   return (
-    <Container variant="md">
-      <Accordion.Root type="multiple" defaultValue={["item-1"]}>
+    <Container
+      variant="md"
+      style={{
+        padding: "32px",
+      }}
+    >
+      <ContextMenu.Root>
+        <ContextMenu.Trigger>
+          <Flex
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            style={{
+              padding: "32px",
+              border: "2px dashed var(--colors-primary12)",
+            }}
+          >
+            <Typography>Right click here</Typography>
+          </Flex>
+        </ContextMenu.Trigger>
+        <ContextMenu.Content>
+          <ContextMenu.Item>
+            Back <div style={{ marginLeft: "auto" }}>⌘+[</div>
+          </ContextMenu.Item>
+          <ContextMenu.Item disabled>
+            Foward <div style={{ marginLeft: "auto" }}>⌘+]</div>
+          </ContextMenu.Item>
+          <ContextMenu.Item>
+            Reload <div style={{ marginLeft: "auto" }}>⌘+R</div>
+          </ContextMenu.Item>
+
+          <ContextMenu.SubMenu>
+            <ContextMenu.SubMenuTrigger>More Tools</ContextMenu.SubMenuTrigger>
+            <ContextMenu.SubMenuContent sideOffset={2} alignOffset={-5}>
+              <ContextMenu.Item>
+                Save Page As… <div style={{ marginLeft: "auto" }}>⌘+S</div>
+              </ContextMenu.Item>
+              <ContextMenu.Item>Create Shortcut…</ContextMenu.Item>
+              <ContextMenu.Item>Name Window…</ContextMenu.Item>
+              <ContextMenu.Separator />
+              <ContextMenu.Item>Developer Tools</ContextMenu.Item>
+            </ContextMenu.SubMenuContent>
+          </ContextMenu.SubMenu>
+
+          <ContextMenu.Separator />
+
+          <ContextMenu.CheckboxItem
+            checked={bookmarksChecked}
+            onCheckedChange={setBookmarksChecked}
+          >
+            Show Bookmarks <div style={{ marginLeft: "auto" }}>⌘+B</div>
+          </ContextMenu.CheckboxItem>
+          <ContextMenu.CheckboxItem
+            checked={urlsChecked}
+            onCheckedChange={setUrlsChecked}
+          >
+            Show Full URLs
+          </ContextMenu.CheckboxItem>
+
+          <ContextMenu.Separator />
+
+          <ContextMenu.Label>People</ContextMenu.Label>
+
+          <ContextMenu.RadioGroup value={person} onValueChange={setPerson}>
+            <ContextMenu.RadioItem value="pedro">
+              Pedro Duarte
+            </ContextMenu.RadioItem>
+            <ContextMenu.RadioItem value="colm">
+              Colm Tuite
+            </ContextMenu.RadioItem>
+          </ContextMenu.RadioGroup>
+        </ContextMenu.Content>
+      </ContextMenu.Root>
+
+      <br />
+      <br />
+
+      <Accordion.Root type="single" defaultValue="item-1" collapsible>
         <Accordion.Item value="item-1">
           <Accordion.Header>
             <Accordion.Trigger>Is it accessible?</Accordion.Trigger>
@@ -23,7 +103,7 @@ export default function Page() {
           </Accordion.Content>
         </Accordion.Item>
 
-        <Accordion.Item value="item-2">
+        <Accordion.Item value="item-2" disabled>
           <Accordion.Header>
             <Accordion.Trigger>Is it unstyled?</Accordion.Trigger>
           </Accordion.Header>
@@ -41,186 +121,170 @@ export default function Page() {
             Yes! You can animate the Accordion with CSS or JavaScript.
           </Accordion.Content>
         </Accordion.Item>
-
-        <Accordion.Item value="item-4">
-          <Accordion.Header>
-            <Accordion.Trigger>
-              How long the content could be?
-            </Accordion.Trigger>
-          </Accordion.Header>
-          <Accordion.Content>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-            commodo justo ut tempus mollis. Praesent tincidunt vitae sapien
-            varius mollis. Nunc non felis non dui hendrerit ornare. Integer
-            volutpat congue eros id ultricies. Aenean viverra sagittis sapien,
-            nec cursus turpis egestas sit amet. Nunc nec pulvinar turpis, in
-            consectetur sapien. Aenean scelerisque neque vel tortor
-            pellentesque, quis vulputate erat gravida. Interdum et malesuada
-            fames ac ante ipsum primis in faucibus. Suspendisse quam arcu, porta
-            vitae risus in, convallis ultricies sapien. Quisque feugiat egestas
-            congue. Vestibulum ac porttitor erat, sed blandit sem. Phasellus
-            lacus urna, tincidunt et efficitur et, luctus eget ligula. Quisque
-            dictum placerat ante, sed dapibus felis volutpat quis. Nunc dolor
-            sem, tincidunt vel ultrices in, feugiat et nisi. Morbi augue tellus,
-            malesuada id accumsan quis, eleifend ac elit. Aliquam pretium diam
-            quis nisi consectetur fringilla. Curabitur varius augue sed justo
-            auctor dignissim. Maecenas quis lacus non leo varius rhoncus.
-            Pellentesque rhoncus lectus a vehicula mattis. Donec nec lorem eros.
-            Nulla vitae libero malesuada, pellentesque orci et, ornare dolor.
-            Etiam mollis augue purus, in dignissim eros fringilla id. Etiam
-            metus urna, tincidunt sed nibh eu, semper rhoncus ante. Morbi
-            laoreet nisi hendrerit, ullamcorper nisl at, ornare mi. Nulla ut.
-          </Accordion.Content>
-        </Accordion.Item>
       </Accordion.Root>
-      <Flex direction="column" alignItems="center">
-        <Button color="secondary" variant="contained" buttonSize="standard">
-          Hello
-        </Button>
 
-        <Typography variant="lead1">Typography 1</Typography>
-        <Typography variant="lead2">Typography 2</Typography>
-        <Typography variant="body1">Typography 3</Typography>
-        <Typography variant="body2">Typography 4</Typography>
-        <Typography variant="caption">Typography 5</Typography>
-        <Typography variant="subtitle">Typography 6</Typography>
+      <br />
+      <br />
 
-        <Heading as="h1" variant="1">
-          Heading 1
-        </Heading>
-        <Heading as="h2" variant="2">
-          Heading 2
-        </Heading>
-        <Heading as="h3" variant="3">
-          Heading 3
-        </Heading>
-        <Heading as="h4" variant="4">
-          Heading 4
-        </Heading>
-        <Heading as="h5" variant="5">
-          Heading 5
-        </Heading>
-        <Heading as="h6" variant="6">
-          Heading 6
-        </Heading>
-
-        <br />
-        <br />
-        <Collapsible.Root>
-          <Flex alignItems="center" justifyContent="space-between" style={{ gap: '8px'}}>
-            <Typography>
-              @peduarte starred 3 repositories
-            </Typography>
-            <Collapsible.Trigger>
-              <Button>Abrir/Fechar</Button>
-            </Collapsible.Trigger>
-          </Flex>
-
-          <div style={{
-            backgroundColor: "white",
-            borderRadius: "4px",
-            margin: "10px 0",
-            padding: "10px",
-          }}>
-            <Typography style={{ color: "var(--colors-primary-2)" }}>@radix-ui/primitives</Typography>
-          </div>
-
-          <Collapsible.Content>
-            <div style={{
-              backgroundColor: "white",
-              borderRadius: "4px",
-              margin: "10px 0",
-              padding: "10px",
-            }}>
-              <Typography style={{ color: "var(--colors-primary-2)" }}>@radix-ui/colors</Typography>
+      <AlertDialog.Root>
+        <AlertDialog.Trigger>
+          <Button color="error">Delete account</Button>
+        </AlertDialog.Trigger>
+        <AlertDialog.Portal>
+          <AlertDialog.Overlay />
+          <AlertDialog.Content>
+            <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
+            <AlertDialog.Description>
+              This action cannot be undone. This will permanently delete your
+              account and remove your data from our servers.
+            </AlertDialog.Description>
+            <div
+              style={{ display: "flex", gap: 25, justifyContent: "flex-end" }}
+            >
+              <AlertDialog.Cancel asChild>
+                <Button>Cancel</Button>
+              </AlertDialog.Cancel>
+              <AlertDialog.Action asChild>
+                <Button color="error">Yes, delete account</Button>
+              </AlertDialog.Action>
             </div>
-            <div style={{
-              backgroundColor: "white",
-              borderRadius: "4px",
-              margin: "10px 0",
-              padding: "10px",
-            }}>
-              <Typography style={{ color: "var(--colors-primary-2)" }}>@stitches/react</Typography>
-            </div>
-          </Collapsible.Content>
-        </Collapsible.Root>
-        <br />
-        <br />
-        <Collapsible.Root>
-          <Flex alignItems="center" justifyContent="space-between" style={{ gap: '8px'}}>
-            <Typography>
-              @peduarte starred 3 repositories
-            </Typography>
-            <Collapsible.Trigger>
-              <Button>Abrir/Fechar</Button>
-            </Collapsible.Trigger>
-          </Flex>
+          </AlertDialog.Content>
+        </AlertDialog.Portal>
+      </AlertDialog.Root>
 
-          <div style={{
-            backgroundColor: "white",
-            borderRadius: "4px",
-            margin: "10px 0",
-            padding: "10px",
-          }}>
-            <Typography style={{ color: "var(--colors-primary-2)" }}>@radix-ui/primitives</Typography>
-          </div>
+      <br />
+      <br />
 
-          <Collapsible.Content direction="horizontal">
-            <div style={{
-              backgroundColor: "white",
-              borderRadius: "4px",
-              margin: "10px 0",
-              padding: "10px",
-            }}>
-              <Typography style={{ color: "var(--colors-primary-2)" }}>@radix-ui/colors</Typography>
-            </div>
-            <div style={{
-              backgroundColor: "white",
-              borderRadius: "4px",
-              margin: "10px 0",
-              padding: "10px",
-            }}>
-              <Typography style={{ color: "var(--colors-primary-2)" }}>@stitches/react</Typography>
-            </div>
-          </Collapsible.Content>
-        </Collapsible.Root>
-        <br />
-        <br />
-        <Checkbox.Container>
-          <Checkbox.Check id="teste" />
-          <Checkbox.Label htmlFor="teste">Teste 1234</Checkbox.Label>
-        </Checkbox.Container>
+      <Button variant="contained" color="error">
+        Error
+      </Button>
+      <Button variant="contained" color="primary">
+        Primary
+      </Button>
+      <Button variant="contained" color="secondary">
+        Secondary
+      </Button>
+      <Button variant="contained" color="success">
+        Success
+      </Button>
+      <br />
+      <Button variant="contained" disabled color="error">
+        Error
+      </Button>
+      <Button variant="contained" disabled color="primary">
+        Primary
+      </Button>
+      <Button variant="contained" disabled color="secondary">
+        Secondary
+      </Button>
+      <Button variant="contained" disabled color="success">
+        Success
+      </Button>
 
-        <AlertDialog.Root>
-          <AlertDialog.Trigger>
-            <Button variant="contained" color="error">
-              Delete account
-            </Button>
-          </AlertDialog.Trigger>
-          <AlertDialog.Portal>
-            <AlertDialog.Overlay blur />
-            <AlertDialog.Content>
-              <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
-              <AlertDialog.Description>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers.
-              </AlertDialog.Description>
-              <AlertDialog.Footer>
-                <AlertDialog.Cancel>
-                  <Button variant="contained" color="primary">
-                    Cancel
-                  </Button>
-                </AlertDialog.Cancel>
-                <AlertDialog.Action>
-                  <Button variant="contained" color="error">
-                    Yes, delete account
-                  </Button>
-                </AlertDialog.Action>
-              </AlertDialog.Footer>
-            </AlertDialog.Content>
-          </AlertDialog.Portal>
-        </AlertDialog.Root>
-      </Flex>
+      <br />
+      <br />
+
+      <Button variant="outlined" color="error">
+        Error
+      </Button>
+      <Button variant="outlined" color="primary">
+        Primary
+      </Button>
+      <Button variant="outlined" color="secondary">
+        Secondary
+      </Button>
+      <Button variant="outlined" color="success">
+        Success
+      </Button>
+      <br />
+      <Button variant="outlined" disabled color="error">
+        Error
+      </Button>
+      <Button variant="outlined" disabled color="primary">
+        Primary
+      </Button>
+      <Button variant="outlined" disabled color="secondary">
+        Secondary
+      </Button>
+      <Button variant="outlined" disabled color="success">
+        Success
+      </Button>
+
+      <br />
+      <br />
+
+      <Button variant="text" color="error">
+        Error
+      </Button>
+      <Button variant="text" color="primary">
+        Primary
+      </Button>
+      <Button variant="text" color="secondary">
+        Secondary
+      </Button>
+      <Button variant="text" color="success">
+        Success
+      </Button>
+      <br />
+      <Button variant="text" disabled color="error">
+        Error
+      </Button>
+      <Button variant="text" disabled color="primary">
+        Primary
+      </Button>
+      <Button variant="text" disabled color="secondary">
+        Secondary
+      </Button>
+      <Button variant="text" disabled color="success">
+        Success
+      </Button>
+
+      <br />
+      <br />
+
+      <Checkbox.Container>
+        <Checkbox.Check id="check-1" />
+        <Checkbox.Label htmlFor="check-1">teste</Checkbox.Label>
+      </Checkbox.Container>
+
+      <Checkbox.Container>
+        <Checkbox.Check id="check-2" disabled />
+        <Checkbox.Label htmlFor="check-2">teste</Checkbox.Label>
+      </Checkbox.Container>
+
+      <Checkbox.Container>
+        <Checkbox.Check id="check-3" checked />
+        <Checkbox.Label htmlFor="check-3">teste</Checkbox.Label>
+      </Checkbox.Container>
+
+      <Checkbox.Container>
+        <Checkbox.Check id="check-4" checked disabled />
+        <Checkbox.Label htmlFor="check-4">teste</Checkbox.Label>
+      </Checkbox.Container>
+
+      <br />
+      <br />
+
+      <Checkbox.Container>
+        <Checkbox.Label htmlFor="check-1-1">teste</Checkbox.Label>
+        <Checkbox.Check id="check-1-1" />
+      </Checkbox.Container>
+
+      <Checkbox.Container>
+        <Checkbox.Label htmlFor="check-2-1">teste</Checkbox.Label>
+        <Checkbox.Check id="check-2-1" disabled />
+      </Checkbox.Container>
+
+      <Checkbox.Container>
+        <Checkbox.Label htmlFor="check-3-1">teste</Checkbox.Label>
+        <Checkbox.Check id="check-3-1" checked />
+      </Checkbox.Container>
+
+      <Checkbox.Container>
+        <Checkbox.Label htmlFor="check-4-1">teste</Checkbox.Label>
+        <Checkbox.Check id="check-4-1" checked disabled />
+      </Checkbox.Container>
+
     </Container>
   );
 }

@@ -2,7 +2,7 @@
 
 .rempi-heading {
   -webkit-font-smoothing: antialiased;
-  color: rempiVars.$colors-primary-12;
+  color: rempiVars.$colors-grey-12;
   margin: 0;
   padding: 0;
   letter-spacing: 0.05rem;
@@ -115,12 +115,12 @@
 
     &-high-contrast,
     &-high-contrast * {
-      color: rempiVars.$colors-primary-12
+      color: rempiVars.$colors-grey-12
     }
 
     &-low-contrast,
     &-low-contrast * {
-      color: rempiVars.$colors-primary-11
+      color: rempiVars.$colors-grey-11
     }
 
   }

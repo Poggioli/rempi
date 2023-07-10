@@ -72,14 +72,14 @@
   }
 
   &__title {
-    color: rempiVars.$colors-primary-12;
+    color: rempiVars.$colors-grey-12;
     font-size: rempiVars.$font-sizes-6;
     font-weight: rempiVars.$font-weights-3;
     margin: 0;
   }
 
   &__description {
-    color: rempiVars.$colors-primary-11;
+    color: rempiVars.$colors-grey-11;
     font-size: rempiVars.$font-sizes-4;
     line-height: rempiVars.$line-heights-2;
     margin: rempiVars.$spaces-4 0 rempiVars.$spaces-5 0;

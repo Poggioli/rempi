@@ -33,7 +33,7 @@
     }
 
     &:has(+.rempi-checkbox__check:disabled) {
-      color: rempiVars.$colors-primary-8;
+      color: rempiVars.$colors-grey-8;
 
       &:hover {
         cursor: not-allowed;
@@ -41,7 +41,7 @@
     }
 
     &:has(+.rempi-checkbox__check:not(:disabled)) {
-      color: rempiVars.$colors-primary-12;
+      color: rempiVars.$colors-grey-12;
     }
 
   }
@@ -71,7 +71,7 @@
 
     &:not(:disabled) {
       +label {
-        color: rempiVars.$colors-primary-12;
+        color: rempiVars.$colors-grey-12;
       }
 
       &[data-state="unchecked"] {
@@ -80,10 +80,10 @@
       }
 
       &[data-state="checked"] {
-        border-color: rempiVars.$colors-primary-12;
+        border-color: rempiVars.$colors-primary-11;
 
         svg {
-          stroke: rempiVars.$colors-primary-12;
+          stroke: rempiVars.$colors-primary-11;
         }
       }
     }
@@ -96,19 +96,19 @@
       }
 
       +label {
-        color: rempiVars.$colors-primary-8;
+        color: rempiVars.$colors-grey-8;
       }
 
       &[data-state="unchecked"] {
         background-color: transparent;
-        border-color: rempiVars.$colors-primary-8;
+        border-color: rempiVars.$colors-grey-8;
       }
 
       &[data-state="checked"] {
-        border-color: rempiVars.$colors-primary-8;
+        border-color: rempiVars.$colors-grey-8;
 
         svg {
-          stroke: rempiVars.$colors-primary-8;
+          stroke: rempiVars.$colors-grey-8;
         }
       }
     }
@@ -124,7 +124,6 @@
 
     svg {
       stroke-width: 3;
-      // margin-bottom: calc(rempiVars.$spaces-1 / 4);
     }
   }
 }

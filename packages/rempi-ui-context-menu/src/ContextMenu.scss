@@ -1,4 +1,115 @@
 @use "@rempi-ui/core/src/config/rempi-variables" as rempiVars;
 
+
+// rempi-context-menu__arrow VALIDAR
+
 .rempi-context-menu {
+
+  &__content,
+  &__sub-menu__content {
+    min-width: 220px;
+    background-color: rempiVars.$colors-grey-2;
+    border-radius: rempiVars.$radiis-2;
+    overflow: hidden;
+    padding: rempiVars.$spaces-2;
+    box-shadow: rempiVars.$shadows-3;
+    border: rempiVars.$border-widths-1 solid rempiVars.$colors-grey-6
+  }
+
+  &__item,
+  &__checkbox-item,
+  &__radio-item,
+  &__sub-menu__trigger {
+
+    &,
+    * {
+      font-size: rempiVars.$font-sizes-3;
+      line-height: rempiVars.$line-heights-2;
+      color: rempiVars.$colors-grey-11;
+    }
+
+    border-radius: rempiVars.$radiis-1;
+    display: flex;
+    align-items: center;
+    height: rempiVars.$spaces-7;
+    padding: 0 rempiVars.$spaces-1 0 rempiVars.$spaces-6;
+    position: relative;
+    user-select: none;
+    outline: none;
+    transition: background-color 200ms ease,
+    color 200ms ease;
+
+
+    &[data-disabled] {
+
+      &,
+      * {
+
+        color: rempiVars.$colors-grey-8;
+        pointer-events: 'none';
+
+        svg {
+          stroke: rempiVars.$colors-grey-8;
+        }
+      }
+    }
+
+    &[data-highlighted] {
+      background-color: rempiVars.$colors-grey-12;
+
+      &,
+      * {
+        color: rempiVars.$colors-grey-1;
+
+        svg {
+          stroke: rempiVars.$colors-grey-1;
+        }
+      }
+    }
+  }
+
+  &__sub-menu__trigger[data-state='open'] {
+    background-color: rempiVars.$colors-grey-6;
+
+    &,
+    * {
+      color: rempiVars.$colors-grey-12;
+
+      svg {
+        stroke: rempiVars.$colors-grey-1;
+      }
+    }
+  }
+
+  &__label {
+    padding-left: rempiVars.$spaces-4;
+
+    &,
+    * {
+      font-size: rempiVars.$font-sizes-2;
+      line-height: rempiVars.$line-heights-2;
+      color: rempiVars.$colors-grey-11;
+    }
+  }
+
+  &__separator {
+    height: 1px;
+    background-color: rempiVars.$colors-grey-6;
+    margin: rempiVars.$spaces-1;
+  }
+
+  &__item-indicator {
+    position: absolute;
+    left: 0;
+    width: rempiVars.$spaces-6;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      stroke: rempiVars.$colors-grey-11;
+      stroke-width: 3;
+    }
+  }
+
 }
