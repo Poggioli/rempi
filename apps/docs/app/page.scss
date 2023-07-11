@@ -1,0 +1,5 @@
+@use '@rempi-ui/core/src/config/rempi-variables' as rempiVars;
+
+.rounded-button {
+  padding: rempiVars.$spaces-3
+}
