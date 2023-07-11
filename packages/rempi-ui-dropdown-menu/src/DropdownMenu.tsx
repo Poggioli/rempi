@@ -55,6 +55,7 @@ export const DropdownMenuContent = forwardRef<
       container,
       as: Component = DropdownMenu.Content,
       sideOffset = 5,
+      collisionPadding = 16,
       ...props
     },
     ref
@@ -65,6 +66,7 @@ export const DropdownMenuContent = forwardRef<
           {...props}
           ref={ref}
           sideOffset={sideOffset}
+          collisionPadding={collisionPadding}
           className={`rempi-dropdown-menu__content ${classnames(className)}`}
         >
           {children}
