@@ -53,6 +53,7 @@ export const ContextMenuContent = forwardRef<
       forceMount,
       container,
       as: Component = ContextMenu.Content,
+      collisionPadding = 16,
       ...props
     },
     ref
@@ -62,6 +63,7 @@ export const ContextMenuContent = forwardRef<
         <Component
           {...props}
           ref={ref}
+          collisionPadding={collisionPadding}
           className={`rempi-context-menu__content ${classnames(className)}`}
         >
           {children}
