@@ -8,6 +8,7 @@ import { Container } from "@rempi-ui/container";
 import { ContextMenu } from "@rempi-ui/context-menu";
 import { Flex } from "@rempi-ui/flex";
 import { Typography } from "@rempi-ui/typography";
+import { Dialog } from "@rempi-ui/dialog";
 import { useState } from "react";
 
 export default function Page() {
@@ -131,23 +132,21 @@ export default function Page() {
           <Button color="error">Delete account</Button>
         </AlertDialog.Trigger>
         <AlertDialog.Portal>
-          <AlertDialog.Overlay />
+          <AlertDialog.Overlay blur />
           <AlertDialog.Content>
             <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
             <AlertDialog.Description>
               This action cannot be undone. This will permanently delete your
               account and remove your data from our servers.
             </AlertDialog.Description>
-            <div
-              style={{ display: "flex", gap: 25, justifyContent: "flex-end" }}
-            >
-              <AlertDialog.Cancel asChild>
+            <AlertDialog.Footer>
+              <AlertDialog.Cancel>
                 <Button>Cancel</Button>
               </AlertDialog.Cancel>
-              <AlertDialog.Action asChild>
+              <AlertDialog.Action>
                 <Button color="error">Yes, delete account</Button>
               </AlertDialog.Action>
-            </div>
+            </AlertDialog.Footer>
           </AlertDialog.Content>
         </AlertDialog.Portal>
       </AlertDialog.Root>
@@ -285,6 +284,34 @@ export default function Page() {
         <Checkbox.Check id="check-4-1" checked disabled />
       </Checkbox.Container>
 
+      <br />
+      <br />
+
+      <Dialog.Root>
+        <Dialog.Trigger>
+          <Button>Edit profile</Button>
+        </Dialog.Trigger>
+        <Dialog.Portal>
+          <Dialog.Overlay blur />
+          <Dialog.Content>
+            <Dialog.CloseCross aria-label="Close" />
+            <Dialog.Title>Edit profile</Dialog.Title>
+            <Dialog.Description>
+              Make changes to your profile here. Click save when you're done.
+            </Dialog.Description>
+            <Dialog.Footer>
+              <Dialog.Close>
+                <Button color="primary" variant="text">
+                  Cancel
+                </Button>
+              </Dialog.Close>
+              <Dialog.Close>
+                <Button color="success">Save changes</Button>
+              </Dialog.Close>
+            </Dialog.Footer>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
     </Container>
   );
 }

@@ -1,0 +1,48 @@
+import {
+  DialogRootProps,
+  DialogRoot,
+  DialogTriggerProps,
+  DialogTrigger,
+  DialogPortalProps,
+  DialogPortal,
+  DialogOverlayProps,
+  DialogOverlay,
+  DialogContentProps,
+  DialogContent,
+  DialogCloseCrossProps,
+  DialogCloseCross,
+  DialogCloseProps,
+  DialogClose,
+  DialogTitleProps,
+  DialogTitle,
+  DialogDescriptionProps,
+  DialogDescription,
+  DialogFooterProps,
+  DialogFooter,
+} from "./Dialog";
+
+export const Dialog = {
+  Root: DialogRoot,
+  Trigger: DialogTrigger,
+  Portal: DialogPortal,
+  Overlay: DialogOverlay,
+  Content: DialogContent,
+  CloseCross: DialogCloseCross,
+  Close: DialogClose,
+  Title: DialogTitle,
+  Description: DialogDescription,
+  Footer: DialogFooter,
+};
+
+export type {
+  DialogRootProps,
+  DialogTriggerProps,
+  DialogPortalProps,
+  DialogOverlayProps,
+  DialogContentProps,
+  DialogCloseCrossProps,
+  DialogCloseProps,
+  DialogTitleProps,
+  DialogDescriptionProps,
+  DialogFooterProps,
+};

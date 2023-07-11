@@ -17,6 +17,7 @@
     "@rempi-ui/container": "*",
     "@rempi-ui/context-menu": "*",
     "@rempi-ui/core": "*",
+    "@rempi-ui/dialog": "*",
     "@rempi-ui/flex": "*",
     "@rempi-ui/heading": "*",
     "@rempi-ui/typography": "*",
