@@ -3,3 +3,32 @@
 .rounded-button {
   padding: rempiVars.$spaces-3
 }
+
+.image-trigger {
+  cursor: pointer;
+  border-radius: rempiVars.$radiis-pill;
+  display: inline-block;
+
+  &:focus {
+    box-shadow: 0 0 0 2px white;
+  }
+}
+
+.image {
+  display: block;
+  border-radius: rempiVars.$radiis-pill;
+
+  &--normal {
+    width: rempiVars.$spaces-11;
+    height: rempiVars.$spaces-11;
+  }
+
+  &--large {
+    width: rempiVars.$spaces-15;
+    height: rempiVars.$spaces-15;
+  }
+}
+
+.content-max-width {
+  max-width: 300px;
+}

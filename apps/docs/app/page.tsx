@@ -10,9 +10,10 @@ import { Flex } from "@rempi-ui/flex";
 import { Typography } from "@rempi-ui/typography";
 import { Dialog } from "@rempi-ui/dialog";
 import { useState } from "react";
-import { SlidersHorizontal } from "lucide-react";
-import { DropdownMenu } from "@rempi-ui/dropdown-menu"
-import "./page.scss"
+import { Heading, SlidersHorizontal } from "lucide-react";
+import { DropdownMenu } from "@rempi-ui/dropdown-menu";
+import "./page.scss";
+import { HoverCard } from "@rempi-ui/hover-card";
 
 export default function Page() {
   const [bookmarksChecked, setBookmarksChecked] = useState(true);
@@ -321,7 +322,13 @@ export default function Page() {
 
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
-          <IconButton className="rounded-button" aria-label="settings" variant="contained" shape="rounded" color="primary">
+          <IconButton
+            className="rounded-button"
+            aria-label="settings"
+            variant="contained"
+            shape="rounded"
+            color="primary"
+          >
             <SlidersHorizontal size={16} />
           </IconButton>
         </DropdownMenu.Trigger>
@@ -337,7 +344,9 @@ export default function Page() {
           </DropdownMenu.Item>
 
           <DropdownMenu.SubMenu>
-            <DropdownMenu.SubMenuTrigger>More Tools</DropdownMenu.SubMenuTrigger>
+            <DropdownMenu.SubMenuTrigger>
+              More Tools
+            </DropdownMenu.SubMenuTrigger>
             <DropdownMenu.SubMenuContent sideOffset={2} alignOffset={-5}>
               <DropdownMenu.Item>
                 Save Page As… <div style={{ marginLeft: "auto" }}>⌘+S</div>
@@ -378,6 +387,84 @@ export default function Page() {
           </DropdownMenu.RadioGroup>
         </DropdownMenu.Content>
       </DropdownMenu.Root>
+
+      <br />
+      <br />
+
+      <HoverCard.Root>
+        <HoverCard.Trigger>
+          <a
+            className="image-trigger"
+            href="https://twitter.com/radix_ui"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <img
+              className="image image--normal"
+              src="https://pbs.twimg.com/profile_images/1337055608613253126/r_eiMp2H_400x400.png"
+              alt="Radix UI"
+            />
+          </a>
+        </HoverCard.Trigger>
+        <HoverCard.Content className="content-max-width">
+          <Flex direction="column" style={{ gap: 8 }}>
+            <img
+              className="image image--large"
+              src="https://pbs.twimg.com/profile_images/1337055608613253126/r_eiMp2H_400x400.png"
+              alt="Radix UI"
+            />
+            <Flex direction="column" style={{ gap: 16 }}>
+              <Flex direction="column">
+                <Typography
+                  as="h6"
+                  color="high-contrast"
+                  fontWeight="bold"
+                  fontSize="md"
+                  lineHeight={2}
+                >
+                  Radix
+                </Typography>
+                <Typography color="low-contrast" fontSize="sm" lineHeight={2}>
+                  @radix_ui
+                </Typography>
+              </Flex>
+              <Typography color="high-contrast" fontSize="md" lineHeight={1}>
+                Components, icons, colors, and templates for building
+                high-quality, accessible UI. Free and open-source.
+              </Typography>
+              <Flex style={{ gap: 16 }} alignItems="center">
+                <Flex style={{ gap: 4 }} alignItems="center">
+                  <Typography
+                    color="high-contrast"
+                    fontWeight="bold"
+                    fontSize="md"
+                    lineHeight={2}
+                  >
+                    0
+                  </Typography>
+                  <Typography color="low-contrast" fontSize="sm" lineHeight={2}>
+                    Following
+                  </Typography>
+                </Flex>
+                <Flex style={{ gap: 4 }} alignItems="center">
+                  <Typography
+                    color="high-contrast"
+                    fontWeight="bold"
+                    fontSize="md"
+                    lineHeight={2}
+                  >
+                    2,900
+                  </Typography>
+                  <Typography color="low-contrast" fontSize="sm" lineHeight={2}>
+                    Followers
+                  </Typography>
+                </Flex>
+              </Flex>
+            </Flex>
+          </Flex>
+          <HoverCard.Arrow />
+        </HoverCard.Content>
+      </HoverCard.Root>
     </Container>
   );
 }
