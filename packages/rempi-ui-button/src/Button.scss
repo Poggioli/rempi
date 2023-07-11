@@ -17,6 +17,10 @@
   vertical-align: middle;
   white-space: nowrap;
 
+  &--icon {
+    min-width: inherit;
+  }
+
   &:disabled {
     cursor: not-allowed;
   }

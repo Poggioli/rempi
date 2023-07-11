@@ -81,9 +81,9 @@ export type IconButtonProps = ButtonProps & {
 };
 
 export const IconButton = forwardRef<"button", IconButtonProps>(
-  ({ children, ...props }, ref) => {
+  ({ children, className, ...props }, ref) => {
     return (
-      <Button {...props} ref={ref}>
+      <Button {...props} ref={ref} className={`rempi-button--icon ${className}`}>
         {children}
       </Button>
     );
