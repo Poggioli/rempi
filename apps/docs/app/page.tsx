@@ -6,14 +6,15 @@ import { Button, IconButton } from "@rempi-ui/button";
 import { Checkbox } from "@rempi-ui/checkbox";
 import { Container } from "@rempi-ui/container";
 import { ContextMenu } from "@rempi-ui/context-menu";
-import { Flex } from "@rempi-ui/flex";
-import { Typography } from "@rempi-ui/typography";
 import { Dialog } from "@rempi-ui/dialog";
-import { useState } from "react";
-import { Heading, SlidersHorizontal } from "lucide-react";
 import { DropdownMenu } from "@rempi-ui/dropdown-menu";
-import "./page.scss";
+import { Flex } from "@rempi-ui/flex";
 import { HoverCard } from "@rempi-ui/hover-card";
+import { Popover } from "@rempi-ui/popover";
+import { Typography } from "@rempi-ui/typography";
+import { SlidersHorizontal } from "lucide-react";
+import { useState } from "react";
+import "./page.scss";
 
 export default function Page() {
   const [bookmarksChecked, setBookmarksChecked] = useState(true);
@@ -465,6 +466,42 @@ export default function Page() {
           <HoverCard.Arrow />
         </HoverCard.Content>
       </HoverCard.Root>
+
+      <br />
+      <br />
+
+      <Popover.Root>
+        <Popover.Trigger asChild>
+          <IconButton
+            className="rounded-button"
+            aria-label="settings"
+            variant="contained"
+            shape="rounded"
+            color="primary"
+          >
+            <SlidersHorizontal size={16} />
+          </IconButton>
+        </Popover.Trigger>
+        <Popover.Content>
+          <Flex direction="column" style={{ gap: 10, maxWidth: '300px' }}>
+            <Typography
+              fontSize="sm"
+              fontWeight="normal"
+              color="low-contrast"
+              lineHeight={2}
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+              ut vulputate elit, at efficitur tortor. Fusce at dui est. Morbi ac
+              mauris vehicula, sagittis tortor eget, ultricies erat. Vivamus
+              suscipit, arcu a lobortis eleifend, augue tellus laoreet ipsum,
+              vitae cursus magna erat sed lorem. Etiam at augue pellentesque,
+              sollicitudin metus.
+            </Typography>
+          </Flex>
+          <Popover.CloseCross aria-label="Close" />
+          <Popover.Arrow />
+        </Popover.Content>
+      </Popover.Root>
     </Container>
   );
 }
