@@ -9,11 +9,12 @@ const buttonSizeClasses: Record<ButtonSize, string> = {
   large: "rempi-button--size-large",
 };
 
-type ButtonVariant = "text" | "contained" | "outlined";
+type ButtonVariant = "text" | "contained" | "outlined" | "solid";
 const buttonVariantClasses: Record<ButtonVariant, string> = {
   text: "rempi-button--variant-text",
   contained: "rempi-button--variant-contained",
   outlined: "rempi-button--variant-outlined",
+  solid: "rempi-button--variant-solid",
 };
 
 type ButtonShape = "flat" | "smoth" | "rounded";
@@ -45,7 +46,7 @@ export const Button = forwardRef<"button", ButtonProps>(
     {
       children,
       buttonSize = "standard",
-      variant = "contained",
+      variant = "solid",
       shape = "smoth",
       color = "primary",
       upperCase,

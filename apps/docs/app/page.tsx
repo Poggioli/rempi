@@ -146,7 +146,7 @@ export default function Page() {
             </AlertDialog.Description>
             <AlertDialog.Footer>
               <AlertDialog.Cancel>
-                <Button>Cancel</Button>
+                <Button variant="text">Cancel</Button>
               </AlertDialog.Cancel>
               <AlertDialog.Action>
                 <Button color="error">Yes, delete account</Button>
@@ -240,6 +240,35 @@ export default function Page() {
         Secondary
       </Button>
       <Button variant="text" disabled color="success">
+        Success
+      </Button>
+
+      <br />
+      <br />
+
+      <Button variant="solid" color="error">
+        Error
+      </Button>
+      <Button variant="solid" color="primary">
+        Primary
+      </Button>
+      <Button variant="solid" color="secondary">
+        Secondary
+      </Button>
+      <Button variant="solid" color="success">
+        Success
+      </Button>
+      <br />
+      <Button variant="solid" disabled color="error">
+        Error
+      </Button>
+      <Button variant="solid" disabled color="primary">
+        Primary
+      </Button>
+      <Button variant="solid" disabled color="secondary">
+        Secondary
+      </Button>
+      <Button variant="solid" disabled color="success">
         Success
       </Button>
 
@@ -483,7 +512,7 @@ export default function Page() {
           </IconButton>
         </Popover.Trigger>
         <Popover.Content>
-          <Flex direction="column" style={{ gap: 10, maxWidth: '300px' }}>
+          <Flex direction="column" style={{ gap: 10, maxWidth: "300px" }}>
             <Typography
               fontSize="sm"
               fontWeight="normal"

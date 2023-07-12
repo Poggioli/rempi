@@ -8,6 +8,7 @@
   display: inline-flex;
   flex-direction: row;
   font-size: rempiVars.$font-sizes-4;
+  font-weight: rempiVars.$font-weights-3;
   justify-content: center;
   line-height: normal;
   min-width: rempiVars.$spaces-18;
@@ -25,13 +26,15 @@
     cursor: not-allowed;
   }
 
-  &:focus-visible, &:focus {
+  &:focus-visible,
+  &:focus {
     outline-color: rempiVars.$colors-info-9;
     outline-style: solid;
     outline-width: rempiVars.$border-widths-1;
   }
 
-  &.rempi-button--variant-contained:disabled {
+  &.rempi-button--variant-contained:disabled,
+  &.rempi-button--variant-solid:disabled {
     background-color: rempiVars.$colors-grey-3;
 
     &,
@@ -94,6 +97,24 @@
 
   &--color {
     &-primary {
+
+      &.rempi-button--variant-solid {
+        background-color: rempiVars.$colors-primary-9;
+
+        &,
+        * {
+          color: rempiVars.$colors-grey-1;
+        }
+
+        &:hover:enabled {
+          background-color: rempiVars.$colors-primary-10;
+        }
+
+        &:focus {
+          background-color: rempiVars.$colors-primary-11;
+        }
+      }
+
       &.rempi-button--variant-contained {
         background-color: rempiVars.$colors-primary-4;
 
@@ -151,6 +172,24 @@
     }
 
     &-secondary {
+
+      &.rempi-button--variant-solid {
+        background-color: rempiVars.$colors-secondary-9;
+
+        &,
+        * {
+          color: rempiVars.$colors-grey-1;
+        }
+
+        &:hover:enabled {
+          background-color: rempiVars.$colors-secondary-10;
+        }
+
+        &:focus {
+          background-color: rempiVars.$colors-secondary-11;
+        }
+      }
+
       &.rempi-button--variant-contained {
         background-color: rempiVars.$colors-secondary-4;
 
@@ -208,6 +247,24 @@
     }
 
     &-success {
+
+      &.rempi-button--variant-solid {
+        background-color: rempiVars.$colors-success-9;
+
+        &,
+        * {
+          color: rempiVars.$colors-grey-1;
+        }
+
+        &:hover:enabled {
+          background-color: rempiVars.$colors-success-10;
+        }
+
+        &:focus {
+          background-color: rempiVars.$colors-success-11;
+        }
+      }
+
       &.rempi-button--variant-contained {
         background-color: rempiVars.$colors-success-4;
 
@@ -265,6 +322,24 @@
     }
 
     &-error {
+
+      &.rempi-button--variant-solid {
+        background-color: rempiVars.$colors-error-9;
+
+        &,
+        * {
+          color: rempiVars.$colors-grey-1;
+        }
+
+        &:hover:enabled {
+          background-color: rempiVars.$colors-error-10;
+        }
+
+        &:focus {
+          background-color: rempiVars.$colors-error-11;
+        }
+      }
+
       &.rempi-button--variant-contained {
         background-color: rempiVars.$colors-error-4;
 
