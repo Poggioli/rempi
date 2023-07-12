@@ -8,6 +8,7 @@
     column-gap: rempiVars.$spaces-2;
     display: flex;
     flex-direction: row;
+    width: fit-content;
 
     &:has(.rempi-checkbox__check:focus, .rempi-checkbox__check:focus-visible) {
       outline-color: rempiVars.$colors-info-9;

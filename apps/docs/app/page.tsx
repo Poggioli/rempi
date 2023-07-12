@@ -11,6 +11,7 @@ import { DropdownMenu } from "@rempi-ui/dropdown-menu";
 import { Flex } from "@rempi-ui/flex";
 import { HoverCard } from "@rempi-ui/hover-card";
 import { Popover } from "@rempi-ui/popover";
+import { Progress } from "@rempi-ui/progress";
 import { Typography } from "@rempi-ui/typography";
 import { SlidersHorizontal } from "lucide-react";
 import { useState } from "react";
@@ -531,6 +532,15 @@ export default function Page() {
           <Popover.Arrow />
         </Popover.Content>
       </Popover.Root>
+
+      <br />
+      <br />
+
+      <Progress value={75} size="small" />
+      <br />
+      <Progress value={50} size="standard" />
+      <br />
+      <Progress value={25} size="large" />
     </Container>
   );
 }
