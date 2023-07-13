@@ -109,11 +109,11 @@ export default function RootLayout({
     });
 
   return (
-    <html lang="en" className={`${lightClassName} ${inter.className}`}>
+    <html lang="en" className={`${darkClassName} ${inter.className}`}>
       <head>
         <style
           id="#rempi"
-          dangerouslySetInnerHTML={{ __html: getCssTextLightTheme() }}
+          dangerouslySetInnerHTML={{ __html: getCssTextDarkTheme() }}
         ></style>
       </head>
       <body>{children}</body>
