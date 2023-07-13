@@ -53,10 +53,16 @@
   gap: rempiVars.$spaces-1
 }
 
-.mw-300 {
+.max-w-300 {
   max-width: 300px
 }
 
-.content-max-width {
-  max-width: 300px;
+.flex-c-1 {
+  * {
+    flex: 1;
+  }
+}
+
+.min-h-300 {
+  height: 300px
 }

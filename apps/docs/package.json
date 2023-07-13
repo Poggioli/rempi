@@ -27,6 +27,7 @@
     "@rempi-ui/radio": "*",
     "@rempi-ui/select": "*",
     "@rempi-ui/separator": "*",
+    "@rempi-ui/slider": "*",
     "@rempi-ui/typography": "*",
     "lucide-react": "^0.258.0",
     "next": "^13.4.1",

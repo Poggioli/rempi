@@ -16,6 +16,7 @@ import { Progress } from "@rempi-ui/progress";
 import { Radio } from "@rempi-ui/radio";
 import { Select } from "@rempi-ui/select";
 import { Separator } from "@rempi-ui/separator";
+import { Slider } from "@rempi-ui/slider";
 import { Typography } from "@rempi-ui/typography";
 import { SlidersHorizontal } from "lucide-react";
 import { useContext, useState } from "react";
@@ -63,7 +64,7 @@ export default function Page() {
                   key={availableTheme.toString()}
                   value={availableTheme.toString()}
                 >
-                  {availableTheme.toString()}
+                  {FriendlyThemeName[availableTheme.toString()]}
                 </Select.Item>
               ))}
             </Select.Viewport>
@@ -506,7 +507,7 @@ export default function Page() {
                 />
               </a>
             </HoverCard.Trigger>
-            <HoverCard.Content className="content-max-width">
+            <HoverCard.Content className="max-w-300">
               <Flex direction="column" className="gap-2">
                 <img
                   className="image image--large"
@@ -597,7 +598,7 @@ export default function Page() {
               </IconButton>
             </Popover.Trigger>
             <Popover.Content>
-              <Flex direction="column" className="mw-300">
+              <Flex direction="column" className="max-w-300">
                 <Typography
                   fontSize="sm"
                   fontWeight="normal"
@@ -669,48 +670,103 @@ export default function Page() {
 
       <Separator className="margin-bt-8" />
 
-      <Select.Root defaultValue="banana">
-        <Select.Trigger aria-label="Food">
-          <Select.Value placeholder="Select a fruit…" />
-        </Select.Trigger>
-        <Select.Content>
-          <Select.Viewport>
-            <Select.Group>
-              <Select.Label>Fruits</Select.Label>
-              <Select.Item value="apple">Apple</Select.Item>
-              <Select.Item disabled value="banana">
-                Banana
-              </Select.Item>
-              <Select.Item value="blueberry">Blueberry</Select.Item>
-              <Select.Item value="grapes">Grapes</Select.Item>
-              <Select.Item value="pineapple">Pineapple</Select.Item>
-            </Select.Group>
+      <Flex
+        direction="row"
+        alignItems="center"
+        justifyContent="space-around"
+        wrap="wrap"
+        className="gap-4"
+      >
+        <div>
+          <Select.Root disabled defaultValue="banana">
+            <Select.Trigger aria-label="Food">
+              <Select.Value placeholder="Select a fruit…" />
+            </Select.Trigger>
+            <Select.Content>
+              <Select.Viewport>
+                <Select.Group>
+                  <Select.Label>Fruits</Select.Label>
+                  <Select.Item value="apple">Apple</Select.Item>
+                  <Select.Item disabled value="banana">
+                    Banana
+                  </Select.Item>
+                  <Select.Item value="blueberry">Blueberry</Select.Item>
+                  <Select.Item value="grapes">Grapes</Select.Item>
+                  <Select.Item value="pineapple">Pineapple</Select.Item>
+                </Select.Group>
 
-            <Select.Separator />
+                <Select.Separator />
 
-            <Select.Group>
-              <Select.Label>Vegetables</Select.Label>
-              <Select.Item value="aubergine">Aubergine</Select.Item>
-              <Select.Item value="broccoli">Broccoli</Select.Item>
-              <Select.Item value="carrot" disabled>
-                Carrot
-              </Select.Item>
-              <Select.Item value="courgette">Courgette</Select.Item>
-              <Select.Item value="leek">Leek</Select.Item>
-            </Select.Group>
+                <Select.Group>
+                  <Select.Label>Vegetables</Select.Label>
+                  <Select.Item value="aubergine">Aubergine</Select.Item>
+                  <Select.Item value="broccoli">Broccoli</Select.Item>
+                  <Select.Item value="carrot" disabled>
+                    Carrot
+                  </Select.Item>
+                  <Select.Item value="courgette">Courgette</Select.Item>
+                  <Select.Item value="leek">Leek</Select.Item>
+                </Select.Group>
 
-            <Select.Separator />
+                <Select.Separator />
 
-            <Select.Group>
-              <Select.Label>Meat</Select.Label>
-              <Select.Item value="beef">Beef</Select.Item>
-              <Select.Item value="chicken">Chicken</Select.Item>
-              <Select.Item value="lamb">Lamb</Select.Item>
-              <Select.Item value="pork">Pork</Select.Item>
-            </Select.Group>
-          </Select.Viewport>
-        </Select.Content>
-      </Select.Root>
+                <Select.Group>
+                  <Select.Label>Meat</Select.Label>
+                  <Select.Item value="beef">Beef</Select.Item>
+                  <Select.Item value="chicken">Chicken</Select.Item>
+                  <Select.Item value="lamb">Lamb</Select.Item>
+                  <Select.Item value="pork">Pork</Select.Item>
+                </Select.Group>
+              </Select.Viewport>
+            </Select.Content>
+          </Select.Root>
+        </div>
+
+        <div>
+          <Select.Root defaultValue="banana">
+            <Select.Trigger aria-label="Food">
+              <Select.Value placeholder="Select a fruit…" />
+            </Select.Trigger>
+            <Select.Content>
+              <Select.Viewport>
+                <Select.Group>
+                  <Select.Label>Fruits</Select.Label>
+                  <Select.Item value="apple">Apple</Select.Item>
+                  <Select.Item disabled value="banana">
+                    Banana
+                  </Select.Item>
+                  <Select.Item value="blueberry">Blueberry</Select.Item>
+                  <Select.Item value="grapes">Grapes</Select.Item>
+                  <Select.Item value="pineapple">Pineapple</Select.Item>
+                </Select.Group>
+
+                <Select.Separator />
+
+                <Select.Group>
+                  <Select.Label>Vegetables</Select.Label>
+                  <Select.Item value="aubergine">Aubergine</Select.Item>
+                  <Select.Item value="broccoli">Broccoli</Select.Item>
+                  <Select.Item value="carrot" disabled>
+                    Carrot
+                  </Select.Item>
+                  <Select.Item value="courgette">Courgette</Select.Item>
+                  <Select.Item value="leek">Leek</Select.Item>
+                </Select.Group>
+
+                <Select.Separator />
+
+                <Select.Group>
+                  <Select.Label>Meat</Select.Label>
+                  <Select.Item value="beef">Beef</Select.Item>
+                  <Select.Item value="chicken">Chicken</Select.Item>
+                  <Select.Item value="lamb">Lamb</Select.Item>
+                  <Select.Item value="pork">Pork</Select.Item>
+                </Select.Group>
+              </Select.Viewport>
+            </Select.Content>
+          </Select.Root>
+        </div>
+      </Flex>
 
       <Separator className="margin-bt-8" />
 
@@ -719,6 +775,50 @@ export default function Page() {
       <Progress value={50} size="standard" />
       <br />
       <Progress value={25} size="large" />
+
+      <Separator className="margin-bt-8" />
+
+      <Slider.Root defaultValue={[50]} max={100} step={1}>
+        <Slider.Thumb aria-label="Volume" />
+      </Slider.Root>
+
+      <Separator className="margin-bt-8" />
+
+      <Slider.Root disabled defaultValue={[75]} max={100} step={1}>
+        <Slider.Thumb aria-label="Volume" />
+      </Slider.Root>
+
+      <Separator className="margin-bt-8" />
+
+      <Flex
+        alignItems="center"
+        justifyContent="space-around"
+        direction="row"
+        wrap="wrap"
+        className="gap-8 min-h-300"
+      >
+        <Slider.Root
+          defaultValue={[50]}
+          orientation="vertical"
+          max={100}
+          step={1}
+        >
+          <Slider.Thumb aria-label="Volume" />
+          <Slider.Thumb aria-label="Volume" />
+        </Slider.Root>
+
+        <Separator orientation="vertical" />
+
+        <Slider.Root
+          disabled
+          defaultValue={[75]}
+          orientation="vertical"
+          max={100}
+          step={1}
+        >
+          <Slider.Thumb aria-label="Volume" />
+        </Slider.Root>
+      </Flex>
     </Container>
   );
 }
