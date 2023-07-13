@@ -9,6 +9,7 @@ import { ContextMenu } from "@rempi-ui/context-menu";
 import { Dialog } from "@rempi-ui/dialog";
 import { DropdownMenu } from "@rempi-ui/dropdown-menu";
 import { Flex } from "@rempi-ui/flex";
+import { Heading } from "@rempi-ui/heading";
 import { HoverCard } from "@rempi-ui/hover-card";
 import { Popover } from "@rempi-ui/popover";
 import { Progress } from "@rempi-ui/progress";
@@ -16,13 +17,28 @@ import { Radio } from "@rempi-ui/radio";
 import { Select } from "@rempi-ui/select";
 import { Typography } from "@rempi-ui/typography";
 import { SlidersHorizontal } from "lucide-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./page.scss";
+import { FriendlyThemeName, ThemeProviderContext } from "./ThemeProvider";
 
 export default function Page() {
+  const { availableThemes, setTheme } = useContext(ThemeProviderContext);
+
   const [bookmarksChecked, setBookmarksChecked] = useState(true);
   const [urlsChecked, setUrlsChecked] = useState(true);
   const [person, setPerson] = useState("pedro");
+  const [selectedTheme, setSelectedTheme] = useState<string>(
+    availableThemes[0].toString()
+  );
+
+  const handleSelectTheme = (value: string) => {
+    setSelectedTheme(value);
+    setTheme(
+      availableThemes.find(
+        (availableTheme) => availableTheme.toString() === value
+      )
+    );
+  };
 
   return (
     <Container
@@ -31,6 +47,41 @@ export default function Page() {
         padding: "32px",
       }}
     >
+      <Flex
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        style={{ gap: 16 }}
+      >
+        <Heading>Select your theme here</Heading>
+        <Select.Root value={selectedTheme} onValueChange={handleSelectTheme}>
+          <Select.Trigger aria-label="Theme">
+            <Select.Value placeholder="Select a theme...">
+              {FriendlyThemeName[selectedTheme]}
+            </Select.Value>
+          </Select.Trigger>
+          <Select.Content>
+            <Select.Viewport>
+              {availableThemes.map((availableTheme) => (
+                <Select.Item
+                  key={availableTheme.toString()}
+                  value={availableTheme.toString()}
+                >
+                  {availableTheme.toString()}
+                </Select.Item>
+              ))}
+            </Select.Viewport>
+          </Select.Content>
+        </Select.Root>
+      </Flex>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
       <ContextMenu.Root>
         <ContextMenu.Trigger>
           <Flex
