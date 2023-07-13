@@ -1,0 +1,48 @@
+import {
+  SelectRootProps,
+  SelectRoot,
+  SelectTriggerProps,
+  SelectTrigger,
+  SelectValueProps,
+  SelectValue,
+  SelectContentProps,
+  SelectContent,
+  SelectViewportProps,
+  SelectViewport,
+  SelectItemProps,
+  SelectItem,
+  SelectGroupProps,
+  SelectGroup,
+  SelectLabelProps,
+  SelectLabel,
+  SelectSeparatorProps,
+  SelectSeparator,
+  SelectArrowProps,
+  SelectArrow,
+} from "./Select";
+
+export const Select = {
+  Root: SelectRoot,
+  Trigger: SelectTrigger,
+  Value: SelectValue,
+  Content: SelectContent,
+  Viewport: SelectViewport,
+  Item: SelectItem,
+  Group: SelectGroup,
+  Label: SelectLabel,
+  Separator: SelectSeparator,
+  Arrow: SelectArrow,
+};
+
+export type {
+  SelectRootProps,
+  SelectTriggerProps,
+  SelectValueProps,
+  SelectContentProps,
+  SelectViewportProps,
+  SelectItemProps,
+  SelectGroupProps,
+  SelectLabelProps,
+  SelectSeparatorProps,
+  SelectArrowProps,
+};
