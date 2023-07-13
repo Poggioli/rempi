@@ -15,6 +15,7 @@ import { Popover } from "@rempi-ui/popover";
 import { Progress } from "@rempi-ui/progress";
 import { Radio } from "@rempi-ui/radio";
 import { Select } from "@rempi-ui/select";
+import { Separator } from "@rempi-ui/separator";
 import { Typography } from "@rempi-ui/typography";
 import { SlidersHorizontal } from "lucide-react";
 import { useContext, useState } from "react";
@@ -41,17 +42,12 @@ export default function Page() {
   };
 
   return (
-    <Container
-      variant="md"
-      style={{
-        padding: "32px",
-      }}
-    >
+    <Container variant="md" className="padding-8">
       <Flex
         direction="column"
         justifyContent="center"
         alignItems="center"
-        style={{ gap: 16 }}
+        className="gap-4"
       >
         <Heading>Select your theme here</Heading>
         <Select.Root value={selectedTheme} onValueChange={handleSelectTheme}>
@@ -75,12 +71,7 @@ export default function Page() {
         </Select.Root>
       </Flex>
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <Separator className="margin-bt-8" />
 
       <ContextMenu.Root>
         <ContextMenu.Trigger>
@@ -88,30 +79,27 @@ export default function Page() {
             direction="row"
             alignItems="center"
             justifyContent="center"
-            style={{
-              padding: "32px",
-              border: "2px dashed var(--colors-primary12)",
-            }}
+            className="padding-8 b-dashed"
           >
             <Typography>Right click here</Typography>
           </Flex>
         </ContextMenu.Trigger>
         <ContextMenu.Content>
           <ContextMenu.Item>
-            Back <div style={{ marginLeft: "auto" }}>⌘+[</div>
+            Back <div className="ml-auto">⌘+[</div>
           </ContextMenu.Item>
           <ContextMenu.Item disabled>
-            Foward <div style={{ marginLeft: "auto" }}>⌘+]</div>
+            Foward <div className="ml-auto">⌘+]</div>
           </ContextMenu.Item>
           <ContextMenu.Item>
-            Reload <div style={{ marginLeft: "auto" }}>⌘+R</div>
+            Reload <div className="ml-auto">⌘+R</div>
           </ContextMenu.Item>
 
           <ContextMenu.SubMenu>
             <ContextMenu.SubMenuTrigger>More Tools</ContextMenu.SubMenuTrigger>
             <ContextMenu.SubMenuContent sideOffset={2} alignOffset={-5}>
               <ContextMenu.Item>
-                Save Page As… <div style={{ marginLeft: "auto" }}>⌘+S</div>
+                Save Page As… <div className="ml-auto">⌘+S</div>
               </ContextMenu.Item>
               <ContextMenu.Item>Create Shortcut…</ContextMenu.Item>
               <ContextMenu.Item>Name Window…</ContextMenu.Item>
@@ -126,7 +114,7 @@ export default function Page() {
             checked={bookmarksChecked}
             onCheckedChange={setBookmarksChecked}
           >
-            Show Bookmarks <div style={{ marginLeft: "auto" }}>⌘+B</div>
+            Show Bookmarks <div className="ml-auto">⌘+B</div>
           </ContextMenu.CheckboxItem>
           <ContextMenu.CheckboxItem
             checked={urlsChecked}
@@ -150,8 +138,7 @@ export default function Page() {
         </ContextMenu.Content>
       </ContextMenu.Root>
 
-      <br />
-      <br />
+      <Separator className="margin-bt-8" />
 
       <Accordion.Root type="single" defaultValue="item-1" collapsible>
         <Accordion.Item value="item-1">
@@ -183,15 +170,14 @@ export default function Page() {
         </Accordion.Item>
       </Accordion.Root>
 
-      <br />
-      <br />
+      <Separator className="margin-bt-8" />
 
       <Flex
         direction="row"
         alignItems="center"
         justifyContent="space-around"
         wrap="wrap"
-        style={{ gap: 16 }}
+        className="gap-4"
       >
         <div>
           <AlertDialog.Root>
@@ -249,15 +235,14 @@ export default function Page() {
         </div>
       </Flex>
 
-      <br />
-      <br />
+      <Separator className="margin-bt-8" />
 
       <Flex
         direction="row"
         wrap="wrap"
         justifyContent="space-between"
         alignItems="center"
-        style={{ gap: 16 }}
+        className="gap-4"
       >
         <div>
           <Button variant="contained" color="error">
@@ -372,15 +357,14 @@ export default function Page() {
         </div>
       </Flex>
 
-      <br />
-      <br />
+      <Separator className="margin-bt-8" />
 
       <Flex
         direction="row"
         alignItems="center"
         justifyContent="space-around"
         wrap="wrap"
-        style={{ gap: 16 }}
+        className="gap-4"
       >
         <div>
           <Checkbox.Container>
@@ -427,15 +411,14 @@ export default function Page() {
         </div>
       </Flex>
 
-      <br />
-      <br />
+      <Separator className="margin-bt-8" />
 
       <Flex
         direction="row"
         alignItems="center"
         justifyContent="space-around"
         wrap="wrap"
-        style={{ gap: 16 }}
+        className="gap-4"
       >
         <div>
           <DropdownMenu.Root>
@@ -452,13 +435,13 @@ export default function Page() {
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
               <DropdownMenu.Item>
-                Back <div style={{ marginLeft: "auto" }}>⌘+[</div>
+                Back <div className="ml-auto">⌘+[</div>
               </DropdownMenu.Item>
               <DropdownMenu.Item disabled>
-                Foward <div style={{ marginLeft: "auto" }}>⌘+]</div>
+                Foward <div className="ml-auto">⌘+]</div>
               </DropdownMenu.Item>
               <DropdownMenu.Item>
-                Reload <div style={{ marginLeft: "auto" }}>⌘+R</div>
+                Reload <div className="ml-auto">⌘+R</div>
               </DropdownMenu.Item>
 
               <DropdownMenu.SubMenu>
@@ -467,7 +450,7 @@ export default function Page() {
                 </DropdownMenu.SubMenuTrigger>
                 <DropdownMenu.SubMenuContent sideOffset={2} alignOffset={-5}>
                   <DropdownMenu.Item>
-                    Save Page As… <div style={{ marginLeft: "auto" }}>⌘+S</div>
+                    Save Page As… <div className="ml-auto">⌘+S</div>
                   </DropdownMenu.Item>
                   <DropdownMenu.Item>Create Shortcut…</DropdownMenu.Item>
                   <DropdownMenu.Item>Name Window…</DropdownMenu.Item>
@@ -482,7 +465,7 @@ export default function Page() {
                 checked={bookmarksChecked}
                 onCheckedChange={setBookmarksChecked}
               >
-                Show Bookmarks <div style={{ marginLeft: "auto" }}>⌘+B</div>
+                Show Bookmarks <div className="ml-auto">⌘+B</div>
               </DropdownMenu.CheckboxItem>
               <DropdownMenu.CheckboxItem
                 checked={urlsChecked}
@@ -524,13 +507,13 @@ export default function Page() {
               </a>
             </HoverCard.Trigger>
             <HoverCard.Content className="content-max-width">
-              <Flex direction="column" style={{ gap: 8 }}>
+              <Flex direction="column" className="gap-2">
                 <img
                   className="image image--large"
                   src="https://pbs.twimg.com/profile_images/1337055608613253126/r_eiMp2H_400x400.png"
                   alt="Radix UI"
                 />
-                <Flex direction="column" style={{ gap: 16 }}>
+                <Flex direction="column" className="gap-4">
                   <Flex direction="column">
                     <Typography
                       as="h6"
@@ -557,8 +540,8 @@ export default function Page() {
                     Components, icons, colors, and templates for building
                     high-quality, accessible UI. Free and open-source.
                   </Typography>
-                  <Flex style={{ gap: 16 }} alignItems="center">
-                    <Flex style={{ gap: 4 }} alignItems="center">
+                  <Flex className="gap-4" alignItems="center">
+                    <Flex className="gap-1" alignItems="center">
                       <Typography
                         color="high-contrast"
                         fontWeight="bold"
@@ -575,7 +558,7 @@ export default function Page() {
                         Following
                       </Typography>
                     </Flex>
-                    <Flex style={{ gap: 4 }} alignItems="center">
+                    <Flex className="gap-1" alignItems="center">
                       <Typography
                         color="high-contrast"
                         fontWeight="bold"
@@ -614,7 +597,7 @@ export default function Page() {
               </IconButton>
             </Popover.Trigger>
             <Popover.Content>
-              <Flex direction="column" style={{ gap: 10, maxWidth: "300px" }}>
+              <Flex direction="column" className="mw-300">
                 <Typography
                   fontSize="sm"
                   fontWeight="normal"
@@ -636,15 +619,14 @@ export default function Page() {
         </div>
       </Flex>
 
-      <br />
-      <br />
+      <Separator className="margin-bt-8" />
 
       <Flex
         direction="row"
         alignItems="center"
         justifyContent="space-around"
         wrap="wrap"
-        style={{ gap: 16 }}
+        className="gap-4"
       >
         <div>
           <Radio.Root>
@@ -685,8 +667,7 @@ export default function Page() {
         </div>
       </Flex>
 
-      <br />
-      <br />
+      <Separator className="margin-bt-8" />
 
       <Select.Root defaultValue="banana">
         <Select.Trigger aria-label="Food">
@@ -731,8 +712,7 @@ export default function Page() {
         </Select.Content>
       </Select.Root>
 
-      <br />
-      <br />
+      <Separator className="margin-bt-8" />
 
       <Progress value={75} size="small" />
       <br />

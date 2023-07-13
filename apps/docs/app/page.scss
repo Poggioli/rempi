@@ -8,10 +8,6 @@
   cursor: pointer;
   border-radius: rempiVars.$radiis-pill;
   display: inline-block;
-
-  &:focus {
-    box-shadow: 0 0 0 2px white;
-  }
 }
 
 .image {
@@ -27,6 +23,38 @@
     width: rempiVars.$spaces-15;
     height: rempiVars.$spaces-15;
   }
+}
+
+.b-dashed {
+  border: calc(rempiVars.$border-widths-1 * 2) dashed rempiVars.$colors-primary-12,
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.margin-bt-8 {
+  margin: rempiVars.$spaces-8 0
+}
+
+.padding-8 {
+  padding: rempiVars.$spaces-8
+}
+
+.gap-4 {
+  gap: rempiVars.$spaces-4
+}
+
+.gap-2 {
+  gap: rempiVars.$spaces-2
+}
+
+.gap-1 {
+  gap: rempiVars.$spaces-1
+}
+
+.mw-300 {
+  max-width: 300px
 }
 
 .content-max-width {
