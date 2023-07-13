@@ -24,6 +24,7 @@
     "@rempi-ui/hover-card": "*",
     "@rempi-ui/popover": "*",
     "@rempi-ui/progress": "*",
+    "@rempi-ui/radio": "*",
     "@rempi-ui/typography": "*",
     "lucide-react": "^0.258.0",
     "next": "^13.4.1",

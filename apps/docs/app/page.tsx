@@ -12,6 +12,7 @@ import { Flex } from "@rempi-ui/flex";
 import { HoverCard } from "@rempi-ui/hover-card";
 import { Popover } from "@rempi-ui/popover";
 import { Progress } from "@rempi-ui/progress";
+import { Radio } from "@rempi-ui/radio";
 import { Typography } from "@rempi-ui/typography";
 import { SlidersHorizontal } from "lucide-react";
 import { useState } from "react";
@@ -541,6 +542,46 @@ export default function Page() {
       <Progress value={50} size="standard" />
       <br />
       <Progress value={25} size="large" />
+
+      <br />
+      <br />
+
+      <Radio.Root>
+        <Radio.Container>
+          <Radio.Item id="radio-1" value="radio-1" />
+          <Radio.Label htmlFor="radio-1">Radio 1</Radio.Label>
+        </Radio.Container>
+
+        <Radio.Container>
+          <Radio.Item id="radio-2" value="radio-2" disabled />
+          <Radio.Label htmlFor="radio-2">Radio 2</Radio.Label>
+        </Radio.Container>
+
+        <Radio.Container>
+          <Radio.Item id="radio-3" value="radio-3" />
+          <Radio.Label htmlFor="radio-3">Radio 3</Radio.Label>
+        </Radio.Container>
+      </Radio.Root>
+
+      <br />
+      <br />
+
+      <Radio.Root defaultValue="radio-2-1">
+        <Radio.Container>
+          <Radio.Label htmlFor="radio-1-1">Radio 1</Radio.Label>
+          <Radio.Item id="radio-1-1" value="radio-1-1" />
+        </Radio.Container>
+
+        <Radio.Container>
+          <Radio.Label htmlFor="radio-2-1">Radio 2</Radio.Label>
+          <Radio.Item id="radio-2-1" value="radio-2-1" disabled />
+        </Radio.Container>
+
+        <Radio.Container>
+          <Radio.Label htmlFor="radio-3-1">Radio 3</Radio.Label>
+          <Radio.Item id="radio-3-1" value="radio-3-1" />
+        </Radio.Container>
+      </Radio.Root>
     </Container>
   );
 }
