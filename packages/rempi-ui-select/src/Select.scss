@@ -140,12 +140,19 @@
   &__scroll-up-button,
   &__scroll-down-button {
     align-items: center;
-    background-color: rempiVars.$colors-grey-3;
     color: rempiVars.$colors-grey-11;
     cursor: default;
     display: flex;
     height: rempiVars.$spaces-6;
     justify-content: center;
+  }
+
+  &__scroll-up-button {
+    border-bottom: rempiVars.$border-widths-1 solid rempiVars.$colors-grey-6;
+  }
+
+  &__scroll-down-button {
+    border-top: rempiVars.$border-widths-1 solid rempiVars.$colors-grey-6;
   }
 
 }

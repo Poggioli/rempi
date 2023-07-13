@@ -224,7 +224,7 @@ const SelectScrollDownButton = forwardRef<
     <SelectRadix.ScrollDownButton
       {...props}
       ref={ref}
-      className={`rempi-select__scroll-up-button ${classnames(className)}`}
+      className={`rempi-select__scroll-down-button ${classnames(className)}`}
     >
       <ChevronDown size={18} />
     </SelectRadix.ScrollDownButton>

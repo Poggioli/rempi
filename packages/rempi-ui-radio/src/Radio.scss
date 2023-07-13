@@ -8,7 +8,7 @@
     column-gap: rempiVars.$spaces-2;
     display: flex;
     flex-direction: row;
-    width: fit-content;
+    justify-content: space-between;
 
     &:has(.rempi-radio__item:focus, .rempi-radio__item:focus-visible) {
       outline-color: rempiVars.$colors-info-9;
@@ -61,7 +61,6 @@
       width: rempiVars.$spaces-2;
       height: rempiVars.$spaces-2;
       border-radius: rempiVars.$radiis-pill;
-      // background-color: var(--violet-11);
     }
 
   }
