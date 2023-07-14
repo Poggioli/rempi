@@ -1,0 +1,132 @@
+@use '@rempi-ui/core/src/config/rempi-variables' as rempiVars;
+
+.rempi-switch {
+
+  &__root {
+    border-color: rempiVars.$colors-grey-7;
+    border-radius: rempiVars.$radiis-pill;
+    border-style: solid;
+    border-width: rempiVars.$border-widths-1;
+    box-sizing: border-box;
+    height: rempiVars.$spaces-6;
+    position: relative;
+    transition: background-color 200ms ease;
+    width: rempiVars.$spaces-11;
+
+    &:focus,
+    &:focus-visible {
+      outline-color: rempiVars.$colors-info-9;
+      outline-style: solid;
+      outline-width: rempiVars.$border-widths-1;
+    }
+
+    &:not(:disabled) {
+      +label {
+        color: rempiVars.$colors-grey-12;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &[data-state="checked"] {
+        background-color: rempiVars.$colors-primary-8;
+      }
+
+      &[data-state="unchecked"] {
+        background-color: rempiVars.$colors-grey-3;
+      }
+    }
+
+    &:disabled {
+      border-color: rempiVars.$colors-grey-6;
+
+      &:hover,
+      +label {
+        cursor: not-allowed;
+      }
+
+      +label {
+        color: rempiVars.$colors-grey-8;
+      }
+
+      &[data-state="checked"] {
+        background-color: rempiVars.$colors-primary-5;
+      }
+
+      &[data-state="unchecked"] {
+        background-color: rempiVars.$colors-grey-3;
+      }
+    }
+  }
+
+  &__container {
+    align-items: center;
+    border-radius: rempiVars.$radiis-1;
+    column-gap: rempiVars.$spaces-2;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+
+    &:has(.rempi-switch__root:focus, .rempi-switch__root:focus-visible) {
+      outline-color: rempiVars.$colors-info-9;
+      outline-offset: 1px;
+      outline-style: solid;
+      outline-width: rempiVars.$border-widths-1;
+      z-index: 1;
+
+      .rempi-switch__root {
+        outline-width: 0;
+      }
+    }
+  }
+
+  &__label {
+    font-size: rempiVars.$font-sizes-4;
+    line-height: rempiVars.$line-heights-1;
+    transition: color 300ms ease;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:has(+.rempi-switch__root:disabled) {
+      color: rempiVars.$colors-grey-8;
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+
+    &:has(+.rempi-switch__root:not(:disabled)) {
+      color: rempiVars.$colors-grey-12;
+    }
+  }
+
+  &__thumb {
+    display: block;
+    border-radius: rempiVars.$radiis-pill;
+    height: calc(rempiVars.$spaces-5 - rempiVars.$spaces-1 / 2);
+    transition: transform 200ms ease, background-color 200ms ease;
+    width: calc(rempiVars.$spaces-5 - rempiVars.$spaces-1 / 2);
+    will-change: transform;
+
+    &[data-state="checked"] {
+      transform: translateX(calc(rempiVars.$spaces-5 + rempiVars.$spaces-1 / 2));
+      background-color: rempiVars.$colors-primary-11;
+
+      &[data-disabled] {
+          background-color: rempiVars.$colors-primary-8;
+      }
+    }
+
+    &[data-state="unchecked"] {
+      transform: translateX(2px);
+      background-color: rempiVars.$colors-primary-9;
+
+      &[data-disabled] {
+        background-color: rempiVars.$colors-primary-7;
+      }
+    }
+  }
+}
