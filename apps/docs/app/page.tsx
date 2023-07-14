@@ -17,6 +17,7 @@ import { Radio } from "@rempi-ui/radio";
 import { Select } from "@rempi-ui/select";
 import { Separator } from "@rempi-ui/separator";
 import { Slider } from "@rempi-ui/slider";
+import { Switch } from "@rempi-ui/switch";
 import { Typography } from "@rempi-ui/typography";
 import { SlidersHorizontal } from "lucide-react";
 import { useContext, useState } from "react";
@@ -617,6 +618,76 @@ export default function Page() {
               <Popover.Arrow />
             </Popover.Content>
           </Popover.Root>
+        </div>
+      </Flex>
+
+      <Separator className="margin-bt-8" />
+
+      <Flex
+        direction="row"
+        alignItems="center"
+        justifyContent="space-around"
+        wrap="wrap"
+        className="gap-4"
+      >
+        <div>
+          <Switch.Container>
+            <Switch.Thumb defaultChecked id="switch-1" value="switch-1" />
+            <Switch.Label htmlFor="switch-1">Switch 1</Switch.Label>
+          </Switch.Container>
+          <br />
+
+          <Switch.Container>
+            <Switch.Thumb
+              defaultChecked
+              disabled
+              id="switch-2"
+              value="switch-2"
+            />
+            <Switch.Label htmlFor="switch-2">Switch 2</Switch.Label>
+          </Switch.Container>
+          <br />
+
+          <Switch.Container>
+            <Switch.Thumb id="switch-3" value="switch-3" />
+            <Switch.Label htmlFor="switch-3">Switch 3</Switch.Label>
+          </Switch.Container>
+          <br />
+
+          <Switch.Container>
+            <Switch.Thumb disabled id="switch-4" value="switch-4" />
+            <Switch.Label htmlFor="switch-4">Switch 4</Switch.Label>
+          </Switch.Container>
+        </div>
+
+        <div>
+          <Switch.Container>
+            <Switch.Label htmlFor="switch-1-1">Switch 1</Switch.Label>
+            <Switch.Thumb defaultChecked id="switch-1-1" value="switch-1-1" />
+          </Switch.Container>
+          <br />
+
+          <Switch.Container>
+            <Switch.Label htmlFor="switch-2-1">Switch 2</Switch.Label>
+            <Switch.Thumb
+              defaultChecked
+              disabled
+              id="switch-2-1"
+              value="switch-2-1"
+            />
+          </Switch.Container>
+          <br />
+
+          <Switch.Container>
+            <Switch.Label htmlFor="switch-3-1">Switch 3</Switch.Label>
+            <Switch.Thumb id="switch-3-1" value="switch-3-1" />
+          </Switch.Container>
+          <br />
+
+          <Switch.Container>
+            <Switch.Label htmlFor="switch-4-1">Switch 4</Switch.Label>
+            <Switch.Thumb disabled id="switch-4-1" value="switch-4-1" />
+          </Switch.Container>
         </div>
       </Flex>
 
