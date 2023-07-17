@@ -631,63 +631,53 @@ export default function Page() {
         className="gap-4"
       >
         <div>
-          <Switch.Container>
-            <Switch.Thumb defaultChecked id="switch-1" value="switch-1" />
-            <Switch.Label htmlFor="switch-1">Switch 1</Switch.Label>
-          </Switch.Container>
+          <Switch.Label>
+            <Switch.Thumb defaultChecked />
+            Switch 1
+          </Switch.Label>
           <br />
 
-          <Switch.Container>
-            <Switch.Thumb
-              defaultChecked
-              disabled
-              id="switch-2"
-              value="switch-2"
-            />
-            <Switch.Label htmlFor="switch-2">Switch 2</Switch.Label>
-          </Switch.Container>
+          <Switch.Label>
+            <Switch.Thumb defaultChecked disabled />
+            Switch 2
+          </Switch.Label>
           <br />
 
-          <Switch.Container>
-            <Switch.Thumb id="switch-3" value="switch-3" />
-            <Switch.Label htmlFor="switch-3">Switch 3</Switch.Label>
-          </Switch.Container>
+          <Switch.Label>
+            <Switch.Thumb />
+            Switch 3
+          </Switch.Label>
           <br />
 
-          <Switch.Container>
-            <Switch.Thumb disabled id="switch-4" value="switch-4" />
-            <Switch.Label htmlFor="switch-4">Switch 4</Switch.Label>
-          </Switch.Container>
+          <Switch.Label>
+            <Switch.Thumb disabled />
+            Switch 4
+          </Switch.Label>
         </div>
 
         <div>
-          <Switch.Container>
-            <Switch.Label htmlFor="switch-1-1">Switch 1</Switch.Label>
-            <Switch.Thumb defaultChecked id="switch-1-1" value="switch-1-1" />
-          </Switch.Container>
+          <Switch.Label>
+            Switch 1
+            <Switch.Thumb defaultChecked />
+          </Switch.Label>
           <br />
 
-          <Switch.Container>
-            <Switch.Label htmlFor="switch-2-1">Switch 2</Switch.Label>
-            <Switch.Thumb
-              defaultChecked
-              disabled
-              id="switch-2-1"
-              value="switch-2-1"
-            />
-          </Switch.Container>
+          <Switch.Label>
+            Switch 2
+            <Switch.Thumb defaultChecked disabled />
+          </Switch.Label>
           <br />
 
-          <Switch.Container>
-            <Switch.Label htmlFor="switch-3-1">Switch 3</Switch.Label>
-            <Switch.Thumb id="switch-3-1" value="switch-3-1" />
-          </Switch.Container>
+          <Switch.Label>
+            Switch 3
+            <Switch.Thumb />
+          </Switch.Label>
           <br />
 
-          <Switch.Container>
-            <Switch.Label htmlFor="switch-4-1">Switch 4</Switch.Label>
-            <Switch.Thumb disabled id="switch-4-1" value="switch-4-1" />
-          </Switch.Container>
+          <Switch.Label>
+            Switch 4
+            <Switch.Thumb disabled />
+          </Switch.Label>
         </div>
       </Flex>
 

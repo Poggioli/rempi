@@ -1,6 +1,8 @@
 import * as Switch from "@radix-ui/react-switch";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { Label, LabelContext, LabelProps } from "@rempi-ui/label";
 import classnames from "classnames";
+import { useContext, useEffect } from "react";
 import "./Switch.scss";
 
 export type SwitchRootProps = Omit<
@@ -11,9 +13,35 @@ export type SwitchRootProps = Omit<
 
 export const SwitchRoot = forwardRef<typeof Switch.Root, SwitchRootProps>(
   ({ className, ...props }, ref) => {
+    const { setAttrs: setLabelAttrs } = useContext(LabelContext);
+
+    useEffect(() => {
+      setLabelAttrs((currentValue: any) => ({
+        ...currentValue,
+        "data-disabled": props.disabled,
+        "data-invalid": props["aria-invalid"],
+      }));
+    }, [props.disabled, props["aria-invalid"]]);
+
+    useEffect(() => {
+      setLabelAttrs((currentValue: any) => ({
+        ...currentValue,
+        "data-checked": props.checked || props.defaultChecked,
+      }));
+    }, []);
+
+    function handleOnCheckedChange(checked: boolean) {
+      props.onCheckedChange?.(checked);
+      setLabelAttrs((currentValue: any) => ({
+        ...currentValue,
+        "data-checked": checked,
+      }));
+    }
+
     return (
       <Switch.Root
         {...props}
+        onCheckedChange={handleOnCheckedChange}
         ref={ref}
         className={`rempi-switch__root ${classnames(className)}`}
       >
@@ -38,38 +66,6 @@ const SwitchThumb = forwardRef<typeof Switch.Thumb, SwitchThumbProps>(
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type SwitchLabelProps = HTMLRempiProps<"label">;
+export type SwitchLabelProps = LabelProps;
 
-export const SwitchLabel = forwardRef<"label", SwitchLabelProps>(
-  ({ children, as: Component = "label", className, ...props }, ref) => {
-
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={`rempi-switch__label ${classnames(className)}`}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
-
-// -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
-
-export type SwitchContainerProps = HTMLRempiProps<"div">;
-
-export const SwitchContainer = forwardRef<"div", SwitchContainerProps>(
-  ({ children, as: Component = "div", className, ...props }, ref) => {
-
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={`rempi-switch__container ${classnames(className)}`}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+export const SwitchLabel = Label;
