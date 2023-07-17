@@ -702,39 +702,39 @@ export default function Page() {
       >
         <div>
           <Radio.Root>
-            <Radio.Container>
-              <Radio.Item id="radio-1" value="radio-1" />
-              <Radio.Label htmlFor="radio-1">Radio 1</Radio.Label>
-            </Radio.Container>
+            <Radio.Label>
+              <Radio.Item value="radio-1" />
+              Radio 1
+            </Radio.Label>
 
-            <Radio.Container>
-              <Radio.Item id="radio-2" value="radio-2" disabled />
-              <Radio.Label htmlFor="radio-2">Radio 2</Radio.Label>
-            </Radio.Container>
+            <Radio.Label>
+              <Radio.Item value="radio-2" disabled />
+              Radio 2
+            </Radio.Label>
 
-            <Radio.Container>
-              <Radio.Item id="radio-3" value="radio-3" />
-              <Radio.Label htmlFor="radio-3">Radio 3</Radio.Label>
-            </Radio.Container>
+            <Radio.Label>
+              <Radio.Item value="radio-3" />
+              Radio 3
+            </Radio.Label>
           </Radio.Root>
         </div>
 
         <div>
           <Radio.Root defaultValue="radio-2-1">
-            <Radio.Container>
-              <Radio.Label htmlFor="radio-1-1">Radio 1</Radio.Label>
-              <Radio.Item id="radio-1-1" value="radio-1-1" />
-            </Radio.Container>
+            <Radio.Label>
+              Radio 1
+              <Radio.Item value="radio-1-1" />
+            </Radio.Label>
 
-            <Radio.Container>
-              <Radio.Label htmlFor="radio-2-1">Radio 2</Radio.Label>
-              <Radio.Item id="radio-2-1" value="radio-2-1" disabled />
-            </Radio.Container>
+            <Radio.Label>
+              Radio 2
+              <Radio.Item value="radio-2-1" disabled />
+            </Radio.Label>
 
-            <Radio.Container>
-              <Radio.Label htmlFor="radio-3-1">Radio 3</Radio.Label>
-              <Radio.Item id="radio-3-1" value="radio-3-1" />
-            </Radio.Container>
+            <Radio.Label>
+              Radio 3
+              <Radio.Item value="radio-3-1" />
+            </Radio.Label>
           </Radio.Root>
         </div>
       </Flex>

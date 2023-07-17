@@ -15,7 +15,7 @@ export type CheckboxRootProps = Omit<
 
 export const CheckboxRoot = forwardRef<typeof Checkbox.Root, CheckboxRootProps>(
   ({ children, className, forceMount, asChild, ...props }, ref) => {
-    const setLabelAttrs = useContext(LabelContext);
+    const { setAttrs: setLabelAttrs } = useContext(LabelContext);
 
     useEffect(() => {
       setLabelAttrs((currentValue: any) => ({

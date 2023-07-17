@@ -1,6 +1,8 @@
 import * as Radio from "@radix-ui/react-radio-group";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { Label, LabelContext, LabelProps } from "@rempi-ui/label";
 import classnames from "classnames";
+import { useContext, useEffect } from "react";
 import "./Radio.scss";
 
 export type RadioRootProps = Omit<HTMLRempiProps<typeof Radio.Root>, "as"> &
@@ -26,6 +28,16 @@ export type RadioItemProps = Omit<HTMLRempiProps<typeof Radio.Item>, "as"> &
 
 export const RadioItem = forwardRef<typeof Radio.Item, RadioItemProps>(
   ({ className, forceMount, ...props }, ref) => {
+    const { setAttrs: setLabelAttrs } = useContext(LabelContext);
+
+    useEffect(() => {
+      setLabelAttrs((currentValue: any) => ({
+        ...currentValue,
+        "data-disabled": props.disabled,
+        "data-invalid": props["aria-invalid"],
+      }));
+    }, [props.disabled, props["aria-invalid"]]);
+
     return (
       <Radio.Item
         {...props}
@@ -43,21 +55,9 @@ export const RadioItem = forwardRef<typeof Radio.Item, RadioItemProps>(
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type RadioLabelProps = HTMLRempiProps<"label">;
+export type RadioLabelProps = LabelProps;
 
-export const RadioLabel = forwardRef<"label", RadioLabelProps>(
-  ({ children, as: Component = "label", className, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={`rempi-radio__label ${classnames(className)}`}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+export const RadioLabel = Label;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 

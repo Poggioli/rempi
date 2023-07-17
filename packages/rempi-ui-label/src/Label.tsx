@@ -2,10 +2,14 @@ import * as LabelRadix from "@radix-ui/react-label";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { Flex, FlexProps } from "@rempi-ui/flex";
 import classnames from "classnames";
-import { createContext, useState } from "react";
+import { createContext, Dispatch, SetStateAction, useState } from "react";
 import "./Label.scss";
 
-export const LabelContext = createContext<any>({});
+export const LabelContext = createContext<{
+  setAttrs: Dispatch<SetStateAction<any>>;
+}>({
+  setAttrs: () => null,
+});
 
 export type LabelProps = Omit<HTMLRempiProps<typeof LabelRadix.Root>, "as"> &
   Omit<LabelRadix.LabelProps, "asChild"> &
@@ -19,7 +23,7 @@ export const Label = forwardRef<typeof LabelRadix.Root, LabelProps>(
     const [attrs, setAttrs] = useState<any>({});
 
     return (
-      <LabelContext.Provider value={setAttrs}>
+      <LabelContext.Provider value={{ setAttrs }}>
         <Flex
           {...props}
           {...attrs}

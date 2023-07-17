@@ -42,9 +42,6 @@ export type SwitchLabelProps = HTMLRempiProps<"label">;
 
 export const SwitchLabel = forwardRef<"label", SwitchLabelProps>(
   ({ children, as: Component = "label", className, ...props }, ref) => {
-    const useScope = Switch.createSwitchScope();
-
-    console.log({});
 
     return (
       <Component
