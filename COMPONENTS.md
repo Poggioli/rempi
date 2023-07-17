@@ -21,7 +21,7 @@
 - Input
 - Label - OK
 - Menubar
-- navigation Menu
+- Navigation Menu
 - Popover - OK
 - Progress - OK
 - Radio - OK
@@ -32,7 +32,7 @@
 - Slider - OK
 - Switch - OK
 - Table
-- Tabs
+- Tabs - OK
 - Toast
 - Toggle
 - Toggle Group

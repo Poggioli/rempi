@@ -1,0 +1,55 @@
+@use "@rempi-ui/core/src/config/rempi-variables" as rempiVars;
+
+.rempi-tabs {
+
+  &__root {
+    width: 100%;
+  }
+
+  &__list {
+    align-items: center;
+    background-color: rempiVars.$colors-grey-4;
+    border-radius: rempiVars.$radiis-2;
+    display: flex;
+    flex-direction: row;
+    gap: rempiVars.$spaces-1;
+    padding: rempiVars.$spaces-1;
+  }
+
+  &__trigger {
+    background-color: transparent;
+    border-radius: rempiVars.$radiis-2;
+    color: rempiVars.$colors-grey-12;
+    cursor: pointer;
+    flex: 1;
+    font-size: rempiVars.$font-sizes-4;
+    font-weight: rempiVars.$font-weights-3;
+    padding: rempiVars.$spaces-1 rempiVars.$spaces-4;
+    transition: background-color 200ms ease;
+
+    &:hover:not([data-disabled], [data-state="active"]) {
+      background-color: rempiVars.$colors-grey-2;
+    }
+
+    &:focus-visible,
+    &:focus {
+      outline-color: rempiVars.$colors-info-9;
+      outline-style: solid;
+      outline-width: rempiVars.$border-widths-1;
+    }
+
+    &[data-state="active"] {
+      background-color: rempiVars.$colors-grey-1;
+      color: rempiVars.$colors-grey-12;
+    }
+
+    &[data-disabled] {
+      color: rempiVars.$colors-grey-8;
+      cursor: not-allowed;
+    }
+  }
+
+  &__content {
+    margin-top: rempiVars.$spaces-2;
+  }
+}
