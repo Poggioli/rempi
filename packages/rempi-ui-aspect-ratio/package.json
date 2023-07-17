@@ -1,0 +1,22 @@
+{
+  "name": "@rempi-ui/aspect-ratio",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "@radix-ui/react-aspect-ratio": "^1.0.3",
+    "classnames": "^2.3.2"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "sass": "^1.63.6",
+    "tsconfig": "*",
+    "typescript": "^4.5.3"
+  },
+  "peerDependencies": {
+    "@rempi-ui/core": "*",
+    "react": ">=^18.2.0"
+  }
+}
