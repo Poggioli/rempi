@@ -70,6 +70,7 @@ export const TooltipContent = forwardRef<
         <Component
           {...props}
           ref={ref}
+          sideOffset={sideOffset}
           className={`rempi-tooltip__content ${classNames(className)}`}
         >
           {children}
