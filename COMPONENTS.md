@@ -1,7 +1,7 @@
 - Accordion - OK
 - Alert Dialog - OK
-- Aspect Ratio
-- Avatar
+- Aspect Ratio - OK
+- Avatar - OK
 - Badge
 - Button - OK
 - Calendar
