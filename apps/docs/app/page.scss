@@ -25,6 +25,13 @@
   }
 }
 
+.img-aspect-ratio {
+  border-radius: rempiVars.$radiis-2;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
 .b-dashed {
   border: calc(rempiVars.$border-widths-1 * 2) dashed rempiVars.$colors-primary-12,
 }
@@ -55,6 +62,10 @@
 
 .max-w-300 {
   max-width: 300px
+}
+
+.max-w-600 {
+  max-width: 600px
 }
 
 .flex-c-1 {

@@ -2,6 +2,7 @@
 
 import { Accordion } from "@rempi-ui/accordion";
 import { AlertDialog } from "@rempi-ui/alert-dialog";
+import { AspectRatio } from "@rempi-ui/aspect-ratio";
 import { Button, IconButton } from "@rempi-ui/button";
 import { Checkbox } from "@rempi-ui/checkbox";
 import { Container } from "@rempi-ui/container";
@@ -172,6 +173,26 @@ export default function Page() {
           </Accordion.Content>
         </Accordion.Item>
       </Accordion.Root>
+
+      <Separator className="margin-bt-8" />
+
+      <Flex
+        direction="row"
+        alignItems="center"
+        justifyContent="space-around"
+        wrap="wrap"
+        className="gap-4 flex-c-1"
+      >
+        <div className="max-w-600">
+          <AspectRatio>
+            <img
+              className="img-aspect-ratio"
+              src="https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80"
+              alt="Landscape photograph by Tobias Tullius"
+            />
+          </AspectRatio>
+        </div>
+      </Flex>
 
       <Separator className="margin-bt-8" />
 

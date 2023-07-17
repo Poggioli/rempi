@@ -11,6 +11,7 @@
   "dependencies": {
     "@rempi-ui/accordion": "*",
     "@rempi-ui/alert-dialog": "*",
+    "@rempi-ui/aspect-ratio": "*",
     "@rempi-ui/button": "*",
     "@rempi-ui/checkbox": "*",
     "@rempi-ui/collpasible": "*",
