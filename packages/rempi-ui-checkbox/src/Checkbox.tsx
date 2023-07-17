@@ -28,7 +28,7 @@ export const CheckboxRoot = forwardRef<typeof Checkbox.Root, CheckboxRootProps>(
     useEffect(() => {
       setLabelAttrs((currentValue: any) => ({
         ...currentValue,
-        "data-checked": props.checked || props.defaultChecked,
+        "data-state": props.checked || props.defaultChecked,
       }));
     }, []);
 
@@ -36,7 +36,7 @@ export const CheckboxRoot = forwardRef<typeof Checkbox.Root, CheckboxRootProps>(
       props.onCheckedChange?.(checked);
       setLabelAttrs((currentValue: any) => ({
         ...currentValue,
-        "data-checked": checked,
+        "data-state": checked,
       }));
     }
 

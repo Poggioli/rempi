@@ -58,21 +58,3 @@ export const RadioItem = forwardRef<typeof Radio.Item, RadioItemProps>(
 export type RadioLabelProps = LabelProps;
 
 export const RadioLabel = Label;
-
-// -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
-
-export type RadioContainerProps = HTMLRempiProps<"div">;
-
-export const RadioContainer = forwardRef<"div", RadioContainerProps>(
-  ({ children, as: Component = "div", className, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={`rempi-radio__container ${classnames(className)}`}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
