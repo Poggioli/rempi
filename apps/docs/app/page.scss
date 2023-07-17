@@ -48,6 +48,15 @@
   padding: rempiVars.$spaces-8
 }
 
+.padding-6 {
+  padding: rempiVars.$spaces-6
+}
+
+.bordered {
+  border: rempiVars.$border-widths-1 solid rempiVars.$colors-grey-6;
+  border-radius: rempiVars.$radiis-3;
+}
+
 .gap-4 {
   gap: rempiVars.$spaces-4
 }

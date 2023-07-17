@@ -20,6 +20,7 @@ import { Select } from "@rempi-ui/select";
 import { Separator } from "@rempi-ui/separator";
 import { Slider } from "@rempi-ui/slider";
 import { Switch } from "@rempi-ui/switch";
+import { Tabs } from "@rempi-ui/tabs";
 import { Tooltip } from "@rempi-ui/tooltip";
 import { Typography } from "@rempi-ui/typography";
 import { HelpCircle, SlidersHorizontal } from "lucide-react";
@@ -449,6 +450,81 @@ export default function Page() {
         <Avatar.Root size="large">
           <Avatar.Fallback>PD</Avatar.Fallback>
         </Avatar.Root>
+      </Flex>
+
+      <Separator className="margin-bt-8" />
+
+      <Flex
+        direction="row"
+        wrap="wrap"
+        justifyContent="space-around"
+        alignItems="center"
+        className="gap-4"
+      >
+        <Tabs.Root defaultValue="photos">
+          <Tabs.List>
+            <Tabs.Trigger value="photos">Photos</Tabs.Trigger>
+            <Tabs.Trigger value="description">Description</Tabs.Trigger>
+            <Tabs.Trigger value="personal-settings" disabled>
+              Personal Settings
+            </Tabs.Trigger>
+          </Tabs.List>
+          <Tabs.Content value="photos">
+            <Flex
+              direction="row"
+              wrap="wrap"
+              justifyContent="space-around"
+              alignItems="center"
+              className="gap-4 padding-6 bordered"
+            >
+              <Avatar.Root size="large">
+                <Avatar.Image
+                  src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+                  alt="Boy"
+                />
+                <Avatar.Fallback delayMs={600}>B</Avatar.Fallback>
+              </Avatar.Root>
+              <Avatar.Root size="large">
+                <Avatar.Image
+                  src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80"
+                  alt="Girl"
+                />
+                <Avatar.Fallback delayMs={600}>G</Avatar.Fallback>
+              </Avatar.Root>
+              <Avatar.Root size="large">
+                <Avatar.Image
+                  src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80"
+                  alt="Dog"
+                />
+                <Avatar.Fallback delayMs={600}>D</Avatar.Fallback>
+              </Avatar.Root>
+            </Flex>
+          </Tabs.Content>
+          <Tabs.Content value="description">
+            <Flex
+              direction="row"
+              wrap="wrap"
+              justifyContent="space-around"
+              alignItems="center"
+              className="gap-4 padding-6 bordered"
+            >
+              <Typography color="low-contrast" fontSize="md" lineHeight={1}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                porttitor venenatis ipsum, ac volutpat justo. Praesent ut
+                molestie sem, eu laoreet nulla. Nullam varius ut neque sit amet
+                dignissim. Interdum et malesuada fames ac ante ipsum primis in
+                faucibus. Morbi eu ante posuere, bibendum ante nec, auctor
+                felis. Donec vitae luctus risus, a venenatis nisi. Nunc
+                consectetur lectus at dolor aliquet fermentum. Duis vehicula,
+                nisl sed imperdiet porta, lorem dolor accumsan mi, vel semper
+                lectus arcu vel arcu. Maecenas porttitor lacus et arcu ultrices,
+                quis pharetra magna cursus. Nullam cursus mattis hendrerit.
+                Donec leo purus, lacinia sed lacus et, aliquam.
+              </Typography>
+            </Flex>
+          </Tabs.Content>
+          <Tabs.Content value="personal-setting"></Tabs.Content>
+        </Tabs.Root>
       </Flex>
 
       <Separator className="margin-bt-8" />
