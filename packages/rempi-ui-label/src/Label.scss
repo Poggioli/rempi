@@ -1,0 +1,21 @@
+@use "@rempi-ui/core/src/config/rempi-variables" as rempiVars;
+
+.rempi-label {
+  border-radius: rempiVars.$radiis-1;
+  color: rempiVars.$colors-grey-12;
+  font-size: rempiVars.$font-sizes-4;
+  gap: rempiVars.$spaces-2;
+  line-height: rempiVars.$line-heights-1;
+  transition: color 300ms ease;
+  width: fit-content;
+  cursor: pointer;
+
+  &[data-disabled] {
+    color: rempiVars.$colors-grey-8;
+    cursor: not-allowed;
+  }
+
+  &[data-invalid] {
+    color: rempiVars.$colors-error-9;
+  }
+}
