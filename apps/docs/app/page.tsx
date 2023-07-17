@@ -3,6 +3,7 @@
 import { Accordion } from "@rempi-ui/accordion";
 import { AlertDialog } from "@rempi-ui/alert-dialog";
 import { AspectRatio } from "@rempi-ui/aspect-ratio";
+import { Avatar } from "@rempi-ui/avatar";
 import { Button, IconButton } from "@rempi-ui/button";
 import { Checkbox } from "@rempi-ui/checkbox";
 import { Container } from "@rempi-ui/container";
@@ -407,6 +408,47 @@ export default function Page() {
             Success
           </Button>
         </div>
+      </Flex>
+
+      <Separator className="margin-bt-8" />
+
+      <Flex
+        direction="row"
+        wrap="wrap"
+        justifyContent="space-around"
+        alignItems="center"
+        className="gap-4"
+      >
+        <Avatar.Root size="small">
+          <Avatar.Image
+            src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+            alt="Colm Tuite"
+          />
+          <Avatar.Fallback delayMs={600}>CT</Avatar.Fallback>
+        </Avatar.Root>
+        <Avatar.Root size="standard">
+          <Avatar.Image
+            src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+            alt="Colm Tuite"
+          />
+          <Avatar.Fallback delayMs={600}>CT</Avatar.Fallback>
+        </Avatar.Root>
+        <Avatar.Root size="large">
+          <Avatar.Image
+            src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+            alt="Colm Tuite"
+          />
+          <Avatar.Fallback delayMs={600}>CT</Avatar.Fallback>
+        </Avatar.Root>
+        <Avatar.Root size="small">
+          <Avatar.Fallback>PD</Avatar.Fallback>
+        </Avatar.Root>
+        <Avatar.Root size="standard">
+          <Avatar.Fallback>PD</Avatar.Fallback>
+        </Avatar.Root>
+        <Avatar.Root size="large">
+          <Avatar.Fallback>PD</Avatar.Fallback>
+        </Avatar.Root>
       </Flex>
 
       <Separator className="margin-bt-8" />
