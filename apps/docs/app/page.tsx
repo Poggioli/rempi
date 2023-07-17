@@ -18,8 +18,9 @@ import { Select } from "@rempi-ui/select";
 import { Separator } from "@rempi-ui/separator";
 import { Slider } from "@rempi-ui/slider";
 import { Switch } from "@rempi-ui/switch";
+import { Tooltip } from "@rempi-ui/tooltip";
 import { Typography } from "@rempi-ui/typography";
-import { SlidersHorizontal } from "lucide-react";
+import { HelpCircle, SlidersHorizontal } from "lucide-react";
 import { useContext, useState } from "react";
 import "./page.scss";
 import { FriendlyThemeName, ThemeProviderContext } from "./ThemeProvider";
@@ -171,6 +172,34 @@ export default function Page() {
           </Accordion.Content>
         </Accordion.Item>
       </Accordion.Root>
+
+      <Separator className="margin-bt-8" />
+
+      <Flex
+        direction="row"
+        alignItems="center"
+        justifyContent="space-around"
+        wrap="wrap"
+        className="gap-4"
+      >
+        <Tooltip.Root>
+          <Tooltip.Trigger>
+            <IconButton
+              className="rounded-button"
+              aria-label="settings"
+              variant="contained"
+              shape="rounded"
+              color="primary"
+            >
+              <HelpCircle size={16} />
+            </IconButton>
+          </Tooltip.Trigger>
+          <Tooltip.Content>
+            Add to library
+            <Tooltip.Arrow />
+          </Tooltip.Content>
+        </Tooltip.Root>
+      </Flex>
 
       <Separator className="margin-bt-8" />
 
