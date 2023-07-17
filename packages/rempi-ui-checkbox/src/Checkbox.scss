@@ -2,51 +2,6 @@
 
 .rempi-checkbox {
 
-  &__container {
-    align-items: center;
-    border-radius: rempiVars.$radiis-1;
-    column-gap: rempiVars.$spaces-2;
-    display: flex;
-    flex-direction: row;
-    width: fit-content;
-
-    &:has(.rempi-checkbox__check:focus, .rempi-checkbox__check:focus-visible) {
-      outline-color: rempiVars.$colors-info-9;
-      outline-offset: 1px;
-      outline-style: solid;
-      outline-width: rempiVars.$border-widths-1;
-      z-index: 1;
-
-      .rempi-checkbox__check {
-        outline-width: 0;
-      }
-    }
-
-  }
-
-  &__label {
-    font-size: rempiVars.$font-sizes-4;
-    line-height: rempiVars.$line-heights-1;
-    transition: color 300ms ease;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:has(+.rempi-checkbox__check:disabled) {
-      color: rempiVars.$colors-grey-8;
-
-      &:hover {
-        cursor: not-allowed;
-      }
-    }
-
-    &:has(+.rempi-checkbox__check:not(:disabled)) {
-      color: rempiVars.$colors-grey-12;
-    }
-
-  }
-
   &__indicator {
     align-items: center;
     display: inline-flex;
@@ -55,64 +10,18 @@
 
   &__check {
     align-items: center;
+    background-color: transparent;
+    border-color: rempiVars.$colors-primary-11;
     border-radius: rempiVars.$radiis-1;
     border-width: rempiVars.$border-widths-1;
     border-style: solid;
+    cursor: pointer;
     display: inline-flex;
     height: calc(rempiVars.$spaces-4 + calc(rempiVars.$spaces-1 / 2));
     justify-content: center;
     line-height: 1;
     transition: background-color 300ms ease, border-color 300ms ease;
     width: calc(rempiVars.$spaces-4 + calc(rempiVars.$spaces-1 / 2));
-
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:not(:disabled) {
-      +label {
-        color: rempiVars.$colors-grey-12;
-      }
-
-      &[data-state="unchecked"] {
-        background-color: transparent;
-        border-color: rempiVars.$colors-primary-11;
-      }
-
-      &[data-state="checked"] {
-        border-color: rempiVars.$colors-primary-11;
-
-        svg {
-          stroke: rempiVars.$colors-primary-11;
-        }
-      }
-    }
-
-    &:disabled {
-
-      &:hover,
-      +label {
-        cursor: not-allowed;
-      }
-
-      +label {
-        color: rempiVars.$colors-grey-8;
-      }
-
-      &[data-state="unchecked"] {
-        background-color: transparent;
-        border-color: rempiVars.$colors-grey-8;
-      }
-
-      &[data-state="checked"] {
-        border-color: rempiVars.$colors-grey-8;
-
-        svg {
-          stroke: rempiVars.$colors-grey-8;
-        }
-      }
-    }
 
     &:focus,
     &:focus-visible {
@@ -123,8 +32,27 @@
       z-index: 1;
     }
 
+    &[data-state="checked"] {
+      border-color: rempiVars.$colors-primary-12;
+    }
+
+    &[data-disabled] {
+      cursor: not-allowed;
+      background-color: transparent;
+      border-color: rempiVars.$colors-grey-8;
+
+      &[data-state="checked"] {
+        border-color: rempiVars.$colors-grey-8;
+
+        svg {
+          stroke: rempiVars.$colors-grey-8;
+        }
+      }
+    }
+
     svg {
       stroke-width: 3;
+      stroke: rempiVars.$colors-primary-12;
     }
   }
 }

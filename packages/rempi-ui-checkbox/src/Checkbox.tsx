@@ -1,7 +1,9 @@
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { Label, LabelContext, LabelProps } from "@rempi-ui/label";
 import classnames from "classnames";
 import { Check } from "lucide-react";
+import { useContext, useEffect } from "react";
 import "./Checkbox.scss";
 
 export type CheckboxRootProps = Omit<
@@ -13,9 +15,35 @@ export type CheckboxRootProps = Omit<
 
 export const CheckboxRoot = forwardRef<typeof Checkbox.Root, CheckboxRootProps>(
   ({ children, className, forceMount, asChild, ...props }, ref) => {
+    const setLabelAttrs = useContext(LabelContext);
+
+    useEffect(() => {
+      setLabelAttrs((currentValue: any) => ({
+        ...currentValue,
+        "data-disabled": props.disabled,
+        "data-invalid": props["aria-invalid"],
+      }));
+    }, [props.disabled, props["aria-invalid"]]);
+
+    useEffect(() => {
+      setLabelAttrs((currentValue: any) => ({
+        ...currentValue,
+        "data-checked": props.checked || props.defaultChecked,
+      }));
+    }, []);
+
+    function handleOnCheckedChange(checked: boolean | "indeterminate") {
+      props.onCheckedChange?.(checked);
+      setLabelAttrs((currentValue: any) => ({
+        ...currentValue,
+        "data-checked": checked,
+      }));
+    }
+
     return (
       <Checkbox.Root
         {...props}
+        onCheckedChange={handleOnCheckedChange}
         ref={ref}
         className={`rempi-checkbox__check ${classnames(className)}`}
       >
@@ -33,36 +61,6 @@ export const CheckboxRoot = forwardRef<typeof Checkbox.Root, CheckboxRootProps>(
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type CheckboxLabelProps = HTMLRempiProps<"label">;
+export type CheckboxLabelProps = LabelProps;
 
-export const CheckboxLabel = forwardRef<"label", CheckboxLabelProps>(
-  ({ children, as: Component = "label", className, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={`rempi-checkbox__label ${classnames(className)}`}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
-
-// -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
-
-export type CheckboxContainerProps = HTMLRempiProps<"div">;
-
-export const CheckboxContainer = forwardRef<"div", CheckboxContainerProps>(
-  ({ children, as: Component = "div", className, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={`rempi-checkbox__container ${classnames(className)}`}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+export const CheckboxLabel = Label;

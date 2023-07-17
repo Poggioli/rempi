@@ -369,47 +369,47 @@ export default function Page() {
         className="gap-4"
       >
         <div>
-          <Checkbox.Container>
-            <Checkbox.Check id="check-1" />
-            <Checkbox.Label htmlFor="check-1">teste</Checkbox.Label>
-          </Checkbox.Container>
+          <Checkbox.Label>
+            <Checkbox.Check />
+            teste
+          </Checkbox.Label>
 
-          <Checkbox.Container>
-            <Checkbox.Check id="check-2" disabled />
-            <Checkbox.Label htmlFor="check-2">teste</Checkbox.Label>
-          </Checkbox.Container>
+          <Checkbox.Label>
+            <Checkbox.Check disabled />
+            teste
+          </Checkbox.Label>
 
-          <Checkbox.Container>
-            <Checkbox.Check id="check-3" checked />
-            <Checkbox.Label htmlFor="check-3">teste</Checkbox.Label>
-          </Checkbox.Container>
+          <Checkbox.Label>
+            <Checkbox.Check defaultChecked />
+            teste
+          </Checkbox.Label>
 
-          <Checkbox.Container>
-            <Checkbox.Check id="check-4" checked disabled />
-            <Checkbox.Label htmlFor="check-4">teste</Checkbox.Label>
-          </Checkbox.Container>
+          <Checkbox.Label>
+            <Checkbox.Check defaultChecked disabled />
+            teste
+          </Checkbox.Label>
         </div>
 
         <div>
-          <Checkbox.Container>
-            <Checkbox.Label htmlFor="check-1-1">teste</Checkbox.Label>
-            <Checkbox.Check id="check-1-1" />
-          </Checkbox.Container>
+          <Checkbox.Label>
+            teste
+            <Checkbox.Check />
+          </Checkbox.Label>
 
-          <Checkbox.Container>
-            <Checkbox.Label htmlFor="check-2-1">teste</Checkbox.Label>
-            <Checkbox.Check id="check-2-1" disabled />
-          </Checkbox.Container>
+          <Checkbox.Label>
+            teste
+            <Checkbox.Check disabled />
+          </Checkbox.Label>
 
-          <Checkbox.Container>
-            <Checkbox.Label htmlFor="check-3-1">teste</Checkbox.Label>
-            <Checkbox.Check id="check-3-1" checked />
-          </Checkbox.Container>
+          <Checkbox.Label>
+            teste
+            <Checkbox.Check defaultChecked />
+          </Checkbox.Label>
 
-          <Checkbox.Container>
-            <Checkbox.Label htmlFor="check-4-1">teste</Checkbox.Label>
-            <Checkbox.Check id="check-4-1" checked disabled />
-          </Checkbox.Container>
+          <Checkbox.Label>
+            teste
+            <Checkbox.Check defaultChecked disabled />
+          </Checkbox.Label>
         </div>
       </Flex>
 
