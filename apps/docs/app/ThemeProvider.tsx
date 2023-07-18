@@ -21,7 +21,7 @@ export type ThemeProviderProps = {
 export const FriendlyThemeName: Record<string, string> = {
   "dark-theme": "Dark theme",
   "light-theme": "Light theme",
-  "indigo-pink-theme": "Indigo Pink theme"
+  "indigo-pink-theme": "Indigo Pink theme",
 };
 
 const darkTheme = createTheme("dark-theme", {});
@@ -105,18 +105,18 @@ const lightTheme = createTheme("light-theme", {
     info11: "#006adc",
     info12: "#00254d",
 
-    grey1: "#fdfcfd",
-    grey2: "#f9f8f9",
-    grey3: "#f4f2f4",
-    grey4: "#eeedef",
-    grey5: "#e9e8ea",
-    grey6: "#e4e2e4",
-    grey7: "#dcdbdd",
-    grey8: "#c8c7cb",
-    grey9: "#908e96",
-    grey10: "#86848d",
-    grey11: "#6f6e77",
-    grey12: "#1a1523",
+    grey1: "#fbfcfd",
+    grey2: "#f8f9fa",
+    grey3: "#f1f3f5",
+    grey4: "#eceef0",
+    grey5: "#e6e8eb",
+    grey6: "#dfe3e6",
+    grey7: "#d7dbdf",
+    grey8: "#c1c8cd",
+    grey9: "#889096",
+    grey10: "#7e868c",
+    grey11: "#687076",
+    grey12: "#11181c",
   },
 });
 const indigoPinkTheme = createTheme("indigo-pink-theme", {

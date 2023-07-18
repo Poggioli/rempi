@@ -21,9 +21,10 @@ import { Separator } from "@rempi-ui/separator";
 import { Slider } from "@rempi-ui/slider";
 import { Switch } from "@rempi-ui/switch";
 import { Tabs } from "@rempi-ui/tabs";
+import { Toggle } from "@rempi-ui/toggle";
 import { Tooltip } from "@rempi-ui/tooltip";
 import { Typography } from "@rempi-ui/typography";
-import { HelpCircle, SlidersHorizontal } from "lucide-react";
+import { HelpCircle, Italic, SlidersHorizontal } from "lucide-react";
 import { useContext, useState } from "react";
 import "./page.scss";
 import { FriendlyThemeName, ThemeProviderContext } from "./ThemeProvider";
@@ -847,6 +848,32 @@ export default function Page() {
             <Switch.Thumb disabled />
           </Switch.Label>
         </div>
+      </Flex>
+
+      <Separator className="margin-bt-8" />
+
+      <Flex
+        direction="row"
+        alignItems="center"
+        justifyContent="space-around"
+        wrap="wrap"
+        className="gap-4"
+      >
+        <Toggle>
+          <Italic size={16} />
+        </Toggle>
+
+        <Toggle defaultPressed>
+          <Italic size={16} />
+        </Toggle>
+
+        <Toggle disabled>
+          <Italic size={16} />
+        </Toggle>
+
+        <Toggle disabled defaultPressed>
+          <Italic size={16} />
+        </Toggle>
       </Flex>
 
       <Separator className="margin-bt-8" />

@@ -32,6 +32,7 @@
     "@rempi-ui/slider": "*",
     "@rempi-ui/switch": "*",
     "@rempi-ui/tabs": "*",
+    "@rempi-ui/toggle": "*",
     "@rempi-ui/tooltip": "*",
     "@rempi-ui/typography": "*",
     "lucide-react": "^0.258.0",
