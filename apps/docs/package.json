@@ -14,6 +14,7 @@
     "@rempi-ui/aspect-ratio": "*",
     "@rempi-ui/avatar": "*",
     "@rempi-ui/button": "*",
+    "@rempi-ui/card": "*",
     "@rempi-ui/checkbox": "*",
     "@rempi-ui/collpasible": "*",
     "@rempi-ui/container": "*",

@@ -5,6 +5,7 @@ import { AlertDialog } from "@rempi-ui/alert-dialog";
 import { AspectRatio } from "@rempi-ui/aspect-ratio";
 import { Avatar } from "@rempi-ui/avatar";
 import { Button, IconButton } from "@rempi-ui/button";
+import { Card } from "@rempi-ui/card";
 import { Checkbox } from "@rempi-ui/checkbox";
 import { Container } from "@rempi-ui/container";
 import { ContextMenu } from "@rempi-ui/context-menu";
@@ -24,7 +25,7 @@ import { Tabs } from "@rempi-ui/tabs";
 import { Toggle } from "@rempi-ui/toggle";
 import { Tooltip } from "@rempi-ui/tooltip";
 import { Typography } from "@rempi-ui/typography";
-import { HelpCircle, Italic, SlidersHorizontal } from "lucide-react";
+import { BellIcon, Check, HelpCircle, Italic, SlidersHorizontal } from "lucide-react";
 import { useContext, useState } from "react";
 import "./page.scss";
 import { FriendlyThemeName, ThemeProviderContext } from "./ThemeProvider";
@@ -848,6 +849,97 @@ export default function Page() {
             <Switch.Thumb disabled />
           </Switch.Label>
         </div>
+      </Flex>
+
+      <Separator className="margin-bt-8" />
+
+      <Flex
+        direction="row"
+        alignItems="center"
+        justifyContent="space-around"
+        wrap="wrap"
+        className="gap-4"
+      >
+        <Card.Root>
+          <Card.Header>
+            <Card.Title>Notifications</Card.Title>
+            <Card.Description>You have 3 unread messages.</Card.Description>
+          </Card.Header>
+          <Card.Content direction="column">
+            <Flex
+              alignItems="center"
+              className="gap-4 rounded-md border padding-4"
+            >
+              <BellIcon size={16} className="high-contrast" />
+              <Flex direction="column" className="gap-1">
+                <Typography
+                  fontSize="sm"
+                  fontWeight="semi-bold"
+                  color="high-contrast"
+                  lineHeight={1}
+                >
+                  Push Notifications
+                </Typography>
+                <Typography
+                  fontSize="sm"
+                  fontWeight="regular"
+                  color="low-contrast"
+                  lineHeight={1}
+                >
+                  Send notifications to device.
+                </Typography>
+              </Flex>
+              <Switch.Thumb />
+            </Flex>
+            <div>
+              {[
+                {
+                  title: "Your call has been confirmed.",
+                  description: "1 hour ago",
+                },
+                {
+                  title: "You have a new message!",
+                  description: "1 hour ago",
+                },
+                {
+                  title: "Your subscription is expiring soon!",
+                  description: "2 hours ago",
+                },
+              ].map((notification) => (
+                <Flex
+                  direction="row"
+                  alignItems="start"
+                  className="gap-3 margin-b-4 margin-b-4--last-child-0 padding-b-4 padding-b-4--last-child-0"
+                >
+                  <Typography className="pill info size-2 translate-y-1" />
+                  <Flex direction="column" className="gap-1">
+                    <Typography
+                      fontSize="sm"
+                      fontWeight="semi-bold"
+                      color="high-contrast"
+                      lineHeight={1}
+                    >
+                      {notification.title}
+                    </Typography>
+                    <Typography
+                      fontSize="sm"
+                      fontWeight="regular"
+                      color="low-contrast"
+                      lineHeight={1}
+                    >
+                      {notification.description}
+                    </Typography>
+                  </Flex>
+                </Flex>
+              ))}
+            </div>
+          </Card.Content>
+          <Card.Footer>
+            <Button className="full-width">
+              <Check size={16} className="mr-3" /> Mark all as read
+            </Button>
+          </Card.Footer>
+        </Card.Root>
       </Flex>
 
       <Separator className="margin-bt-8" />
