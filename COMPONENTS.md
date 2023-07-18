@@ -34,7 +34,7 @@
 - Table
 - Tabs - OK
 - Toast
-- Toggle
+- Toggle - OK
 - Toggle Group
 - Toolbar
 - Tooltip - OK
