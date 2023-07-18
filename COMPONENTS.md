@@ -5,7 +5,7 @@
 - Badge
 - Button - OK
 - Calendar
-- Card
+- Card - OK
 - Checkbox - OK
 - Collapsible - OK
 - Combobox

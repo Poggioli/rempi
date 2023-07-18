@@ -1,0 +1,38 @@
+@use '@rempi-ui/core/src/config/rempi-variables' as rempiVars;
+
+.rempi-card {
+  &__root {
+    background-color: rempiVars.$colors-grey-3;
+    border-radius: rempiVars.$radiis-2;
+
+    &--bordered {
+      border-color: rempiVars.$colors-grey-6;
+      border-style: solid;
+      border-width: rempiVars.$border-widths-1;
+    }
+  }
+
+  &__header {
+    gap: rempiVars.$spaces-1;
+    padding: rempiVars.$spaces-5;
+    width: 100%;
+  }
+
+  &__title {}
+
+  &__description {}
+
+  &__content {
+    gap: rempiVars.$spaces-6;
+    padding: rempiVars.$spaces-5;
+    padding-top: 0;
+    width: 100%;
+  }
+
+  &__footer {
+    padding: rempiVars.$spaces-5;
+    padding-top: 0;
+    width: 100%;
+    gap: rempiVars.$spaces-5;
+  }
+}
