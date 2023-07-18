@@ -1,6 +1,6 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import * as Avatar from "@radix-ui/react-avatar";
-import classnames from "classnames";
+import classNames from "classnames";
 import "./Avatar.scss";
 
 type AvatarSize = "small" | "standard" | "large";
@@ -24,10 +24,11 @@ export const AvatarRoot = forwardRef<typeof Avatar.Root, AvatarRootProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-avatar__root ${classnames(
+        className={classNames(
+          "rempi-avatar__root",
           avatarSizeClasses[size],
           className
-        )}`}
+        )}
       />
     );
   }
@@ -44,7 +45,7 @@ export const AvatarImage = forwardRef<typeof Avatar.Image, AvatarImageProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-avatar__image ${classnames(className)}`}
+        className={classNames("rempi-avatar__image", className)}
       />
     );
   }
@@ -63,7 +64,7 @@ export const AvatarFallback = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-avatar__fallback ${classnames(className)}`}
+      className={classNames("rempi-avatar__fallback", className)}
     />
   );
 });

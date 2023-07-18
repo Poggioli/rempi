@@ -1,6 +1,6 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import "./Accordion.scss";
 
 export type AccordionRootProps = HTMLRempiProps<typeof Accordion.Root> &
@@ -14,7 +14,7 @@ export const AccordionRoot = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-accordion ${classnames(className)}`}
+      className={classNames("rempi-accordion", className)}
     >
       {children}
     </Component>
@@ -34,7 +34,7 @@ export const AccordionItem = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-accordion__item ${classnames(className)}`}
+      className={classNames("rempi-accordion__item", className)}
     >
       {children}
     </Component>
@@ -58,7 +58,7 @@ export const AccordionHeader = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-accordion__header ${classnames(className)}`}
+        className={classNames("rempi-accordion__header", className)}
       >
         {children}
       </Component>
@@ -83,7 +83,7 @@ export const AccordionTrigger = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-accordion__trigger ${classnames(className)}`}
+        className={classNames("rempi-accordion__trigger", className)}
       >
         {children}
       </Component>
@@ -108,7 +108,7 @@ export const AccordionContent = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-accordion__content ${classnames(className)}`}
+        className={classNames("rempi-accordion__content", className)}
       >
         <div className="rempi-accordion__content__container">{children}</div>
       </Component>

@@ -1,6 +1,6 @@
 import * as HoverCard from "@radix-ui/react-hover-card";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import "./HoverCard.scss";
 
 export type HoverCardRootProps = HoverCard.HoverCardProps;
@@ -25,7 +25,7 @@ export const HoverCardTrigger = forwardRef<
         {...props}
         ref={ref}
         asChild={asChild}
-        className={`rempi-hover-card__trigger ${classnames(className)}`}
+        className={classNames("rempi-hover-card__trigger", className)}
       />
     );
   }
@@ -67,7 +67,7 @@ export const HoverCardContent = forwardRef<
           ref={ref}
           sideOffset={sideOffset}
           collisionPadding={collisionPadding}
-          className={`rempi-hover-card__content ${classnames(className)}`}
+          className={classNames("rempi-hover-card__content", className)}
         >
           {children}
         </Component>
@@ -89,7 +89,7 @@ export const HoverCardArrow = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-hover-card__arrow ${classnames(className)}`}
+      className={classNames("rempi-hover-card__arrow", className)}
     />
   );
 });

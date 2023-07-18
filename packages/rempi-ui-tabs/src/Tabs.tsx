@@ -11,7 +11,7 @@ export const TabsRoot = forwardRef<typeof Tabs.Root, TabsRootProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-tabs__root ${classNames(className)}`}
+        className={classNames("rempi-tabs__root", className)}
       />
     );
   }
@@ -28,7 +28,7 @@ export const TabsList = forwardRef<typeof Tabs.List, TabsListProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-tabs__list ${classNames(className)}`}
+        className={classNames("rempi-tabs__list", className)}
       />
     );
   }
@@ -45,7 +45,7 @@ export const TabsTrigger = forwardRef<typeof Tabs.Trigger, TabsTriggerProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-tabs__trigger ${classNames(className)}`}
+        className={classNames("rempi-tabs__trigger", className)}
       />
     );
   }
@@ -62,7 +62,7 @@ export const TabsContent = forwardRef<typeof Tabs.Content, TabsContentProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-tabs__content ${classNames(className)}`}
+        className={classNames("rempi-tabs__content", className)}
       />
     );
   }

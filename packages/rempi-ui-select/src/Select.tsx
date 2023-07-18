@@ -1,6 +1,6 @@
 import * as SelectRadix from "@radix-ui/react-select";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
 import "./Select.scss";
 
@@ -16,18 +16,23 @@ export type SelectTriggerProps = HTMLRempiProps<typeof SelectRadix.Trigger> &
 export const SelectTrigger = forwardRef<
   typeof SelectRadix.Trigger,
   SelectTriggerProps
->(({ className, children, as: Component = SelectRadix.Trigger, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      className={`rempi-select__trigger ${classnames(className)}`}
-    >
-      {children}
-      <SelectIcon />
-    </Component>
-  );
-});
+>(
+  (
+    { className, children, as: Component = SelectRadix.Trigger, ...props },
+    ref
+  ) => {
+    return (
+      <Component
+        {...props}
+        ref={ref}
+        className={classNames("rempi-select__trigger", className)}
+      >
+        {children}
+        <SelectIcon />
+      </Component>
+    );
+  }
+);
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -42,7 +47,7 @@ export const SelectValue = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-select__value ${classnames(className)}`}
+      className={classNames("rempi-select__value", className)}
     />
   );
 });
@@ -61,7 +66,7 @@ const SelectIcon = forwardRef<typeof SelectRadix.Icon, SelectIconProps>(
       <SelectRadix.Icon
         {...props}
         ref={ref}
-        className={`rempi-select__icon ${classnames(className)}`}
+        className={classNames("rempi-select__icon", className)}
       >
         <ChevronDown size={18} />
       </SelectRadix.Icon>
@@ -93,7 +98,7 @@ export const SelectContent = forwardRef<
       <SelectRadix.Content
         {...props}
         ref={ref}
-        className={`rempi-select__content ${classnames(className)}`}
+        className={classNames("rempi-select__content", className)}
       >
         <SelectScrollUpButton />
         {children}
@@ -116,7 +121,7 @@ export const SelectViewport = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-select__view-port ${classnames(className)}`}
+      className={classNames("rempi-select__view-port", className)}
     />
   );
 });
@@ -135,7 +140,7 @@ export const SelectItem = forwardRef<typeof SelectRadix.Item, SelectItemProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-select__item ${classnames(className)}`}
+        className={classNames("rempi-select__item", className)}
       >
         <SelectItemIndicator />
         <SelectItemText>{children}</SelectItemText>
@@ -157,7 +162,7 @@ const SelectItemText = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-select__item-text ${classnames(className)}`}
+      className={classNames("rempi-select__item-text", className)}
     />
   );
 });
@@ -178,7 +183,7 @@ const SelectItemIndicator = forwardRef<
     <SelectRadix.ItemIndicator
       {...props}
       ref={ref}
-      className={`rempi-select__item-indicator ${classnames(className)}`}
+      className={classNames("rempi-select__item-indicator", className)}
     >
       <Check size={12} />
     </SelectRadix.ItemIndicator>
@@ -201,7 +206,7 @@ const SelectScrollUpButton = forwardRef<
     <SelectRadix.ScrollUpButton
       {...props}
       ref={ref}
-      className={`rempi-select__scroll-up-button ${classnames(className)}`}
+      className={classNames("rempi-select__scroll-up-button", className)}
     >
       <ChevronUp size={18} />
     </SelectRadix.ScrollUpButton>
@@ -224,7 +229,7 @@ const SelectScrollDownButton = forwardRef<
     <SelectRadix.ScrollDownButton
       {...props}
       ref={ref}
-      className={`rempi-select__scroll-down-button ${classnames(className)}`}
+      className={classNames("rempi-select__scroll-down-button", className)}
     >
       <ChevronDown size={18} />
     </SelectRadix.ScrollDownButton>
@@ -250,7 +255,7 @@ export const SelectLabel = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-select__label ${classnames(className)}`}
+      className={classNames("rempi-select__label", className)}
     />
   );
 });
@@ -270,7 +275,7 @@ export const SelectSeparator = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-select__separator ${classnames(className)}`}
+      className={classNames("rempi-select__separator", className)}
     />
   );
 });

@@ -1,5 +1,5 @@
 import { HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import { forwardRef } from "react";
 import "./Flex.scss";
 
@@ -206,7 +206,8 @@ export const Flex = forwardRef<"div", FlexProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-flex ${classnames(
+        className={classNames(
+          "rempi-flex",
           flexDirectionClasses[direction],
           flexAlignItemsClasses[alignItems],
           flexJustifyContentClasses[justifyContent],
@@ -214,7 +215,7 @@ export const Flex = forwardRef<"div", FlexProps>(
           alignContents && flexAlignContentClasses[alignContents],
           alignSelf && flexAlignSelfClasses[alignSelf],
           className
-        )}`}
+        )}
       >
         {children}
       </Component>

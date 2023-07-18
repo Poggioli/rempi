@@ -1,6 +1,6 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import * as AspectRatioRadix from "@radix-ui/react-aspect-ratio";
-import classnames from "classnames";
+import classNames from "classnames";
 import "./AspectRatio.scss";
 
 export type AspectRatioProps = HTMLRempiProps<typeof AspectRatioRadix.Root> &
@@ -24,7 +24,7 @@ export const AspectRatio = forwardRef<
         {...props}
         ratio={ratio}
         ref={ref}
-        className={`rempi-aspect-ratio ${classnames(className)}`}
+        className={classNames("rempi-aspect-ratio", className)}
       />
     );
   }

@@ -1,6 +1,6 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import * as ProgressRadix from "@radix-ui/react-progress";
-import classnames from "classnames";
+import classNames from "classnames";
 import "./Progress.scss";
 
 type Size = "small" | "standard" | "large";
@@ -26,7 +26,7 @@ export const Progress = forwardRef<typeof ProgressRadix.Root, ProgressProps>(
         value={value}
         max={max}
         ref={ref}
-        className={`rempi-progress ${classnames(sizeClasses[size], className)}`}
+        className={classNames("rempi-progress", sizeClasses[size], className)}
       >
         <ProgressRadix.Indicator
           className="rempi-progress__bar"

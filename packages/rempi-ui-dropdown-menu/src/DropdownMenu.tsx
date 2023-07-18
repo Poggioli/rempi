@@ -1,6 +1,6 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import { Check, Dot } from "lucide-react";
 import "./DropdownMenu.scss";
 
@@ -18,16 +18,26 @@ export type DropdownMenuTriggerProps = HTMLRempiProps<
 export const DropdownMenuTrigger = forwardRef<
   typeof DropdownMenu.Trigger,
   DropdownMenuTriggerProps
->(({ className, as: Component = DropdownMenu.Trigger, asChild = true, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      asChild={asChild}
-      className={`rempi-dropdown-menu__trigger ${classnames(className)}`}
-    />
-  );
-});
+>(
+  (
+    {
+      className,
+      as: Component = DropdownMenu.Trigger,
+      asChild = true,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <Component
+        {...props}
+        ref={ref}
+        asChild={asChild}
+        className={classNames("rempi-dropdown-menu__trigger", className)}
+      />
+    );
+  }
+);
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -67,7 +77,7 @@ export const DropdownMenuContent = forwardRef<
           ref={ref}
           sideOffset={sideOffset}
           collisionPadding={collisionPadding}
-          className={`rempi-dropdown-menu__content ${classnames(className)}`}
+          className={classNames("rempi-dropdown-menu__content", className)}
         >
           {children}
         </Component>
@@ -89,7 +99,7 @@ export const DropdownMenuItem = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-dropdown-menu__item ${classnames(className)}`}
+      className={classNames("rempi-dropdown-menu__item", className)}
     />
   );
 });
@@ -113,7 +123,7 @@ export const DropdownMenuLabel = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-dropdown-menu__label ${classnames(className)}`}
+      className={classNames("rempi-dropdown-menu__label", className)}
     />
   );
 });
@@ -142,9 +152,7 @@ export const DropdownMenuCheckboxItem = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-dropdown-menu__checkbox-item ${classnames(
-          className
-        )}`}
+        className={classNames("rempi-dropdown-menu__checkbox-item", className)}
       >
         <DropdownMenuItemIndicator>
           <Check size={12} />
@@ -170,7 +178,7 @@ export const DropdownMenuRadioGroup = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-dropdown-menu__radio-group ${classnames(className)}`}
+      className={classNames("rempi-dropdown-menu__radio-group", className)}
     />
   );
 });
@@ -194,7 +202,7 @@ export const DropdownMenuRadioItem = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-dropdown-menu__radio-item ${classnames(className)}`}
+        className={classNames("rempi-dropdown-menu__radio-item", className)}
       >
         <DropdownMenuItemIndicator>
           <Dot size={24} />
@@ -221,7 +229,7 @@ const DropdownMenuItemIndicator = forwardRef<
     <DropdownMenu.ItemIndicator
       {...props}
       ref={ref}
-      className={`rempi-dropdown-menu__item-indicator ${classnames(className)}`}
+      className={classNames("rempi-dropdown-menu__item-indicator", className)}
     />
   );
 });
@@ -241,7 +249,7 @@ export const DropdownMenuSeparator = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-dropdown-menu__separator ${classnames(className)}`}
+      className={classNames("rempi-dropdown-menu__separator", className)}
     />
   );
 });
@@ -267,9 +275,10 @@ export const DropdownMenuSubMenuTrigger = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-dropdown-menu__sub-menu__trigger ${classnames(
+      className={classNames(
+        "rempi-dropdown-menu__sub-menu__trigger",
         className
-      )}`}
+      )}
     />
   );
 });
@@ -302,9 +311,10 @@ export const DropdownMenuSubMenuContent = forwardRef<
         <Component
           {...props}
           ref={ref}
-          className={`rempi-dropdown-menu__sub-menu__content ${classnames(
+          className={classNames(
+            "rempi-dropdown-menu__sub-menu__content",
             className
-          )}`}
+          )}
         >
           {children}
         </Component>

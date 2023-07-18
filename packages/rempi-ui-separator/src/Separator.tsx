@@ -1,6 +1,6 @@
 import * as SeparatorRadix from "@radix-ui/react-separator";
 import { HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import { forwardRef } from "react";
 import "./Separator.scss";
 
@@ -12,7 +12,7 @@ export const Separator = forwardRef<typeof SeparatorRadix.Root, SeparatorProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-separator ${classnames(className)}`}
+        className={classNames("rempi-separator", className)}
       />
     );
   }

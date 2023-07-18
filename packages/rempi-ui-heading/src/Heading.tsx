@@ -1,5 +1,5 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import "./Heading.scss";
 
 type HeadingSize = "2xsm" | "xsm" | "sm" | "md" | "lg" | "xlg";
@@ -86,7 +86,8 @@ export const Heading = forwardRef<"h1", HeadingProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-heading ${classnames(
+        className={classNames(
+          "rempi-heading",
           headingVariantClasses[variant],
           color && headingColorClasses[color],
           fontSize && headingSizeClasses[fontSize],
@@ -94,7 +95,7 @@ export const Heading = forwardRef<"h1", HeadingProps>(
           lineHeight && headingLineHeightClasses[lineHeight],
           align && headingAlignClasses[align],
           className
-        )}`}
+        )}
       >
         {children}
       </Component>

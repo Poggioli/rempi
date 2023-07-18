@@ -1,7 +1,7 @@
 import * as Switch from "@radix-ui/react-switch";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { Label, LabelContext, LabelProps } from "@rempi-ui/label";
-import classnames from "classnames";
+import classNames from "classnames";
 import { useContext, useEffect } from "react";
 import "./Switch.scss";
 
@@ -43,7 +43,7 @@ export const SwitchRoot = forwardRef<typeof Switch.Root, SwitchRootProps>(
         {...props}
         onCheckedChange={handleOnCheckedChange}
         ref={ref}
-        className={`rempi-switch__root ${classnames(className)}`}
+        className={classNames("rempi-switch__root", className)}
       >
         <SwitchThumb />
       </Switch.Root>

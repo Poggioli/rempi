@@ -31,7 +31,7 @@ export const TooltipTrigger = forwardRef<
         {...props}
         ref={ref}
         asChild={asChild}
-        className={`rempi-tooltip__trigger ${classNames(className)}`}
+        className={classNames("rempi-tooltip__trigger", className)}
       />
     );
   }
@@ -71,7 +71,7 @@ export const TooltipContent = forwardRef<
           {...props}
           ref={ref}
           sideOffset={sideOffset}
-          className={`rempi-tooltip__content ${classNames(className)}`}
+          className={classNames("rempi-tooltip__content", className)}
         >
           {children}
         </Component>
@@ -91,7 +91,7 @@ export const TooltipArrow = forwardRef<typeof Tooltip.Arrow, TooltipArrowProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-tooltip__arrow ${classNames(className)}`}
+        className={classNames("rempi-tooltip__arrow", className)}
       />
     );
   }

@@ -1,6 +1,6 @@
 import * as ContextMenu from "@radix-ui/react-context-menu";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import { Check, Dot } from "lucide-react";
 import "./ContextMenu.scss";
 
@@ -23,7 +23,7 @@ export const ContextMenuTrigger = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-context-menu__trigger ${classnames(className)}`}
+      className={classNames("rempi-context-menu__trigger", className)}
     />
   );
 });
@@ -64,7 +64,7 @@ export const ContextMenuContent = forwardRef<
           {...props}
           ref={ref}
           collisionPadding={collisionPadding}
-          className={`rempi-context-menu__content ${classnames(className)}`}
+          className={classNames("rempi-context-menu__content", className)}
         >
           {children}
         </Component>
@@ -86,7 +86,7 @@ export const ContextMenuItem = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-context-menu__item ${classnames(className)}`}
+      className={classNames("rempi-context-menu__item", className)}
     />
   );
 });
@@ -110,7 +110,7 @@ export const ContextMenuLabel = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-context-menu__label ${classnames(className)}`}
+      className={classNames("rempi-context-menu__label", className)}
     />
   );
 });
@@ -134,7 +134,7 @@ export const ContextMenuCheckboxItem = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-context-menu__checkbox-item ${classnames(className)}`}
+        className={classNames("rempi-context-menu__checkbox-item", className)}
       >
         <ContextMenuItemIndicator>
           <Check size={12} />
@@ -160,7 +160,7 @@ export const ContextMenuRadioGroup = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-context-menu__radio-group ${classnames(className)}`}
+      className={classNames("rempi-context-menu__radio-group", className)}
     />
   );
 });
@@ -184,7 +184,7 @@ export const ContextMenuRadioItem = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-context-menu__radio-item ${classnames(className)}`}
+        className={classNames("rempi-context-menu__radio-item", className)}
       >
         <ContextMenuItemIndicator>
           <Dot size={24} />
@@ -211,7 +211,7 @@ const ContextMenuItemIndicator = forwardRef<
     <ContextMenu.ItemIndicator
       {...props}
       ref={ref}
-      className={`rempi-context-menu__item-indicator ${classnames(className)}`}
+      className={classNames("rempi-context-menu__item-indicator", className)}
     />
   );
 });
@@ -231,7 +231,7 @@ export const ContextMenuSeparator = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-context-menu__separator ${classnames(className)}`}
+      className={classNames("rempi-context-menu__separator", className)}
     />
   );
 });
@@ -257,9 +257,7 @@ export const ContextMenuSubMenuTrigger = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-context-menu__sub-menu__trigger ${classnames(
-        className
-      )}`}
+      className={classNames("rempi-context-menu__sub-menu__trigger", className)}
     />
   );
 });
@@ -292,9 +290,10 @@ export const ContextMenuSubMenuContent = forwardRef<
         <Component
           {...props}
           ref={ref}
-          className={`rempi-context-menu__sub-menu__content ${classnames(
+          className={classNames(
+            "rempi-context-menu__sub-menu__content",
             className
-          )}`}
+          )}
         >
           {children}
         </Component>

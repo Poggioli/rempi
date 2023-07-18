@@ -1,6 +1,6 @@
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import "./AlertDialog.scss";
 
 export type AlertDialogRootProps = AlertDialog.AlertDialogProps;
@@ -33,7 +33,7 @@ export const AlertDialogTrigger = forwardRef<
         {...props}
         ref={ref}
         asChild={asChild}
-        className={`rempi-alert-dialog__trigger ${classnames(className)}`}
+        className={classNames("rempi-alert-dialog__trigger", className)}
       >
         {children}
       </Component>
@@ -58,7 +58,7 @@ export const AlertDialogPortal = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-alert-dialog__portal ${classnames(className)}`}
+        className={classNames("rempi-alert-dialog__portal", className)}
       >
         {children}
       </Component>
@@ -93,10 +93,11 @@ export const AlertDialogOverlay = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-alert-dialog__overlay ${classnames(
+        className={classNames(
+          "rempi-alert-dialog__overlay",
           { "rempi-alert-dialog__overlay--blured": blur },
           className
-        )}`}
+        )}
       >
         {children}
       </Component>
@@ -123,7 +124,7 @@ export const AlertDialogContent = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-alert-dialog__content ${classnames(className)}`}
+        className={classNames("rempi-alert-dialog__content", className)}
       >
         {children}
       </Component>
@@ -155,7 +156,7 @@ export const AlertDialogCancel = forwardRef<
         {...props}
         ref={ref}
         asChild={asChild}
-        className={`rempi-alert-dialog__cancel ${classnames(className)}`}
+        className={classNames("rempi-alert-dialog__cancel", className)}
       >
         {children}
       </Component>
@@ -187,7 +188,7 @@ export const AlertDialogAction = forwardRef<
         {...props}
         ref={ref}
         asChild={asChild}
-        className={`rempi-alert-dialog__action ${classnames(className)}`}
+        className={classNames("rempi-alert-dialog__action ", className)}
       >
         {children}
       </Component>
@@ -212,7 +213,7 @@ export const AlertDialogTitle = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-alert-dialog__title ${classnames(className)}`}
+        className={classNames("rempi-alert-dialog__title", className)}
       >
         {children}
       </Component>
@@ -239,7 +240,7 @@ export const AlertDialogDescription = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-alert-dialog__description ${classnames(className)}`}
+        className={classNames("rempi-alert-dialog__description", className)}
       >
         {children}
       </Component>
@@ -257,7 +258,7 @@ export const AlertDialogFooter = forwardRef<"div", AlertDialogFooterProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-alert-dialog__footer ${classnames(className)}`}
+        className={classNames("rempi-alert-dialog__footer", className)}
       >
         {children}
       </Component>

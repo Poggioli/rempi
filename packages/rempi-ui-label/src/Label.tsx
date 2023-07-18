@@ -1,7 +1,7 @@
 import * as LabelRadix from "@radix-ui/react-label";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { Flex, FlexProps } from "@rempi-ui/flex";
-import classnames from "classnames";
+import classNames from "classnames";
 import { createContext, Dispatch, SetStateAction, useState } from "react";
 import "./Label.scss";
 
@@ -31,7 +31,7 @@ export const Label = forwardRef<typeof LabelRadix.Root, LabelProps>(
           direction={direction}
           as="label"
           ref={ref}
-          className={`rempi-label ${classnames(className)}`}
+          className={classNames("rempi-label", className)}
         >
           {children}
         </Flex>

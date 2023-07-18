@@ -1,7 +1,7 @@
 import * as Radio from "@radix-ui/react-radio-group";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { Label, LabelContext, LabelProps } from "@rempi-ui/label";
-import classnames from "classnames";
+import classNames from "classnames";
 import { useContext, useEffect } from "react";
 import "./Radio.scss";
 
@@ -14,7 +14,7 @@ export const RadioRoot = forwardRef<typeof Radio.Root, RadioRootProps>(
       <Radio.Root
         {...props}
         ref={ref}
-        className={`rempi-radio ${classnames(className)}`}
+        className={classNames("rempi-radio", className)}
       />
     );
   }
@@ -42,7 +42,7 @@ export const RadioItem = forwardRef<typeof Radio.Item, RadioItemProps>(
       <Radio.Item
         {...props}
         ref={ref}
-        className={`rempi-radio__item ${classnames(className)}`}
+        className={classNames("rempi-radio__item", className)}
       >
         <Radio.Indicator
           forceMount={forceMount}

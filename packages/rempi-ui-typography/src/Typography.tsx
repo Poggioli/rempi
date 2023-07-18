@@ -1,5 +1,5 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import "./Typography.scss";
 
 type TypographySize = "2xsm" | "xsm" | "sm" | "md" | "lg" | "xlg";
@@ -94,7 +94,8 @@ export const Typography = forwardRef<"span", TypographyProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-typography ${classnames(
+        className={classNames(
+          "rempi-typography",
           typographyVariantClasses[variant],
           color && typographyColorClasses[color],
           fontSize && typographySizeClasses[fontSize],
@@ -103,7 +104,7 @@ export const Typography = forwardRef<"span", TypographyProps>(
           align && typographyAlignClasses[align],
           { "rempi-typography--truncated": isTruncated },
           className
-        )}`}
+        )}
       >
         {children}
       </Component>

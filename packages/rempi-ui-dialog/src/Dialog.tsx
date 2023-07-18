@@ -1,6 +1,6 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import { X } from "lucide-react";
 import "./Dialog.scss";
 
@@ -32,7 +32,7 @@ export const DialogTrigger = forwardRef<
         {...props}
         ref={ref}
         asChild={asChild}
-        className={`rempi-dialog__trigger ${classnames(className)}`}
+        className={classNames("rempi-dialog__trigger", className)}
       >
         {children}
       </Component>
@@ -51,7 +51,7 @@ export const DialogPortal = forwardRef<typeof Dialog.Portal, DialogPortalProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-dialog__portal ${classnames(className)}`}
+        className={classNames("rempi-dialog__portal", className)}
       >
         {children}
       </Component>
@@ -78,10 +78,11 @@ export const DialogOverlay = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-dialog__overlay ${classnames(
+        className={classNames(
+          "rempi-dialog__overlay",
           { "rempi-dialog__overlay--blured": blur },
           className
-        )}`}
+        )}
       >
         {children}
       </Component>
@@ -102,7 +103,7 @@ export const DialogContent = forwardRef<
     <Component
       {...props}
       ref={ref}
-      className={`rempi-dialog__content ${classnames(className)}`}
+      className={classNames("rempi-dialog__content", className)}
     >
       {children}
     </Component>
@@ -130,7 +131,7 @@ export const DialogClose = forwardRef<typeof Dialog.Close, DialogCloseProps>(
         {...props}
         ref={ref}
         asChild={asChild}
-        className={`rempi-dialog__close ${classnames(className)}`}
+        className={classNames("rempi-dialog__close", className)}
       >
         {children}
       </Component>
@@ -152,7 +153,7 @@ export const DialogCloseCross = forwardRef<
     <Dialog.Close
       {...props}
       ref={ref}
-      className={`rempi-dialog__close-cross ${classnames(className)}`}
+      className={classNames("rempi-dialog__close-cross", className)}
     >
       <X size={18} />
     </Dialog.Close>
@@ -170,7 +171,7 @@ export const DialogTitle = forwardRef<typeof Dialog.Title, DialogTitleProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-dialog__title ${classnames(className)}`}
+        className={classNames("rempi-dialog__title", className)}
       >
         {children}
       </Component>
@@ -195,7 +196,7 @@ export const DialogDescription = forwardRef<
       <Component
         {...props}
         ref={ref}
-        className={`rempi-dialog__description ${classnames(className)}`}
+        className={classNames("rempi-dialog__description", className)}
       >
         {children}
       </Component>
@@ -213,7 +214,7 @@ export const DialogFooter = forwardRef<"div", DialogFooterProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-dialog__footer ${classnames(className)}`}
+        className={classNames("rempi-dialog__footer", className)}
       >
         {children}
       </Component>

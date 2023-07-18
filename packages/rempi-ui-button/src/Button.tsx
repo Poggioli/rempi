@@ -1,5 +1,5 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import "./Button.scss";
 
 type ButtonSize = "small" | "standard" | "large";
@@ -60,14 +60,15 @@ export const Button = forwardRef<"button", ButtonProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-button ${classnames(
+        className={classNames(
+          "rempi-button",
           buttonSizeClasses[buttonSize],
           buttonVariantClasses[variant],
           buttonShapeClasses[shape],
           buttonColorClasses[color],
           { "rempi-button--is-upercase": upperCase },
           className
-        )}`}
+        )}
       >
         {children}
       </Component>
@@ -84,7 +85,11 @@ export type IconButtonProps = ButtonProps & {
 export const IconButton = forwardRef<"button", IconButtonProps>(
   ({ children, className, ...props }, ref) => {
     return (
-      <Button {...props} ref={ref} className={`rempi-button--icon ${className}`}>
+      <Button
+        {...props}
+        ref={ref}
+        className={classNames("rempi-button--icon", className)}
+      >
         {children}
       </Button>
     );

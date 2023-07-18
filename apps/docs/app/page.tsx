@@ -461,7 +461,7 @@ export default function Page() {
         alignItems="center"
         className="gap-4"
       >
-        <Tabs.Root defaultValue="photos">
+        <Tabs.Root defaultValue="photos" className="max-w-600">
           <Tabs.List>
             <Tabs.Trigger value="photos">Photos</Tabs.Trigger>
             <Tabs.Trigger value="description">Description</Tabs.Trigger>

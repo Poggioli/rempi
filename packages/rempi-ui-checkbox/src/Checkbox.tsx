@@ -1,7 +1,7 @@
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { Label, LabelContext, LabelProps } from "@rempi-ui/label";
-import classnames from "classnames";
+import classNames from "classnames";
 import { Check } from "lucide-react";
 import { useContext, useEffect } from "react";
 import "./Checkbox.scss";
@@ -45,7 +45,7 @@ export const CheckboxRoot = forwardRef<typeof Checkbox.Root, CheckboxRootProps>(
         {...props}
         onCheckedChange={handleOnCheckedChange}
         ref={ref}
-        className={`rempi-checkbox__check ${classnames(className)}`}
+        className={classNames("rempi-checkbox__check", className)}
       >
         <Checkbox.Indicator
           className="rempi-checkbox__indicator"

@@ -1,5 +1,5 @@
 import { HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import { forwardRef } from "react";
 import "./Container.scss";
 
@@ -34,11 +34,12 @@ export const Container = forwardRef<"div", ContainerProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-container ${classnames(
+        className={classNames(
+          "rempi-container",
           variant && containerVariantClasses[variant],
           { "rempi-container--centered": centered },
           className
-        )}`}
+        )}
       >
         {children}
       </Component>

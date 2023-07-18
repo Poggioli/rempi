@@ -1,6 +1,6 @@
 import * as Popover from "@radix-ui/react-popover";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import { X } from "lucide-react";
 import "./Popover.scss";
 
@@ -26,7 +26,7 @@ export const PopoverTrigger = forwardRef<
         {...props}
         ref={ref}
         asChild={asChild}
-        className={`rempi-popover__trigger ${classnames(className)}`}
+        className={classNames("rempi-popover__trigger", className)}
       />
     );
   }
@@ -68,7 +68,7 @@ export const PopoverContent = forwardRef<
           ref={ref}
           sideOffset={sideOffset}
           collisionPadding={collisionPadding}
-          className={`rempi-popover__content ${classnames(className)}`}
+          className={classNames("rempi-popover__content", className)}
         >
           {children}
         </Component>
@@ -88,7 +88,7 @@ export const PopoverArrow = forwardRef<typeof Popover.Arrow, PopoverArrowProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-popover__arrow ${classnames(className)}`}
+        className={classNames("rempi-popover__arrow", className)}
       />
     );
   }
@@ -115,7 +115,7 @@ export const PopoverClose = forwardRef<typeof Popover.Close, PopoverCloseProps>(
         {...props}
         ref={ref}
         asChild={asChild}
-        className={`rempi-popover__close ${classnames(className)}`}
+        className={classNames("rempi-popover__close", className)}
       >
         {children}
       </Component>
@@ -137,7 +137,7 @@ export const PopoverCloseCross = forwardRef<
     <Popover.Close
       {...props}
       ref={ref}
-      className={`rempi-popover__close-cross ${classnames(className)}`}
+      className={classNames("rempi-popover__close-cross", className)}
     >
       <X size={18} />
     </Popover.Close>

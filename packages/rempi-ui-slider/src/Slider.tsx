@@ -1,6 +1,6 @@
 import * as Slider from "@radix-ui/react-slider";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classnames from "classnames";
+import classNames from "classnames";
 import "./Slider.scss";
 
 export type SliderRootProps = HTMLRempiProps<typeof Slider.Root> &
@@ -12,7 +12,7 @@ export const SliderRoot = forwardRef<typeof Slider.Root, SliderRootProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-slider ${classnames(className)}`}
+        className={classNames("rempi-slider", className)}
       >
         <SliderTrack>
           <SliderRange />
@@ -63,7 +63,7 @@ export const SliderThumb = forwardRef<typeof Slider.Thumb, SliderThumbProps>(
       <Component
         {...props}
         ref={ref}
-        className={`rempi-slider__thumb ${classnames(className)}`}
+        className={classNames("rempi-slider__thumb", className)}
       />
     );
   }
