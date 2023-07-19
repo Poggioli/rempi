@@ -20,7 +20,7 @@
 - Hover Card - OK
 - Input - OK
 - Label - OK
-- Menubar
+- Menubar - OK
 - Navigation Menu
 - Popover - OK
 - Progress - OK
