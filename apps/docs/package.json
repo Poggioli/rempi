@@ -26,6 +26,7 @@
     "@rempi-ui/heading": "*",
     "@rempi-ui/hover-card": "*",
     "@rempi-ui/input": "*",
+    "@rempi-ui/menubar": "*",
     "@rempi-ui/popover": "*",
     "@rempi-ui/progress": "*",
     "@rempi-ui/radio": "*",
