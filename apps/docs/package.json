@@ -30,6 +30,7 @@
     "@rempi-ui/radio": "*",
     "@rempi-ui/select": "*",
     "@rempi-ui/separator": "*",
+    "@rempi-ui/skeleton": "*",
     "@rempi-ui/slider": "*",
     "@rempi-ui/switch": "*",
     "@rempi-ui/tabs": "*",

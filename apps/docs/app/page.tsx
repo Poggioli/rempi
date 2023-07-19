@@ -29,6 +29,7 @@ import { BellIcon, Check, HelpCircle, Italic, SlidersHorizontal } from "lucide-r
 import { useContext, useState } from "react";
 import "./page.scss";
 import { FriendlyThemeName, ThemeProviderContext } from "./ThemeProvider";
+import { Skeleton } from "@rempi-ui/skeleton";
 
 export default function Page() {
   const { availableThemes, setTheme } = useContext(ThemeProviderContext);
@@ -905,8 +906,9 @@ export default function Page() {
                   title: "Your subscription is expiring soon!",
                   description: "2 hours ago",
                 },
-              ].map((notification) => (
+              ].map((notification, index) => (
                 <Flex
+                  key={index}
                   direction="row"
                   alignItems="start"
                   className="gap-3 margin-b-4 margin-b-4--last-child-0 padding-b-4 padding-b-4--last-child-0"
@@ -938,6 +940,145 @@ export default function Page() {
             <Button className="full-width">
               <Check size={16} className="mr-3" /> Mark all as read
             </Button>
+          </Card.Footer>
+        </Card.Root>
+
+        <Card.Root bordered={false}>
+          <Card.Header>
+            <Card.Title>Notifications</Card.Title>
+            <Card.Description>You have 3 unread messages.</Card.Description>
+          </Card.Header>
+          <Card.Content direction="column">
+            <Flex
+              alignItems="center"
+              className="gap-4 rounded-md border padding-4"
+            >
+              <BellIcon size={16} className="high-contrast" />
+              <Flex direction="column" className="gap-1">
+                <Typography
+                  fontSize="sm"
+                  fontWeight="semi-bold"
+                  color="high-contrast"
+                  lineHeight={1}
+                >
+                  Push Notifications
+                </Typography>
+                <Typography
+                  fontSize="sm"
+                  fontWeight="regular"
+                  color="low-contrast"
+                  lineHeight={1}
+                >
+                  Send notifications to device.
+                </Typography>
+              </Flex>
+              <Switch.Thumb />
+            </Flex>
+            <div>
+              {[
+                {
+                  title: "Your call has been confirmed.",
+                  description: "1 hour ago",
+                },
+                {
+                  title: "You have a new message!",
+                  description: "1 hour ago",
+                },
+                {
+                  title: "Your subscription is expiring soon!",
+                  description: "2 hours ago",
+                },
+              ].map((notification, index) => (
+                <Flex
+                  key={index}
+                  direction="row"
+                  alignItems="start"
+                  className="gap-3 margin-b-4 margin-b-4--last-child-0 padding-b-4 padding-b-4--last-child-0"
+                >
+                  <Typography className="pill info size-2 translate-y-1" />
+                  <Flex direction="column" className="gap-1">
+                    <Typography
+                      fontSize="sm"
+                      fontWeight="semi-bold"
+                      color="high-contrast"
+                      lineHeight={1}
+                    >
+                      {notification.title}
+                    </Typography>
+                    <Typography
+                      fontSize="sm"
+                      fontWeight="regular"
+                      color="low-contrast"
+                      lineHeight={1}
+                    >
+                      {notification.description}
+                    </Typography>
+                  </Flex>
+                </Flex>
+              ))}
+            </div>
+          </Card.Content>
+          <Card.Footer>
+            <Button className="full-width">
+              <Check size={16} className="mr-3" /> Mark all as read
+            </Button>
+          </Card.Footer>
+        </Card.Root>
+
+        <Card.Root>
+          <Card.Header>
+            <Skeleton style={{
+              height: '16px',
+              width: '115px',
+              borderRadius: '4px'
+            }} />
+            <Skeleton style={{
+              height: '21px',
+              width: '220px',
+              borderRadius: '4px'
+            }} />
+          </Card.Header>
+          <Card.Content direction="column">
+            <Skeleton style={{
+              height: '71px',
+              width: '330px',
+              borderRadius: '4px'
+            }} />
+            <div>
+              {Array(3).fill(0).map((_, index) => (
+                <Flex
+                  key={index}
+                  direction="row"
+                  alignItems="start"
+                  className="gap-3 margin-b-4 margin-b-4--last-child-0 padding-b-4 padding-b-4--last-child-0"
+                >
+                  <Skeleton style={{
+                    height: '8px',
+                    width: '8px',
+                    borderRadius: '4px'
+                  }} />
+                  <Flex direction="column" className="gap-1">
+                    <Skeleton style={{
+                      height: '16px',
+                      width: '220px',
+                      borderRadius: '4px'
+                    }} />
+                    <Skeleton style={{
+                      height: '16px',
+                      width: '80px',
+                      borderRadius: '4px'
+                    }} />
+                  </Flex>
+                </Flex>
+              ))}
+            </div>
+          </Card.Content>
+          <Card.Footer>
+            <Skeleton style={{
+              height: '34px',
+              width: '100%',
+              borderRadius: '4px'
+            }} />
           </Card.Footer>
         </Card.Root>
       </Flex>

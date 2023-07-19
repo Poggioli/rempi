@@ -28,7 +28,7 @@
 - Scroll Area
 - Select - OK
 - Separator - OK
-- Skeleton
+- Skeleton - OK
 - Slider - OK
 - Switch - OK
 - Table

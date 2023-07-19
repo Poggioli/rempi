@@ -1,0 +1,14 @@
+@use '@rempi-ui/core/src/config/rempi-variables' as rempiVars;
+
+@keyframes pulse {
+  50% {
+    opacity: .5
+  }
+}
+
+.rempi-skeleton {
+  box-sizing: border-box;
+  display: flex;
+  background-color: rempiVars.$colors-grey-6;
+  animation: pulse 2s cubic-bezier(.4,0,.6,1) infinite;
+}
