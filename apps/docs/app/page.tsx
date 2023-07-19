@@ -25,11 +25,18 @@ import { Tabs } from "@rempi-ui/tabs";
 import { Toggle } from "@rempi-ui/toggle";
 import { Tooltip } from "@rempi-ui/tooltip";
 import { Typography } from "@rempi-ui/typography";
-import { BellIcon, Check, HelpCircle, Italic, SlidersHorizontal } from "lucide-react";
+import {
+  BellIcon,
+  Check,
+  HelpCircle,
+  Italic,
+  SlidersHorizontal,
+} from "lucide-react";
 import { useContext, useState } from "react";
 import "./page.scss";
 import { FriendlyThemeName, ThemeProviderContext } from "./ThemeProvider";
 import { Skeleton } from "@rempi-ui/skeleton";
+import { Input } from "@rempi-ui/input";
 
 export default function Page() {
   const { availableThemes, setTheme } = useContext(ThemeProviderContext);
@@ -276,6 +283,37 @@ export default function Page() {
                   Make changes to your profile here. Click save when you're
                   done.
                 </Dialog.Description>
+                <Flex
+                  direction="column"
+                  wrap="wrap"
+                  justifyContent="space-between"
+                  className="gap-4 padding-b-4"
+                >
+                  <Input.Label
+                    alignItems="flex-start"
+                    direction="column"
+                    className="width-80"
+                  >
+                    Name
+                    <Input.Root
+                      className="min-full-width"
+                      placeholder="Enter your name"
+                      defaultValue="João Vitor"
+                    />
+                  </Input.Label>
+                  <Input.Label
+                    alignItems="flex-start"
+                    direction="column"
+                    className="width-80"
+                  >
+                    Username
+                    <Input.Root
+                      className="min-full-width"
+                      placeholder="Enter your username"
+                      defaultValue="@Pogiolli"
+                    />
+                  </Input.Label>
+                </Flex>
                 <Dialog.Footer>
                   <Dialog.Close>
                     <Button color="primary" variant="text">
@@ -528,6 +566,51 @@ export default function Page() {
           </Tabs.Content>
           <Tabs.Content value="personal-setting"></Tabs.Content>
         </Tabs.Root>
+      </Flex>
+
+      <Separator className="margin-bt-8" />
+
+      <Flex
+        direction="row"
+        alignItems="center"
+        justifyContent="space-around"
+        wrap="wrap"
+        className="gap-4"
+      >
+        <Input.Label alignItems="flex-start" direction="column">
+          Enter your email
+          <Input.Root placeholder="Email" />
+        </Input.Label>
+        <Input.Label alignItems="flex-start" direction="column">
+          Enter your email
+          <Input.Root placeholder="Email" disabled />
+        </Input.Label>
+        <Input.Label alignItems="flex-start" direction="column">
+          Enter your email
+          <Input.Root
+            placeholder="Email"
+            value="joaopogiolli@gmail.com"
+            disabled
+          />
+        </Input.Label>
+
+        <Input.Label alignItems="flex-start" direction="column">
+          Enter your email
+          <Input.Root aria-invalid placeholder="Email" />
+        </Input.Label>
+        <Input.Label alignItems="flex-start" direction="column">
+          Enter your email
+          <Input.Root aria-invalid placeholder="Email" disabled />
+        </Input.Label>
+        <Input.Label alignItems="flex-start" direction="column">
+          Enter your email
+          <Input.Root
+            aria-invalid
+            placeholder="Email"
+            value="joaopogiolli@gmail.com"
+            disabled
+          />
+        </Input.Label>
       </Flex>
 
       <Separator className="margin-bt-8" />
@@ -1027,58 +1110,74 @@ export default function Page() {
 
         <Card.Root>
           <Card.Header>
-            <Skeleton style={{
-              height: '16px',
-              width: '115px',
-              borderRadius: '4px'
-            }} />
-            <Skeleton style={{
-              height: '21px',
-              width: '220px',
-              borderRadius: '4px'
-            }} />
+            <Skeleton
+              style={{
+                height: "16px",
+                width: "115px",
+                borderRadius: "4px",
+              }}
+            />
+            <Skeleton
+              style={{
+                height: "21px",
+                width: "220px",
+                borderRadius: "4px",
+              }}
+            />
           </Card.Header>
           <Card.Content direction="column">
-            <Skeleton style={{
-              height: '71px',
-              width: '330px',
-              borderRadius: '4px'
-            }} />
+            <Skeleton
+              style={{
+                height: "71px",
+                width: "330px",
+                borderRadius: "4px",
+              }}
+            />
             <div>
-              {Array(3).fill(0).map((_, index) => (
-                <Flex
-                  key={index}
-                  direction="row"
-                  alignItems="start"
-                  className="gap-3 margin-b-4 margin-b-4--last-child-0 padding-b-4 padding-b-4--last-child-0"
-                >
-                  <Skeleton style={{
-                    height: '8px',
-                    width: '8px',
-                    borderRadius: '4px'
-                  }} />
-                  <Flex direction="column" className="gap-1">
-                    <Skeleton style={{
-                      height: '16px',
-                      width: '220px',
-                      borderRadius: '4px'
-                    }} />
-                    <Skeleton style={{
-                      height: '16px',
-                      width: '80px',
-                      borderRadius: '4px'
-                    }} />
+              {Array(3)
+                .fill(0)
+                .map((_, index) => (
+                  <Flex
+                    key={index}
+                    direction="row"
+                    alignItems="start"
+                    className="gap-3 margin-b-4 margin-b-4--last-child-0 padding-b-4 padding-b-4--last-child-0"
+                  >
+                    <Skeleton
+                      style={{
+                        height: "8px",
+                        width: "8px",
+                        borderRadius: "4px",
+                      }}
+                    />
+                    <Flex direction="column" className="gap-1">
+                      <Skeleton
+                        style={{
+                          height: "16px",
+                          width: "220px",
+                          borderRadius: "4px",
+                        }}
+                      />
+                      <Skeleton
+                        style={{
+                          height: "16px",
+                          width: "80px",
+                          borderRadius: "4px",
+                        }}
+                      />
+                    </Flex>
                   </Flex>
-                </Flex>
-              ))}
+                ))}
             </div>
           </Card.Content>
           <Card.Footer>
-            <Skeleton style={{
-              height: '34px',
-              width: '100%',
-              borderRadius: '4px'
-            }} />
+            <Skeleton
+              style={{
+                height: "34px",
+                width: "100%",
+                borderRadius: "4px",
+              }}
+            />
           </Card.Footer>
         </Card.Root>
       </Flex>
