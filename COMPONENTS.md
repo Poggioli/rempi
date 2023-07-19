@@ -18,7 +18,7 @@
 - Flex - OK
 - Heading - OK
 - Hover Card - OK
-- Input
+- Input - OK
 - Label - OK
 - Menubar
 - Navigation Menu
