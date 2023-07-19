@@ -37,6 +37,7 @@ import "./page.scss";
 import { FriendlyThemeName, ThemeProviderContext } from "./ThemeProvider";
 import { Skeleton } from "@rempi-ui/skeleton";
 import { Input } from "@rempi-ui/input";
+import { Textarea } from "@rempi-ui/textarea";
 
 export default function Page() {
   const { availableThemes, setTheme } = useContext(ThemeProviderContext);
@@ -611,6 +612,51 @@ export default function Page() {
             disabled
           />
         </Input.Label>
+      </Flex>
+
+      <Separator className="margin-bt-8" />
+
+      <Flex
+        direction="row"
+        alignItems="center"
+        justifyContent="space-around"
+        wrap="wrap"
+        className="gap-4"
+      >
+        <Textarea.Label alignItems="flex-start" direction="column">
+          Enter your email
+          <Textarea.Root placeholder="Email" />
+        </Textarea.Label>
+        <Textarea.Label alignItems="flex-start" direction="column">
+          Enter your email
+          <Textarea.Root placeholder="Email" disabled />
+        </Textarea.Label>
+        <Textarea.Label alignItems="flex-start" direction="column">
+          Enter your email
+          <Textarea.Root
+            placeholder="Email"
+            value="joaopogiolli@gmail.com"
+            disabled
+          />
+        </Textarea.Label>
+
+        <Textarea.Label alignItems="flex-start" direction="column">
+          Enter your email
+          <Textarea.Root aria-invalid placeholder="Email" />
+        </Textarea.Label>
+        <Textarea.Label alignItems="flex-start" direction="column">
+          Enter your email
+          <Textarea.Root aria-invalid placeholder="Email" disabled />
+        </Textarea.Label>
+        <Textarea.Label alignItems="flex-start" direction="column">
+          Enter your email
+          <Textarea.Root
+            aria-invalid
+            placeholder="Email"
+            value="joaopogiolli@gmail.com"
+            disabled
+          />
+        </Textarea.Label>
       </Flex>
 
       <Separator className="margin-bt-8" />

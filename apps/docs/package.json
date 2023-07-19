@@ -35,6 +35,7 @@
     "@rempi-ui/slider": "*",
     "@rempi-ui/switch": "*",
     "@rempi-ui/tabs": "*",
+    "@rempi-ui/textarea": "*",
     "@rempi-ui/toggle": "*",
     "@rempi-ui/tooltip": "*",
     "@rempi-ui/typography": "*",
