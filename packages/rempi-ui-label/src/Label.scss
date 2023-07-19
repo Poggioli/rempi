@@ -15,7 +15,7 @@
     cursor: not-allowed;
   }
 
-  &[data-invalid] {
+  &[data-invalid]:not([data-disabled]) {
     color: rempiVars.$colors-error-9;
   }
 }
