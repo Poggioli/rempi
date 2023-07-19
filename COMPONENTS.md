@@ -33,7 +33,7 @@
 - Switch - OK
 - Table
 - Tabs - OK
-- TextArea
+- TextArea - OK
 - Toast
 - Toggle - OK
 - Toggle Group
