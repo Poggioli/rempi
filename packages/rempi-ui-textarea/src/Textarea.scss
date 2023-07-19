@@ -1,0 +1,39 @@
+@use "@rempi-ui/core/src/config/rempi-variables" as rempiVars;
+
+.rempi-textarea {
+  -webkit-font-smoothing: antialiased;
+  background-color: rempiVars.$colors-primary-2;
+  border-color: rempiVars.$colors-primary-11;
+  border-radius: rempiVars.$radiis-1;
+  border-style: solid;
+  border-width: rempiVars.$border-widths-1;
+  color: rempiVars.$colors-grey-12;
+  font-size: rempiVars.$font-sizes-4;
+  font-weight: rempiVars.$font-weights-3;
+  line-height: rempiVars.$line-heights-1;
+  max-width: calc(rempiVars.$spaces-18 * 2);
+  padding: rempiVars.$spaces-2 rempiVars.$spaces-3;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  width: 100%;
+
+  &[data-disabled] {
+    color: rempiVars.$colors-grey-8;
+    cursor: not-allowed;
+    border-color: rempiVars.$colors-grey-7;
+
+    &::placeholder {
+      color: rempiVars.$colors-grey-6;
+    }
+  }
+
+  &::placeholder {
+    color: rempiVars.$colors-grey-9;
+  }
+
+  &:focus-visible,
+  &:focus {
+    outline-color: rempiVars.$colors-info-9;
+    outline-style: solid;
+    outline-width: rempiVars.$border-widths-1;
+  }
+}
