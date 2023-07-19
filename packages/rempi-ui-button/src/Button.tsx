@@ -34,7 +34,7 @@ const buttonColorClasses: Record<ButtonColor, string> = {
 
 export type ButtonProps = HTMLRempiProps<"button"> & {
   type?: "button" | "submit" | "reset";
-  buttonSize?: ButtonSize;
+  size?: ButtonSize;
   variant?: ButtonVariant;
   shape?: ButtonShape;
   color?: ButtonColor;
@@ -45,7 +45,7 @@ export const Button = forwardRef<"button", ButtonProps>(
   (
     {
       children,
-      buttonSize = "standard",
+      size = "standard",
       variant = "solid",
       shape = "smoth",
       color = "primary",
@@ -62,7 +62,7 @@ export const Button = forwardRef<"button", ButtonProps>(
         ref={ref}
         className={classNames(
           "rempi-button",
-          buttonSizeClasses[buttonSize],
+          buttonSizeClasses[size],
           buttonVariantClasses[variant],
           buttonShapeClasses[shape],
           buttonColorClasses[color],
