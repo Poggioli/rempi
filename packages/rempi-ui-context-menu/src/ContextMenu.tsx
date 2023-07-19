@@ -1,7 +1,7 @@
 import * as ContextMenu from "@radix-ui/react-context-menu";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import classNames from "classnames";
-import { Check, Dot } from "lucide-react";
+import { Check, ChevronRight, Dot } from "lucide-react";
 import "./ContextMenu.scss";
 
 export type ContextMenuRootProps = ContextMenu.ContextMenuProps;
@@ -252,15 +252,26 @@ export type ContextMenuSubMenuTriggerProps = HTMLRempiProps<
 export const ContextMenuSubMenuTrigger = forwardRef<
   typeof ContextMenu.SubTrigger,
   ContextMenuSubMenuTriggerProps
->(({ className, as: Component = ContextMenu.SubTrigger, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-context-menu__sub-menu__trigger", className)}
-    />
-  );
-});
+>(
+  (
+    { className, as: Component = ContextMenu.SubTrigger, children, ...props },
+    ref
+  ) => {
+    return (
+      <Component
+        {...props}
+        ref={ref}
+        className={classNames(
+          "rempi-context-menu__sub-menu__trigger",
+          className
+        )}
+      >
+        {children}
+        <ChevronRight size={16} />
+      </Component>
+    );
+  }
+);
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 

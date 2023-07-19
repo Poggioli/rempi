@@ -1,7 +1,7 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import classNames from "classnames";
-import { Check, Dot } from "lucide-react";
+import { Check, ChevronRight, Dot } from "lucide-react";
 import "./DropdownMenu.scss";
 
 export type DropdownMenuRootProps = DropdownMenu.DropdownMenuProps;
@@ -270,18 +270,26 @@ export type DropdownMenuSubMenuTriggerProps = HTMLRempiProps<
 export const DropdownMenuSubMenuTrigger = forwardRef<
   typeof DropdownMenu.SubTrigger,
   DropdownMenuSubMenuTriggerProps
->(({ className, as: Component = DropdownMenu.SubTrigger, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames(
-        "rempi-dropdown-menu__sub-menu__trigger",
-        className
-      )}
-    />
-  );
-});
+>(
+  (
+    { className, as: Component = DropdownMenu.SubTrigger, children, ...props },
+    ref
+  ) => {
+    return (
+      <Component
+        {...props}
+        ref={ref}
+        className={classNames(
+          "rempi-dropdown-menu__sub-menu__trigger",
+          className
+        )}
+      >
+        {children}
+        <ChevronRight size={16} />
+      </Component>
+    );
+  }
+);
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 

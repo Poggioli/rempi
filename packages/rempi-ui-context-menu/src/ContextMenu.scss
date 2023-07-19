@@ -32,6 +32,7 @@
     display: flex;
     align-items: center;
     height: rempiVars.$spaces-7;
+    justify-content: space-between;
     padding: 0 rempiVars.$spaces-1 0 rempiVars.$spaces-6;
     position: relative;
     user-select: none;
@@ -76,7 +77,7 @@
       color: rempiVars.$colors-grey-12;
 
       svg {
-        stroke: rempiVars.$colors-grey-1;
+        stroke: rempiVars.$colors-grey-12;
       }
     }
   }
