@@ -1,6 +1,7 @@
 import * as Toast from "@radix-ui/react-toast";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import classNames from "classnames";
+import { X } from "lucide-react";
 import "./Toast.scss";
 
 export type ToastProviderProps = Toast.ToastProviderProps;
@@ -12,17 +13,18 @@ export const ToastProvider = Toast.Provider;
 export type ToastViewportProps = HTMLRempiProps<typeof Toast.Root> &
   Toast.ToastViewportProps;
 
-export const ToastViewport = forwardRef<typeof Toast.Viewport, ToastViewportProps>(
-  ({ as: Component = Toast.Viewport, className, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-toast__view-port", className)}
-      />
-    );
-  }
-);
+export const ToastViewport = forwardRef<
+  typeof Toast.Viewport,
+  ToastViewportProps
+>(({ as: Component = Toast.Viewport, className, ...props }, ref) => {
+  return (
+    <Component
+      {...props}
+      ref={ref}
+      className={classNames("rempi-toast__view-port", className)}
+    />
+  );
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -63,17 +65,18 @@ export const ToastTitle = forwardRef<typeof Toast.Title, ToastTitleProps>(
 export type ToastDescriptionProps = HTMLRempiProps<typeof Toast.Description> &
   Toast.ToastProps;
 
-export const ToastDescription = forwardRef<typeof Toast.Description, ToastDescriptionProps>(
-  ({ as: Component = Toast.Description, className, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-toast__description", className)}
-      />
-    );
-  }
-);
+export const ToastDescription = forwardRef<
+  typeof Toast.Description,
+  ToastDescriptionProps
+>(({ as: Component = Toast.Description, className, ...props }, ref) => {
+  return (
+    <Component
+      {...props}
+      ref={ref}
+      className={classNames("rempi-toast__description", className)}
+    />
+  );
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -109,4 +112,23 @@ export const ToastClose = forwardRef<typeof Toast.Close, ToastCloseProps>(
   }
 );
 
+// -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
+export type ToastCloseCrossProps = Toast.ToastCloseProps & {
+  "aria-label": string;
+};
+
+export const ToastCloseCross = forwardRef<
+  typeof Toast.Close,
+  ToastCloseCrossProps
+>(({ className, ...props }, ref) => {
+  return (
+    <Toast.Close
+      {...props}
+      ref={ref}
+      className={classNames("rempi-toast__close-cross", className)}
+    >
+      <X size={18} />
+    </Toast.Close>
+  );
+});

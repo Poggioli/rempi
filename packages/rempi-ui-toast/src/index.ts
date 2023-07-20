@@ -1,18 +1,20 @@
 import {
-  ToastProviderProps,
-  ToastProvider,
-  ToastViewportProps,
-  ToastViewport,
-  ToastRootProps,
-  ToastRoot,
-  ToastTitleProps,
-  ToastTitle,
-  ToastDescriptionProps,
-  ToastDescription,
-  ToastActionProps,
   ToastAction,
-  ToastCloseProps,
+  ToastActionProps,
   ToastClose,
+  ToastCloseCross,
+  ToastCloseCrossProps,
+  ToastCloseProps,
+  ToastDescription,
+  ToastDescriptionProps,
+  ToastProvider,
+  ToastProviderProps,
+  ToastRoot,
+  ToastRootProps,
+  ToastTitle,
+  ToastTitleProps,
+  ToastViewport,
+  ToastViewportProps,
 } from "./Toast";
 
 export const Toast = {
@@ -23,6 +25,7 @@ export const Toast = {
   Description: ToastDescription,
   Action: ToastAction,
   Close: ToastClose,
+  CloseCross: ToastCloseCross,
 };
 
 export type {
@@ -33,4 +36,5 @@ export type {
   ToastDescriptionProps,
   ToastActionProps,
   ToastCloseProps,
+  ToastCloseCrossProps,
 };

@@ -32,13 +32,14 @@ import {
   Italic,
   SlidersHorizontal,
 } from "lucide-react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "./page.scss";
 import { FriendlyThemeName, ThemeProviderContext } from "./ThemeProvider";
 import { Skeleton } from "@rempi-ui/skeleton";
 import { Input } from "@rempi-ui/input";
 import { Textarea } from "@rempi-ui/textarea";
 import { Menubar } from "@rempi-ui/menubar";
+import { Toast } from "@rempi-ui/toast";
 
 const RADIO_ITEMS = ["Andy", "Benoît", "Luis"];
 const CHECK_ITEMS = ["Always Show Bookmarks Bar", "Always Show Full URLs"];
@@ -53,6 +54,13 @@ export default function Page() {
   const [selectedTheme, setSelectedTheme] = useState<string>(
     availableThemes[0].toString()
   );
+
+  const [open, setOpen] = useState(false);
+  const timerRef = useRef(0);
+
+  useEffect(() => {
+    return () => clearTimeout(timerRef.current);
+  }, []);
 
   const handleSelectTheme = (value: string) => {
     setSelectedTheme(value);
@@ -92,6 +100,39 @@ export default function Page() {
           </Select.Content>
         </Select.Root>
       </Flex>
+
+      <Separator className="margin-bt-8" />
+
+      <Flex
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        className="gap-4"
+      >
+        <Button
+          onClick={() => {
+            setOpen(false);
+            window.clearTimeout(timerRef.current);
+            timerRef.current = window.setTimeout(() => {
+              setOpen(true);
+            }, 100);
+          }}
+        >
+          Show toast
+        </Button>
+      </Flex>
+
+      <Toast.Root duration={3000} open={open} onOpenChange={setOpen}>
+        <Toast.Title>User will be deleted</Toast.Title>
+        <Toast.Description>
+          The user will be deleted in 5 seconds
+        </Toast.Description>
+        <Toast.Action asChild altText="Goto schedule to undo">
+          <Button size="small">Undo</Button>
+        </Toast.Action>
+        <Toast.CloseCross aria-label="Close" />
+      </Toast.Root>
+      <Toast.Viewport />
 
       <Separator className="margin-bt-8" />
 

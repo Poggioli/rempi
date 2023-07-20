@@ -34,7 +34,7 @@
 - Table
 - Tabs - OK
 - TextArea - OK
-- Toast
+- Toast - OK
 - Toggle - OK
 - Toggle Group
 - Toolbar
