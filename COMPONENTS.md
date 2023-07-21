@@ -21,7 +21,7 @@
 - Input - OK
 - Label - OK
 - Menubar - OK
-- Navigation Menu
+- Navigation Menu - OK
 - Popover - OK
 - Progress - OK
 - Radio - OK
@@ -37,6 +37,5 @@
 - Toast - OK
 - Toggle - OK
 - Toggle Group
-- Toolbar
 - Tooltip - OK
 - Typography - OK
