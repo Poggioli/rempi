@@ -4,24 +4,32 @@ import { Accordion } from "@rempi-ui/accordion";
 import { AlertDialog } from "@rempi-ui/alert-dialog";
 import { AspectRatio } from "@rempi-ui/aspect-ratio";
 import { Avatar } from "@rempi-ui/avatar";
+import { Badge } from "@rempi-ui/badge";
 import { Button, IconButton } from "@rempi-ui/button";
 import { Card } from "@rempi-ui/card";
 import { Checkbox } from "@rempi-ui/checkbox";
 import { Container } from "@rempi-ui/container";
 import { ContextMenu } from "@rempi-ui/context-menu";
+import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { Dialog } from "@rempi-ui/dialog";
 import { DropdownMenu } from "@rempi-ui/dropdown-menu";
 import { Flex } from "@rempi-ui/flex";
 import { Heading } from "@rempi-ui/heading";
 import { HoverCard } from "@rempi-ui/hover-card";
+import { Input } from "@rempi-ui/input";
+import { Menubar } from "@rempi-ui/menubar";
+import { NavigationMenu } from "@rempi-ui/navigation-menu";
 import { Popover } from "@rempi-ui/popover";
 import { Progress } from "@rempi-ui/progress";
 import { Radio } from "@rempi-ui/radio";
 import { Select } from "@rempi-ui/select";
 import { Separator } from "@rempi-ui/separator";
+import { Skeleton } from "@rempi-ui/skeleton";
 import { Slider } from "@rempi-ui/slider";
 import { Switch } from "@rempi-ui/switch";
 import { Tabs } from "@rempi-ui/tabs";
+import { Textarea } from "@rempi-ui/textarea";
+import { Toast } from "@rempi-ui/toast";
 import { Toggle } from "@rempi-ui/toggle";
 import { Tooltip } from "@rempi-ui/tooltip";
 import { Typography } from "@rempi-ui/typography";
@@ -35,13 +43,6 @@ import {
 import { useContext, useEffect, useRef, useState } from "react";
 import "./page.scss";
 import { FriendlyThemeName, ThemeProviderContext } from "./ThemeProvider";
-import { Skeleton } from "@rempi-ui/skeleton";
-import { Input } from "@rempi-ui/input";
-import { Textarea } from "@rempi-ui/textarea";
-import { Menubar } from "@rempi-ui/menubar";
-import { Toast } from "@rempi-ui/toast";
-import { NavigationMenu } from "@rempi-ui/navigation-menu";
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 
 const RADIO_ITEMS = ["Andy", "Benoît", "Luis"];
 const CHECK_ITEMS = ["Always Show Bookmarks Bar", "Always Show Full URLs"];
@@ -205,7 +206,7 @@ export default function Page() {
         </NavigationMenu.Item>
 
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger>Disabled</NavigationMenu.Trigger>
+          <NavigationMenu.Trigger disabled>Disabled</NavigationMenu.Trigger>
           <NavigationMenu.Content>
             <ul className="list two">
               <ListItem
@@ -252,6 +253,16 @@ export default function Page() {
           </NavigationMenu.Link>
         </NavigationMenu.Item>
       </NavigationMenu.Root>
+
+      <Separator className="margin-bt-8" />
+
+      <Flex justifyContent="center" alignItems="center" className="gap-4">
+        <Badge variant="primary">Primary</Badge>
+        <Badge variant="secondary">Secondary</Badge>
+        <Badge variant="outlined">Outlined</Badge>
+        <Badge variant="destructive">Destructive</Badge>
+      </Flex>
+
       <Separator className="margin-bt-8" />
 
       <Flex
