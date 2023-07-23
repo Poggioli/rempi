@@ -1,0 +1,75 @@
+@use '@rempi-ui/core/src/config/rempi-variables' as rempiVars;
+
+.rempi-badge {
+  -webkit-font-smoothing: antialiased;
+  align-items: center;
+  appearance: none;
+  border: none;
+  border-radius: rempiVars.$radiis-1;
+  display: inline-flex;
+  flex-direction: row;
+  font-size: rempiVars.$font-sizes-3;
+  font-weight: rempiVars.$font-weights-3;
+  gap: rempiVars.$spaces-2;
+  justify-content: center;
+  line-height: rempiVars.$line-heights-2;
+  outline: none;
+  padding: rempiVars.$spaces-1 rempiVars.$spaces-2;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+
+  &:focus-visible,
+  &:focus {
+    outline-color: rempiVars.$colors-info-9;
+    outline-style: solid;
+    outline-width: rempiVars.$border-widths-1;
+  }
+
+  &--variant {
+    &-primary {
+      background-color: rempiVars.$colors-primary-9;
+      border: rempiVars.$border-widths-1 solid rempiVars.$colors-primary-9;
+      color: rempiVars.$colors-primary-1;
+
+      &:hover {
+        background-color: rempiVars.$colors-primary-8;
+        border-color: rempiVars.$colors-primary-8;
+        cursor: text;
+      }
+    }
+
+    &-secondary {
+      background-color: rempiVars.$colors-secondary-9;
+      border: rempiVars.$border-widths-1 solid rempiVars.$colors-secondary-9;
+      color: rempiVars.$colors-secondary-1;
+
+      &:hover {
+        background-color: rempiVars.$colors-secondary-8;
+        border-color: rempiVars.$colors-secondary-8;
+        cursor: text;
+      }
+    }
+
+    &-outlined {
+      background-color: transparent;
+      border: rempiVars.$border-widths-1 solid rempiVars.$colors-grey-9;
+      color: rempiVars.$colors-grey-12;
+    }
+
+    &-destructive {
+      background-color: rempiVars.$colors-error-9;
+      border: rempiVars.$border-widths-1 solid rempiVars.$colors-error-9;
+      color: rempiVars.$colors-error-1;
+
+      &:hover {
+        background-color: rempiVars.$colors-error-8;
+        border-color: rempiVars.$colors-error-8;
+        cursor: text;
+      }
+    }
+
+  }
+}

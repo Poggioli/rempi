@@ -2,7 +2,7 @@
 - Alert Dialog - OK
 - Aspect Ratio - OK
 - Avatar - OK
-- Badge
+- Badge - OK
 - Button - OK
 - Calendar
 - Card - OK
@@ -25,7 +25,6 @@
 - Popover - OK
 - Progress - OK
 - Radio - OK
-- Scroll Area
 - Select - OK
 - Separator - OK
 - Skeleton - OK
@@ -36,6 +35,5 @@
 - TextArea - OK
 - Toast - OK
 - Toggle - OK
-- Toggle Group
 - Tooltip - OK
 - Typography - OK
