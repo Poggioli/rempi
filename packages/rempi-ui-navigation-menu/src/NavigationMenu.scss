@@ -200,7 +200,6 @@
     background-color: rempiVars.$colors-grey-2;
     border: rempiVars.$border-widths-1 solid rempiVars.$colors-grey-6;
     border-radius: rempiVars.$radiis-2;
-    box-shadow: rempiVars.$shadows-1;
     overflow: hidden;
     height: var(--radix-navigation-menu-viewport-height);
     position: relative;
@@ -208,6 +207,7 @@
     width: 100%;
 
     &-position {
+      box-shadow: rempiVars.$shadows-1;
       display: flex;
       justify-content: center;
       overflow: hidden;
