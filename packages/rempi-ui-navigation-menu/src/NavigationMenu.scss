@@ -207,6 +207,7 @@
     width: 100%;
 
     &-position {
+      border-radius: rempiVars.$radiis-2;
       box-shadow: rempiVars.$shadows-1;
       display: flex;
       justify-content: center;
