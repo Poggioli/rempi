@@ -72,26 +72,6 @@
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
 .rempi-navigation-menu {
   &__root {
     display: flex;
@@ -176,8 +156,14 @@
   &__content {
     animation-duration: 250ms;
     animation-timing-function: ease;
-    transition: width, height, 300ms ease;
-    width: auto;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    @media only screen and (min-width: 600px) {
+      width: auto;
+    }
 
     &[data-motion="from-start"] {
       animation-name: enterFromLeft;
@@ -200,20 +186,22 @@
     background-color: rempiVars.$colors-grey-2;
     border: rempiVars.$border-widths-1 solid rempiVars.$colors-grey-6;
     border-radius: rempiVars.$radiis-2;
-    overflow: hidden;
+    box-shadow: rempiVars.$shadows-1;
     height: var(--radix-navigation-menu-viewport-height);
+    overflow: hidden;
     position: relative;
-    transition: width, height, 250ms ease;
-    width: 100%;
+    transform-origin: top center;
+    transition: width, height, 300ms ease;
+    width: var(--radix-navigation-menu-viewport-width);
 
     &-position {
-      border-radius: rempiVars.$radiis-2;
-      box-shadow: rempiVars.$shadows-1;
       display: flex;
       justify-content: center;
-      overflow: hidden;
+      left: 0;
+      perspective: 2000px;
       position: absolute;
       top: 100%;
+      width: 100%;
     }
 
     &[data-state="open"] {

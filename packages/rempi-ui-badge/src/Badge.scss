@@ -8,11 +8,12 @@
   border-radius: rempiVars.$radiis-1;
   display: inline-flex;
   flex-direction: row;
-  font-size: rempiVars.$font-sizes-3;
+  font-size: rempiVars.$font-sizes-2;
   font-weight: rempiVars.$font-weights-3;
   gap: rempiVars.$spaces-2;
   justify-content: center;
-  line-height: rempiVars.$line-heights-2;
+  letter-spacing: 10%;
+  line-height: rempiVars.$line-heights-1;
   outline: none;
   padding: rempiVars.$spaces-1 rempiVars.$spaces-2;
   transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
@@ -35,8 +36,8 @@
       color: rempiVars.$colors-primary-1;
 
       &:hover {
-        background-color: rempiVars.$colors-primary-8;
-        border-color: rempiVars.$colors-primary-8;
+        background-color: rempiVars.$colors-primary-11;
+        border-color: rempiVars.$colors-primary-11;
         cursor: text;
       }
     }
@@ -47,8 +48,8 @@
       color: rempiVars.$colors-secondary-1;
 
       &:hover {
-        background-color: rempiVars.$colors-secondary-8;
-        border-color: rempiVars.$colors-secondary-8;
+        background-color: rempiVars.$colors-secondary-11;
+        border-color: rempiVars.$colors-secondary-11;
         cursor: text;
       }
     }
@@ -65,8 +66,8 @@
       color: rempiVars.$colors-error-1;
 
       &:hover {
-        background-color: rempiVars.$colors-error-8;
-        border-color: rempiVars.$colors-error-8;
+        background-color: rempiVars.$colors-error-11;
+        border-color: rempiVars.$colors-error-11;
         cursor: text;
       }
     }
