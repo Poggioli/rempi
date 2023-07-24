@@ -30,7 +30,7 @@
 - Skeleton - OK
 - Slider - OK
 - Switch - OK
-- Table
+- Table - OK
 - Tabs - OK
 - TextArea - OK
 - Toast - OK
