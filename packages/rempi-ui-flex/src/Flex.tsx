@@ -1,6 +1,5 @@
-import { HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import classNames from "classnames";
-import { forwardRef } from "react";
 import "./Flex.scss";
 
 type FlexDirection =

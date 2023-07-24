@@ -37,6 +37,7 @@
     "@rempi-ui/skeleton": "*",
     "@rempi-ui/slider": "*",
     "@rempi-ui/switch": "*",
+    "@rempi-ui/table": "*",
     "@rempi-ui/tabs": "*",
     "@rempi-ui/textarea": "*",
     "@rempi-ui/toast": "*",
