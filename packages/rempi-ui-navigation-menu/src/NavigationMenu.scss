@@ -192,7 +192,11 @@
     position: relative;
     transform-origin: top center;
     transition: width, height, 300ms ease;
-    width: var(--radix-navigation-menu-viewport-width);
+    width: 100%;
+    
+    @media only screen and (min-width: 600px) {
+      width: var(--radix-navigation-menu-viewport-width);
+    }
 
     &-position {
       display: flex;
