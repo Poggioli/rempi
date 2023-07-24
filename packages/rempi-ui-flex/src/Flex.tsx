@@ -2,7 +2,7 @@ import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import classNames from "classnames";
 import "./Flex.scss";
 
-type FlexDirection =
+type direction =
   | "column"
   | "column-reverse"
   | "inherit"
@@ -11,7 +11,7 @@ type FlexDirection =
   | "row"
   | "row-reverse"
   | "unset";
-const flexDirectionClasses: Record<FlexDirection, string> = {
+const directionClasses: Record<direction, string> = {
   column: "rempi-flex--direction-column",
   "column-reverse": "rempi-flex--direction-column-reverse",
   inherit: "rempi-flex--direction-inherit",
@@ -22,7 +22,7 @@ const flexDirectionClasses: Record<FlexDirection, string> = {
   unset: "rempi-flex--direction-unset",
 };
 
-type FlexWrap =
+type Wrap =
   | "inherit"
   | "initial"
   | "nowrap"
@@ -30,7 +30,7 @@ type FlexWrap =
   | "unset"
   | "wrap"
   | "wrap-reverse";
-const flexWrapClasses: Record<FlexWrap, string> = {
+const wrapClasses: Record<Wrap, string> = {
   inherit: "rempi-flex--wrap-inherit",
   initial: "rempi-flex--wrap-initial",
   nowrap: "rempi-flex--wrap-nowrap",
@@ -57,7 +57,7 @@ type JustifyContent =
   | "start"
   | "stretch"
   | "unset";
-const flexJustifyContentClasses: Record<JustifyContent, string> = {
+const justifyContentClasses: Record<JustifyContent, string> = {
   center: "rempi-flex--justify-content-center",
   end: "rempi-flex--justify-content-end",
   "flex-end": "rempi-flex--justify-content-flex-end",
@@ -91,7 +91,7 @@ type AlignItems =
   | "start"
   | "stretch"
   | "unset";
-const flexAlignItemsClasses: Record<AlignItems, string> = {
+const alignItemsClasses: Record<AlignItems, string> = {
   baseline: "rempi-flex--align-items-baseline",
   center: "rempi-flex--align-items-center",
   end: "rempi-flex--align-items-end",
@@ -124,7 +124,7 @@ type AlignContent =
   | "start"
   | "stretch"
   | "unset";
-const flexAlignContentClasses: Record<AlignContent, string> = {
+const alignContentClasses: Record<AlignContent, string> = {
   baseline: "rempi-flex--align-content-baseline",
   center: "rempi-flex--align-content-center",
   end: "rempi-flex--align-content-end",
@@ -158,7 +158,7 @@ type AlignSelf =
   | "start"
   | "stretch"
   | "unset";
-const flexAlignSelfClasses: Record<AlignSelf, string> = {
+const alignSelfClasses: Record<AlignSelf, string> = {
   auto: "rempi-flex--align-self-auto",
   baseline: "rempi-flex--align-self-baseline",
   center: "rempi-flex--align-self-center",
@@ -177,8 +177,8 @@ const flexAlignSelfClasses: Record<AlignSelf, string> = {
 };
 
 export type FlexProps = HTMLRempiProps<"div"> & {
-  direction?: FlexDirection;
-  wrap?: FlexWrap;
+  direction?: direction;
+  wrap?: Wrap;
   justifyContent?: JustifyContent;
   alignItems?: AlignItems;
   alignContents?: AlignContent;
@@ -207,12 +207,12 @@ export const Flex = forwardRef<"div", FlexProps>(
         ref={ref}
         className={classNames(
           "rempi-flex",
-          flexDirectionClasses[direction],
-          flexAlignItemsClasses[alignItems],
-          flexJustifyContentClasses[justifyContent],
-          wrap && flexWrapClasses[wrap],
-          alignContents && flexAlignContentClasses[alignContents],
-          alignSelf && flexAlignSelfClasses[alignSelf],
+          directionClasses[direction],
+          alignItemsClasses[alignItems],
+          justifyContentClasses[justifyContent],
+          wrap && wrapClasses[wrap],
+          alignContents && alignContentClasses[alignContents],
+          alignSelf && alignSelfClasses[alignSelf],
           className
         )}
       >

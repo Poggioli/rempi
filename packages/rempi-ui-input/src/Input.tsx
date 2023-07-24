@@ -4,15 +4,15 @@ import classNames from "classnames";
 import { useContext, useEffect } from "react";
 import "./Input.scss";
 
-type InputSize = "small" | "standard" | "large";
-const inputSizeClasses: Record<InputSize, string> = {
+type Size = "small" | "standard" | "large";
+const sizeClasses: Record<Size, string> = {
   small: "rempi-input--size-small",
   standard: "rempi-input--size-standard",
   large: "rempi-input--size-large",
 };
 
 export type InputProps = Omit<HTMLRempiProps<"input">, "as"> & {
-  inputSize?: InputSize;
+  inputSize?: Size;
 };
 
 export const Input = forwardRef<"input", InputProps>(
@@ -34,7 +34,7 @@ export const Input = forwardRef<"input", InputProps>(
         data-disabled={props.disabled}
         className={classNames(
           "rempi-input",
-          inputSizeClasses[inputSize],
+          sizeClasses[inputSize],
           className
         )}
       />

@@ -3,8 +3,8 @@ import classNames from "classnames";
 import { forwardRef } from "react";
 import "./Container.scss";
 
-type ContainerVariant = "sm" | "md" | "lg" | "xlg" | "2xlg" | "fluid";
-const containerVariantClasses: Record<ContainerVariant, string> = {
+type Variant = "sm" | "md" | "lg" | "xlg" | "2xlg" | "fluid";
+const variantClasses: Record<Variant, string> = {
   sm: "rempi-container--sm",
   md: "rempi-container--md",
   lg: "rempi-container--lg",
@@ -14,7 +14,7 @@ const containerVariantClasses: Record<ContainerVariant, string> = {
 };
 
 export type ContainerProps = HTMLRempiProps<"div"> & {
-  variant?: ContainerVariant;
+  variant?: Variant;
   centered?: boolean;
 };
 
@@ -36,7 +36,7 @@ export const Container = forwardRef<"div", ContainerProps>(
         ref={ref}
         className={classNames(
           "rempi-container",
-          variant && containerVariantClasses[variant],
+          variant && variantClasses[variant],
           { "rempi-container--centered": centered },
           className
         )}

@@ -2,8 +2,8 @@ import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import classNames from "classnames";
 import "./Typography.scss";
 
-type TypographySize = "2xsm" | "xsm" | "sm" | "md" | "lg" | "xlg";
-const typographySizeClasses: Record<TypographySize, string> = {
+type Size = "2xsm" | "xsm" | "sm" | "md" | "lg" | "xlg";
+const sizeClasses: Record<Size, string> = {
   "2xsm": "rempi-typography--font-size-2xsm",
   xsm: "rempi-typography--font-size-xsm",
   sm: "rempi-typography--font-size-sm",
@@ -12,14 +12,14 @@ const typographySizeClasses: Record<TypographySize, string> = {
   xlg: "rempi-typography--font-size-xlg",
 };
 
-type TypographyWeight =
+type Weight =
   | "tiny"
   | "normal"
   | "regular"
   | "semi-bold"
   | "bold"
   | "extra-bold";
-const typographyWeightClasses: Record<TypographyWeight, string> = {
+const weightClasses: Record<Weight, string> = {
   tiny: "rempi-typography--font-weight-tiny",
   normal: "rempi-typography--font-weight-normal",
   regular: "rempi-typography--font-weight-regular",
@@ -28,26 +28,26 @@ const typographyWeightClasses: Record<TypographyWeight, string> = {
   "extra-bold": "rempi-typography--font-weight-extra-bold",
 };
 
-type TypographyLineHeight = 1 | 2;
-const typographyLineHeightClasses: Record<TypographyLineHeight, string> = {
+type LineHeight = 1 | 2;
+const lineHeightClasses: Record<LineHeight, string> = {
   1: "rempi-typography--line-height-1",
   2: "rempi-typography--line-height-2",
 };
 
-type TypographyColor = "low-contrast" | "high-contrast";
-const typographyColorClasses: Record<TypographyColor, string> = {
+type Color = "low-contrast" | "high-contrast";
+const colorClasses: Record<Color, string> = {
   "high-contrast": "rempi-typography--color-high-contrast",
   "low-contrast": "rempi-typography--color-low-contrast",
 };
 
-type TypographyVariant =
+type Variant =
   | "lead1"
   | "lead2"
   | "body1"
   | "body2"
   | "caption"
   | "subtitle";
-const typographyVariantClasses: Record<TypographyVariant, string> = {
+const variantClasses: Record<Variant, string> = {
   lead1: "rempi-typography--variant-lead1",
   lead2: "rempi-typography--variant-lead2",
   body1: "rempi-typography--variant-body1",
@@ -56,21 +56,21 @@ const typographyVariantClasses: Record<TypographyVariant, string> = {
   subtitle: "rempi-typography--variant-subtitle",
 };
 
-type TypographyAlign = "left" | "center" | "right";
-const typographyAlignClasses: Record<TypographyAlign, string> = {
+type Align = "left" | "center" | "right";
+const alignClasses: Record<Align, string> = {
   left: "rempi-typography--align-left",
   center: "rempi-typography--align-center",
   right: "rempi-typography--align-right",
 };
 
 export type TypographyProps = HTMLRempiProps<"span"> & {
-  color?: TypographyColor;
-  fontSize?: TypographySize;
-  fontWeight?: TypographyWeight;
-  lineHeight?: TypographyLineHeight;
+  color?: Color;
+  fontSize?: Size;
+  fontWeight?: Weight;
+  lineHeight?: LineHeight;
   isTruncated?: boolean;
-  align?: TypographyAlign;
-  variant?: TypographyVariant;
+  align?: Align;
+  variant?: Variant;
 };
 
 export const Typography = forwardRef<"span", TypographyProps>(
@@ -96,12 +96,12 @@ export const Typography = forwardRef<"span", TypographyProps>(
         ref={ref}
         className={classNames(
           "rempi-typography",
-          typographyVariantClasses[variant],
-          color && typographyColorClasses[color],
-          fontSize && typographySizeClasses[fontSize],
-          fontWeight && typographyWeightClasses[fontWeight],
-          lineHeight && typographyLineHeightClasses[lineHeight],
-          align && typographyAlignClasses[align],
+          variantClasses[variant],
+          color && colorClasses[color],
+          fontSize && sizeClasses[fontSize],
+          fontWeight && weightClasses[fontWeight],
+          lineHeight && lineHeightClasses[lineHeight],
+          align && alignClasses[align],
           { "rempi-typography--truncated": isTruncated },
           className
         )}

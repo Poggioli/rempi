@@ -3,8 +3,8 @@ import * as Avatar from "@radix-ui/react-avatar";
 import classNames from "classnames";
 import "./Avatar.scss";
 
-type AvatarSize = "small" | "standard" | "large";
-const avatarSizeClasses: Record<AvatarSize, string> = {
+type Size = "small" | "standard" | "large";
+const sizeClasses: Record<Size, string> = {
   small: "rempi-avatar__root--size-small",
   standard: "rempi-avatar__root--size-standard",
   large: "rempi-avatar__root--size-large",
@@ -12,7 +12,7 @@ const avatarSizeClasses: Record<AvatarSize, string> = {
 
 export type AvatarRootProps = HTMLRempiProps<typeof Avatar.Root> &
   Avatar.AvatarProps & {
-    size?: AvatarSize;
+    size?: Size;
   };
 
 export const AvatarRoot = forwardRef<typeof Avatar.Root, AvatarRootProps>(
@@ -26,7 +26,7 @@ export const AvatarRoot = forwardRef<typeof Avatar.Root, AvatarRootProps>(
         ref={ref}
         className={classNames(
           "rempi-avatar__root",
-          avatarSizeClasses[size],
+          sizeClasses[size],
           className
         )}
       />
