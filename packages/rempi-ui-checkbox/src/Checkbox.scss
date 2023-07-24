@@ -11,7 +11,7 @@
   &__check {
     align-items: center;
     background-color: transparent;
-    border-color: rempiVars.$colors-primary-11;
+    border-color: rempiVars.$colors-grey-11;
     border-radius: rempiVars.$radiis-1;
     border-width: rempiVars.$border-widths-1;
     border-style: solid;
@@ -33,7 +33,7 @@
     }
 
     &[data-state="checked"] {
-      border-color: rempiVars.$colors-primary-12;
+      border-color: rempiVars.$colors-grey-12;
     }
 
     &[data-disabled] {
@@ -52,7 +52,7 @@
 
     svg {
       stroke-width: 3;
-      stroke: rempiVars.$colors-primary-12;
+      stroke: rempiVars.$colors-grey-12;
     }
   }
 }

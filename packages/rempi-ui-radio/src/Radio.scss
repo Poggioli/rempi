@@ -23,7 +23,7 @@
   &__item {
     align-items: center;
     background-color: transparent;
-    border-color: rempiVars.$colors-primary-11;
+    border-color: rempiVars.$colors-grey-11;
     border-radius: rempiVars.$radiis-pill;
     border-width: rempiVars.$border-widths-1;
     border-style: solid;
@@ -36,10 +36,10 @@
     width: calc(rempiVars.$spaces-4 + calc(rempiVars.$spaces-1 / 2));
 
     &[data-state="checked"] {
-      border-color: rempiVars.$colors-primary-12;
+      border-color: rempiVars.$colors-grey-12;
 
       .rempi-radio__indicator::after {
-        background-color: rempiVars.$colors-primary-12;
+        background-color: rempiVars.$colors-grey-12;
       }
     }
 
@@ -52,7 +52,7 @@
         border-color: rempiVars.$colors-grey-8;
 
         .rempi-radio__indicator::after {
-          background-color: rempiVars.$colors-primary-8;
+          background-color: rempiVars.$colors-grey-8;
         }
       }
     }

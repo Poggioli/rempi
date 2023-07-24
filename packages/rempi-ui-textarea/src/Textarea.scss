@@ -2,8 +2,8 @@
 
 .rempi-textarea {
   -webkit-font-smoothing: antialiased;
-  background-color: rempiVars.$colors-primary-2;
-  border-color: rempiVars.$colors-primary-11;
+  background-color: transparent;
+  border-color: rempiVars.$colors-grey-11;
   border-radius: rempiVars.$radiis-1;
   border-style: solid;
   border-width: rempiVars.$border-widths-1;
@@ -35,5 +35,7 @@
     outline-color: rempiVars.$colors-info-9;
     outline-style: solid;
     outline-width: rempiVars.$border-widths-1;
+    border-color: rempiVars.$colors-primary-10;
+    background-color: rempiVars.$colors-primary-3;
   }
 }
