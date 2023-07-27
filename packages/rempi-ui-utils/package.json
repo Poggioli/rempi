@@ -1,0 +1,17 @@
+{
+  "name": "@rempi-ui/utils",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "tsconfig": "*",
+    "typescript": "^4.5.3"
+  },
+  "peerDependencies": {
+    "react": ">=^18.2.0"
+  }
+}
