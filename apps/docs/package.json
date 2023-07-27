@@ -18,6 +18,7 @@
     "@rempi-ui/card": "*",
     "@rempi-ui/checkbox": "*",
     "@rempi-ui/collpasible": "*",
+    "@rempi-ui/combobox": "*",
     "@rempi-ui/container": "*",
     "@rempi-ui/context-menu": "*",
     "@rempi-ui/core": "*",

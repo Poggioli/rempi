@@ -8,6 +8,7 @@ import { Badge } from "@rempi-ui/badge";
 import { Button, IconButton } from "@rempi-ui/button";
 import { Card } from "@rempi-ui/card";
 import { Checkbox } from "@rempi-ui/checkbox";
+import { Combobox } from "@rempi-ui/combobox";
 import { Container } from "@rempi-ui/container";
 import { ContextMenu } from "@rempi-ui/context-menu";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
@@ -41,7 +42,7 @@ import {
   Italic,
   SlidersHorizontal,
 } from "lucide-react";
-import { useContext, useEffect, useRef, useState } from "react";
+import { Fragment, useContext, useEffect, useRef, useState } from "react";
 import "./page.scss";
 import { FriendlyThemeName, ThemeProviderContext } from "./ThemeProvider";
 
@@ -93,6 +94,89 @@ const INVOICES = [
   },
 ];
 
+const REGIONS_AB = {
+  acre: "AC",
+  amapa: "AP",
+  amazonas: "AM",
+  para: "PA",
+  rondonia: "RO",
+  roraima: "RR",
+  tocantis: "TO",
+  alagoas: "AL",
+  bahia: "BA",
+  ceara: "CE",
+  maranhao: "MA",
+  paraiba: "PB",
+  pernambuco: "PE",
+  piaui: "PI",
+  "rio-grande-do-norte": "RN",
+  sergipe: "SE",
+  goias: "GO",
+  "mato-grosso": "MT",
+  "mato-grosso-do-sul": "MS",
+  "espirito-santo": "ES",
+  "minas-gerais": "MG",
+  "rio-de-janeiro": "RJ",
+  "sao-paulo": "SP",
+  parana: "PR",
+  "rio-grande-do-sul": "RS",
+  "santa-catarina": "SC",
+};
+
+const REGIONS = [
+  {
+    name: "Norte",
+    states: [
+      { index: 1, value: "acre", name: "Acre" },
+      { index: 2, value: "amapa", name: "Amapá" },
+      { index: 3, value: "amazonas", name: "Amazonas" },
+      { index: 4, value: "para", name: "Pará" },
+      { index: 5, value: "rondonia", name: "Rondônia" },
+      { index: 6, value: "roraima", name: "Roraima" },
+      { index: 7, value: "tocantis", name: "Tocantis" },
+    ],
+  },
+  {
+    name: "Nordeste",
+    states: [
+      { index: 8, value: "alagoas", name: "Alagoas" },
+      { index: 9, value: "bahia", name: "Bahia" },
+      { index: 10, value: "ceara", name: "Ceará" },
+      { index: 11, value: "maranhao", name: "Maranhão" },
+      { index: 12, value: "paraiba", name: "Paraíba" },
+      { index: 13, value: "pernambuco", name: "Pernambuco" },
+      { index: 14, value: "piaui", name: "Piauí" },
+      { index: 15, value: "rio-grande-do-norte", name: "Rio Grande do Norte" },
+      { index: 16, value: "sergipe", name: "Sergipe" },
+    ],
+  },
+  {
+    name: "Centro-Oeste",
+    states: [
+      { index: 17, value: "goias", name: "Goiás" },
+      { index: 18, value: "mato-grosso", name: "Mato Grosso" },
+      { index: 19, value: "mato-grosso-do-sul", name: "Mato Grosso do Sul" },
+    ],
+  },
+  {
+    name: "Sudeste",
+    states: [
+      { index: 20, value: "espirito-santo", name: "Espírito Santo" },
+      { index: 21, value: "minas-gerais", name: "Minas Gerais" },
+      { index: 22, value: "rio-de-janeiro", name: "Rio de Janeiro" },
+      { index: 23, value: "sao-paulo", name: "São Paulo" },
+    ],
+  },
+  {
+    name: "Sul",
+    states: [
+      { index: 24, value: "parana", name: "Paraná" },
+      { index: 25, value: "rio-grande-do-sul", name: "Rio Grande do Sul" },
+      { index: 26, value: "santa-catarina", name: "Santa Catarina" },
+    ],
+  },
+];
+
 type ListItemProps = HTMLRempiProps<"a"> & { title: string };
 
 const ListItem = forwardRef<"a", ListItemProps>(
@@ -116,6 +200,8 @@ export default function Page() {
   const [radioSelection, setRadioSelection] = useState(RADIO_ITEMS[2]);
   const [bookmarksChecked, setBookmarksChecked] = useState(true);
   const [urlsChecked, setUrlsChecked] = useState(true);
+  const [state, setState] = useState("acre");
+  const [openState, setOpenState] = useState(false);
   const [person, setPerson] = useState("pedro");
   const [selectedTheme, setSelectedTheme] = useState<string>(
     availableThemes[0].toString()
@@ -165,6 +251,147 @@ export default function Page() {
             </Select.Viewport>
           </Select.Content>
         </Select.Root>
+      </Flex>
+
+      <Separator className="margin-bt-8" />
+
+      <Flex
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        className="gap-4 flex-c-1"
+        wrap="wrap"
+      >
+        <Combobox.Root
+          value={state}
+          onValueChange={setState}
+          open={openState}
+          onOpenChange={setOpenState}
+        >
+          <Combobox.Trigger>
+            <Combobox.Value placeholder="Selecione o estado">
+              {REGIONS_AB[state]}
+            </Combobox.Value>
+          </Combobox.Trigger>
+          <Combobox.Content>
+            <Combobox.Input placeholder="Busque pelo estado" />
+            <Combobox.Empty className="max-w-180">
+              Nenhum estado encontrado.
+            </Combobox.Empty>
+            {REGIONS.map((region, index) => (
+              <Fragment key={region.name}>
+                <Combobox.Label>{region.name}</Combobox.Label>
+                {region.states.map((state) => (
+                  <Combobox.Item
+                    disabled={
+                      state.index === 12 ||
+                      state.index === 15 ||
+                      state.index === 26
+                    }
+                    key={state.value}
+                    value={state.value}
+                  >
+                    {state.name}
+                  </Combobox.Item>
+                ))}
+                {index + 1 !== REGIONS.length ? <Combobox.Separator /> : null}
+              </Fragment>
+            ))}
+          </Combobox.Content>
+        </Combobox.Root>
+
+        <Combobox.Root disabled>
+          <Combobox.Trigger>
+            <Combobox.Value placeholder="Selecione o estado" />
+          </Combobox.Trigger>
+          <Combobox.Content>
+            <Combobox.Input placeholder="Busque pelo estado" />
+            <Combobox.Empty className="max-w-180">
+              Nenhum estado encontrado.
+            </Combobox.Empty>
+            {REGIONS.map((region, index) => (
+              <Fragment key={region.name}>
+                <Combobox.Label>{region.name}</Combobox.Label>
+                {region.states.map((state) => (
+                  <Combobox.Item
+                    disabled={
+                      state.value === "amazonas" ||
+                      state.value === "santa-catarina" ||
+                      state.value === "mato-grosso-do-sul"
+                    }
+                    key={state.value}
+                    value={state.value}
+                  >
+                    {state.name}
+                  </Combobox.Item>
+                ))}
+                {index + 1 !== REGIONS.length ? <Combobox.Separator /> : null}
+              </Fragment>
+            ))}
+          </Combobox.Content>
+        </Combobox.Root>
+
+        <Combobox.Root disabled defaultValue="sao-paulo">
+          <Combobox.Trigger>
+            <Combobox.Value placeholder="Selecione o estado" />
+          </Combobox.Trigger>
+          <Combobox.Content>
+            <Combobox.Input placeholder="Busque pelo estado" />
+            <Combobox.Empty className="max-w-180">
+              Nenhum estado encontrado.
+            </Combobox.Empty>
+            {REGIONS.map((region, index) => (
+              <Fragment key={region.name}>
+                <Combobox.Label>{region.name}</Combobox.Label>
+                {region.states.map((state) => (
+                  <Combobox.Item
+                    disabled={
+                      state.value === "amazonas" ||
+                      state.value === "santa-catarina" ||
+                      state.value === "mato-grosso-do-sul"
+                    }
+                    key={state.value}
+                    value={state.value}
+                  >
+                    {state.name}
+                  </Combobox.Item>
+                ))}
+                {index + 1 !== REGIONS.length ? <Combobox.Separator /> : null}
+              </Fragment>
+            ))}
+          </Combobox.Content>
+        </Combobox.Root>
+
+        <Combobox.Root>
+          <Combobox.Trigger>
+            <Combobox.Value placeholder="Selecione o estado" />
+          </Combobox.Trigger>
+          <Combobox.Content>
+            <Combobox.Input placeholder="Busque pelo estado" />
+            <Combobox.Empty className="max-w-180">
+              Nenhum estado encontrado.
+            </Combobox.Empty>
+            {REGIONS.map((region, index) => (
+              <Fragment key={region.name}>
+                <Combobox.Label>{region.name}</Combobox.Label>
+                {region.states.map((state) => (
+                  <Combobox.Item
+                    disabled={
+                      state.value === "amazonas" ||
+                      state.value === "santa-catarina" ||
+                      state.value === "mato-grosso-do-sul"
+                    }
+                    key={state.value}
+                    value={state.value}
+                  >
+                    {state.name}
+                  </Combobox.Item>
+                ))}
+                {index + 1 !== REGIONS.length ? <Combobox.Separator /> : null}
+              </Fragment>
+            ))}
+          </Combobox.Content>
+        </Combobox.Root>
       </Flex>
 
       <Separator className="margin-bt-8" />
