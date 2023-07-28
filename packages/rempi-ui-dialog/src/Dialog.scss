@@ -76,13 +76,13 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: rempiVars.$colors-primary-11;
+      color: rempiVars.$colors-grey-11;
       position: absolute;
       top: rempiVars.$spaces-3;
       right: rempiVars.$spaces-3;
 
       &:hover {
-        background-color: rempiVars.$colors-primary-4;
+        background-color: rempiVars.$colors-grey-4;
       }
 
       &:focus-visible,

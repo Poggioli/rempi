@@ -117,7 +117,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: rempiVars.$colors-primary-11;
+      color: rempiVars.$colors-grey-11;
       opacity: 0;
       position: absolute;
       top: rempiVars.$spaces-7;
@@ -125,7 +125,7 @@
       right: rempiVars.$spaces-7;
 
       &:hover {
-        background-color: rempiVars.$colors-primary-4;
+        background-color: rempiVars.$colors-grey-4;
       }
 
       &:focus-visible,
