@@ -6,6 +6,7 @@ import { AspectRatio } from "@rempi-ui/aspect-ratio";
 import { Avatar } from "@rempi-ui/avatar";
 import { Badge } from "@rempi-ui/badge";
 import { Button, IconButton } from "@rempi-ui/button";
+import { Calendar } from "@rempi-ui/calendar";
 import { Card } from "@rempi-ui/card";
 import { Checkbox } from "@rempi-ui/checkbox";
 import { Combobox } from "@rempi-ui/combobox";
@@ -196,6 +197,12 @@ const ListItem = forwardRef<"a", ListItemProps>(
 
 export default function Page() {
   const { availableThemes, setTheme } = useContext(ThemeProviderContext);
+  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [multDate, setMultDate] = useState<Date[]>([new Date()]);
+  const [rangeDate, setRangeDate] = useState<{
+    from: Date | undefined;
+    to?: Date | undefined;
+  }>({ from: undefined, to: undefined });
   const [checkedSelection, setCheckedSelection] = useState([CHECK_ITEMS[1]]);
   const [radioSelection, setRadioSelection] = useState(RADIO_ITEMS[2]);
   const [bookmarksChecked, setBookmarksChecked] = useState(true);
@@ -253,6 +260,57 @@ export default function Page() {
         </Select.Root>
       </Flex>
 
+      <Separator className="margin-bt-8" />
+      <Flex
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        className="gap-4"
+        wrap="wrap"
+      >
+        <Calendar
+          disabled={[
+            new Date(2023, 6, 10),
+            new Date(2023, 6, 12),
+            new Date(2023, 6, 20),
+          ]}
+          fromMonth={new Date(2023, 6)}
+          mode="single"
+          selected={date}
+          onSelect={(value) => {
+            console.log({ single: value });
+            setDate(value);
+          }}
+        />
+
+        <Calendar
+          disabled={[
+            new Date(2023, 6, 10),
+            new Date(2023, 6, 12),
+            new Date(2023, 6, 20),
+          ]}
+          mode="multiple"
+          selected={multDate}
+          onSelect={(value) => {
+            console.log({ multDate: value });
+            setMultDate(value);
+          }}
+        />
+
+        <Calendar
+          disabled={[
+            new Date(2023, 6, 10),
+            new Date(2023, 6, 12),
+            new Date(2023, 6, 20),
+          ]}
+          mode="range"
+          selected={rangeDate}
+          onSelect={(value) => {
+            console.log({ range: value });
+            setRangeDate(value);
+          }}
+        />
+      </Flex>
       <Separator className="margin-bt-8" />
 
       <Flex
