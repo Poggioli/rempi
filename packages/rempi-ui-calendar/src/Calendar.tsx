@@ -1,8 +1,10 @@
 import { forwardRef, PropsOf } from "@rempi-ui/core";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { DayPicker } from "react-day-picker";
+import { Select } from "@rempi-ui/select";
 import classNamesMerge from "classnames";
 import * as locales from "date-fns/locale";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChangeEvent, Children, useEffect, useState } from "react";
+import { DayPicker } from "react-day-picker";
 import "./Calendar.scss";
 
 export type CalendarProps = PropsOf<typeof DayPicker>;
@@ -12,6 +14,7 @@ export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
     {
       className,
       classNames,
+      captionLayout = "buttons",
       showOutsideDays = true,
       fixedWeeks = true,
       locale: localeProps,
@@ -19,20 +22,24 @@ export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
     },
     ref
   ) => {
-    let locale = locales.enUS;
+    const [locale, setLocale] = useState(localeProps ?? locales.enUS);
 
-    if (!localeProps) {
-      const languages = window.navigator.languages;
-      const browserLocale = languages.length ? languages[0] : "en-US";
-      locale =
-        Object.values(locales).find((value) => {
-          return value.code === browserLocale;
-        }) ?? locales.enUS;
-    }
+    useEffect(() => {
+      if (window) {
+        const languages = window.navigator.languages;
+        const browserLocale = languages.length ? languages[0] : "en-US";
+        const localeToSet =
+          Object.values(locales).find((value) => {
+            return value.code === browserLocale;
+          }) ?? locales.enUS;
+        setLocale(localeToSet);
+      }
+    }, [window]);
 
     return (
       <div ref={ref}>
         <DayPicker
+          captionLayout={captionLayout}
           locale={locale}
           showOutsideDays={showOutsideDays}
           fixedWeeks={fixedWeeks}
@@ -60,6 +67,7 @@ export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
             day_range_end: "rempi-calendar__day--range-end",
             day_range_middle: "rempi-calendar__day--range-middle",
             day_hidden: "rempi-calendar__day--hidden",
+            caption_dropdowns: "rempi-calendar__caption-dropdown",
             ...classNames,
           }}
           {...props}
@@ -68,6 +76,46 @@ export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
             IconRight: ({ ...props }) => (
               <ChevronRight size={18} className="" />
             ),
+            Dropdown: ({
+              value,
+              onChange,
+              children,
+              caption,
+              name,
+              ...props
+            }) => {
+              console.log({ children });
+              return (
+                <Select.Root
+                  name={name}
+                  value={value as string}
+                  onValueChange={(value) => {
+                    onChange?.({
+                      target: { value },
+                    } as ChangeEvent<HTMLSelectElement>);
+                  }}
+                >
+                  <Select.Trigger aria-label={props["aria-label"]}>
+                    <Select.Value placeholder={props["aria-label"]}>
+                      {caption}
+                    </Select.Value>
+                  </Select.Trigger>
+                  <Select.Content>
+                    <Select.Viewport>
+                      {Children.map(children, (child) => {
+                        // @ts-ignore
+                        const { props } = child;
+                        return (
+                          <Select.Item value={`${props.value}`}>
+                            {props.children}
+                          </Select.Item>
+                        );
+                      })}
+                    </Select.Viewport>
+                  </Select.Content>
+                </Select.Root>
+              );
+            },
           }}
         />
       </div>

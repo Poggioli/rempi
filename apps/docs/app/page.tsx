@@ -278,7 +278,6 @@ export default function Page() {
           mode="single"
           selected={date}
           onSelect={(value) => {
-            console.log({ single: value });
             setDate(value);
           }}
         />
@@ -292,7 +291,6 @@ export default function Page() {
           mode="multiple"
           selected={multDate}
           onSelect={(value) => {
-            console.log({ multDate: value });
             setMultDate(value);
           }}
         />
@@ -306,7 +304,6 @@ export default function Page() {
           mode="range"
           selected={rangeDate}
           onSelect={(value) => {
-            console.log({ range: value });
             setRangeDate(value);
           }}
         />

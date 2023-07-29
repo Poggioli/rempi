@@ -33,6 +33,22 @@
       font-weight: rempiVars.$font-weights-3;
       line-height: rempiVars.$line-heights-2;
     }
+
+    &-dropdown {
+      display: flex;
+      width: 100%;
+      gap: rempiVars.$spaces-6;
+      justify-content: space-between;
+
+      .rdp-vhidden {
+        visibility: hidden;
+        display: none;
+      }
+
+      .rempi-select__trigger {
+        min-width: inherit;
+      }
+    }
   }
 
   &__nav {
@@ -49,6 +65,7 @@
       border-style: solid;
       border-radius: rempiVars.$radiis-2;
       border-width: rempiVars.$border-widths-1;
+      cursor: pointer;
       display: inline-flex;
       flex-direction: row;
       font-size: rempiVars.$font-sizes-3;
