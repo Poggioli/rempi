@@ -51,7 +51,9 @@ export type DropdownMenuContentProps = HTMLRempiProps<
   typeof DropdownMenu.Content
 > &
   DropdownMenu.DropdownMenuContentProps &
-  DropdownMenuPortalProps;
+  DropdownMenuPortalProps & {
+    condensed?: boolean;
+  };
 
 export const DropdownMenuContent = forwardRef<
   typeof DropdownMenu.Content,
@@ -66,6 +68,7 @@ export const DropdownMenuContent = forwardRef<
       as: Component = DropdownMenu.Content,
       sideOffset = 5,
       collisionPadding = 16,
+      condensed = true,
       ...props
     },
     ref
@@ -77,7 +80,11 @@ export const DropdownMenuContent = forwardRef<
           ref={ref}
           sideOffset={sideOffset}
           collisionPadding={collisionPadding}
-          className={classNames("rempi-dropdown-menu__content", className)}
+          className={classNames(
+            "rempi-dropdown-menu__content",
+            { "rempi-dropdown-menu__content--condensed": condensed },
+            className
+          )}
         >
           {children}
         </Component>

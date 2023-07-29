@@ -10,7 +10,16 @@
     overflow: hidden;
     padding: rempiVars.$spaces-2;
     box-shadow: rempiVars.$shadows-1;
-    border: rempiVars.$border-widths-1 solid rempiVars.$colors-grey-6
+    border: rempiVars.$border-widths-1 solid rempiVars.$colors-grey-6;
+
+    &--condensed {
+      .rempi-dropdown-menu__item,
+      .rempi-dropdown-menu__checkbox-item,
+      .rempi-dropdown-menu__radio-item,
+      .rempi-dropdown-menu__sub-menu__trigger {
+        height: rempiVars.$spaces-7;
+      }
+    }
   }
 
   &__item,
@@ -28,7 +37,7 @@
     border-radius: rempiVars.$radiis-1;
     display: flex;
     align-items: center;
-    height: rempiVars.$spaces-7;
+    height: rempiVars.$spaces-9;
     justify-content: space-between;
     padding: 0 rempiVars.$spaces-1 0 rempiVars.$spaces-6;
     position: relative;

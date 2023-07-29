@@ -51,6 +51,7 @@
 
   &__label {
     padding-left: rempiVars.$spaces-4;
+    margin-bottom: rempiVars.$spaces-2;
 
     &,
     * {
@@ -73,6 +74,12 @@
     min-width: 220px;
     overflow: auto;
     padding: rempiVars.$spaces-2;
+
+    &--condensed {
+      .rempi-combobox__item {
+        height: rempiVars.$spaces-7;
+      }
+    }
   }
 
   &__value {
@@ -97,7 +104,7 @@
     color: rempiVars.$colors-grey-11;
     display: flex;
     font-size: rempiVars.$font-sizes-3;
-    height: rempiVars.$spaces-7;
+    height: rempiVars.$spaces-9;
     line-height: rempiVars.$line-heights-2;
     outline: none;
     padding: 0 rempiVars.$spaces-1 0 rempiVars.$spaces-6;

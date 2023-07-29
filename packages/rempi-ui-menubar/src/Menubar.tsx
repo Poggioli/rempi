@@ -64,7 +64,9 @@ const MenubarPortal = Menubar.Portal;
 
 export type MenubarContentProps = HTMLRempiProps<typeof Menubar.Content> &
   Menubar.MenubarContentProps &
-  MenubarPortalProps;
+  MenubarPortalProps & {
+    condensed?: boolean;
+  };
 
 export const MenubarContent = forwardRef<
   typeof Menubar.Content,
@@ -72,6 +74,7 @@ export const MenubarContent = forwardRef<
 >(
   (
     {
+      condensed = true,
       children,
       className,
       forceMount,
@@ -90,7 +93,11 @@ export const MenubarContent = forwardRef<
           ref={ref}
           sideOffset={sideOffset}
           collisionPadding={collisionPadding}
-          className={classNames("rempi-menubar__content", className)}
+          className={classNames(
+            "rempi-menubar__content",
+            { "rempi-menubar__content--condensed": condensed },
+            className
+          )}
         >
           {children}
         </Component>

@@ -87,18 +87,24 @@ export type SelectContentProps = Omit<
   "as"
 > &
   SelectRadix.SelectContentProps &
-  SelectPortalProps;
+  SelectPortalProps & {
+    condensed?: boolean;
+  };
 
 export const SelectContent = forwardRef<
   typeof SelectRadix.Content,
   SelectContentProps
->(({ className, children, container, ...props }, ref) => {
+>(({ className, children, container, condensed = true, ...props }, ref) => {
   return (
     <SelectPortal container={container}>
       <SelectRadix.Content
         {...props}
         ref={ref}
-        className={classNames("rempi-select__content", className)}
+        className={classNames(
+          "rempi-select__content",
+          { "rempi-select__content--condensed": condensed },
+          className
+        )}
       >
         <SelectScrollUpButton />
         {children}

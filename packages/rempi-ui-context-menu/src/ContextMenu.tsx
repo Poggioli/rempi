@@ -40,7 +40,9 @@ export type ContextMenuContentProps = HTMLRempiProps<
   typeof ContextMenu.Content
 > &
   ContextMenu.ContextMenuContentProps &
-  ContextMenuPortalProps;
+  ContextMenuPortalProps & {
+    condensed?: boolean;
+  };
 
 export const ContextMenuContent = forwardRef<
   typeof ContextMenu.Content,
@@ -49,6 +51,7 @@ export const ContextMenuContent = forwardRef<
   (
     {
       children,
+      condensed = true,
       className,
       forceMount,
       container,
@@ -64,7 +67,11 @@ export const ContextMenuContent = forwardRef<
           {...props}
           ref={ref}
           collisionPadding={collisionPadding}
-          className={classNames("rempi-context-menu__content", className)}
+          className={classNames(
+            "rempi-context-menu__content",
+            { "rempi-context-menu__content--condensed": condensed },
+            className
+          )}
         >
           {children}
         </Component>

@@ -262,57 +262,68 @@ type ComboboxContentContextValue = {
 const [ComboboxContentContextProvider, useComboboxContentContext] =
   createComboboxContext<ComboboxContentContextValue>(CONTENT_NAME);
 
-export type ComboboxContentProps = PopoverContentProps;
+export type ComboboxContentProps = PopoverContentProps & {
+  condensed?: boolean;
+};
 
 export const ComboboxContent = forwardRef<
   typeof Popover.Content,
   ScopedProps<ComboboxContentProps>
->(({ className, __scopeCombobox, children, ...props }, ref) => {
-  const context = useComboboxContext(CONTENT_NAME, __scopeCombobox);
-  const [fragment, setFragment] = useState<DocumentFragment>();
-  const [searchValue, setSearchValue] = useState("");
+>(
+  (
+    { className, condensed = true, __scopeCombobox, children, ...props },
+    ref
+  ) => {
+    const context = useComboboxContext(CONTENT_NAME, __scopeCombobox);
+    const [fragment, setFragment] = useState<DocumentFragment>();
+    const [searchValue, setSearchValue] = useState("");
 
-  useLayoutEffect(() => {
-    setFragment(new DocumentFragment());
-  }, []);
+    useLayoutEffect(() => {
+      setFragment(new DocumentFragment());
+    }, []);
 
-  if (!context.open) {
-    const frag = fragment as Element | undefined;
-    return frag
-      ? createPortal(
-          <ComboboxContentContextProvider
-            scope={__scopeCombobox}
-            searchValue={searchValue}
-            onSearchValue={setSearchValue}
+    if (!context.open) {
+      const frag = fragment as Element | undefined;
+      return frag
+        ? createPortal(
+            <ComboboxContentContextProvider
+              scope={__scopeCombobox}
+              searchValue={searchValue}
+              onSearchValue={setSearchValue}
+            >
+              <Collection.Slot scope={__scopeCombobox}>
+                <div>{children}</div>
+              </Collection.Slot>
+            </ComboboxContentContextProvider>,
+            frag
+          )
+        : null;
+    }
+
+    return (
+      <ComboboxContentContextProvider
+        scope={__scopeCombobox}
+        searchValue={searchValue}
+        onSearchValue={setSearchValue}
+      >
+        <Collection.Slot scope={__scopeCombobox}>
+          <Popover.Content
+            {...props}
+            ref={ref}
+            role="listbox"
+            className={classNames(
+              "rempi-combobox__content",
+              { "rempi-combobox__content--condensed": condensed },
+              className
+            )}
           >
-            <Collection.Slot scope={__scopeCombobox}>
-              <div>{children}</div>
-            </Collection.Slot>
-          </ComboboxContentContextProvider>,
-          frag
-        )
-      : null;
+            {children}
+          </Popover.Content>
+        </Collection.Slot>
+      </ComboboxContentContextProvider>
+    );
   }
-
-  return (
-    <ComboboxContentContextProvider
-      scope={__scopeCombobox}
-      searchValue={searchValue}
-      onSearchValue={setSearchValue}
-    >
-      <Collection.Slot scope={__scopeCombobox}>
-        <Popover.Content
-          {...props}
-          ref={ref}
-          role="listbox"
-          className={classNames("rempi-combobox__content", className)}
-        >
-          {children}
-        </Popover.Content>
-      </Collection.Slot>
-    </ComboboxContentContextProvider>
-  );
-});
+);
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
