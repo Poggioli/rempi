@@ -32,6 +32,7 @@
       font-size: rempiVars.$font-sizes-3;
       font-weight: rempiVars.$font-weights-3;
       line-height: rempiVars.$line-heights-2;
+      text-transform: capitalize;
     }
 
     &-dropdown {
@@ -180,10 +181,13 @@
   }
 
   &__day {
+    align-items: center;
     border-radius: rempiVars.$radiis-pill;
     color: rempiVars.$colors-grey-12;
     cursor: pointer;
+    display: inline-flex;
     font-weight: rempiVars.$font-weights-3;
+    justify-content: center;
     height: rempiVars.$spaces-9;
     padding: 0;
     width: rempiVars.$spaces-9;

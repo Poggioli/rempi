@@ -25,7 +25,7 @@ export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
     const [locale, setLocale] = useState(localeProps ?? locales.enUS);
 
     useEffect(() => {
-      if (window) {
+      if (typeof window !== "undefined") {
         const languages = window.navigator.languages;
         const browserLocale = languages.length ? languages[0] : "en-US";
         const localeToSet =
@@ -34,7 +34,7 @@ export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
           }) ?? locales.enUS;
         setLocale(localeToSet);
       }
-    }, [window]);
+    }, []);
 
     return (
       <div ref={ref}>
