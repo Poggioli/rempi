@@ -1,0 +1,18 @@
+@use '@rempi-ui/core/src/config/rempi-variables' as rempiVars;
+
+.body {
+  background-color: rempiVars.$colors-primary-1;
+}
+
+.layout {
+  &__container-body {
+    display: flex;
+    flex-direction: column;
+    padding-top: rempiVars.$spaces-13;
+    min-height: 100vh;
+  }
+
+  &__content {
+    flex: 1;
+  }
+}

@@ -218,7 +218,7 @@ export const ThemeProviderContext = createContext<ThemeProviderProps>(null);
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
   const availableThemes = [darkTheme, lightTheme, indigoPinkTheme];
-  const [theme, setTheme] = useState<Theme>(darkTheme);
+  const [theme, setTheme] = useState<Theme>(indigoPinkTheme);
 
   return (
     <ThemeProviderContext.Provider value={{ theme, setTheme, availableThemes }}>

@@ -1,0 +1,10 @@
+@use '@rempi-ui/core/src/config/rempi-variables' as rempiVars;
+
+.footer {
+  min-height: rempiVars.$spaces-18;
+
+  &__link {
+    text-underline-offset: 4px;
+    text-decoration-line: underline;
+  }
+}

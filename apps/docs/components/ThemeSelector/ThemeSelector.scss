@@ -1,0 +1,10 @@
+@use '@rempi-ui/core/src/config/rempi-variables' as rempiVars;
+
+.theme-selector {
+  &__trigger {
+    min-width: inherit;
+    line-height: normal;
+    padding: 4px 8px;
+    font-size: rempiVars.$font-sizes-3;
+  }
+}
