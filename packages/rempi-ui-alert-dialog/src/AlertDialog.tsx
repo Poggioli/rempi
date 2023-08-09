@@ -1,7 +1,5 @@
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
-import { forwardRef, HTMLRempiProps, PropsOf } from "@rempi-ui/core";
-import classNames from "classnames";
-import "./AlertDialog.scss";
+import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import {
   StyledAlertDialogOverlay,
   StyledAlertDialogContent,
