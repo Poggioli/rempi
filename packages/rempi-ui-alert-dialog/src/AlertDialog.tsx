@@ -1,13 +1,13 @@
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps, PropsOf } from "@rempi-ui/core";
 import classNames from "classnames";
 import "./AlertDialog.scss";
 import {
-  StyledAlertDialogContent,
-  StyledAlertDialogDescription,
-  StyledAlertDialogFooter,
   StyledAlertDialogOverlay,
+  StyledAlertDialogContent,
   StyledAlertDialogTitle,
+  StyledAlertDialogDescription,
+  StyledAlertDialogFooter
 } from "./AlertDialog.styles";
 
 export type AlertDialogRootProps = AlertDialog.AlertDialogProps;
@@ -79,9 +79,7 @@ export const AlertDialogCancel = forwardRef<
 >(
   (
     {
-      children,
       as: Component = AlertDialog.Cancel,
-      className,
       asChild = true,
       ...props
     },
@@ -92,10 +90,7 @@ export const AlertDialogCancel = forwardRef<
         {...props}
         ref={ref}
         asChild={asChild}
-        className={classNames("rempi-alert-dialog__cancel", className)}
-      >
-        {children}
-      </Component>
+      />
     );
   }
 );
@@ -111,9 +106,7 @@ export const AlertDialogAction = forwardRef<
 >(
   (
     {
-      children,
       as: Component = AlertDialog.Action,
-      className,
       asChild = true,
       ...props
     },
@@ -124,10 +117,7 @@ export const AlertDialogAction = forwardRef<
         {...props}
         ref={ref}
         asChild={asChild}
-        className={classNames("rempi-alert-dialog__action ", className)}
-      >
-        {children}
-      </Component>
+      />
     );
   }
 );

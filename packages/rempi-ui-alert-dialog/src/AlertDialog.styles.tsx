@@ -31,11 +31,7 @@ export const StyledAlertDialogOverlay = styled(AlertDialog.Overlay)<{
   inset: 0;
   position: fixed;
 
-  ${(props) =>
-    props.blur &&
-    css`
-      backdrop-filter: blur(rempiVars.$spaces-1);
-    `}
+  ${(props) => props.blur && css`backdrop-filter: blur(${props.theme.spaces[1]});`}
 `;
 
 export const StyledAlertDialogContent = styled(AlertDialog.Content)`
@@ -66,7 +62,7 @@ export const StyledAlertDialogContent = styled(AlertDialog.Content)`
 `;
 
 export const StyledAlertDialogTitle = styled(AlertDialog.Title)`
-  color: ${(props) => props.theme.colors.grey2};
+  color: ${(props) => props.theme.colors.grey12};
   font-size: ${(props) => props.theme.fontSizes[6]};
   font-weight: ${(props) => props.theme.fontWeights[3]};
   margin: 0;
