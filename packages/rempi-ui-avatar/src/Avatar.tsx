@@ -1,34 +1,24 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import * as Avatar from "@radix-ui/react-avatar";
-import classNames from "classnames";
-import "./Avatar.scss";
+import { StyledAvatarFallback, StyledAvatarImage, StyledAvatarRoot } from "./Avatar.styles";
 
-type Size = "small" | "standard" | "large";
+export type Size = "small" | "standard" | "large";
 const sizeClasses: Record<Size, string> = {
   small: "rempi-avatar__root--size-small",
   standard: "rempi-avatar__root--size-standard",
   large: "rempi-avatar__root--size-large",
 };
 
-export type AvatarRootProps = HTMLRempiProps<typeof Avatar.Root> &
-  Avatar.AvatarProps & {
-    size?: Size;
-  };
+export type AvatarRootProps = HTMLRempiProps<typeof StyledAvatarRoot> &
+  Avatar.AvatarProps
 
-export const AvatarRoot = forwardRef<typeof Avatar.Root, AvatarRootProps>(
-  (
-    { as: Component = Avatar.Root, size = "standard", className, ...props },
-    ref
-  ) => {
+export const AvatarRoot = forwardRef<typeof StyledAvatarRoot, AvatarRootProps>(
+  ({ size = "standard", ...props }, ref) => {
     return (
-      <Component
+      <StyledAvatarRoot
         {...props}
         ref={ref}
-        className={classNames(
-          "rempi-avatar__root",
-          sizeClasses[size],
-          className
-        )}
+        size={size}
       />
     );
   }
@@ -36,16 +26,15 @@ export const AvatarRoot = forwardRef<typeof Avatar.Root, AvatarRootProps>(
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type AvatarImageProps = HTMLRempiProps<typeof Avatar.Image> &
+export type AvatarImageProps = HTMLRempiProps<typeof StyledAvatarImage> &
   Avatar.AvatarImageProps;
 
-export const AvatarImage = forwardRef<typeof Avatar.Image, AvatarImageProps>(
-  ({ as: Component = Avatar.Image, className, ...props }, ref) => {
+export const AvatarImage = forwardRef<typeof StyledAvatarImage, AvatarImageProps>(
+  ({ ...props }, ref) => {
     return (
-      <Component
+      <StyledAvatarImage
         {...props}
         ref={ref}
-        className={classNames("rempi-avatar__image", className)}
       />
     );
   }
@@ -53,18 +42,17 @@ export const AvatarImage = forwardRef<typeof Avatar.Image, AvatarImageProps>(
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type AvatarFallbackProps = HTMLRempiProps<typeof Avatar.Fallback> &
+export type AvatarFallbackProps = HTMLRempiProps<typeof StyledAvatarFallback> &
   Avatar.AvatarFallbackProps;
 
 export const AvatarFallback = forwardRef<
-  typeof Avatar.Fallback,
+  typeof StyledAvatarFallback,
   AvatarFallbackProps
->(({ as: Component = Avatar.Fallback, className, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <Component
+    <StyledAvatarFallback
       {...props}
       ref={ref}
-      className={classNames("rempi-avatar__fallback", className)}
     />
   );
 });
