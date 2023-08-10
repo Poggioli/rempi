@@ -9,6 +9,7 @@ import { Button, IconButton } from "@rempi-ui/button";
 import { Calendar } from "@rempi-ui/calendar";
 import { Card } from "@rempi-ui/card";
 import { Checkbox } from "@rempi-ui/checkbox";
+import { Collapsible } from "@rempi-ui/collpasible";
 import { Combobox } from "@rempi-ui/combobox";
 import { Container } from "@rempi-ui/container";
 import { ContextMenu } from "@rempi-ui/context-menu";
@@ -39,6 +40,7 @@ import { Typography } from "@rempi-ui/typography";
 import {
   BellIcon,
   Check,
+  FoldVertical,
   HelpCircle,
   Italic,
   SlidersHorizontal,
@@ -906,6 +908,26 @@ export default function Page() {
           </ContextMenu.RadioGroup>
         </ContextMenu.Content>
       </ContextMenu.Root>
+
+      <Separator className="margin-bt-8" />
+
+      <Collapsible.Root>
+        <Flex justifyContent="space-between">
+          <Typography>@peduarte starred 3 repositories</Typography>
+          <Collapsible.Trigger>
+            <IconButton shape="rounded" size="small" aria-label="open repos">
+              <FoldVertical />
+            </IconButton>
+          </Collapsible.Trigger>
+        </Flex>
+        <Typography>@radix-ui/primitives</Typography>
+        <Collapsible.Content>
+          <Flex direction="column" className="gap-4">
+            <Typography>@radix-ui/colors</Typography>
+            <Typography>@radix-ui/react</Typography>
+          </Flex>
+        </Collapsible.Content>
+      </Collapsible.Root>
 
       <Separator className="margin-bt-8" />
 
