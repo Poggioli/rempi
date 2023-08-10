@@ -1,18 +1,16 @@
 import { forwardRef, PropsOf } from "@rempi-ui/core";
 import { Select } from "@rempi-ui/select";
-import classNamesMerge from "classnames";
 import * as locales from "date-fns/locale";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ChangeEvent, Children, useEffect, useState } from "react";
 import { DayPicker } from "react-day-picker";
-import "./Calendar.scss";
+import { StyledDayPicker, Wrapper } from "./Calendar.styles";
 
 export type CalendarProps = PropsOf<typeof DayPicker>;
 
 export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
   (
     {
-      className,
       classNames,
       captionLayout = "buttons",
       showOutsideDays = true,
@@ -37,37 +35,36 @@ export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
     }, []);
 
     return (
-      <div ref={ref}>
-        <DayPicker
+      <Wrapper ref={ref}>
+        <StyledDayPicker
           captionLayout={captionLayout}
           locale={locale}
           showOutsideDays={showOutsideDays}
           fixedWeeks={fixedWeeks}
-          className={classNamesMerge("rempi-calendar", className)}
           classNames={{
-            months: "rempi-calendar__months",
-            month: "rempi-calendar__month",
-            caption: "rempi-calendar__caption",
-            caption_label: "rempi-calendar__caption-label",
-            nav: "rempi-calendar__nav",
-            nav_button: "rempi-calendar__nav-button",
-            nav_button_previous: "rempi-calendar__nav-button--previous",
-            nav_button_next: "rempi-calendar__nav-button--next",
-            table: "rempi-calendar__table",
-            head_row: "rempi-calendar__head-row",
-            head_cell: "rempi-calendar__head-cell",
-            row: "rempi-calendar__row",
-            cell: "rempi-calendar__cell",
-            day: "rempi-calendar__day",
-            day_selected: "rempi-calendar__day--selected",
-            day_today: "rempi-calendar__day--today",
-            day_outside: "rempi-calendar__day--outside",
-            day_disabled: "rempi-calendar__day--disabled",
-            day_range_start: "rempi-calendar__day--range-start",
-            day_range_end: "rempi-calendar__day--range-end",
-            day_range_middle: "rempi-calendar__day--range-middle",
-            day_hidden: "rempi-calendar__day--hidden",
-            caption_dropdowns: "rempi-calendar__caption-dropdown",
+            months: `${Wrapper.styledComponentId}-rempi-calendar__months`,
+            month: `${Wrapper.styledComponentId}-rempi-calendar__month`,
+            caption: `${Wrapper.styledComponentId}-rempi-calendar__caption`,
+            caption_label: `${Wrapper.styledComponentId}-rempi-calendar__caption-label`,
+            nav: `${Wrapper.styledComponentId}-rempi-calendar__nav`,
+            nav_button: `${Wrapper.styledComponentId}-rempi-calendar__nav-button`,
+            nav_button_previous: `${Wrapper.styledComponentId}-rempi-calendar__nav-button--previous`,
+            nav_button_next: `${Wrapper.styledComponentId}-rempi-calendar__nav-button--next`,
+            table: `${Wrapper.styledComponentId}-rempi-calendar__table`,
+            head_row: `${Wrapper.styledComponentId}-rempi-calendar__head-row`,
+            head_cell: `${Wrapper.styledComponentId}-rempi-calendar__head-cell`,
+            row: `${Wrapper.styledComponentId}-rempi-calendar__row`,
+            cell: `${Wrapper.styledComponentId}-rempi-calendar__cell`,
+            day: `${Wrapper.styledComponentId}-rempi-calendar__day`,
+            day_selected: `${Wrapper.styledComponentId}-rempi-calendar__day--selected`,
+            day_today: `${Wrapper.styledComponentId}-rempi-calendar__day--today`,
+            day_outside: `${Wrapper.styledComponentId}-rempi-calendar__day--outside`,
+            day_disabled: `${Wrapper.styledComponentId}-rempi-calendar__day--disabled`,
+            day_range_start: `${Wrapper.styledComponentId}-rempi-calendar__day--range-start`,
+            day_range_end: `${Wrapper.styledComponentId}-rempi-calendar__day--range-end`,
+            day_range_middle: `${Wrapper.styledComponentId}-rempi-calendar__day--range-middle`,
+            day_hidden: `${Wrapper.styledComponentId}-rempi-calendar__day--hidden`,
+            caption_dropdowns: `${Wrapper.styledComponentId}-rempi-calendar__caption-dropdown`,
             ...classNames,
           }}
           {...props}
@@ -77,10 +74,15 @@ export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
               <ChevronRight size={18} className="" />
             ),
             Dropdown: ({
+              // @ts-ignore
               value,
+              // @ts-ignore
               onChange,
+              // @ts-ignore
               children,
+              // @ts-ignore
               caption,
+              // @ts-ignore
               name,
               ...props
             }) => {
@@ -118,7 +120,7 @@ export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
             },
           }}
         />
-      </div>
+      </Wrapper>
     );
   }
 );

@@ -7,14 +7,12 @@
   "scripts": {},
   "dependencies": {
     "@rempi-ui/select": "*",
-    "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
     "lucide-react": "^0.258.0",
     "react-day-picker": "^8.8.0"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
-    "sass": "^1.63.6",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },
