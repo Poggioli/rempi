@@ -4,7 +4,7 @@ import { DayPicker } from "react-day-picker";
 export const Wrapper = styled.div``;
 
 export const StyledDayPicker = styled(DayPicker)`
-  ${`${Wrapper.toString()}-rempi-calendar`} {
+  ${Wrapper.toString()} {
     &__months {
       display: flex;
       flex-direction: column;
@@ -169,19 +169,19 @@ export const StyledDayPicker = styled(DayPicker)`
         z-index: 20;
       }
 
-      &:has(${Wrapper.toString()}-rempi-calendar__day--range-start) {
+      &:has(${Wrapper.toString()}__day--range-start) {
         background-color: ${(props) => props.theme.colors.primary9};
         border-radius: ${(props) => props.theme.radii.pill} 0 0
           ${(props) => props.theme.radii.pill};
       }
 
-      &:has(${Wrapper.toString()}-rempi-calendar__day--range-end) {
+      &:has(${Wrapper.toString()}__day--range-end) {
         background-color: ${(props) => props.theme.colors.primary9};
         border-radius: 0 ${(props) => props.theme.radii.pill}
           ${(props) => props.theme.radii.pill} 0;
       }
 
-      &:has(${Wrapper.toString()}-rempi-calendar__day--range-start${Wrapper.toString()}-rempi-calendar__day--range-end) {
+      &:has(${Wrapper.toString()}__day--range-start${Wrapper.toString()}__day--range-end) {
         background-color: ${(props) => props.theme.colors.primary9};
         border-radius: ${(props) => props.theme.radii.pill};
       }
@@ -238,11 +238,11 @@ export const StyledDayPicker = styled(DayPicker)`
         border-radius: 0;
         background-color: ${(props) => props.theme.colors.primary9};
         
-        &${Wrapper.toString()}-rempi-calendar__day--disabled {
+        &${Wrapper.toString()}__day--disabled {
           color: ${(props) => props.theme.colors.grey11};
         }
 
-        &${Wrapper.toString()}-rempi-calendar__day--today {
+        &${Wrapper.toString()}__day--today {
           border: none;
           color: ${(props) => props.theme.colors.grey1};
         }
