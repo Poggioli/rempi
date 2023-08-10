@@ -11,7 +11,10 @@ import {
   StyledCardTitle,
 } from "./Card.styles";
 
-export type CardProps = HTMLRempiProps<typeof StyledCardRoot> & {
+export type CardProps = Omit<
+  HTMLRempiProps<typeof StyledCardRoot>,
+  "$bordered"
+> & {
   bordered?: boolean;
 } & FlexProps;
 

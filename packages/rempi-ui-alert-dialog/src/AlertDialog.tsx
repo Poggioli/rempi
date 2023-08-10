@@ -5,7 +5,7 @@ import {
   StyledAlertDialogContent,
   StyledAlertDialogTitle,
   StyledAlertDialogDescription,
-  StyledAlertDialogFooter
+  StyledAlertDialogFooter,
 } from "./AlertDialog.styles";
 
 export type AlertDialogRootProps = AlertDialog.AlertDialogProps;
@@ -40,16 +40,17 @@ export const AlertDialogPortal = forwardRef<
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type AlertDialogOverlayProps = HTMLRempiProps<
-  typeof StyledAlertDialogContent
+export type AlertDialogOverlayProps = Omit<
+  HTMLRempiProps<typeof StyledAlertDialogContent>,
+  "$blur"
 > &
-  AlertDialog.AlertDialogOverlayProps;
+  AlertDialog.AlertDialogOverlayProps & { blur?: boolean };
 
 export const AlertDialogOverlay = forwardRef<
   typeof StyledAlertDialogContent,
   AlertDialogOverlayProps
->(({ ...props }, ref) => {
-  return <StyledAlertDialogOverlay {...props} ref={ref} />;
+>(({ blur, ...props }, ref) => {
+  return <StyledAlertDialogOverlay {...props} ref={ref} $blur={blur} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -74,24 +75,9 @@ export type AlertDialogCancelProps = HTMLRempiProps<typeof AlertDialog.Cancel> &
 export const AlertDialogCancel = forwardRef<
   typeof AlertDialog.Cancel,
   AlertDialogCancelProps
->(
-  (
-    {
-      as: Component = AlertDialog.Cancel,
-      asChild = true,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        asChild={asChild}
-      />
-    );
-  }
-);
+>(({ as: Component = AlertDialog.Cancel, asChild = true, ...props }, ref) => {
+  return <Component {...props} ref={ref} asChild={asChild} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -101,24 +87,9 @@ export type AlertDialogActionProps = HTMLRempiProps<typeof AlertDialog.Action> &
 export const AlertDialogAction = forwardRef<
   typeof AlertDialog.Action,
   AlertDialogActionProps
->(
-  (
-    {
-      as: Component = AlertDialog.Action,
-      asChild = true,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        asChild={asChild}
-      />
-    );
-  }
-);
+>(({ as: Component = AlertDialog.Action, asChild = true, ...props }, ref) => {
+  return <Component {...props} ref={ref} asChild={asChild} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 

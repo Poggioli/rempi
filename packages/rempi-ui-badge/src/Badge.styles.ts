@@ -2,7 +2,7 @@ import { css, DefaultTheme, styled } from "@rempi-ui/core";
 import { Variant } from "./Badge";
 
 export const StyledBadge = styled.div<{
-  variant?: Variant;
+  $variant?: Variant;
 }>`
   -webkit-font-smoothing: antialiased;
   align-items: center;
@@ -34,7 +34,7 @@ export const StyledBadge = styled.div<{
   }
 
   ${(props) => {
-    switch (props.variant) {
+    switch (props.$variant) {
       case "primary":
         return css`
           background-color: ${props.theme.colors.primary9};
@@ -84,7 +84,3 @@ export const StyledBadge = styled.div<{
     }
   }}
 `;
-
-StyledBadge.defaultProps = {
-  variant: "primary",
-};

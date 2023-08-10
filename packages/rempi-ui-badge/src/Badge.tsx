@@ -3,12 +3,17 @@ import { StyledBadge } from "./Badge.styles";
 
 export type Variant = "primary" | "secondary" | "outlined" | "destructive";
 
-export type BadgeProps = HTMLRempiProps<typeof StyledBadge>;
+export type BadgeProps = Omit<
+  HTMLRempiProps<typeof StyledBadge>,
+  "$variant"
+> & {
+  variant?: Variant;
+};
 
 export const Badge = forwardRef<typeof StyledBadge, BadgeProps>(
-  ({ children, ...props }, ref) => {
+  ({ children, variant = "primary", ...props }, ref) => {
     return (
-      <StyledBadge {...props} ref={ref}>
+      <StyledBadge $variant={variant} {...props} ref={ref}>
         {children}
       </StyledBadge>
     );

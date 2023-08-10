@@ -24,14 +24,14 @@ const contentShow = keyframes`
 `;
 
 export const StyledAlertDialogOverlay = styled(AlertDialog.Overlay)<{
-  blur?: boolean;
+  $blur?: boolean;
 }>`
   animation: ${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
   background-color: ${(props) => props.theme.colors.black10};
   inset: 0;
   position: fixed;
 
-  ${(props) => props.blur && css`backdrop-filter: blur(${props.theme.spaces[1]});`}
+  ${(props) => props.$blur && css`backdrop-filter: blur(${props.theme.spaces[1]});`}
 `;
 
 export const StyledAlertDialogContent = styled(AlertDialog.Content)`

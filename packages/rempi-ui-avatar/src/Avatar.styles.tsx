@@ -23,7 +23,7 @@ export const StyledAvatarImage = styled(Avatar.Image)`
 `;
 
 export const StyledAvatarRoot = styled(Avatar.Root) <{
-  size?: Size;
+  $size?: Size;
 }>`
   align-items: center;
   background-color: ${(props) => props.theme.colors.black3};
@@ -35,7 +35,7 @@ export const StyledAvatarRoot = styled(Avatar.Root) <{
   vertical-align: middle;
 
   ${(props) => {
-    switch (props.size) {
+    switch (props.$size) {
       case "small":
         return css`
           height: ${(props) => props.theme.spaces[8]};
