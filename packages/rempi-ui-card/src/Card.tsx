@@ -1,10 +1,9 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { FlexProps } from "@rempi-ui/flex";
 import { HeadingProps } from "@rempi-ui/heading";
-import { TypographyProps } from "@rempi-ui/typography";
+import { Typography, TypographyProps } from "@rempi-ui/typography";
 import {
   StyledCardContent,
-  StyledCardDescription,
   StyledCardFooter,
   StyledCardHeader,
   StyledCardRoot,
@@ -74,16 +73,16 @@ export const CardTitle = forwardRef<typeof StyledCardTitle, CardTitleProps>(
 // ------------------------------------------------------------------------- //
 
 export type CardDescriptionProps = HTMLRempiProps<
-  typeof StyledCardDescription
+  typeof Typography
 > &
   TypographyProps;
 
 export const CardDescription = forwardRef<
-  typeof StyledCardDescription,
+  typeof Typography,
   CardDescriptionProps
 >(({ as = "p", variant = "body2", ...props }, ref) => {
   return (
-    <StyledCardDescription {...props} ref={ref} as={as} variant={variant} />
+    <Typography {...props} ref={ref} as={as} variant={variant} />
   );
 });
 

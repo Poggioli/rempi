@@ -25,9 +25,6 @@ export const StyledCardHeader = styled(Flex)`
 // ToDo
 export const StyledCardTitle = styled(Heading)``;
 
-// ToDo
-export const StyledCardDescription = styled(Typography)``;
-
 export const StyledCardContent = styled(Flex)`
   gap: ${(props) => props.theme.spaces[6]};
   padding: ${(props) => props.theme.spaces[5]};
