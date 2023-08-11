@@ -240,7 +240,7 @@ export default function Page() {
         alignItems="center"
         className="gap-4"
       >
-        <Heading>Select your theme here</Heading>
+        <Heading textAlign="center">Select your theme here</Heading>
         <Select.Root value={selectedTheme} onValueChange={handleSelectTheme}>
           <Select.Trigger aria-label="Theme">
             <Select.Value placeholder="Select a theme...">
