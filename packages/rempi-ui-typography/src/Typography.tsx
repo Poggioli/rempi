@@ -1,9 +1,9 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { StyledTypography } from "./Typography.styles";
 
-export type Size = "2xsm" | "xsm" | "sm" | "md" | "lg" | "xlg";
+export type FontSize = "2xsm" | "xsm" | "sm" | "md" | "lg" | "xlg";
 
-export type Weight =
+export type FontWeight =
   | "tiny"
   | "normal"
   | "regular"
@@ -23,15 +23,15 @@ export type Variant =
   | "caption"
   | "subtitle";
 
-export type Align = "left" | "center" | "right";
+export type TextAlign = "left" | "center" | "right";
 
 export type TypographyProps = HTMLRempiProps<typeof StyledTypography> & {
   color?: Color;
-  fontSize?: Size;
-  fontWeight?: Weight;
+  fontSize?: FontSize;
+  fontWeight?: FontWeight;
   lineHeight?: LineHeight;
   isTruncated?: boolean;
-  align?: Align;
+  textAlign?: TextAlign;
   variant?: Variant;
 };
 
@@ -43,7 +43,7 @@ export const Typography = forwardRef<typeof StyledTypography, TypographyProps>(
       fontWeight,
       lineHeight,
       isTruncated,
-      align,
+      textAlign,
       variant = "body1",
       ...props
     },
@@ -56,7 +56,7 @@ export const Typography = forwardRef<typeof StyledTypography, TypographyProps>(
         $fontWeight={fontWeight}
         $lineHeight={lineHeight}
         $isTruncated={isTruncated}
-        $textAlign={align}
+        $textAlign={textAlign}
         $variant={variant}
         {...props}
         ref={ref}

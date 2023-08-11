@@ -1,5 +1,5 @@
 import { RuleSet, css, styled } from "@rempi-ui/core";
-import { Align, Color, LineHeight, Size, Variant, Weight } from "./Typography";
+import { TextAlign, Color, LineHeight, FontSize, Variant, FontWeight } from "./Typography";
 
 const variant: Record<Variant, RuleSet<object>> = {
   lead1: css`
@@ -70,7 +70,7 @@ const variant: Record<Variant, RuleSet<object>> = {
   `
 }
 
-const textAlign: Record<Align, RuleSet<object>> = {
+const textAlign: Record<TextAlign, RuleSet<object>> = {
   left: css`
     text-align: left;
 
@@ -94,7 +94,7 @@ const textAlign: Record<Align, RuleSet<object>> = {
   `
 }
 
-const fontSize: Record<Size, RuleSet<object>> = {
+const fontSize: Record<FontSize, RuleSet<object>> = {
   "2xsm": css`
     font-size: ${(props) => props.theme.fontSizes[1]};
     
@@ -139,7 +139,7 @@ const fontSize: Record<Size, RuleSet<object>> = {
   `,
 }
 
-const fontWeight: Record<Weight, RuleSet<object>> = {
+const fontWeight: Record<FontWeight, RuleSet<object>> = {
   "tiny": css`
     font-weight: ${(props) => props.theme.fontWeights[1]};
     
@@ -219,12 +219,12 @@ const color: Record<Color, RuleSet<object>> = {
 }
 
 export const StyledTypography = styled.span<{
-  $fontSize?: Size,
-  $fontWeight?: Weight,
+  $fontSize?: FontSize,
+  $fontWeight?: FontWeight,
   $lineHeight?: LineHeight,
   $color?: Color,
   $variant?: Variant,
-  $textAlign?: Align
+  $textAlign?: TextAlign
   $isTruncated?: boolean;
 }>`
   -webkit-font-smoothing: antialiased;
