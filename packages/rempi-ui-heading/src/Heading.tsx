@@ -19,7 +19,16 @@ export type Variant = "1" | "2" | "3" | "4" | "5" | "6";
 
 export type TextAlign = "left" | "center" | "right";
 
-export type HeadingProps = HTMLRempiProps<typeof StyledHeading> & {
+export type HeadingProps = Omit<
+  HTMLRempiProps<typeof StyledHeading>,
+  | "$fontSize"
+  | "$fontWeight"
+  | "$lineHeight"
+  | "$color"
+  | "$variant"
+  | "$textAlign"
+  | "$isTruncated"
+> & {
   color?: Color;
   fontSize?: FontSize;
   fontWeight?: FontWeight;

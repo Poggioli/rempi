@@ -25,7 +25,16 @@ export type Variant =
 
 export type TextAlign = "left" | "center" | "right";
 
-export type TypographyProps = HTMLRempiProps<typeof StyledTypography> & {
+export type TypographyProps = Omit<
+  HTMLRempiProps<typeof StyledTypography>,
+  | "$fontSize"
+  | "$fontWeight"
+  | "$lineHeight"
+  | "$color"
+  | "$variant"
+  | "$textAlign"
+  | "$isTruncated"
+> & {
   color?: Color;
   fontSize?: FontSize;
   fontWeight?: FontWeight;

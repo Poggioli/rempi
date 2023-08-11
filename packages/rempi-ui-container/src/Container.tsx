@@ -4,12 +4,15 @@ import { StyledContainer } from "./Container.styles";
 
 export type Variant = "sm" | "md" | "lg" | "xlg" | "2xlg" | "fluid";
 
-export type ContainerProps = HTMLRempiProps<"div"> & {
+export type ContainerProps = Omit<
+  HTMLRempiProps<typeof StyledContainer>,
+  "$variant" | "$centered"
+> & {
   variant?: Variant;
   centered?: boolean;
 };
 
-export const Container = forwardRef<"div", ContainerProps>(
+export const Container = forwardRef<typeof StyledContainer, ContainerProps>(
   ({ variant, centered = true, ...props }, ref) => {
     return (
       <StyledContainer
