@@ -1,13 +1,12 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { FlexProps } from "@rempi-ui/flex";
-import { HeadingProps } from "@rempi-ui/heading";
+import { Heading, HeadingProps } from "@rempi-ui/heading";
 import { Typography, TypographyProps } from "@rempi-ui/typography";
 import {
   StyledCardContent,
   StyledCardFooter,
   StyledCardHeader,
   StyledCardRoot,
-  StyledCardTitle,
 } from "./Card.styles";
 
 export type CardProps = Omit<
@@ -43,14 +42,13 @@ export const CardHeader = forwardRef<typeof StyledCardHeader, CardHeaderProps>(
 
 // ------------------------------------------------------------------------- //
 
-export type CardTitleProps = HTMLRempiProps<typeof StyledCardTitle> &
+export type CardTitleProps = HTMLRempiProps<typeof Heading> &
   HeadingProps;
 
-export const CardTitle = forwardRef<typeof StyledCardTitle, CardTitleProps>(
+export const CardTitle = forwardRef<typeof Heading, CardTitleProps>(
   (
     {
       as = "h3",
-      color = "high-contrast",
       fontSize = "md",
       variant = "6",
       ...props
@@ -58,11 +56,10 @@ export const CardTitle = forwardRef<typeof StyledCardTitle, CardTitleProps>(
     ref
   ) => {
     return (
-      <StyledCardTitle
+      <Heading
         {...props}
         ref={ref}
         as={as}
-        color={color}
         fontSize={fontSize}
         variant={variant}
       />

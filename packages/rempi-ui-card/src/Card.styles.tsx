@@ -22,9 +22,6 @@ export const StyledCardHeader = styled(Flex)`
   width: 100%;
 `;
 
-// ToDo
-export const StyledCardTitle = styled(Heading)``;
-
 export const StyledCardContent = styled(Flex)`
   gap: ${(props) => props.theme.spaces[6]};
   padding: ${(props) => props.theme.spaces[5]};
