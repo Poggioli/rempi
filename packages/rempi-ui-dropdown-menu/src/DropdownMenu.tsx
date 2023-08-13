@@ -1,8 +1,17 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
 import { Check, ChevronRight, Dot } from "lucide-react";
-import "./DropdownMenu.scss";
+import {
+  StyledDropdownMenuItem,
+  StyledDropdownMenuCheckboxItem,
+  StyledDropdownMenuRadioItem,
+  StyledDropdownMenuSubMenuTrigger,
+  StyledDropdownMenuLabel,
+  StyledDropdownMenuSeparator,
+  StyledDropdownMenuItemIndicator,
+  StyledDropdownMenuContent,
+  StyledDropdownMenuSubContent,
+} from './DropdownMenu.styles'
 
 export type DropdownMenuRootProps = DropdownMenu.DropdownMenuProps;
 
@@ -18,25 +27,15 @@ export type DropdownMenuTriggerProps = HTMLRempiProps<
 export const DropdownMenuTrigger = forwardRef<
   typeof DropdownMenu.Trigger,
   DropdownMenuTriggerProps
->(
-  (
-    {
-      className,
-      as: Component = DropdownMenu.Trigger,
-      asChild = true,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        asChild={asChild}
-        className={classNames("rempi-dropdown-menu__trigger", className)}
-      />
-    );
-  }
+>(({ as: Component = DropdownMenu.Trigger, asChild = true, ...props }, ref) => {
+  return (
+    <Component
+      {...props}
+      ref={ref}
+      asChild={asChild}
+    />
+  );
+}
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -47,67 +46,42 @@ const DropdownMenuPortal = DropdownMenu.Portal;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type DropdownMenuContentProps = HTMLRempiProps<
-  typeof DropdownMenu.Content
-> &
+export type DropdownMenuContentProps = Omit<HTMLRempiProps<
+  typeof StyledDropdownMenuContent
+>, "$condensed"> &
   DropdownMenu.DropdownMenuContentProps &
   DropdownMenuPortalProps & {
     condensed?: boolean;
   };
 
 export const DropdownMenuContent = forwardRef<
-  typeof DropdownMenu.Content,
+  typeof StyledDropdownMenuContent,
   DropdownMenuContentProps
->(
-  (
-    {
-      children,
-      className,
-      forceMount,
-      container,
-      as: Component = DropdownMenu.Content,
-      sideOffset = 5,
-      collisionPadding = 16,
-      condensed = true,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <DropdownMenuPortal forceMount={forceMount} container={container}>
-        <Component
-          {...props}
-          ref={ref}
-          sideOffset={sideOffset}
-          collisionPadding={collisionPadding}
-          className={classNames(
-            "rempi-dropdown-menu__content",
-            { "rempi-dropdown-menu__content--condensed": condensed },
-            className
-          )}
-        >
-          {children}
-        </Component>
-      </DropdownMenuPortal>
-    );
-  }
+>(({ children, forceMount, container, sideOffset = 5, collisionPadding = 16, condensed = true, ...props }, ref) => {
+  return (
+    <DropdownMenuPortal forceMount={forceMount} container={container}>
+      <StyledDropdownMenuContent
+        {...props}
+        ref={ref}
+        sideOffset={sideOffset}
+        collisionPadding={collisionPadding}
+        $condensed={condensed}
+      >
+        {children}
+      </StyledDropdownMenuContent>
+    </DropdownMenuPortal>
+  );
+}
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type DropdownMenuItemProps = HTMLRempiProps<typeof DropdownMenu.Item> &
+export type DropdownMenuItemProps = HTMLRempiProps<typeof StyledDropdownMenuItem> &
   DropdownMenu.DropdownMenuItemProps;
 
-export const DropdownMenuItem = forwardRef<
-  typeof DropdownMenu.Item,
-  DropdownMenuItemProps
->(({ className, as: Component = DropdownMenu.Item, ...props }, ref) => {
+export const DropdownMenuItem = forwardRef<typeof StyledDropdownMenuItem, DropdownMenuItemProps>(({ ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-dropdown-menu__item", className)}
-    />
+    <StyledDropdownMenuItem {...props} ref={ref} />
   );
 });
 
@@ -119,55 +93,38 @@ export const DropdownMenuGroup = DropdownMenu.Group;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type DropdownMenuLabelProps = HTMLRempiProps<typeof DropdownMenu.Label> &
+export type DropdownMenuLabelProps = HTMLRempiProps<typeof StyledDropdownMenuLabel> &
   DropdownMenu.DropdownMenuLabelProps;
 
 export const DropdownMenuLabel = forwardRef<
-  typeof DropdownMenu.Label,
+  typeof StyledDropdownMenuLabel,
   DropdownMenuLabelProps
->(({ className, as: Component = DropdownMenu.Label, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-dropdown-menu__label", className)}
-    />
+    <StyledDropdownMenuLabel {...props} ref={ref} />
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type DropdownMenuCheckboxItemProps = HTMLRempiProps<
-  typeof DropdownMenu.CheckboxItem
+  typeof StyledDropdownMenuCheckboxItem
 > &
   DropdownMenu.DropdownMenuCheckboxItemProps;
 
 export const DropdownMenuCheckboxItem = forwardRef<
-  typeof DropdownMenu.CheckboxItem,
+  typeof StyledDropdownMenuCheckboxItem,
   DropdownMenuCheckboxItemProps
->(
-  (
-    {
-      children,
-      className,
-      as: Component = DropdownMenu.CheckboxItem,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-dropdown-menu__checkbox-item", className)}
-      >
-        <DropdownMenuItemIndicator>
-          <Check size={12} />
-        </DropdownMenuItemIndicator>
-        {children}
-      </Component>
-    );
-  }
+>(({ children, ...props }, ref) => {
+  return (
+    <StyledDropdownMenuCheckboxItem {...props} ref={ref}>
+      <DropdownMenuItemIndicator>
+        <Check size={12} />
+      </DropdownMenuItemIndicator>
+      {children}
+    </StyledDropdownMenuCheckboxItem>
+  );
+}
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -180,84 +137,64 @@ export type DropdownMenuRadioGroupProps = HTMLRempiProps<
 export const DropdownMenuRadioGroup = forwardRef<
   typeof DropdownMenu.RadioGroup,
   DropdownMenuRadioGroupProps
->(({ className, as: Component = DropdownMenu.RadioGroup, ...props }, ref) => {
+>(({ as: Component = DropdownMenu.RadioGroup, ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-dropdown-menu__radio-group", className)}
-    />
+    <Component {...props} ref={ref} />
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type DropdownMenuRadioItemProps = HTMLRempiProps<
-  typeof DropdownMenu.RadioItem
+  typeof StyledDropdownMenuRadioItem
 > &
   DropdownMenu.DropdownMenuRadioItemProps;
 
 export const DropdownMenuRadioItem = forwardRef<
-  typeof DropdownMenu.RadioItem,
+  typeof StyledDropdownMenuRadioItem,
   DropdownMenuRadioItemProps
->(
-  (
-    { children, className, as: Component = DropdownMenu.RadioItem, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-dropdown-menu__radio-item", className)}
-      >
-        <DropdownMenuItemIndicator>
-          <Dot size={24} />
-        </DropdownMenuItemIndicator>
-        {children}
-      </Component>
-    );
-  }
+>(({ children, ...props }, ref) => {
+  return (
+    <StyledDropdownMenuRadioItem {...props} ref={ref}>
+      <DropdownMenuItemIndicator>
+        <Dot size={24} />
+      </DropdownMenuItemIndicator>
+      {children}
+    </StyledDropdownMenuRadioItem>
+  );
+}
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 type DropdownMenuItemIndicatorProps = Omit<
-  HTMLRempiProps<typeof DropdownMenu.ItemIndicator>,
+  HTMLRempiProps<typeof StyledDropdownMenuItemIndicator>,
   "as"
 > &
   DropdownMenu.DropdownMenuItemIndicatorProps;
 
 const DropdownMenuItemIndicator = forwardRef<
-  typeof DropdownMenu.ItemIndicator,
+  typeof StyledDropdownMenuItemIndicator,
   DropdownMenuItemIndicatorProps
->(({ className, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <DropdownMenu.ItemIndicator
-      {...props}
-      ref={ref}
-      className={classNames("rempi-dropdown-menu__item-indicator", className)}
-    />
+    <StyledDropdownMenuItemIndicator {...props} ref={ref} />
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type DropdownMenuSeparatorProps = HTMLRempiProps<
-  typeof DropdownMenu.Separator
+  typeof StyledDropdownMenuSeparator
 > &
   DropdownMenu.DropdownMenuSeparatorProps;
 
 export const DropdownMenuSeparator = forwardRef<
-  typeof DropdownMenu.Separator,
+  typeof StyledDropdownMenuSeparator,
   DropdownMenuSeparatorProps
->(({ className, as: Component = DropdownMenu.Separator, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-dropdown-menu__separator", className)}
-    />
+    <StyledDropdownMenuSeparator  {...props} ref={ref} />
   );
 });
 
@@ -270,70 +207,41 @@ export const DropdownMenuSubMenu = DropdownMenu.Sub;
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type DropdownMenuSubMenuTriggerProps = HTMLRempiProps<
-  typeof DropdownMenu.SubTrigger
+  typeof StyledDropdownMenuSubMenuTrigger
 > &
   DropdownMenu.DropdownMenuSubTriggerProps;
 
 export const DropdownMenuSubMenuTrigger = forwardRef<
-  typeof DropdownMenu.SubTrigger,
+  typeof StyledDropdownMenuSubMenuTrigger,
   DropdownMenuSubMenuTriggerProps
->(
-  (
-    { className, as: Component = DropdownMenu.SubTrigger, children, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames(
-          "rempi-dropdown-menu__sub-menu__trigger",
-          className
-        )}
-      >
-        {children}
-        <ChevronRight size={16} />
-      </Component>
-    );
-  }
+>(({ children, ...props }, ref) => {
+  return (
+    <StyledDropdownMenuSubMenuTrigger {...props} ref={ref}>
+      {children}
+      <ChevronRight size={16} />
+    </StyledDropdownMenuSubMenuTrigger>
+  );
+}
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type DropdownMenuSubMenuContentProps = HTMLRempiProps<
-  typeof DropdownMenu.SubContent
-> &
+export type DropdownMenuSubMenuContentProps = Omit<HTMLRempiProps<
+  typeof StyledDropdownMenuSubContent
+>, "$condensed"> &
   DropdownMenu.DropdownMenuSubContentProps &
   DropdownMenuPortalProps;
 
 export const DropdownMenuSubMenuContent = forwardRef<
-  typeof DropdownMenu.SubContent,
+  typeof StyledDropdownMenuSubContent,
   DropdownMenuSubMenuContentProps
->(
-  (
-    {
-      children,
-      className,
-      forceMount,
-      container,
-      as: Component = DropdownMenu.SubContent,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <DropdownMenuPortal forceMount={forceMount} container={container}>
-        <Component
-          {...props}
-          ref={ref}
-          className={classNames(
-            "rempi-dropdown-menu__sub-menu__content",
-            className
-          )}
-        >
-          {children}
-        </Component>
-      </DropdownMenuPortal>
-    );
-  }
+>(({ children, forceMount, container, ...props }, ref) => {
+  return (
+    <DropdownMenuPortal forceMount={forceMount} container={container}>
+      <StyledDropdownMenuSubContent {...props} ref={ref} >
+        {children}
+      </StyledDropdownMenuSubContent>
+    </DropdownMenuPortal>
+  );
+}
 );
