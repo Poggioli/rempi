@@ -1,8 +1,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
 import { X } from "lucide-react";
-import "./Dialog.scss";
+import { StyledDialogCloseCross, StyledDialogContent, StyledDialogDescription, StyledDialogFooter, StyledDialogOverlay, StyledDialogTitle } from "./Dialog.styles";
 
 export type DialogRootProps = Dialog.DialogProps;
 
@@ -16,28 +15,15 @@ export type DialogTriggerProps = HTMLRempiProps<typeof Dialog.Trigger> &
 export const DialogTrigger = forwardRef<
   typeof Dialog.Trigger,
   DialogTriggerProps
->(
-  (
-    {
-      children,
-      as: Component = Dialog.Trigger,
-      className,
-      asChild = true,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        asChild={asChild}
-        className={classNames("rempi-dialog__trigger", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
+>(({ as: Component = Dialog.Trigger, asChild = true, ...props }, ref) => {
+  return (
+    <Component
+      {...props}
+      ref={ref}
+      asChild={asChild}
+    />
+  );
+}
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -46,67 +32,44 @@ export type DialogPortalProps = HTMLRempiProps<typeof Dialog.Portal> &
   Dialog.DialogPortalProps;
 
 export const DialogPortal = forwardRef<typeof Dialog.Portal, DialogPortalProps>(
-  ({ children, as: Component = Dialog.Portal, className, ...props }, ref) => {
+  ({ as: Component = Dialog.Portal, ...props }, ref) => {
     return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-dialog__portal", className)}
-      >
-        {children}
-      </Component>
+      <Component {...props} ref={ref} />
     );
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type DialogOverlayProps = HTMLRempiProps<typeof Dialog.Overlay> &
+export type DialogOverlayProps = Omit<HTMLRempiProps<typeof StyledDialogOverlay>, " $blur"> &
   Dialog.DialogOverlayProps & {
     blur?: boolean;
   };
 
 export const DialogOverlay = forwardRef<
-  typeof Dialog.Overlay,
+  typeof StyledDialogOverlay,
   DialogOverlayProps
->(
-  (
-    { children, as: Component = Dialog.Overlay, className, blur, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames(
-          "rempi-dialog__overlay",
-          { "rempi-dialog__overlay--blured": blur },
-          className
-        )}
-      >
-        {children}
-      </Component>
-    );
-  }
+>(({ blur, ...props }, ref) => {
+  return (
+    <StyledDialogOverlay
+      {...props}
+      ref={ref}
+      $blur={blur}
+    />
+  );
+}
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type DialogContentProps = HTMLRempiProps<typeof Dialog.Content> &
+export type DialogContentProps = HTMLRempiProps<typeof StyledDialogContent> &
   Dialog.DialogContentProps;
 
-export const DialogContent = forwardRef<
-  typeof Dialog.Content,
-  DialogContentProps
->(({ children, as: Component = Dialog.Content, className, ...props }, ref) => {
+export const DialogContent = forwardRef<typeof StyledDialogContent, DialogContentProps>(({ ...props }, ref) => {
   return (
-    <Component
+    <StyledDialogContent
       {...props}
-      ref={ref}
-      className={classNames("rempi-dialog__content", className)}
-    >
-      {children}
-    </Component>
+      ref={ref} />
   );
 });
 
@@ -116,25 +79,13 @@ export type DialogCloseProps = HTMLRempiProps<typeof Dialog.Close> &
   Dialog.DialogCloseProps;
 
 export const DialogClose = forwardRef<typeof Dialog.Close, DialogCloseProps>(
-  (
-    {
-      children,
-      as: Component = Dialog.Close,
-      className,
-      asChild = true,
-      ...props
-    },
-    ref
-  ) => {
+  ({ as: Component = Dialog.Close, asChild = true, ...props }, ref) => {
     return (
       <Component
         {...props}
         ref={ref}
         asChild={asChild}
-        className={classNames("rempi-dialog__close", className)}
-      >
-        {children}
-      </Component>
+      />
     );
   }
 );
@@ -146,78 +97,64 @@ export type DialogCloseCrossProps = Dialog.DialogCloseProps & {
 };
 
 export const DialogCloseCross = forwardRef<
-  typeof Dialog.Close,
+  typeof StyledDialogCloseCross,
   DialogCloseCrossProps
->(({ className, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <Dialog.Close
+    <StyledDialogCloseCross
       {...props}
       ref={ref}
-      className={classNames("rempi-dialog__close-cross", className)}
     >
       <X size={18} />
-    </Dialog.Close>
+    </StyledDialogCloseCross>
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type DialogTitleProps = HTMLRempiProps<typeof Dialog.Title> &
+export type DialogTitleProps = HTMLRempiProps<typeof StyledDialogTitle> &
   Dialog.DialogTitleProps;
 
-export const DialogTitle = forwardRef<typeof Dialog.Title, DialogTitleProps>(
-  ({ children, as: Component = Dialog.Title, className, ...props }, ref) => {
+export const DialogTitle = forwardRef<typeof StyledDialogTitle, DialogTitleProps>(
+  ({ ...props }, ref) => {
     return (
-      <Component
+      <StyledDialogTitle
         {...props}
         ref={ref}
-        className={classNames("rempi-dialog__title", className)}
-      >
-        {children}
-      </Component>
+      />
     );
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type DialogDescriptionProps = HTMLRempiProps<typeof Dialog.Description> &
+export type DialogDescriptionProps = HTMLRempiProps<typeof StyledDialogDescription> &
   Dialog.DialogDescriptionProps;
 
 export const DialogDescription = forwardRef<
-  typeof Dialog.Description,
+  typeof StyledDialogDescription,
   DialogDescriptionProps
->(
-  (
-    { children, as: Component = Dialog.Description, className, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-dialog__description", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
+>(({ ...props }, ref) => {
+  return (
+    <StyledDialogDescription
+      {...props}
+      ref={ref}
+    />
+  );
+}
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type DialogFooterProps = HTMLRempiProps<"div">;
+export type DialogFooterProps = HTMLRempiProps<typeof StyledDialogFooter>;
 
-export const DialogFooter = forwardRef<"div", DialogFooterProps>(
-  ({ children, as: Component = "div", className, ...props }, ref) => {
+export const DialogFooter = forwardRef<typeof StyledDialogFooter, DialogFooterProps>(
+  ({ ...props }, ref) => {
     return (
-      <Component
+      <StyledDialogFooter
         {...props}
         ref={ref}
-        className={classNames("rempi-dialog__footer", className)}
-      >
-        {children}
-      </Component>
+      />
     );
   }
 );
