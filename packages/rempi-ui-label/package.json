@@ -7,12 +7,10 @@
   "scripts": {},
   "dependencies": {
     "@radix-ui/react-label": "^2.0.2",
-    "@rempi-ui/flex": "*",
-    "classnames": "^2.3.2"
+    "@rempi-ui/flex": "*"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
-    "sass": "^1.63.6",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },
