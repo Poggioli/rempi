@@ -1,7 +1,5 @@
 import { css, styled } from "@rempi-ui/core";
 import { Flex } from "@rempi-ui/flex";
-import { Heading } from "@rempi-ui/heading";
-import { Typography } from "@rempi-ui/typography";
 
 export const StyledCardRoot = styled(Flex)<{ $bordered?: boolean }>`
   background-color: ${(props) => props.theme.colors.grey3};

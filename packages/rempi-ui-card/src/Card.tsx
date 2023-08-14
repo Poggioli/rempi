@@ -17,12 +17,12 @@ export type CardProps = Omit<
 } & FlexProps;
 
 export const Card = forwardRef<typeof StyledCardRoot, CardProps>(
-  ({ bordered = true, direction = "column", ...props }, ref) => {
+  ({ bordered = true, flexDirection = "column", ...props }, ref) => {
     return (
       <StyledCardRoot
         {...props}
         ref={ref}
-        direction={direction}
+        flexDirection={flexDirection}
         $bordered={bordered}
       />
     );
@@ -35,8 +35,8 @@ export type CardHeaderProps = HTMLRempiProps<typeof StyledCardHeader> &
   FlexProps;
 
 export const CardHeader = forwardRef<typeof StyledCardHeader, CardHeaderProps>(
-  ({ direction = "column", ...props }, ref) => {
-    return <StyledCardHeader {...props} ref={ref} direction={direction} />;
+  ({ flexDirection = "column", ...props }, ref) => {
+    return <StyledCardHeader {...props} ref={ref} flexDirection={flexDirection} />;
   }
 );
 
