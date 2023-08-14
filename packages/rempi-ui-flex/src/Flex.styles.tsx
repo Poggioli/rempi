@@ -252,20 +252,20 @@ const alignSelf: Record<string, RuleSet<object>> = {
 };
 
 export const StyledFlex = styled.div<{
-  $flexDirection: FlexDirection;
-  $flexWrap: FlexWrap;
-  $justifyContent: JustifyContent;
-  $alignItems: AlignItems;
-  $alignContents: AlignContent;
-  $alignSelf: AlignSelf;
+  $flexDirection?: FlexDirection;
+  $flexWrap?: FlexWrap;
+  $justifyContent?: JustifyContent;
+  $alignItems?: AlignItems;
+  $alignContents?: AlignContent;
+  $alignSelf?: AlignSelf;
 }>`
   box-sizing: border-box;
   display: flex;
 
-  ${(props) => props.$flexDirection && flexDirection[props.$flexDirection]},
-  ${(props) => props.$flexWrap && flexWrap[props.$flexWrap]},
-  ${(props) => props.$justifyContent && justifyContent[props.$justifyContent]},
-  ${(props) => props.$alignItems && alignItems[props.$alignItems]},
-  ${(props) => props.$alignContents && alignContents[props.$alignContents]},
-  ${(props) => props.$alignSelf && alignSelf[props.$alignSelf]},
+  ${(props) => props.$flexDirection && flexDirection[props.$flexDirection]};
+  ${(props) => props.$flexWrap && flexWrap[props.$flexWrap]};
+  ${(props) => props.$justifyContent && justifyContent[props.$justifyContent]};
+  ${(props) => props.$alignItems && alignItems[props.$alignItems]};
+  ${(props) => props.$alignContents && alignContents[props.$alignContents]};
+  ${(props) => props.$alignSelf && alignSelf[props.$alignSelf]};
 `;
