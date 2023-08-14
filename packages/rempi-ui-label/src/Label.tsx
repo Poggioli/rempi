@@ -17,7 +17,7 @@ export type LabelProps = Omit<HTMLRempiProps<typeof LabelRadix.Root>, "as"> &
 
 export const Label = forwardRef<typeof LabelRadix.Root, LabelProps>(
   (
-    { children, className, alignItems = "center", direction = "row", ...props },
+    { children, className, alignItems = "center", flexDirection = "row", ...props },
     ref
   ) => {
     const [attrs, setAttrs] = useState<any>({});
@@ -28,7 +28,7 @@ export const Label = forwardRef<typeof LabelRadix.Root, LabelProps>(
           {...props}
           {...attrs}
           alignItems={alignItems}
-          direction={direction}
+          flexDirection={flexDirection}
           as="label"
           ref={ref}
           className={classNames("rempi-label", className)}
