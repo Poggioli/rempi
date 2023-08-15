@@ -1,18 +1,17 @@
 import * as Switch from "@radix-ui/react-switch";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { Label, LabelContext, LabelProps } from "@rempi-ui/label";
-import classNames from "classnames";
 import { useContext, useEffect } from "react";
-import "./Switch.scss";
+import { StyledSwitchRoot, StyledSwitchThumb } from "./Switch.styles";
 
 export type SwitchRootProps = Omit<
-  HTMLRempiProps<typeof Switch.Root>,
+  HTMLRempiProps<typeof StyledSwitchRoot>,
   "children" | "as"
 > &
   Switch.SwitchProps;
 
-export const SwitchRoot = forwardRef<typeof Switch.Root, SwitchRootProps>(
-  ({ className, ...props }, ref) => {
+export const SwitchRoot = forwardRef<typeof StyledSwitchRoot, SwitchRootProps>(
+  ({ ...props }, ref) => {
     const { setAttrs: setLabelAttrs } = useContext(LabelContext);
 
     useEffect(() => {
@@ -39,28 +38,25 @@ export const SwitchRoot = forwardRef<typeof Switch.Root, SwitchRootProps>(
     }
 
     return (
-      <Switch.Root
+      <StyledSwitchRoot
         {...props}
         onCheckedChange={handleOnCheckedChange}
         ref={ref}
-        className={classNames("rempi-switch__root", className)}
       >
         <SwitchThumb />
-      </Switch.Root>
+      </StyledSwitchRoot>
     );
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-type SwitchThumbProps = HTMLRempiProps<typeof Switch.Thumb> &
+type SwitchThumbProps = HTMLRempiProps<typeof StyledSwitchThumb> &
   Switch.SwitchThumbProps;
 
-const SwitchThumb = forwardRef<typeof Switch.Thumb, SwitchThumbProps>(
+const SwitchThumb = forwardRef<typeof StyledSwitchThumb, SwitchThumbProps>(
   ({ ...props }, ref) => {
-    return (
-      <Switch.Thumb {...props} ref={ref} className="rempi-switch__thumb" />
-    );
+    return <StyledSwitchThumb {...props} ref={ref} />;
   }
 );
 
