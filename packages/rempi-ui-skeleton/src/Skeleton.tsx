@@ -1,17 +1,10 @@
 import { HTMLRempiProps, forwardRef } from "@rempi-ui/core";
-import classNames from "classnames";
-import "./Skeleton.scss";
+import { StyledSkeleton } from "./Skeleton.styles";
 
-export type SkeletonProps = HTMLRempiProps<"div">
+export type SkeletonProps = HTMLRempiProps<typeof StyledSkeleton>;
 
-export const Skeleton = forwardRef<"div", SkeletonProps>(
-  ({ as: Component = "div", className, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-skeleton", className)}
-      />
-    );
+export const Skeleton = forwardRef<typeof StyledSkeleton, SkeletonProps>(
+  ({ ...props }, ref) => {
+    return <StyledSkeleton {...props} ref={ref} />;
   }
 );
