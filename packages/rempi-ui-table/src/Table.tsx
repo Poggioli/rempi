@@ -1,141 +1,119 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
-import "./Table.scss";
+import {
+  StyledTableWrapper,
+  StyledTableRow,
+  StyledTableHeader,
+  StyledTableHead,
+  StyledTableFooter,
+  StyledTableCell,
+  StyledTableCaption,
+  StyledTableBody,
+  StyledTableRoot,
+} from "./Table.styles";
 
-export type TableProps = Omit<HTMLRempiProps<"table">, "as"> & {
+export type TableProps = Omit<
+  HTMLRempiProps<typeof StyledTableRoot>,
+  "as" | "$striped" | "$condensed"
+> & {
   striped?: boolean;
   condensed?: boolean;
 };
 
-export const Table = forwardRef<"table", TableProps>(
-  ({ children, className, striped = true, condensed = true, ...props }, ref) => {
+export const Table = forwardRef<typeof StyledTableRoot, TableProps>(
+  ({ children, striped = true, condensed = true, ...props }, ref) => {
     return (
-      <div className="rempi-table">
-        <table
+      <StyledTableWrapper>
+        <StyledTableRoot
           ref={ref}
           {...props}
-          className={classNames(
-            "rempi-table__root",
-            { "rempi-table__root--striped": striped },
-            { "rempi-table__root--condensed": condensed },
-            className
-          )}
+          $striped={striped}
+          $condensed={condensed}
         >
           {children}
-        </table>
-      </div>
+        </StyledTableRoot>
+      </StyledTableWrapper>
     );
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type TableHeaderProps = Omit<HTMLRempiProps<"thead">, "as">;
+export type TableHeaderProps = Omit<
+  HTMLRempiProps<typeof StyledTableHeader>,
+  "as"
+>;
 
-export const TableHeader = forwardRef<"thead", TableHeaderProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <thead
-        ref={ref}
-        {...props}
-        className={classNames("rempi-table__header", className)}
-      />
-    );
+export const TableHeader = forwardRef<
+  typeof StyledTableHeader,
+  TableHeaderProps
+>(({ ...props }, ref) => {
+  return <StyledTableHeader ref={ref} {...props} />;
+});
+
+// -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
+
+export type TableBodyProps = Omit<HTMLRempiProps<typeof StyledTableBody>, "as">;
+
+export const TableBody = forwardRef<typeof StyledTableBody, TableBodyProps>(
+  ({ ...props }, ref) => {
+    return <StyledTableBody ref={ref} {...props} />;
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type TableBodyProps = Omit<HTMLRempiProps<"tbody">, "as">;
+export type TableFooterProps = Omit<
+  HTMLRempiProps<typeof StyledTableFooter>,
+  "as"
+>;
 
-export const TableBody = forwardRef<"tbody", TableBodyProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <tbody
-        ref={ref}
-        {...props}
-        className={classNames("rempi-table__body", className)}
-      />
-    );
+export const TableFooter = forwardRef<
+  typeof StyledTableFooter,
+  TableFooterProps
+>(({ ...props }, ref) => {
+  return <StyledTableFooter ref={ref} {...props} />;
+});
+
+// -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
+
+export type TableRowProps = Omit<HTMLRempiProps<typeof StyledTableRow>, "as">;
+
+export const TableRow = forwardRef<typeof StyledTableRow, TableRowProps>(
+  ({ ...props }, ref) => {
+    return <StyledTableRow ref={ref} {...props} />;
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type TableFooterProps = Omit<HTMLRempiProps<"tfoot">, "as">;
+export type TableHeadProps = Omit<HTMLRempiProps<typeof StyledTableHead>, "as">;
 
-export const TableFooter = forwardRef<"tfoot", TableFooterProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <tfoot
-        ref={ref}
-        {...props}
-        className={classNames("rempi-table__footer", className)}
-      />
-    );
+export const TableHead = forwardRef<typeof StyledTableHead, TableHeadProps>(
+  ({ ...props }, ref) => {
+    return <StyledTableHead ref={ref} {...props} />;
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type TableRowProps = Omit<HTMLRempiProps<"tr">, "as">;
+export type TableCellProps = Omit<HTMLRempiProps<typeof StyledTableCell>, "as">;
 
-export const TableRow = forwardRef<"tr", TableRowProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <tr
-        ref={ref}
-        {...props}
-        className={classNames("rempi-table__row", className)}
-      />
-    );
+export const TableCell = forwardRef<typeof StyledTableCell, TableCellProps>(
+  ({ ...props }, ref) => {
+    return <StyledTableCell ref={ref} {...props} />;
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type TableHeadProps = Omit<HTMLRempiProps<"th">, "as">;
+export type TableCaptionProps = Omit<
+  HTMLRempiProps<typeof StyledTableCaption>,
+  "as"
+>;
 
-export const TableHead = forwardRef<"th", TableHeadProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <th
-        ref={ref}
-        {...props}
-        className={classNames("rempi-table__head", className)}
-      />
-    );
-  }
-);
-
-// -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
-
-export type TableCellProps = Omit<HTMLRempiProps<"td">, "as">;
-
-export const TableCell = forwardRef<"td", TableCellProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <td
-        ref={ref}
-        {...props}
-        className={classNames("rempi-table__cell", className)}
-      />
-    );
-  }
-);
-
-// -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
-
-export type TableCaptionProps = Omit<HTMLRempiProps<"caption">, "as">;
-
-export const TableCaption = forwardRef<"caption", TableCaptionProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <caption
-        ref={ref}
-        {...props}
-        className={classNames("rempi-table__caption", className)}
-      />
-    );
-  }
-);
+export const TableCaption = forwardRef<
+  typeof StyledTableCaption,
+  TableCaptionProps
+>(({ ...props }, ref) => {
+  return <StyledTableCaption ref={ref} {...props} />;
+});
