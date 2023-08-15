@@ -1,57 +1,46 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
-import { ChevronDown } from "lucide-react";
-import "./NavigationMenu.scss";
+import {
+  StyledNavigationMenuChevronDown,
+  StyledNavigationMenuContent,
+  StyledNavigationMenuLink,
+  StyledNavigationMenuList,
+  StyledNavigationMenuRoot,
+  StyledNavigationMenuTrigger,
+  StyledNavigationMenuViewport,
+  StyledNavigationMenuViewportPosition
+} from "./NavigationMenu.styles";
 
 export type NavigationMenuRootProps = HTMLRempiProps<
-  typeof NavigationMenu.Root
+  typeof StyledNavigationMenuRoot
 > &
   NavigationMenu.NavigationMenuProps &
   NavigationMenuViewportProps;
 
 export const NavigationMenuRoot = forwardRef<
-  typeof NavigationMenu.Root,
+  typeof StyledNavigationMenuRoot,
   NavigationMenuRootProps
->(
-  (
-    {
-      className,
-      forceMount,
-      as: Component = NavigationMenu.Root,
-      children,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-navigation-menu__root", className)}
-      >
-        <NavigationMenuList>{children}</NavigationMenuList>
-        <NavigationMenuViewport forceMount={forceMount} />
-      </Component>
-    );
-  }
+>(({ forceMount, children, ...props }, ref) => {
+  return (
+    <StyledNavigationMenuRoot {...props} ref={ref}>
+      <NavigationMenuList>{children}</NavigationMenuList>
+      <NavigationMenuViewport forceMount={forceMount} />
+    </StyledNavigationMenuRoot>
+  );
+}
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-type NavigationMenuListProps = HTMLRempiProps<typeof NavigationMenu.List> &
+type NavigationMenuListProps = HTMLRempiProps<typeof StyledNavigationMenuList> &
   NavigationMenu.NavigationMenuListProps;
 
 const NavigationMenuList = forwardRef<
-  typeof NavigationMenu.List,
+  typeof StyledNavigationMenuList,
   NavigationMenuListProps
->(({ className, as: Component = NavigationMenu.List, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-navigation-menu__list", className)}
-    />
+    <StyledNavigationMenuList {...props} ref={ref} />
   );
 });
 
@@ -65,105 +54,78 @@ export type NavigationMenuItemProps = HTMLRempiProps<
 export const NavigationMenuItem = forwardRef<
   typeof NavigationMenu.Item,
   NavigationMenuItemProps
->(({ className, as: Component = NavigationMenu.Item, ...props }, ref) => {
+>(({ as: Component = NavigationMenu.Item, ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-navigation-menu__item", className)}
-    />
+    <Component {...props} ref={ref} />
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type NavigationMenuTriggerProps = HTMLRempiProps<
-  typeof NavigationMenu.Trigger
+  typeof StyledNavigationMenuTrigger
 > &
   NavigationMenu.NavigationMenuTriggerProps;
 
 export const NavigationMenuTrigger = forwardRef<
-  typeof NavigationMenu.Trigger,
+  typeof StyledNavigationMenuTrigger,
   NavigationMenuTriggerProps
->(
-  (
-    { className, as: Component = NavigationMenu.Trigger, children, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-navigation-menu__trigger", className)}
-      >
-        {children}
-        <ChevronDown
-          className="rempi-navigation-menu__trigger__chevron-down"
-          size={16}
-        />
-      </Component>
-    );
-  }
+>(({ children, ...props }, ref) => {
+  return (
+    <StyledNavigationMenuTrigger {...props} ref={ref} >
+      {children}
+      <StyledNavigationMenuChevronDown size={16} />
+    </StyledNavigationMenuTrigger>
+  );
+}
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type NavigationMenuContentProps = HTMLRempiProps<
-  typeof NavigationMenu.Content
+  typeof StyledNavigationMenuContent
 > &
   NavigationMenu.NavigationMenuContentProps;
 
 export const NavigationMenuContent = forwardRef<
-  typeof NavigationMenu.Content,
+  typeof StyledNavigationMenuContent,
   NavigationMenuContentProps
->(({ className, as: Component = NavigationMenu.Content, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-navigation-menu__content", className)}
-    />
+    <StyledNavigationMenuContent {...props} ref={ref} />
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type NavigationMenuLinkProps = HTMLRempiProps<
-  typeof NavigationMenu.Link
+  typeof StyledNavigationMenuLink
 > &
   NavigationMenu.NavigationMenuLinkProps;
 
 export const NavigationMenuLink = forwardRef<
-  typeof NavigationMenu.Link,
+  typeof StyledNavigationMenuLink,
   NavigationMenuLinkProps
->(({ className, as: Component = NavigationMenu.Link, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-navigation-menu__link", className)}
-    />
+    <StyledNavigationMenuLink {...props} ref={ref} />
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 type NavigationMenuViewportProps = HTMLRempiProps<
-  typeof NavigationMenu.Viewport
+  typeof StyledNavigationMenuViewport
 > &
   NavigationMenu.NavigationMenuViewportProps;
 
 const NavigationMenuViewport = forwardRef<
-  typeof NavigationMenu.Viewport,
+  typeof StyledNavigationMenuViewport,
   NavigationMenuViewportProps
->(({ className, as: Component = NavigationMenu.Viewport, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <div className="rempi-navigation-menu__viewport-position">
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-navigation-menu__viewport", className)}
-      />
-    </div>
+    <StyledNavigationMenuViewportPosition>
+      <StyledNavigationMenuViewport {...props} ref={ref} />
+    </StyledNavigationMenuViewportPosition>
   );
 });
