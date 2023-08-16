@@ -1,33 +1,29 @@
 import * as Radio from "@radix-ui/react-radio-group";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { Label, LabelContext, LabelProps } from "@rempi-ui/label";
-import classNames from "classnames";
 import { useContext, useEffect } from "react";
-import "./Radio.scss";
+import { StyledRadioIndicator, StyledRadioItem } from "./Radio.styles";
 
 export type RadioRootProps = Omit<HTMLRempiProps<typeof Radio.Root>, "as"> &
   Radio.RadioGroupProps;
 
 export const RadioRoot = forwardRef<typeof Radio.Root, RadioRootProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <Radio.Root
-        {...props}
-        ref={ref}
-        className={classNames("rempi-radio", className)}
-      />
-    );
+  ({ ...props }, ref) => {
+    return <Radio.Root {...props} ref={ref} />;
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type RadioItemProps = Omit<HTMLRempiProps<typeof Radio.Item>, "as"> &
+export type RadioItemProps = Omit<
+  HTMLRempiProps<typeof StyledRadioItem>,
+  "as"
+> &
   Radio.RadioGroupItemProps &
   Radio.RadioGroupIndicatorProps;
 
-export const RadioItem = forwardRef<typeof Radio.Item, RadioItemProps>(
-  ({ className, forceMount, ...props }, ref) => {
+export const RadioItem = forwardRef<typeof StyledRadioItem, RadioItemProps>(
+  ({ forceMount, ...props }, ref) => {
     const { setAttrs: setLabelAttrs } = useContext(LabelContext);
 
     useEffect(() => {
@@ -39,16 +35,9 @@ export const RadioItem = forwardRef<typeof Radio.Item, RadioItemProps>(
     }, [props.disabled, props["aria-invalid"]]);
 
     return (
-      <Radio.Item
-        {...props}
-        ref={ref}
-        className={classNames("rempi-radio__item", className)}
-      >
-        <Radio.Indicator
-          forceMount={forceMount}
-          className="rempi-radio__indicator"
-        />
-      </Radio.Item>
+      <StyledRadioItem {...props} ref={ref}>
+        <StyledRadioIndicator forceMount={forceMount} />
+      </StyledRadioItem>
     );
   }
 );

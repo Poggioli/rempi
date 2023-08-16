@@ -9,6 +9,7 @@ import { Button, IconButton } from "@rempi-ui/button";
 import { Calendar } from "@rempi-ui/calendar";
 import { Card } from "@rempi-ui/card";
 import { Checkbox } from "@rempi-ui/checkbox";
+import { Collapsible } from "@rempi-ui/collpasible";
 import { Combobox } from "@rempi-ui/combobox";
 import { Container } from "@rempi-ui/container";
 import { ContextMenu } from "@rempi-ui/context-menu";
@@ -39,9 +40,10 @@ import { Typography } from "@rempi-ui/typography";
 import {
   BellIcon,
   Check,
+  FoldVertical,
   HelpCircle,
   Italic,
-  SlidersHorizontal,
+  SlidersHorizontal
 } from "lucide-react";
 import { Fragment, useContext, useEffect, useRef, useState } from "react";
 import "./page.scss";
@@ -233,12 +235,12 @@ export default function Page() {
   return (
     <Container variant="md" className="padding-8">
       <Flex
-        direction="column"
+        flexDirection="column"
         justifyContent="center"
         alignItems="center"
         className="gap-4"
       >
-        <Heading>Select your theme here</Heading>
+        <Heading textAlign="center">Select your theme here</Heading>
         <Select.Root value={selectedTheme} onValueChange={handleSelectTheme}>
           <Select.Trigger aria-label="Theme">
             <Select.Value placeholder="Select a theme...">
@@ -262,11 +264,11 @@ export default function Page() {
 
       <Separator className="margin-bt-8" />
       <Flex
-        direction="row"
+        flexDirection="row"
         justifyContent="center"
         alignItems="center"
         className="gap-4"
-        wrap="wrap"
+        flexWrap="wrap"
       >
         <Calendar
           disabled={[
@@ -309,13 +311,12 @@ export default function Page() {
         />
       </Flex>
       <Separator className="margin-bt-8" />
-
       <Flex
-        direction="row"
+        flexDirection="row"
         justifyContent="space-between"
         alignItems="center"
         className="gap-4 flex-c-1"
-        wrap="wrap"
+        flexWrap="wrap"
       >
         <Combobox.Root
           value={state}
@@ -674,7 +675,7 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="column"
+        flexDirection="column"
         justifyContent="center"
         alignItems="center"
         className="gap-4"
@@ -845,7 +846,7 @@ export default function Page() {
       <ContextMenu.Root>
         <ContextMenu.Trigger>
           <Flex
-            direction="row"
+            flexDirection="row"
             alignItems="center"
             justifyContent="center"
             className="padding-8 b-dashed"
@@ -909,6 +910,26 @@ export default function Page() {
 
       <Separator className="margin-bt-8" />
 
+      <Collapsible.Root>
+        <Flex justifyContent="space-between">
+          <Typography>@peduarte starred 3 repositories</Typography>
+          <Collapsible.Trigger>
+            <IconButton shape="rounded" size="small" aria-label="open repos">
+              <FoldVertical />
+            </IconButton>
+          </Collapsible.Trigger>
+        </Flex>
+        <Typography>@radix-ui/primitives</Typography>
+        <Collapsible.Content>
+          <Flex flexDirection="column" className="gap-4">
+            <Typography>@radix-ui/colors</Typography>
+            <Typography>@radix-ui/react</Typography>
+          </Flex>
+        </Collapsible.Content>
+      </Collapsible.Root>
+
+      <Separator className="margin-bt-8" />
+
       <Accordion.Root type="single" defaultValue="item-1" collapsible>
         <Accordion.Item value="item-1">
           <Accordion.Header>
@@ -942,10 +963,10 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
+        flexDirection="row"
         alignItems="center"
         justifyContent="space-around"
-        wrap="wrap"
+        flexWrap="wrap"
         className="gap-4 flex-c-1"
       >
         <div className="max-w-600">
@@ -962,10 +983,10 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
+        flexDirection="row"
         alignItems="center"
         justifyContent="space-around"
-        wrap="wrap"
+        flexWrap="wrap"
         className="gap-4"
       >
         <Tooltip.Root>
@@ -990,10 +1011,10 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
+        flexDirection="row"
         alignItems="center"
         justifyContent="space-around"
-        wrap="wrap"
+        flexWrap="wrap"
         className="gap-4"
       >
         <div>
@@ -1037,14 +1058,14 @@ export default function Page() {
                   done.
                 </Dialog.Description>
                 <Flex
-                  direction="column"
-                  wrap="wrap"
+                  flexDirection="column"
+                  flexWrap="wrap"
                   justifyContent="space-between"
                   className="gap-4 padding-b-4"
                 >
                   <Input.Label
                     alignItems="flex-start"
-                    direction="column"
+                    flexDirection="column"
                     className="width-80"
                   >
                     Name
@@ -1056,7 +1077,7 @@ export default function Page() {
                   </Input.Label>
                   <Input.Label
                     alignItems="flex-start"
-                    direction="column"
+                    flexDirection="column"
                     className="width-80"
                   >
                     Username
@@ -1086,8 +1107,8 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
-        wrap="wrap"
+        flexDirection="row"
+        flexWrap="wrap"
         justifyContent="space-between"
         alignItems="center"
         className="gap-4"
@@ -1208,8 +1229,8 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
-        wrap="wrap"
+        flexDirection="row"
+        flexWrap="wrap"
         justifyContent="space-around"
         alignItems="center"
         className="gap-4"
@@ -1249,8 +1270,8 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
-        wrap="wrap"
+        flexDirection="row"
+        flexWrap="wrap"
         justifyContent="space-around"
         alignItems="center"
         className="gap-4"
@@ -1265,8 +1286,8 @@ export default function Page() {
           </Tabs.List>
           <Tabs.Content value="photos">
             <Flex
-              direction="row"
-              wrap="wrap"
+              flexDirection="row"
+              flexWrap="wrap"
               justifyContent="space-around"
               alignItems="center"
               className="gap-4 padding-6 bordered"
@@ -1296,8 +1317,8 @@ export default function Page() {
           </Tabs.Content>
           <Tabs.Content value="description">
             <Flex
-              direction="row"
-              wrap="wrap"
+              flexDirection="row"
+              flexWrap="wrap"
               justifyContent="space-around"
               alignItems="center"
               className="gap-4 padding-6 bordered"
@@ -1324,21 +1345,21 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
+        flexDirection="row"
         alignItems="center"
         justifyContent="space-around"
-        wrap="wrap"
+        flexWrap="wrap"
         className="gap-4"
       >
-        <Input.Label alignItems="flex-start" direction="column">
+        <Input.Label alignItems="flex-start" flexDirection="column">
           Enter your email
           <Input.Root placeholder="Email" />
         </Input.Label>
-        <Input.Label alignItems="flex-start" direction="column">
+        <Input.Label alignItems="flex-start" flexDirection="column">
           Enter your email
           <Input.Root placeholder="Email" disabled />
         </Input.Label>
-        <Input.Label alignItems="flex-start" direction="column">
+        <Input.Label alignItems="flex-start" flexDirection="column">
           Enter your email
           <Input.Root
             placeholder="Email"
@@ -1347,15 +1368,15 @@ export default function Page() {
           />
         </Input.Label>
 
-        <Input.Label alignItems="flex-start" direction="column">
+        <Input.Label alignItems="flex-start" flexDirection="column">
           Enter your email
           <Input.Root aria-invalid placeholder="Email" />
         </Input.Label>
-        <Input.Label alignItems="flex-start" direction="column">
+        <Input.Label alignItems="flex-start" flexDirection="column">
           Enter your email
           <Input.Root aria-invalid placeholder="Email" disabled />
         </Input.Label>
-        <Input.Label alignItems="flex-start" direction="column">
+        <Input.Label alignItems="flex-start" flexDirection="column">
           Enter your email
           <Input.Root
             aria-invalid
@@ -1369,21 +1390,21 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
+        flexDirection="row"
         alignItems="center"
         justifyContent="space-around"
-        wrap="wrap"
+        flexWrap="wrap"
         className="gap-4"
       >
-        <Textarea.Label alignItems="flex-start" direction="column">
+        <Textarea.Label alignItems="flex-start" flexDirection="column">
           Enter your email
           <Textarea.Root placeholder="Email" />
         </Textarea.Label>
-        <Textarea.Label alignItems="flex-start" direction="column">
+        <Textarea.Label alignItems="flex-start" flexDirection="column">
           Enter your email
           <Textarea.Root placeholder="Email" disabled />
         </Textarea.Label>
-        <Textarea.Label alignItems="flex-start" direction="column">
+        <Textarea.Label alignItems="flex-start" flexDirection="column">
           Enter your email
           <Textarea.Root
             placeholder="Email"
@@ -1392,15 +1413,15 @@ export default function Page() {
           />
         </Textarea.Label>
 
-        <Textarea.Label alignItems="flex-start" direction="column">
+        <Textarea.Label alignItems="flex-start" flexDirection="column">
           Enter your email
           <Textarea.Root aria-invalid placeholder="Email" />
         </Textarea.Label>
-        <Textarea.Label alignItems="flex-start" direction="column">
+        <Textarea.Label alignItems="flex-start" flexDirection="column">
           Enter your email
           <Textarea.Root aria-invalid placeholder="Email" disabled />
         </Textarea.Label>
-        <Textarea.Label alignItems="flex-start" direction="column">
+        <Textarea.Label alignItems="flex-start" flexDirection="column">
           Enter your email
           <Textarea.Root
             aria-invalid
@@ -1414,10 +1435,10 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
+        flexDirection="row"
         alignItems="center"
         justifyContent="space-around"
-        wrap="wrap"
+        flexWrap="wrap"
         className="gap-4"
       >
         <div>
@@ -1468,10 +1489,10 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
+        flexDirection="row"
         alignItems="center"
         justifyContent="space-around"
-        wrap="wrap"
+        flexWrap="wrap"
         className="gap-4"
       >
         <div>
@@ -1561,14 +1582,14 @@ export default function Page() {
               </a>
             </HoverCard.Trigger>
             <HoverCard.Content className="max-w-300">
-              <Flex direction="column" className="gap-2">
+              <Flex flexDirection="column" className="gap-2">
                 <img
                   className="image image--large"
                   src="https://pbs.twimg.com/profile_images/1337055608613253126/r_eiMp2H_400x400.png"
                   alt="Radix UI"
                 />
-                <Flex direction="column" className="gap-4">
-                  <Flex direction="column">
+                <Flex flexDirection="column" className="gap-4">
+                  <Flex flexDirection="column">
                     <Typography
                       as="h6"
                       color="high-contrast"
@@ -1651,7 +1672,7 @@ export default function Page() {
               </IconButton>
             </Popover.Trigger>
             <Popover.Content>
-              <Flex direction="column" className="max-w-300">
+              <Flex flexDirection="column" className="max-w-300">
                 <Typography
                   fontSize="sm"
                   fontWeight="normal"
@@ -1676,10 +1697,10 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
+        flexDirection="row"
         alignItems="center"
         justifyContent="space-around"
-        wrap="wrap"
+        flexWrap="wrap"
         className="gap-4"
       >
         <div>
@@ -1736,10 +1757,10 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
+        flexDirection="row"
         alignItems="center"
         justifyContent="space-around"
-        wrap="wrap"
+        flexWrap="wrap"
         className="gap-4"
       >
         <Card.Root>
@@ -1747,13 +1768,13 @@ export default function Page() {
             <Card.Title>Notifications</Card.Title>
             <Card.Description>You have 3 unread messages.</Card.Description>
           </Card.Header>
-          <Card.Content direction="column">
+          <Card.Content flexDirection="column">
             <Flex
               alignItems="center"
               className="gap-4 rounded-md border padding-4"
             >
               <BellIcon size={16} className="high-contrast" />
-              <Flex direction="column" className="gap-1">
+              <Flex flexDirection="column" className="gap-1">
                 <Typography
                   fontSize="sm"
                   fontWeight="semi-bold"
@@ -1790,12 +1811,12 @@ export default function Page() {
               ].map((notification, index) => (
                 <Flex
                   key={index}
-                  direction="row"
+                  flexDirection="row"
                   alignItems="start"
                   className="gap-3 margin-b-4 margin-b-4--last-child-0 padding-b-4 padding-b-4--last-child-0"
                 >
                   <Typography className="pill info size-2 translate-y-1" />
-                  <Flex direction="column" className="gap-1">
+                  <Flex flexDirection="column" className="gap-1">
                     <Typography
                       fontSize="sm"
                       fontWeight="semi-bold"
@@ -1829,13 +1850,13 @@ export default function Page() {
             <Card.Title>Notifications</Card.Title>
             <Card.Description>You have 3 unread messages.</Card.Description>
           </Card.Header>
-          <Card.Content direction="column">
+          <Card.Content flexDirection="column">
             <Flex
               alignItems="center"
               className="gap-4 rounded-md border padding-4"
             >
               <BellIcon size={16} className="high-contrast" />
-              <Flex direction="column" className="gap-1">
+              <Flex flexDirection="column" className="gap-1">
                 <Typography
                   fontSize="sm"
                   fontWeight="semi-bold"
@@ -1872,12 +1893,12 @@ export default function Page() {
               ].map((notification, index) => (
                 <Flex
                   key={index}
-                  direction="row"
+                  flexDirection="row"
                   alignItems="start"
                   className="gap-3 margin-b-4 margin-b-4--last-child-0 padding-b-4 padding-b-4--last-child-0"
                 >
                   <Typography className="pill info size-2 translate-y-1" />
-                  <Flex direction="column" className="gap-1">
+                  <Flex flexDirection="column" className="gap-1">
                     <Typography
                       fontSize="sm"
                       fontWeight="semi-bold"
@@ -1923,7 +1944,7 @@ export default function Page() {
               }}
             />
           </Card.Header>
-          <Card.Content direction="column">
+          <Card.Content flexDirection="column">
             <Skeleton
               style={{
                 height: "71px",
@@ -1937,7 +1958,7 @@ export default function Page() {
                 .map((_, index) => (
                   <Flex
                     key={index}
-                    direction="row"
+                    flexDirection="row"
                     alignItems="start"
                     className="gap-3 margin-b-4 margin-b-4--last-child-0 padding-b-4 padding-b-4--last-child-0"
                   >
@@ -1948,7 +1969,7 @@ export default function Page() {
                         borderRadius: "4px",
                       }}
                     />
-                    <Flex direction="column" className="gap-1">
+                    <Flex flexDirection="column" className="gap-1">
                       <Skeleton
                         style={{
                           height: "16px",
@@ -1983,10 +2004,10 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
+        flexDirection="row"
         alignItems="center"
         justifyContent="space-around"
-        wrap="wrap"
+        flexWrap="wrap"
         className="gap-4"
       >
         <Toggle>
@@ -2009,10 +2030,10 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
+        flexDirection="row"
         alignItems="center"
         justifyContent="space-around"
-        wrap="wrap"
+        flexWrap="wrap"
         className="gap-4"
       >
         <div>
@@ -2057,10 +2078,10 @@ export default function Page() {
       <Separator className="margin-bt-8" />
 
       <Flex
-        direction="row"
+        flexDirection="row"
         alignItems="center"
         justifyContent="space-around"
-        wrap="wrap"
+        flexWrap="wrap"
         className="gap-4"
       >
         <div>
@@ -2179,8 +2200,8 @@ export default function Page() {
       <Flex
         alignItems="center"
         justifyContent="space-around"
-        direction="row"
-        wrap="wrap"
+        flexDirection="row"
+        flexWrap="wrap"
         className="gap-8 min-h-300"
       >
         <Slider.Root

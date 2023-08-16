@@ -1,69 +1,52 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
-import "./Tabs.scss";
+import {
+  StyledTabsContent,
+  StyledTabsList,
+  StyledTabsRoot,
+  StyledTabsTrigger,
+} from "./Tabs.styles";
 
-export type TabsRootProps = HTMLRempiProps<typeof Tabs.Root> & Tabs.TabsProps;
+export type TabsRootProps = HTMLRempiProps<typeof StyledTabsRoot> &
+  Tabs.TabsProps;
 
-export const TabsRoot = forwardRef<typeof Tabs.Root, TabsRootProps>(
-  ({ as: Component = Tabs.Root, className, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-tabs__root", className)}
-      />
-    );
+export const TabsRoot = forwardRef<typeof StyledTabsRoot, TabsRootProps>(
+  ({ ...props }, ref) => {
+    return <StyledTabsRoot {...props} ref={ref} />;
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type TabsListProps = HTMLRempiProps<typeof Tabs.List> &
+export type TabsListProps = HTMLRempiProps<typeof StyledTabsList> &
   Tabs.TabsListProps;
 
-export const TabsList = forwardRef<typeof Tabs.List, TabsListProps>(
-  ({ as: Component = Tabs.List, className, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-tabs__list", className)}
-      />
-    );
+export const TabsList = forwardRef<typeof StyledTabsList, TabsListProps>(
+  ({ ...props }, ref) => {
+    return <StyledTabsList {...props} ref={ref} />;
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type TabsTriggerProps = HTMLRempiProps<typeof Tabs.Trigger> &
+export type TabsTriggerProps = HTMLRempiProps<typeof StyledTabsTrigger> &
   Tabs.TabsTriggerProps;
 
-export const TabsTrigger = forwardRef<typeof Tabs.Trigger, TabsTriggerProps>(
-  ({ as: Component = Tabs.Trigger, className, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-tabs__trigger", className)}
-      />
-    );
-  }
-);
+export const TabsTrigger = forwardRef<
+  typeof StyledTabsTrigger,
+  TabsTriggerProps
+>(({ ...props }, ref) => {
+  return <StyledTabsTrigger {...props} ref={ref} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type TabsContentProps = HTMLRempiProps<typeof Tabs.Content> &
+export type TabsContentProps = HTMLRempiProps<typeof StyledTabsContent> &
   Tabs.TabsContentProps;
 
-export const TabsContent = forwardRef<typeof Tabs.Content, TabsContentProps>(
-  ({ as: Component = Tabs.Content, className, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-tabs__content", className)}
-      />
-    );
-  }
-);
+export const TabsContent = forwardRef<
+  typeof StyledTabsContent,
+  TabsContentProps
+>(({ ...props }, ref) => {
+  return <StyledTabsContent {...props} ref={ref} />;
+});

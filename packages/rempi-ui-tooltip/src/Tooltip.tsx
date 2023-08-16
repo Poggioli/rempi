@@ -1,7 +1,6 @@
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
-import "./Tooltip.scss";
+import { StyledTooltipArrow, StyledTooltipContent } from "./Tooltip.styles";
 
 export type TooltipProviderProps = Tooltip.TooltipProviderProps;
 
@@ -21,21 +20,9 @@ export type TooltipTriggerProps = HTMLRempiProps<typeof Tooltip.Trigger> &
 export const TooltipTrigger = forwardRef<
   typeof Tooltip.Trigger,
   TooltipTriggerProps
->(
-  (
-    { as: Component = Tooltip.Trigger, className, asChild = true, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        asChild={asChild}
-        className={classNames("rempi-tooltip__trigger", className)}
-      />
-    );
-  }
-);
+>(({ as: Component = Tooltip.Trigger, asChild = true, ...props }, ref) => {
+  return <Component {...props} ref={ref} asChild={asChild} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -45,54 +32,31 @@ const TooltipPortal = Tooltip.Portal;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type TooltipContentProps = HTMLRempiProps<typeof Tooltip.Content> &
+export type TooltipContentProps = HTMLRempiProps<typeof StyledTooltipContent> &
   Tooltip.TooltipContentProps &
   TooltipPortalProps;
 
 export const TooltipContent = forwardRef<
-  typeof Tooltip.Content,
+  typeof StyledTooltipContent,
   TooltipContentProps
->(
-  (
-    {
-      children,
-      forceMount,
-      container,
-      sideOffset = 5,
-      as: Component = Tooltip.Content,
-      className,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <TooltipPortal forceMount={forceMount} container={container}>
-        <Component
-          {...props}
-          ref={ref}
-          sideOffset={sideOffset}
-          className={classNames("rempi-tooltip__content", className)}
-        >
-          {children}
-        </Component>
-      </TooltipPortal>
-    );
-  }
-);
+>(({ children, forceMount, container, sideOffset = 5, ...props }, ref) => {
+  return (
+    <TooltipPortal forceMount={forceMount} container={container}>
+      <StyledTooltipContent {...props} ref={ref} sideOffset={sideOffset}>
+        {children}
+      </StyledTooltipContent>
+    </TooltipPortal>
+  );
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type TooltipArrowProps = HTMLRempiProps<typeof Tooltip.Arrow> &
+export type TooltipArrowProps = HTMLRempiProps<typeof StyledTooltipArrow> &
   Tooltip.TooltipArrowProps;
 
-export const TooltipArrow = forwardRef<typeof Tooltip.Arrow, TooltipArrowProps>(
-  ({ as: Component = Tooltip.Arrow, className, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-tooltip__arrow", className)}
-      />
-    );
-  }
-);
+export const TooltipArrow = forwardRef<
+  typeof StyledTooltipArrow,
+  TooltipArrowProps
+>(({ ...props }, ref) => {
+  return <StyledTooltipArrow {...props} ref={ref} />;
+});

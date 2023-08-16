@@ -1,48 +1,26 @@
 import { HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
 import { forwardRef } from "react";
-import "./Container.scss";
+import { StyledContainer } from "./Container.styles";
 
-type Variant = "sm" | "md" | "lg" | "xlg" | "2xlg" | "fluid";
-const variantClasses: Record<Variant, string> = {
-  sm: "rempi-container--sm",
-  md: "rempi-container--md",
-  lg: "rempi-container--lg",
-  xlg: "rempi-container--xlg",
-  "2xlg": "rempi-container--2xlg",
-  fluid: "rempi-container--fluid",
-};
+export type Variant = "sm" | "md" | "lg" | "xlg" | "2xlg" | "fluid";
 
-export type ContainerProps = HTMLRempiProps<"div"> & {
+export type ContainerProps = Omit<
+  HTMLRempiProps<typeof StyledContainer>,
+  "$variant" | "$centered"
+> & {
   variant?: Variant;
   centered?: boolean;
 };
 
-export const Container = forwardRef<"div", ContainerProps>(
-  (
-    {
-      children,
-      variant,
-      centered = true,
-      as: Component = "div",
-      className,
-      ...props
-    },
-    ref
-  ) => {
+export const Container = forwardRef<typeof StyledContainer, ContainerProps>(
+  ({ variant, centered = true, ...props }, ref) => {
     return (
-      <Component
+      <StyledContainer
         {...props}
         ref={ref}
-        className={classNames(
-          "rempi-container",
-          variant && variantClasses[variant],
-          { "rempi-container--centered": centered },
-          className
-        )}
-      >
-        {children}
-      </Component>
+        $variant={variant}
+        $centered={centered}
+      />
     );
   }
 );

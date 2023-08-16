@@ -1,117 +1,78 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
-import "./Accordion.scss";
+import {
+  StyledAccordionContent,
+  StyledAccordionHeader,
+  StyledAccordionItem,
+  StyledAccordionRoot,
+  StyledAccordionTrigger,
+  StyledContent
+} from "./Accordion.styles";
 
-export type AccordionRootProps = HTMLRempiProps<typeof Accordion.Root> &
+export type AccordionRootProps = HTMLRempiProps<typeof StyledAccordionRoot> &
   (Accordion.AccordionMultipleProps | Accordion.AccordionSingleProps);
 
 export const AccordionRoot = forwardRef<
-  typeof Accordion.Root,
+  typeof StyledAccordionRoot,
   AccordionRootProps
->(({ children, as: Component = Accordion.Root, className, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-accordion", className)}
-    >
-      {children}
-    </Component>
-  );
+>(({ ...props }, ref) => {
+  return <StyledAccordionRoot {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type AccordionItemProps = HTMLRempiProps<typeof Accordion.Item> &
+export type AccordionItemProps = HTMLRempiProps<typeof StyledAccordionItem> &
   Accordion.AccordionItemProps;
 
 export const AccordionItem = forwardRef<
-  typeof Accordion.Item,
+  typeof StyledAccordionItem,
   AccordionItemProps
->(({ children, as: Component = Accordion.Item, className, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-accordion__item", className)}
-    >
-      {children}
-    </Component>
-  );
+>(({ ...props }, ref) => {
+  return <StyledAccordionItem {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type AccordionHeaderProps = HTMLRempiProps<typeof Accordion.Header> &
+export type AccordionHeaderProps = HTMLRempiProps<
+  typeof StyledAccordionHeader
+> &
   Accordion.AccordionHeaderProps;
 
 export const AccordionHeader = forwardRef<
-  typeof Accordion.Header,
+  typeof StyledAccordionHeader,
   AccordionHeaderProps
->(
-  (
-    { children, as: Component = Accordion.Header, className, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-accordion__header", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ ...props }, ref) => {
+  return <StyledAccordionHeader {...props} ref={ref} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type AccordionTriggerProps = HTMLRempiProps<typeof Accordion.Trigger> &
+export type AccordionTriggerProps = HTMLRempiProps<
+  typeof StyledAccordionTrigger
+> &
   Accordion.AccordionTriggerProps;
 
 export const AccordionTrigger = forwardRef<
-  typeof Accordion.Trigger,
+  typeof StyledAccordionTrigger,
   AccordionTriggerProps
->(
-  (
-    { children, as: Component = Accordion.Trigger, className, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-accordion__trigger", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ ...props }, ref) => {
+  return <StyledAccordionTrigger {...props} ref={ref} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type AccordionContentProps = HTMLRempiProps<typeof Accordion.Content> &
+export type AccordionContentProps = HTMLRempiProps<
+  typeof StyledAccordionContent
+> &
   Accordion.AccordionContentProps;
 
 export const AccordionContent = forwardRef<
-  typeof Accordion.Content,
+  typeof StyledAccordionContent,
   AccordionContentProps
->(
-  (
-    { children, as: Component = Accordion.Content, className, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-accordion__content", className)}
-      >
-        <div className="rempi-accordion__content__container">{children}</div>
-      </Component>
-    );
-  }
-);
+>(({ children, ...props }, ref) => {
+  return (
+    <StyledAccordionContent {...props} ref={ref}>
+      <StyledContent>{children}</StyledContent>
+    </StyledAccordionContent>
+  );
+});

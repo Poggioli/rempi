@@ -5,8 +5,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {},
-  "dependencies": {},
+  "dependencies": {
+    "styled-components": "^6.0.7"
+  },
   "devDependencies": {
+    "@types/styled-components": "^5.1.26",
     "eslint-config-custom": "*",
     "sass": "^1.63.6",
     "tsconfig": "*",

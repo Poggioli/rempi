@@ -1,9 +1,8 @@
 import * as LabelRadix from "@radix-ui/react-label";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { Flex, FlexProps } from "@rempi-ui/flex";
-import classNames from "classnames";
 import { createContext, Dispatch, SetStateAction, useState } from "react";
-import "./Label.scss";
+import { StyledLabel } from "./Label.styles";
 
 export const LabelContext = createContext<{
   setAttrs: Dispatch<SetStateAction<any>>;
@@ -11,13 +10,13 @@ export const LabelContext = createContext<{
   setAttrs: () => null,
 });
 
-export type LabelProps = Omit<HTMLRempiProps<typeof LabelRadix.Root>, "as"> &
+export type LabelProps = Omit<HTMLRempiProps<typeof StyledLabel>, "as"> &
   Omit<LabelRadix.LabelProps, "asChild"> &
   FlexProps;
 
-export const Label = forwardRef<typeof LabelRadix.Root, LabelProps>(
+export const Label = forwardRef<typeof StyledLabel, LabelProps>(
   (
-    { children, className, alignItems = "center", direction = "row", ...props },
+    { children, alignItems = "center", flexDirection = "row", ...props },
     ref
   ) => {
     const [attrs, setAttrs] = useState<any>({});
@@ -28,10 +27,9 @@ export const Label = forwardRef<typeof LabelRadix.Root, LabelProps>(
           {...props}
           {...attrs}
           alignItems={alignItems}
-          direction={direction}
-          as="label"
+          flexDirection={flexDirection}
+          as={StyledLabel}
           ref={ref}
-          className={classNames("rempi-label", className)}
         >
           {children}
         </Flex>

@@ -1,70 +1,61 @@
 import * as Slider from "@radix-ui/react-slider";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
-import "./Slider.scss";
+import {
+  StyledSliderRange,
+  StyledSliderRoot,
+  StyledSliderThumb,
+  StyledSliderTrack,
+} from "./Slider.styles";
 
-export type SliderRootProps = HTMLRempiProps<typeof Slider.Root> &
+export type SliderRootProps = HTMLRempiProps<typeof StyledSliderRoot> &
   Slider.SliderProps;
 
-export const SliderRoot = forwardRef<typeof Slider.Root, SliderRootProps>(
-  ({ className, as: Component = Slider.Root, children, ...props }, ref) => {
+export const SliderRoot = forwardRef<typeof StyledSliderRoot, SliderRootProps>(
+  ({ children, ...props }, ref) => {
     return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-slider", className)}
-      >
+      <StyledSliderRoot {...props} ref={ref}>
         <SliderTrack>
           <SliderRange />
         </SliderTrack>
         {children}
-      </Component>
+      </StyledSliderRoot>
     );
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-type SliderTrackProps = Omit<HTMLRempiProps<typeof Slider.Track>, "as"> &
+type SliderTrackProps = Omit<HTMLRempiProps<typeof StyledSliderTrack>, "as"> &
   Slider.SliderTrackProps;
 
-const SliderTrack = forwardRef<typeof Slider.Track, SliderTrackProps>(
+const SliderTrack = forwardRef<typeof StyledSliderTrack, SliderTrackProps>(
   ({ ...props }, ref) => {
-    return (
-      <Slider.Track {...props} ref={ref} className="rempi-slider__track" />
-    );
+    return <StyledSliderTrack {...props} ref={ref} />;
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 type SliderRangeProps = Omit<
-  HTMLRempiProps<typeof Slider.Range>,
+  HTMLRempiProps<typeof StyledSliderRange>,
   "as" | "children"
 > &
   Slider.SliderRangeProps;
 
-const SliderRange = forwardRef<typeof Slider.Range, SliderRangeProps>(
+const SliderRange = forwardRef<typeof StyledSliderRange, SliderRangeProps>(
   ({ ...props }, ref) => {
-    return (
-      <Slider.Range {...props} ref={ref} className="rempi-slider__range" />
-    );
+    return <StyledSliderRange {...props} ref={ref} />;
   }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type SliderThumbProps = HTMLRempiProps<typeof Slider.Thumb> &
+export type SliderThumbProps = HTMLRempiProps<typeof StyledSliderThumb> &
   Slider.SliderThumbProps;
 
-export const SliderThumb = forwardRef<typeof Slider.Thumb, SliderThumbProps>(
-  ({ className, as: Component = Slider.Thumb, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-slider__thumb", className)}
-      />
-    );
-  }
-);
+export const SliderThumb = forwardRef<
+  typeof StyledSliderThumb,
+  SliderThumbProps
+>(({ ...props }, ref) => {
+  return <StyledSliderThumb {...props} ref={ref} />;
+});

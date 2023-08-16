@@ -1,43 +1,21 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
-import "./Badge.scss";
+import { StyledBadge } from "./Badge.styles";
 
-type Variant = "primary" | "secondary" | "outlined" | "destructive";
-const variantClasses: Record<Variant, string> = {
-  primary: "rempi-badge--variant-primary",
-  secondary: "rempi-badge--variant-secondary",
-  outlined: "rempi-badge--variant-outlined",
-  destructive: "rempi-badge--variant-destructive",
-};
+export type Variant = "primary" | "secondary" | "outlined" | "destructive";
 
-export type BadgeProps = HTMLRempiProps<"div"> & {
+export type BadgeProps = Omit<
+  HTMLRempiProps<typeof StyledBadge>,
+  "$variant"
+> & {
   variant?: Variant;
-  upperCase?: boolean;
 };
 
-export const Badge = forwardRef<"div", BadgeProps>(
-  (
-    {
-      children,
-      variant = "primary",
-      as: Component = "div",
-      className,
-      ...props
-    },
-    ref
-  ) => {
+export const Badge = forwardRef<typeof StyledBadge, BadgeProps>(
+  ({ children, variant = "primary", ...props }, ref) => {
     return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames(
-          "rempi-badge",
-          variantClasses[variant],
-          className
-        )}
-      >
+      <StyledBadge $variant={variant} {...props} ref={ref}>
         {children}
-      </Component>
+      </StyledBadge>
     );
   }
 );

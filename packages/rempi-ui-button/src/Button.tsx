@@ -1,39 +1,15 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
-import "./Button.scss";
+import { StyledButton, StyledIconButton } from "./Button.styles";
 
-type Size = "small" | "standard" | "large";
-const sizeClasses: Record<Size, string> = {
-  small: "rempi-button--size-small",
-  standard: "rempi-button--size-standard",
-  large: "rempi-button--size-large",
-};
+export type Size = "small" | "standard" | "large";
 
-type Variant = "text" | "contained" | "outlined" | "solid";
-const variantClasses: Record<Variant, string> = {
-  text: "rempi-button--variant-text",
-  contained: "rempi-button--variant-contained",
-  outlined: "rempi-button--variant-outlined",
-  solid: "rempi-button--variant-solid",
-};
+export type Variant = "text" | "contained" | "outlined" | "solid";
 
-type Shape = "flat" | "smoth" | "rounded";
-const shapeClasses: Record<Shape, string> = {
-  flat: "rempi-button--shape-flat",
-  smoth: "rempi-button--shape-smoth",
-  rounded: "rempi-button--shape-rounded",
-};
+export type Shape = "flat" | "smoth" | "rounded";
 
-type Color = "primary" | "secondary" | "success" | "error";
-const colorClasses: Record<Color, string> = {
-  primary: "rempi-button--color-primary",
-  secondary: "rempi-button--color-secondary",
-  success: "rempi-button--color-success",
-  error: "rempi-button--color-error",
-};
+export type Color = "primary" | "secondary" | "success" | "error";
 
 export type ButtonProps = HTMLRempiProps<"button"> & {
-  type?: "button" | "submit" | "reset";
   size?: Size;
   variant?: Variant;
   shape?: Shape;
@@ -41,37 +17,28 @@ export type ButtonProps = HTMLRempiProps<"button"> & {
   upperCase?: boolean;
 };
 
-export const Button = forwardRef<"button", ButtonProps>(
+export const Button = forwardRef<"button", ButtonProps>(  
   (
     {
-      children,
       size = "standard",
       variant = "solid",
       shape = "smoth",
       color = "primary",
       upperCase,
-      as: Component = "button",
-      className,
       ...props
     },
     ref
   ) => {
     return (
-      <Component
+      <StyledButton
         {...props}
         ref={ref}
-        className={classNames(
-          "rempi-button",
-          sizeClasses[size],
-          variantClasses[variant],
-          shapeClasses[shape],
-          colorClasses[color],
-          { "rempi-button--is-upercase": upperCase },
-          className
-        )}
-      >
-        {children}
-      </Component>
+        $isUpperCase={upperCase}
+        $size={size}
+        $variant={variant}
+        $color={color}
+        $shape={shape}
+      />
     );
   }
 );
@@ -83,15 +50,27 @@ export type IconButtonProps = ButtonProps & {
 };
 
 export const IconButton = forwardRef<"button", IconButtonProps>(
-  ({ children, className, ...props }, ref) => {
+  (
+    {
+      size = "standard",
+      variant = "solid",
+      shape = "smoth",
+      color = "primary",
+      upperCase,
+      ...props
+    },
+    ref
+  ) => {
     return (
-      <Button
+      <StyledIconButton
         {...props}
         ref={ref}
-        className={classNames("rempi-button--icon", className)}
-      >
-        {children}
-      </Button>
+        $isUpperCase={upperCase}
+        $size={size}
+        $variant={variant}
+        $color={color}
+        $shape={shape}
+      />
     );
   }
 );
