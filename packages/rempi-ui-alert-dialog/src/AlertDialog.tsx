@@ -1,7 +1,12 @@
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
-import "./AlertDialog.scss";
+import {
+  StyledAlertDialogOverlay,
+  StyledAlertDialogContent,
+  StyledAlertDialogTitle,
+  StyledAlertDialogDescription,
+  StyledAlertDialogFooter,
+} from "./AlertDialog.styles";
 
 export type AlertDialogRootProps = AlertDialog.AlertDialogProps;
 
@@ -17,29 +22,9 @@ export type AlertDialogTriggerProps = HTMLRempiProps<
 export const AlertDialogTrigger = forwardRef<
   typeof AlertDialog.Trigger,
   AlertDialogTriggerProps
->(
-  (
-    {
-      children,
-      as: Component = AlertDialog.Trigger,
-      className,
-      asChild = true,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        asChild={asChild}
-        className={classNames("rempi-alert-dialog__trigger", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ as: Component = AlertDialog.Trigger, asChild = true, ...props }, ref) => {
+  return <Component {...props} ref={ref} asChild={asChild} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -49,88 +34,38 @@ export type AlertDialogPortalProps = HTMLRempiProps<typeof AlertDialog.Portal> &
 export const AlertDialogPortal = forwardRef<
   typeof AlertDialog.Portal,
   AlertDialogPortalProps
->(
-  (
-    { children, as: Component = AlertDialog.Portal, className, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-alert-dialog__portal", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ as: Component = AlertDialog.Portal, ...props }, ref) => {
+  return <Component {...props} ref={ref} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type AlertDialogOverlayProps = HTMLRempiProps<
-  typeof AlertDialog.Overlay
+export type AlertDialogOverlayProps = Omit<
+  HTMLRempiProps<typeof StyledAlertDialogContent>,
+  "$blur"
 > &
-  AlertDialog.AlertDialogOverlayProps & {
-    blur?: boolean;
-  };
+  AlertDialog.AlertDialogOverlayProps & { blur?: boolean };
 
 export const AlertDialogOverlay = forwardRef<
-  typeof AlertDialog.Overlay,
+  typeof StyledAlertDialogContent,
   AlertDialogOverlayProps
->(
-  (
-    {
-      children,
-      as: Component = AlertDialog.Overlay,
-      className,
-      blur,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames(
-          "rempi-alert-dialog__overlay",
-          { "rempi-alert-dialog__overlay--blured": blur },
-          className
-        )}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ blur, ...props }, ref) => {
+  return <StyledAlertDialogOverlay {...props} ref={ref} $blur={blur} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type AlertDialogContentProps = HTMLRempiProps<
-  typeof AlertDialog.Content
+  typeof StyledAlertDialogContent
 > &
   AlertDialog.AlertDialogContentProps;
 
 export const AlertDialogContent = forwardRef<
-  typeof AlertDialog.Content,
+  typeof StyledAlertDialogContent,
   AlertDialogContentProps
->(
-  (
-    { children, as: Component = AlertDialog.Content, className, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-alert-dialog__content", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ ...props }, ref) => {
+  return <StyledAlertDialogContent {...props} ref={ref} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -140,29 +75,9 @@ export type AlertDialogCancelProps = HTMLRempiProps<typeof AlertDialog.Cancel> &
 export const AlertDialogCancel = forwardRef<
   typeof AlertDialog.Cancel,
   AlertDialogCancelProps
->(
-  (
-    {
-      children,
-      as: Component = AlertDialog.Cancel,
-      className,
-      asChild = true,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        asChild={asChild}
-        className={classNames("rempi-alert-dialog__cancel", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ as: Component = AlertDialog.Cancel, asChild = true, ...props }, ref) => {
+  return <Component {...props} ref={ref} asChild={asChild} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -172,96 +87,47 @@ export type AlertDialogActionProps = HTMLRempiProps<typeof AlertDialog.Action> &
 export const AlertDialogAction = forwardRef<
   typeof AlertDialog.Action,
   AlertDialogActionProps
->(
-  (
-    {
-      children,
-      as: Component = AlertDialog.Action,
-      className,
-      asChild = true,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        asChild={asChild}
-        className={classNames("rempi-alert-dialog__action ", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ as: Component = AlertDialog.Action, asChild = true, ...props }, ref) => {
+  return <Component {...props} ref={ref} asChild={asChild} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type AlertDialogTitleProps = HTMLRempiProps<typeof AlertDialog.Title> &
+export type AlertDialogTitleProps = HTMLRempiProps<
+  typeof StyledAlertDialogTitle
+> &
   AlertDialog.AlertDialogTitleProps;
 
 export const AlertDialogTitle = forwardRef<
-  typeof AlertDialog.Title,
+  typeof StyledAlertDialogTitle,
   AlertDialogTitleProps
->(
-  (
-    { children, as: Component = AlertDialog.Title, className, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-alert-dialog__title", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ ...props }, ref) => {
+  return <StyledAlertDialogTitle {...props} ref={ref} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type AlertDialogDescriptionProps = HTMLRempiProps<
-  typeof AlertDialog.Description
+  typeof StyledAlertDialogDescription
 > &
   AlertDialog.AlertDialogDescriptionProps;
 
 export const AlertDialogDescription = forwardRef<
-  typeof AlertDialog.Description,
+  typeof StyledAlertDialogDescription,
   AlertDialogDescriptionProps
->(
-  (
-    { children, as: Component = AlertDialog.Description, className, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-alert-dialog__description", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ ...props }, ref) => {
+  return <StyledAlertDialogDescription {...props} ref={ref} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type AlertDialogFooterProps = HTMLRempiProps<"div">;
+export type AlertDialogFooterProps = HTMLRempiProps<
+  typeof StyledAlertDialogFooter
+>;
 
-export const AlertDialogFooter = forwardRef<"div", AlertDialogFooterProps>(
-  ({ children, as: Component = "div", className, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-alert-dialog__footer", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+export const AlertDialogFooter = forwardRef<
+  typeof StyledAlertDialogFooter,
+  AlertDialogFooterProps
+>(({ ...props }, ref) => {
+  return <StyledAlertDialogFooter {...props} ref={ref} />;
+});

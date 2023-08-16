@@ -1,22 +1,16 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { Label, LabelContext, LabelProps } from "@rempi-ui/label";
-import classNames from "classnames";
 import { useContext, useEffect } from "react";
-import "./Input.scss";
+import { StyledInput } from "./Input.styles";
 
-type Size = "small" | "standard" | "large";
-const sizeClasses: Record<Size, string> = {
-  small: "rempi-input--size-small",
-  standard: "rempi-input--size-standard",
-  large: "rempi-input--size-large",
-};
+export type Size = "small" | "standard" | "large";
 
 export type InputProps = Omit<HTMLRempiProps<"input">, "as"> & {
   inputSize?: Size;
 };
 
 export const Input = forwardRef<"input", InputProps>(
-  ({ className, inputSize = "standard", ...props }, ref) => {
+  ({ inputSize = "standard", ...props }, ref) => {
     const { setAttrs: setLabelAttrs } = useContext(LabelContext);
 
     useEffect(() => {
@@ -28,15 +22,11 @@ export const Input = forwardRef<"input", InputProps>(
     }, [props.disabled, props["aria-invalid"]]);
 
     return (
-      <input
+      <StyledInput
         {...props}
         ref={ref}
         data-disabled={props.disabled}
-        className={classNames(
-          "rempi-input",
-          sizeClasses[inputSize],
-          className
-        )}
+        $size={inputSize}
       />
     );
   }

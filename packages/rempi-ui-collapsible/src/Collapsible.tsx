@@ -1,91 +1,48 @@
 import * as Collapsible from "@radix-ui/react-collapsible";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
-import "./Collapsible.scss";
+import {
+  StyledCollapsibleContent,
+  StyledCollapsibleRoot,
+  StyledCollapsibleTrigger,
+} from "./Collapsible.styles";
 
 export type CollapsibleRootProps = Omit<
-  HTMLRempiProps<typeof Collapsible.Root>,
+  HTMLRempiProps<typeof StyledCollapsibleRoot>,
   "as"
 > &
   Collapsible.CollapsibleProps;
 
 export const CollapsibleRoot = forwardRef<
-  typeof Collapsible.Root,
+  typeof StyledCollapsibleRoot,
   CollapsibleRootProps
->(({ children, className, ...props }, ref) => {
-  return (
-    <Collapsible.Root
-      {...props}
-      ref={ref}
-      className={classNames("rempi-collapsible", className)}
-    >
-      {children}
-    </Collapsible.Root>
-  );
+>(({ ...props }, ref) => {
+  return <StyledCollapsibleRoot {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type CollapsibleTriggerProps = HTMLRempiProps<
-  typeof Collapsible.CollapsibleTrigger
+  typeof StyledCollapsibleTrigger
 > &
   Collapsible.CollapsibleTriggerProps;
 
 export const CollapsibleTrigger = forwardRef<
-  typeof Collapsible.CollapsibleTrigger,
+  typeof StyledCollapsibleTrigger,
   CollapsibleTriggerProps
->(
-  (
-    {
-      children,
-      as: Component = Collapsible.CollapsibleTrigger,
-      className,
-      asChild = true,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        asChild={asChild}
-        className={classNames("rempi-collapsible__trigger", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ asChild = true, ...props }, ref) => {
+  return <StyledCollapsibleTrigger {...props} ref={ref} asChild={asChild} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type CollapsibleContentProps = HTMLRempiProps<
-  typeof Collapsible.CollapsibleContent
+  typeof StyledCollapsibleContent
 > &
   Collapsible.CollapsibleContentProps;
 
 export const CollapsibleContent = forwardRef<
-  typeof Collapsible.CollapsibleContent,
+  typeof StyledCollapsibleContent,
   CollapsibleContentProps
->(
-  (
-    {
-      children,
-      as: Component = Collapsible.CollapsibleContent,
-      className,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-collapsible__content", className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ ...props }, ref) => {
+  return <StyledCollapsibleContent {...props} ref={ref} />;
+});

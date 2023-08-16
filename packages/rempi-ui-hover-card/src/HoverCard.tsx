@@ -1,7 +1,9 @@
 import * as HoverCard from "@radix-ui/react-hover-card";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
-import "./HoverCard.scss";
+import {
+  StyledHoverCardArrow,
+  StyledHoverCardContent,
+} from "./HoverCard.styles";
 
 export type HoverCardRootProps = HoverCard.HoverCardProps;
 
@@ -15,21 +17,9 @@ export type HoverCardTriggerProps = HTMLRempiProps<typeof HoverCard.Trigger> &
 export const HoverCardTrigger = forwardRef<
   typeof HoverCard.Trigger,
   HoverCardTriggerProps
->(
-  (
-    { className, as: Component = HoverCard.Trigger, asChild = true, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        asChild={asChild}
-        className={classNames("rempi-hover-card__trigger", className)}
-      />
-    );
-  }
-);
+>(({ as: Component = HoverCard.Trigger, asChild = true, ...props }, ref) => {
+  return <Component {...props} ref={ref} asChild={asChild} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -39,21 +29,21 @@ const HoverCardPortal = HoverCard.Portal;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type HoverCardContentProps = HTMLRempiProps<typeof HoverCard.Content> &
+export type HoverCardContentProps = HTMLRempiProps<
+  typeof StyledHoverCardContent
+> &
   HoverCard.HoverCardContentProps &
   HoverCardPortalProps;
 
 export const HoverCardContent = forwardRef<
-  typeof HoverCard.Content,
+  typeof StyledHoverCardContent,
   HoverCardContentProps
 >(
   (
     {
       children,
-      className,
       forceMount,
       container,
-      as: Component = HoverCard.Content,
       sideOffset = 5,
       collisionPadding = 16,
       ...props
@@ -62,15 +52,14 @@ export const HoverCardContent = forwardRef<
   ) => {
     return (
       <HoverCardPortal forceMount={forceMount} container={container}>
-        <Component
+        <StyledHoverCardContent
           {...props}
           ref={ref}
           sideOffset={sideOffset}
           collisionPadding={collisionPadding}
-          className={classNames("rempi-hover-card__content", className)}
         >
           {children}
-        </Component>
+        </StyledHoverCardContent>
       </HoverCardPortal>
     );
   }
@@ -78,18 +67,12 @@ export const HoverCardContent = forwardRef<
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type HoverCardArrowProps = HTMLRempiProps<typeof HoverCard.Arrow> &
+export type HoverCardArrowProps = HTMLRempiProps<typeof StyledHoverCardArrow> &
   HoverCard.HoverCardArrowProps;
 
 export const HoverCardArrow = forwardRef<
-  typeof HoverCard.Arrow,
+  typeof StyledHoverCardArrow,
   HoverCardArrowProps
->(({ className, as: Component = HoverCard.Arrow, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-hover-card__arrow", className)}
-    />
-  );
+>(({ ...props }, ref) => {
+  return <StyledHoverCardArrow {...props} ref={ref} />;
 });

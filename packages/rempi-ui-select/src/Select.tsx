@@ -1,8 +1,18 @@
 import * as SelectRadix from "@radix-ui/react-select";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
-import "./Select.scss";
+import {
+  StyledSelectContent,
+  StyledSelectItem,
+  StyledSelectItemIndicator,
+  StyledSelectLabel,
+  StyledSelectScrollDownButton,
+  StyledSelectScrollUpButton,
+  StyledSelectSeparator,
+  StyledSelectTrigger,
+  StyledSelectTriggerIcon,
+  StyledSelectViewport,
+} from "./Select.styles";
 
 export type SelectRootProps = SelectRadix.SelectProps;
 
@@ -10,28 +20,20 @@ export const SelectRoot = SelectRadix.Root;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type SelectTriggerProps = HTMLRempiProps<typeof SelectRadix.Trigger> &
+export type SelectTriggerProps = HTMLRempiProps<typeof StyledSelectTrigger> &
   SelectRadix.SelectTriggerProps;
 
 export const SelectTrigger = forwardRef<
-  typeof SelectRadix.Trigger,
+  typeof StyledSelectTrigger,
   SelectTriggerProps
->(
-  (
-    { className, children, as: Component = SelectRadix.Trigger, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-select__trigger", className)}
-      >
-        {children}
-        <SelectIcon />
-      </Component>
-    );
-  }
+>(({ children, ...props }, ref) => {
+  return (
+    <StyledSelectTrigger {...props} ref={ref} >
+      {children}
+      <SelectIcon />
+    </StyledSelectTrigger>
+  );
+}
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -42,34 +44,26 @@ export type SelectValueProps = HTMLRempiProps<typeof SelectRadix.Value> &
 export const SelectValue = forwardRef<
   typeof SelectRadix.Value,
   SelectValueProps
->(({ className, as: Component = SelectRadix.Value, ...props }, ref) => {
+>(({ as: Component = SelectRadix.Value, ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-select__value", className)}
-    />
+    <Component {...props} ref={ref} />
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 type SelectIconProps = Omit<
-  HTMLRempiProps<typeof SelectRadix.Icon>,
+  HTMLRempiProps<typeof StyledSelectTriggerIcon>,
   "as" | "children"
 > &
   SelectRadix.SelectIconProps;
 
-const SelectIcon = forwardRef<typeof SelectRadix.Icon, SelectIconProps>(
-  ({ className, ...props }, ref) => {
+const SelectIcon = forwardRef<typeof StyledSelectTriggerIcon, SelectIconProps>(
+  ({ ...props }, ref) => {
     return (
-      <SelectRadix.Icon
-        {...props}
-        ref={ref}
-        className={classNames("rempi-select__icon", className)}
-      >
+      <StyledSelectTriggerIcon {...props} ref={ref}>
         <ChevronDown size={18} />
-      </SelectRadix.Icon>
+      </StyledSelectTriggerIcon>
     );
   }
 );
@@ -83,8 +77,8 @@ const SelectPortal = SelectRadix.Portal;
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type SelectContentProps = Omit<
-  HTMLRempiProps<typeof SelectRadix.Content>,
-  "as"
+  HTMLRempiProps<typeof StyledSelectContent>,
+  "as" | "$condensed"
 > &
   SelectRadix.SelectContentProps &
   SelectPortalProps & {
@@ -92,65 +86,46 @@ export type SelectContentProps = Omit<
   };
 
 export const SelectContent = forwardRef<
-  typeof SelectRadix.Content,
+  typeof StyledSelectContent,
   SelectContentProps
->(({ className, children, container, condensed = true, ...props }, ref) => {
+>(({ children, container, condensed = true, ...props }, ref) => {
   return (
     <SelectPortal container={container}>
-      <SelectRadix.Content
-        {...props}
-        ref={ref}
-        className={classNames(
-          "rempi-select__content",
-          { "rempi-select__content--condensed": condensed },
-          className
-        )}
-      >
+      <StyledSelectContent {...props} ref={ref} $condensed={condensed}>
         <SelectScrollUpButton />
         {children}
         <SelectScrollDownButton />
-      </SelectRadix.Content>
+      </StyledSelectContent>
     </SelectPortal>
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type SelectViewportProps = HTMLRempiProps<typeof SelectRadix.Viewport> &
+export type SelectViewportProps = HTMLRempiProps<typeof StyledSelectViewport> &
   SelectRadix.SelectViewportProps;
 
 export const SelectViewport = forwardRef<
-  typeof SelectRadix.Viewport,
+  typeof StyledSelectViewport,
   SelectViewportProps
->(({ className, as: Component = SelectRadix.Viewport, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-select__view-port", className)}
-    />
+    <StyledSelectViewport  {...props} ref={ref} />
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type SelectItemProps = HTMLRempiProps<typeof SelectRadix.Item> &
+export type SelectItemProps = HTMLRempiProps<typeof StyledSelectItem> &
   SelectRadix.SelectItemProps;
 
-export const SelectItem = forwardRef<typeof SelectRadix.Item, SelectItemProps>(
-  (
-    { className, children, as: Component = SelectRadix.Item, ...props },
-    ref
-  ) => {
+export const SelectItem = forwardRef<typeof StyledSelectItem, SelectItemProps>(
+  ({ children, ...props }, ref) => {
     return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-select__item", className)}
-      >
+      <StyledSelectItem  {...props} ref={ref}  >
         <SelectItemIndicator />
         <SelectItemText>{children}</SelectItemText>
-      </Component>
+      </StyledSelectItem>
     );
   }
 );
@@ -163,82 +138,66 @@ type SelectItemTextProps = HTMLRempiProps<typeof SelectRadix.ItemText> &
 const SelectItemText = forwardRef<
   typeof SelectRadix.ItemText,
   SelectItemTextProps
->(({ className, as: Component = SelectRadix.ItemText, ...props }, ref) => {
+>(({ as: Component = SelectRadix.ItemText, ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-select__item-text", className)}
-    />
+    <Component {...props} ref={ref} />
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 type SelectItemIndicatorProps = Omit<
-  HTMLRempiProps<typeof SelectRadix.ItemIndicator>,
+  HTMLRempiProps<typeof StyledSelectItemIndicator>,
   "as" | "children"
 > &
   SelectRadix.SelectItemIndicatorProps;
 
 const SelectItemIndicator = forwardRef<
-  typeof SelectRadix.ItemIndicator,
+  typeof StyledSelectItemIndicator,
   SelectItemIndicatorProps
->(({ className, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <SelectRadix.ItemIndicator
-      {...props}
-      ref={ref}
-      className={classNames("rempi-select__item-indicator", className)}
-    >
+    <StyledSelectItemIndicator {...props} ref={ref} >
       <Check size={12} />
-    </SelectRadix.ItemIndicator>
+    </StyledSelectItemIndicator>
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 type SelectScrollUpButtonProps = Omit<
-  HTMLRempiProps<typeof SelectRadix.ScrollUpButton>,
+  HTMLRempiProps<typeof StyledSelectScrollUpButton>,
   "as" | "children"
 > &
   SelectRadix.SelectScrollUpButtonProps;
 
 const SelectScrollUpButton = forwardRef<
-  typeof SelectRadix.ScrollUpButton,
+  typeof StyledSelectScrollUpButton,
   SelectScrollUpButtonProps
->(({ className, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <SelectRadix.ScrollUpButton
-      {...props}
-      ref={ref}
-      className={classNames("rempi-select__scroll-up-button", className)}
-    >
+    <StyledSelectScrollUpButton {...props} ref={ref} >
       <ChevronUp size={18} />
-    </SelectRadix.ScrollUpButton>
+    </StyledSelectScrollUpButton>
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 type SelectScrollDownButtonProps = Omit<
-  HTMLRempiProps<typeof SelectRadix.ScrollDownButton>,
+  HTMLRempiProps<typeof StyledSelectScrollDownButton>,
   "as" | "children"
 > &
   SelectRadix.SelectScrollDownButtonProps;
 
 const SelectScrollDownButton = forwardRef<
-  typeof SelectRadix.ScrollDownButton,
+  typeof StyledSelectScrollDownButton,
   SelectScrollDownButtonProps
->(({ className, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <SelectRadix.ScrollDownButton
-      {...props}
-      ref={ref}
-      className={classNames("rempi-select__scroll-down-button", className)}
-    >
+    <StyledSelectScrollDownButton {...props} ref={ref}>
       <ChevronDown size={18} />
-    </SelectRadix.ScrollDownButton>
+    </StyledSelectScrollDownButton>
   );
 });
 
@@ -250,39 +209,31 @@ export const SelectGroup = SelectRadix.Group;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type SelectLabelProps = HTMLRempiProps<typeof SelectRadix.Label> &
+export type SelectLabelProps = HTMLRempiProps<typeof StyledSelectLabel> &
   SelectRadix.SelectLabelProps;
 
 export const SelectLabel = forwardRef<
-  typeof SelectRadix.Label,
+  typeof StyledSelectLabel,
   SelectLabelProps
->(({ className, as: Component = SelectRadix.Label, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-select__label", className)}
-    />
+    <StyledSelectLabel {...props} ref={ref} />
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type SelectSeparatorProps = HTMLRempiProps<
-  typeof SelectRadix.Separator
+  typeof StyledSelectSeparator
 > &
   SelectRadix.SelectSeparatorProps;
 
 export const SelectSeparator = forwardRef<
-  typeof SelectRadix.Separator,
+  typeof StyledSelectSeparator,
   SelectSeparatorProps
->(({ className, as: Component = SelectRadix.Separator, ...props }, ref) => {
+>(({ ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-select__separator", className)}
-    />
+    <StyledSelectSeparator {...props} ref={ref} />
   );
 });
 

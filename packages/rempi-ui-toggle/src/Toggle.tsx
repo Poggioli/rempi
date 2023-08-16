@@ -1,19 +1,12 @@
 import * as ToggleRadix from "@radix-ui/react-toggle";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
-import "./Toggle.scss";
+import { StyledToggleRoot } from "./Toggle.styles";
 
-export type ToggleProps = HTMLRempiProps<typeof ToggleRadix.Root> &
+export type ToggleProps = HTMLRempiProps<typeof StyledToggleRoot> &
   ToggleRadix.ToggleProps;
 
-export const Toggle = forwardRef<typeof ToggleRadix.Root, ToggleProps>(
-  ({ className, as: Componente = ToggleRadix.Root, ...props }, ref) => {
-    return (
-      <Componente
-        {...props}
-        ref={ref}
-        className={classNames("rempi-toggle__root", className)}
-      />
-    );
+export const Toggle = forwardRef<typeof StyledToggleRoot, ToggleProps>(
+  ({ ...props }, ref) => {
+    return <StyledToggleRoot {...props} ref={ref} />;
   }
 );

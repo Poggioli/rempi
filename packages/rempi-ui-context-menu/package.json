@@ -7,12 +7,10 @@
   "scripts": {},
   "dependencies": {
     "@radix-ui/react-context-menu": "^2.1.4",
-    "classnames": "^2.3.2",
     "lucide-react": "^0.258.0"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
-    "sass": "^1.63.6",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },

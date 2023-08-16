@@ -5,13 +5,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {},
-  "dependencies": {
-    "classnames": "^2.3.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@rempi-ui/label": "*",
     "eslint-config-custom": "*",
-    "sass": "^1.63.6",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },

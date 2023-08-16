@@ -1120,10 +1120,18 @@ export function createTheme(selector: string, theme: RempiConfigCreateTheme) {
   };
 
   const cssVariables: any = {};
+  // @ts-ignore
+  const themeValues: RempiConfig & { [key: string]: any } = {};
 
   Object.entries(themeObject).forEach(([key, value]) => {
+    if (!themeValues[key]) {
+      themeValues[key] = {};
+    }
+
     Object.entries(value).forEach(([keyVal, valueVal]) => {
-      cssVariables[`--${toDashLowerCase(key)}-${keyVal}`] = valueVal as string;
+      const cssVariableName = `--${toDashLowerCase(key)}-${keyVal}`;
+      cssVariables[cssVariableName] = valueVal as string;
+      themeValues[key][keyVal] = `var(${cssVariableName})`;
     });
   });
 
@@ -1153,5 +1161,6 @@ export function createTheme(selector: string, theme: RempiConfigCreateTheme) {
       return render();
     },
     toString: render,
+    theme: themeValues,
   };
 }

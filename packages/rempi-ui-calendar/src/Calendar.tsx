@@ -1,18 +1,16 @@
 import { forwardRef, PropsOf } from "@rempi-ui/core";
 import { Select } from "@rempi-ui/select";
-import classNamesMerge from "classnames";
 import * as locales from "date-fns/locale";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ChangeEvent, Children, useEffect, useState } from "react";
 import { DayPicker } from "react-day-picker";
-import "./Calendar.scss";
+import { StyledDayPicker, Wrapper } from "./Calendar.styles";
 
 export type CalendarProps = PropsOf<typeof DayPicker>;
 
 export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
   (
     {
-      className,
       classNames,
       captionLayout = "buttons",
       showOutsideDays = true,
@@ -37,37 +35,36 @@ export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
     }, []);
 
     return (
-      <div ref={ref}>
-        <DayPicker
+      <Wrapper ref={ref}>
+        <StyledDayPicker
           captionLayout={captionLayout}
           locale={locale}
           showOutsideDays={showOutsideDays}
           fixedWeeks={fixedWeeks}
-          className={classNamesMerge("rempi-calendar", className)}
           classNames={{
-            months: "rempi-calendar__months",
-            month: "rempi-calendar__month",
-            caption: "rempi-calendar__caption",
-            caption_label: "rempi-calendar__caption-label",
-            nav: "rempi-calendar__nav",
-            nav_button: "rempi-calendar__nav-button",
-            nav_button_previous: "rempi-calendar__nav-button--previous",
-            nav_button_next: "rempi-calendar__nav-button--next",
-            table: "rempi-calendar__table",
-            head_row: "rempi-calendar__head-row",
-            head_cell: "rempi-calendar__head-cell",
-            row: "rempi-calendar__row",
-            cell: "rempi-calendar__cell",
-            day: "rempi-calendar__day",
-            day_selected: "rempi-calendar__day--selected",
-            day_today: "rempi-calendar__day--today",
-            day_outside: "rempi-calendar__day--outside",
-            day_disabled: "rempi-calendar__day--disabled",
-            day_range_start: "rempi-calendar__day--range-start",
-            day_range_end: "rempi-calendar__day--range-end",
-            day_range_middle: "rempi-calendar__day--range-middle",
-            day_hidden: "rempi-calendar__day--hidden",
-            caption_dropdowns: "rempi-calendar__caption-dropdown",
+            months: `${Wrapper.styledComponentId}__months`,
+            month: `${Wrapper.styledComponentId}__month`,
+            caption: `${Wrapper.styledComponentId}__caption`,
+            caption_label: `${Wrapper.styledComponentId}__caption-label`,
+            nav: `${Wrapper.styledComponentId}__nav`,
+            nav_button: `${Wrapper.styledComponentId}__nav-button`,
+            nav_button_previous: `${Wrapper.styledComponentId}__nav-button--previous`,
+            nav_button_next: `${Wrapper.styledComponentId}__nav-button--next`,
+            table: `${Wrapper.styledComponentId}__table`,
+            head_row: `${Wrapper.styledComponentId}__head-row`,
+            head_cell: `${Wrapper.styledComponentId}__head-cell`,
+            row: `${Wrapper.styledComponentId}__row`,
+            cell: `${Wrapper.styledComponentId}__cell`,
+            day: `${Wrapper.styledComponentId}__day`,
+            day_selected: `${Wrapper.styledComponentId}__day--selected`,
+            day_today: `${Wrapper.styledComponentId}__day--today`,
+            day_outside: `${Wrapper.styledComponentId}__day--outside`,
+            day_disabled: `${Wrapper.styledComponentId}__day--disabled`,
+            day_range_start: `${Wrapper.styledComponentId}__day--range-start`,
+            day_range_end: `${Wrapper.styledComponentId}__day--range-end`,
+            day_range_middle: `${Wrapper.styledComponentId}__day--range-middle`,
+            day_hidden: `${Wrapper.styledComponentId}__day--hidden`,
+            caption_dropdowns: `${Wrapper.styledComponentId}__caption-dropdown`,
             ...classNames,
           }}
           {...props}
@@ -77,10 +74,15 @@ export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
               <ChevronRight size={18} className="" />
             ),
             Dropdown: ({
+              // @ts-ignore
               value,
+              // @ts-ignore
               onChange,
+              // @ts-ignore
               children,
+              // @ts-ignore
               caption,
+              // @ts-ignore
               name,
               ...props
             }) => {
@@ -118,7 +120,7 @@ export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
             },
           }}
         />
-      </div>
+      </Wrapper>
     );
   }
 );

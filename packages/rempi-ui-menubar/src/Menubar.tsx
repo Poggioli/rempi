@@ -1,24 +1,30 @@
 import * as Menubar from "@radix-ui/react-menubar";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
+import {
+  StyledMenuBarRoot,
+  StyledMenuBarTrigger,
+  StyledMenubarItem,
+  StyledMenubarCheckboxItem,
+  StyledMenubarRadioItem,
+  StyledMenubarSubMenuTrigger,
+  StyledMenubarContent,
+  StyledMenubarSubContent,
+  StyledMenubarLabel,
+  StyledMenubarSeparator,
+  StyledMenubarItemIndicator,
+} from "./Menubar.styles";
 import { Check, ChevronRight, Dot } from "lucide-react";
 import { PointerEvent } from "react";
-import "./Menubar.scss";
 
-export type MenubarRootProps = HTMLRempiProps<typeof Menubar.Root> &
+export type MenubarRootProps = HTMLRempiProps<typeof StyledMenuBarRoot> &
   Menubar.MenubarProps;
 
-export const MenubarRoot = forwardRef<typeof Menubar.Root, MenubarRootProps>(
-  ({ className, as: Component = Menubar.Root, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-menubar__root", className)}
-      />
-    );
-  }
-);
+export const MenubarRoot = forwardRef<
+  typeof StyledMenuBarRoot,
+  MenubarRootProps
+>(({ ...props }, ref) => {
+  return <StyledMenuBarRoot {...props} ref={ref} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -28,13 +34,13 @@ export const MenubarMenu = Menubar.Menu;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type MenubarTriggerProps = HTMLRempiProps<typeof Menubar.Trigger> &
+export type MenubarTriggerProps = HTMLRempiProps<typeof StyledMenuBarTrigger> &
   Menubar.MenubarTriggerProps;
 
 export const MenubarTrigger = forwardRef<
-  typeof Menubar.Trigger,
+  typeof StyledMenuBarTrigger,
   MenubarTriggerProps
->(({ className, as: Component = Menubar.Trigger, ...props }, ref) => {
+>(({ ...props }, ref) => {
   const handleOnPointerEnter = (event: PointerEvent<HTMLButtonElement>) => {
     if (!!props.disabled) {
       event.preventDefault();
@@ -45,11 +51,10 @@ export const MenubarTrigger = forwardRef<
   };
 
   return (
-    <Component
+    <StyledMenuBarTrigger
       {...props}
       onPointerEnter={handleOnPointerEnter}
       ref={ref}
-      className={classNames("rempi-menubar__trigger", className)}
     />
   );
 });
@@ -62,24 +67,25 @@ const MenubarPortal = Menubar.Portal;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type MenubarContentProps = HTMLRempiProps<typeof Menubar.Content> &
+export type MenubarContentProps = Omit<
+  HTMLRempiProps<typeof StyledMenubarContent>,
+  "$condensed"
+> &
   Menubar.MenubarContentProps &
   MenubarPortalProps & {
     condensed?: boolean;
   };
 
 export const MenubarContent = forwardRef<
-  typeof Menubar.Content,
+  typeof StyledMenubarContent,
   MenubarContentProps
 >(
   (
     {
       condensed = true,
       children,
-      className,
       forceMount,
       container,
-      as: Component = Menubar.Content,
       sideOffset = 6,
       collisionPadding = 16,
       ...props
@@ -88,19 +94,15 @@ export const MenubarContent = forwardRef<
   ) => {
     return (
       <MenubarPortal forceMount={forceMount} container={container}>
-        <Component
+        <StyledMenubarContent
           {...props}
           ref={ref}
           sideOffset={sideOffset}
           collisionPadding={collisionPadding}
-          className={classNames(
-            "rempi-menubar__content",
-            { "rempi-menubar__content--condensed": condensed },
-            className
-          )}
+          $condensed={condensed}
         >
           {children}
-        </Component>
+        </StyledMenubarContent>
       </MenubarPortal>
     );
   }
@@ -108,20 +110,15 @@ export const MenubarContent = forwardRef<
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type MenubarItemProps = HTMLRempiProps<typeof Menubar.Item> &
+export type MenubarItemProps = HTMLRempiProps<typeof StyledMenubarItem> &
   Menubar.MenubarItemProps;
 
-export const MenubarItem = forwardRef<typeof Menubar.Item, MenubarItemProps>(
-  ({ className, as: Component = Menubar.Item, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-menubar__item", className)}
-      />
-    );
-  }
-);
+export const MenubarItem = forwardRef<
+  typeof StyledMenubarItem,
+  MenubarItemProps
+>(({ ...props }, ref) => {
+  return <StyledMenubarItem {...props} ref={ref} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -131,50 +128,36 @@ export const MenubarGroup = Menubar.Group;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type MenubarLabelProps = HTMLRempiProps<typeof Menubar.Label> &
+export type MenubarLabelProps = HTMLRempiProps<typeof StyledMenubarLabel> &
   Menubar.MenubarLabelProps;
 
-export const MenubarLabel = forwardRef<typeof Menubar.Label, MenubarLabelProps>(
-  ({ className, as: Component = Menubar.Label, ...props }, ref) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-menubar__label", className)}
-      />
-    );
-  }
-);
+export const MenubarLabel = forwardRef<
+  typeof StyledMenubarLabel,
+  MenubarLabelProps
+>(({ ...props }, ref) => {
+  return <StyledMenubarLabel {...props} ref={ref} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type MenubarCheckboxItemProps = HTMLRempiProps<
-  typeof Menubar.CheckboxItem
+  typeof StyledMenubarCheckboxItem
 > &
   Menubar.MenubarCheckboxItemProps;
 
 export const MenubarCheckboxItem = forwardRef<
-  typeof Menubar.CheckboxItem,
+  typeof StyledMenubarCheckboxItem,
   MenubarCheckboxItemProps
->(
-  (
-    { children, className, as: Component = Menubar.CheckboxItem, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-menubar__checkbox-item", className)}
-      >
-        <MenubarItemIndicator>
-          <Check size={12} />
-        </MenubarItemIndicator>
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ children, ...props }, ref) => {
+  return (
+    <StyledMenubarCheckboxItem {...props} ref={ref}>
+      <MenubarItemIndicator>
+        <Check size={12} />
+      </MenubarItemIndicator>
+      {children}
+    </StyledMenubarCheckboxItem>
+  );
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -184,81 +167,58 @@ export type MenubarRadioGroupProps = HTMLRempiProps<typeof Menubar.RadioGroup> &
 export const MenubarRadioGroup = forwardRef<
   typeof Menubar.RadioGroup,
   MenubarRadioGroupProps
->(({ className, as: Component = Menubar.RadioGroup, ...props }, ref) => {
+>(({ as: Component = Menubar.RadioGroup, ...props }, ref) => {
+  return <Component {...props} ref={ref} />;
+});
+
+// -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
+
+export type MenubarRadioItemProps = HTMLRempiProps<
+  typeof StyledMenubarRadioItem
+> &
+  Menubar.MenubarRadioItemProps;
+
+export const MenubarRadioItem = forwardRef<
+  typeof StyledMenubarRadioItem,
+  MenubarRadioItemProps
+>(({ children, ...props }, ref) => {
   return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-menubar__radio-group", className)}
-    />
+    <StyledMenubarRadioItem {...props} ref={ref}>
+      <MenubarItemIndicator>
+        <Dot size={24} />
+      </MenubarItemIndicator>
+      {children}
+    </StyledMenubarRadioItem>
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type MenubarRadioItemProps = HTMLRempiProps<typeof Menubar.RadioItem> &
-  Menubar.MenubarRadioItemProps;
-
-export const MenubarRadioItem = forwardRef<
-  typeof Menubar.RadioItem,
-  MenubarRadioItemProps
->(
-  (
-    { children, className, as: Component = Menubar.RadioItem, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-menubar__radio-item", className)}
-      >
-        <MenubarItemIndicator>
-          <Dot size={24} />
-        </MenubarItemIndicator>
-        {children}
-      </Component>
-    );
-  }
-);
-
-// -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
-
 type MenubarItemIndicatorProps = Omit<
-  HTMLRempiProps<typeof Menubar.ItemIndicator>,
+  HTMLRempiProps<typeof StyledMenubarItemIndicator>,
   "as"
 > &
   Menubar.MenubarItemIndicatorProps;
 
 const MenubarItemIndicator = forwardRef<
-  typeof Menubar.ItemIndicator,
+  typeof StyledMenubarItemIndicator,
   MenubarItemIndicatorProps
->(({ className, ...props }, ref) => {
-  return (
-    <Menubar.ItemIndicator
-      {...props}
-      ref={ref}
-      className={classNames("rempi-menubar__item-indicator", className)}
-    />
-  );
+>(({ ...props }, ref) => {
+  return <StyledMenubarItemIndicator {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type MenubarSeparatorProps = HTMLRempiProps<typeof Menubar.Separator> &
+export type MenubarSeparatorProps = HTMLRempiProps<
+  typeof StyledMenubarSeparator
+> &
   Menubar.MenubarSeparatorProps;
 
 export const MenubarSeparator = forwardRef<
-  typeof Menubar.Separator,
+  typeof StyledMenubarSeparator,
   MenubarSeparatorProps
->(({ className, as: Component = Menubar.Separator, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-menubar__separator", className)}
-    />
-  );
+>(({ ...props }, ref) => {
+  return <StyledMenubarSeparator {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -270,64 +230,40 @@ export const MenubarSubMenu = Menubar.Sub;
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type MenubarSubMenuTriggerProps = HTMLRempiProps<
-  typeof Menubar.SubTrigger
+  typeof StyledMenubarSubMenuTrigger
 > &
   Menubar.MenubarSubTriggerProps;
 
 export const MenubarSubMenuTrigger = forwardRef<
-  typeof Menubar.SubTrigger,
+  typeof StyledMenubarSubMenuTrigger,
   MenubarSubMenuTriggerProps
->(
-  (
-    { className, as: Component = Menubar.SubTrigger, children, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-menubar__sub-menu__trigger", className)}
-      >
-        {children}
-        <ChevronRight size={16} />
-      </Component>
-    );
-  }
-);
+>(({ children, ...props }, ref) => {
+  return (
+    <StyledMenubarSubMenuTrigger {...props} ref={ref}>
+      {children}
+      <ChevronRight size={16} />
+    </StyledMenubarSubMenuTrigger>
+  );
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type MenubarSubMenuContentProps = HTMLRempiProps<
-  typeof Menubar.SubContent
+export type MenubarSubMenuContentProps = Omit<
+  HTMLRempiProps<typeof StyledMenubarSubContent>,
+  "$condensed"
 > &
   Menubar.MenubarSubContentProps &
   MenubarPortalProps;
 
 export const MenubarSubMenuContent = forwardRef<
-  typeof Menubar.SubContent,
+  typeof StyledMenubarSubContent,
   MenubarSubMenuContentProps
->(
-  (
-    {
-      children,
-      className,
-      forceMount,
-      container,
-      as: Component = Menubar.SubContent,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <MenubarPortal forceMount={forceMount} container={container}>
-        <Component
-          {...props}
-          ref={ref}
-          className={classNames("rempi-menubar__sub-menu__content", className)}
-        >
-          {children}
-        </Component>
-      </MenubarPortal>
-    );
-  }
-);
+>(({ children, forceMount, container, ...props }, ref) => {
+  return (
+    <MenubarPortal forceMount={forceMount} container={container}>
+      <StyledMenubarSubContent {...props} ref={ref}>
+        {children}
+      </StyledMenubarSubContent>
+    </MenubarPortal>
+  );
+});

@@ -1,8 +1,17 @@
 import * as ContextMenu from "@radix-ui/react-context-menu";
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import classNames from "classnames";
 import { Check, ChevronRight, Dot } from "lucide-react";
-import "./ContextMenu.scss";
+import {
+  StyledContextMenuCheckboxItem,
+  StyledContextMenuContent,
+  StyledContextMenuItem,
+  StyledContextMenuItemIndicator,
+  StyledContextMenuLabel,
+  StyledContextMenuRadioItem,
+  StyledContextMenuSeparator,
+  StyledContextMenuSubContent,
+  StyledContextMenuSubMenuTrigger,
+} from "./ContextMenu.styles";
 
 export type ContextMenuRootProps = ContextMenu.ContextMenuProps;
 
@@ -18,14 +27,8 @@ export type ContextMenuTriggerProps = HTMLRempiProps<
 export const ContextMenuTrigger = forwardRef<
   typeof ContextMenu.Trigger,
   ContextMenuTriggerProps
->(({ className, as: Component = ContextMenu.Trigger, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-context-menu__trigger", className)}
-    />
-  );
+>(({ as: Component = ContextMenu.Trigger, ...props }, ref) => {
+  return <Component {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -36,8 +39,9 @@ const ContextMenuPortal = ContextMenu.Portal;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type ContextMenuContentProps = HTMLRempiProps<
-  typeof ContextMenu.Content
+export type ContextMenuContentProps = Omit<
+  HTMLRempiProps<typeof StyledContextMenuContent>,
+  "$condensed"
 > &
   ContextMenu.ContextMenuContentProps &
   ContextMenuPortalProps & {
@@ -45,17 +49,15 @@ export type ContextMenuContentProps = HTMLRempiProps<
   };
 
 export const ContextMenuContent = forwardRef<
-  typeof ContextMenu.Content,
+  typeof StyledContextMenuContent,
   ContextMenuContentProps
 >(
   (
     {
       children,
       condensed = true,
-      className,
       forceMount,
       container,
-      as: Component = ContextMenu.Content,
       collisionPadding = 16,
       ...props
     },
@@ -63,18 +65,14 @@ export const ContextMenuContent = forwardRef<
   ) => {
     return (
       <ContextMenuPortal forceMount={forceMount} container={container}>
-        <Component
+        <StyledContextMenuContent
           {...props}
           ref={ref}
           collisionPadding={collisionPadding}
-          className={classNames(
-            "rempi-context-menu__content",
-            { "rempi-context-menu__content--condensed": condensed },
-            className
-          )}
+          $condensed={condensed}
         >
           {children}
-        </Component>
+        </StyledContextMenuContent>
       </ContextMenuPortal>
     );
   }
@@ -82,20 +80,16 @@ export const ContextMenuContent = forwardRef<
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type ContextMenuItemProps = HTMLRempiProps<typeof ContextMenu.Item> &
+export type ContextMenuItemProps = HTMLRempiProps<
+  typeof StyledContextMenuItem
+> &
   ContextMenu.ContextMenuItemProps;
 
 export const ContextMenuItem = forwardRef<
-  typeof ContextMenu.Item,
+  typeof StyledContextMenuItem,
   ContextMenuItemProps
->(({ className, as: Component = ContextMenu.Item, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-context-menu__item", className)}
-    />
-  );
+>(({ ...props }, ref) => {
+  return <StyledContextMenuItem {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -106,51 +100,38 @@ export const ContextMenuGroup = ContextMenu.Group;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type ContextMenuLabelProps = HTMLRempiProps<typeof ContextMenu.Label> &
+export type ContextMenuLabelProps = HTMLRempiProps<
+  typeof StyledContextMenuLabel
+> &
   ContextMenu.ContextMenuLabelProps;
 
 export const ContextMenuLabel = forwardRef<
-  typeof ContextMenu.Label,
+  typeof StyledContextMenuLabel,
   ContextMenuLabelProps
->(({ className, as: Component = ContextMenu.Label, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-context-menu__label", className)}
-    />
-  );
+>(({ ...props }, ref) => {
+  return <StyledContextMenuLabel {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type ContextMenuCheckboxItemProps = HTMLRempiProps<
-  typeof ContextMenu.CheckboxItem
+  typeof StyledContextMenuCheckboxItem
 > &
   ContextMenu.ContextMenuCheckboxItemProps;
 
 export const ContextMenuCheckboxItem = forwardRef<
-  typeof ContextMenu.CheckboxItem,
+  typeof StyledContextMenuCheckboxItem,
   ContextMenuCheckboxItemProps
->(
-  (
-    { children, className, as: Component = ContextMenu.CheckboxItem, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-context-menu__checkbox-item", className)}
-      >
-        <ContextMenuItemIndicator>
-          <Check size={12} />
-        </ContextMenuItemIndicator>
-        {children}
-      </Component>
-    );
-  }
-);
+>(({ children, ...props }, ref) => {
+  return (
+    <StyledContextMenuCheckboxItem {...props} ref={ref}>
+      <ContextMenuItemIndicator>
+        <Check size={12} />
+      </ContextMenuItemIndicator>
+      {children}
+    </StyledContextMenuCheckboxItem>
+  );
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -162,85 +143,58 @@ export type ContextMenuRadioGroupProps = HTMLRempiProps<
 export const ContextMenuRadioGroup = forwardRef<
   typeof ContextMenu.RadioGroup,
   ContextMenuRadioGroupProps
->(({ className, as: Component = ContextMenu.RadioGroup, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-context-menu__radio-group", className)}
-    />
-  );
+>(({ as: Component = ContextMenu.RadioGroup, ...props }, ref) => {
+  return <Component {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type ContextMenuRadioItemProps = HTMLRempiProps<
-  typeof ContextMenu.RadioItem
+  typeof StyledContextMenuRadioItem
 > &
   ContextMenu.ContextMenuRadioItemProps;
 
 export const ContextMenuRadioItem = forwardRef<
-  typeof ContextMenu.RadioItem,
+  typeof StyledContextMenuRadioItem,
   ContextMenuRadioItemProps
->(
-  (
-    { children, className, as: Component = ContextMenu.RadioItem, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames("rempi-context-menu__radio-item", className)}
-      >
-        <ContextMenuItemIndicator>
-          <Dot size={24} />
-        </ContextMenuItemIndicator>
-        {children}
-      </Component>
-    );
-  }
-);
-
-// -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
-
-type ContextMenuItemIndicatorProps = Omit<
-  HTMLRempiProps<typeof ContextMenu.ItemIndicator>,
-  "as"
-> &
-  ContextMenu.ContextMenuItemIndicatorProps;
-
-const ContextMenuItemIndicator = forwardRef<
-  typeof ContextMenu.ItemIndicator,
-  ContextMenuItemIndicatorProps
->(({ className, ...props }, ref) => {
+>(({ children, ...props }, ref) => {
   return (
-    <ContextMenu.ItemIndicator
-      {...props}
-      ref={ref}
-      className={classNames("rempi-context-menu__item-indicator", className)}
-    />
+    <StyledContextMenuRadioItem {...props} ref={ref}>
+      <ContextMenuItemIndicator>
+        <Dot size={24} />
+      </ContextMenuItemIndicator>
+      {children}
+    </StyledContextMenuRadioItem>
   );
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
+type ContextMenuItemIndicatorProps = Omit<
+  HTMLRempiProps<typeof StyledContextMenuItemIndicator>,
+  "as"
+> &
+  ContextMenu.ContextMenuItemIndicatorProps;
+
+const ContextMenuItemIndicator = forwardRef<
+  typeof StyledContextMenuItemIndicator,
+  ContextMenuItemIndicatorProps
+>(({ ...props }, ref) => {
+  return <StyledContextMenuItemIndicator {...props} ref={ref} />;
+});
+
+// -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
+
 export type ContextMenuSeparatorProps = HTMLRempiProps<
-  typeof ContextMenu.Separator
+  typeof StyledContextMenuSeparator
 > &
   ContextMenu.ContextMenuSeparatorProps;
 
 export const ContextMenuSeparator = forwardRef<
-  typeof ContextMenu.Separator,
+  typeof StyledContextMenuSeparator,
   ContextMenuSeparatorProps
->(({ className, as: Component = ContextMenu.Separator, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      className={classNames("rempi-context-menu__separator", className)}
-    />
-  );
+>(({ ...props }, ref) => {
+  return <StyledContextMenuSeparator {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -252,70 +206,40 @@ export const ContextMenuSubMenu = ContextMenu.Sub;
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type ContextMenuSubMenuTriggerProps = HTMLRempiProps<
-  typeof ContextMenu.SubTrigger
+  typeof StyledContextMenuSubMenuTrigger
 > &
   ContextMenu.ContextMenuSubTriggerProps;
 
 export const ContextMenuSubMenuTrigger = forwardRef<
-  typeof ContextMenu.SubTrigger,
+  typeof StyledContextMenuSubMenuTrigger,
   ContextMenuSubMenuTriggerProps
->(
-  (
-    { className, as: Component = ContextMenu.SubTrigger, children, ...props },
-    ref
-  ) => {
-    return (
-      <Component
-        {...props}
-        ref={ref}
-        className={classNames(
-          "rempi-context-menu__sub-menu__trigger",
-          className
-        )}
-      >
-        {children}
-        <ChevronRight size={16} />
-      </Component>
-    );
-  }
-);
+>(({ children, ...props }, ref) => {
+  return (
+    <StyledContextMenuSubMenuTrigger {...props} ref={ref}>
+      {children}
+      <ChevronRight size={16} />
+    </StyledContextMenuSubMenuTrigger>
+  );
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type ContextMenuSubMenuContentProps = HTMLRempiProps<
-  typeof ContextMenu.SubContent
+export type ContextMenuSubMenuContentProps = Omit<
+  HTMLRempiProps<typeof StyledContextMenuSubContent>,
+  "$condensed"
 > &
   ContextMenu.ContextMenuSubContentProps &
   ContextMenuPortalProps;
 
 export const ContextMenuSubMenuContent = forwardRef<
-  typeof ContextMenu.SubContent,
+  typeof StyledContextMenuSubContent,
   ContextMenuSubMenuContentProps
->(
-  (
-    {
-      children,
-      className,
-      forceMount,
-      container,
-      as: Component = ContextMenu.SubContent,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <ContextMenuPortal forceMount={forceMount} container={container}>
-        <Component
-          {...props}
-          ref={ref}
-          className={classNames(
-            "rempi-context-menu__sub-menu__content",
-            className
-          )}
-        >
-          {children}
-        </Component>
-      </ContextMenuPortal>
-    );
-  }
-);
+>(({ children, forceMount, container, ...props }, ref) => {
+  return (
+    <ContextMenuPortal forceMount={forceMount} container={container}>
+      <StyledContextMenuSubContent {...props} ref={ref}>
+        {children}
+      </StyledContextMenuSubContent>
+    </ContextMenuPortal>
+  );
+});

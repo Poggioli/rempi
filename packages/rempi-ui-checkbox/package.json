@@ -8,12 +8,10 @@
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.0.4",
     "@rempi-ui/label": "*",
-    "classnames": "^2.3.2",
     "lucide-react": "^0.258.0"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
-    "sass": "^1.63.6",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },

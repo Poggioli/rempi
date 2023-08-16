@@ -27,7 +27,7 @@ export default function RootLayout({
 
 const Html: FC<PropsWithChildren> = ({ children }) => {
   const {
-    theme: { getCssText, className },
+    theme: { getCssText, className, theme },
   } = useContext(ThemeProviderContext);
 
   return (

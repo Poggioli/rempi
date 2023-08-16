@@ -1,38 +1,29 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import * as ProgressRadix from "@radix-ui/react-progress";
-import classNames from "classnames";
-import "./Progress.scss";
+import { StyledProgessRoot, StyledProgressBar } from "./Progress.styles";
 
-type Size = "small" | "standard" | "large";
-const sizeClasses: Record<Size, string> = {
-  small: "rempi-progress--small",
-  standard: "rempi-progress--standard",
-  large: "rempi-progress--large",
-};
+export type Size = "small" | "standard" | "large";
 
 export type ProgressProps = Omit<
-  HTMLRempiProps<typeof ProgressRadix.Root>,
-  "as" | "children"
+  HTMLRempiProps<typeof StyledProgessRoot>,
+  "as" | "children" | "$size"
 > &
   ProgressRadix.ProgressProps & {
     size?: Size;
   };
 
-export const Progress = forwardRef<typeof ProgressRadix.Root, ProgressProps>(
-  ({ className, value, max = 100, size = "standard", ...props }, ref) => {
+export const Progress = forwardRef<typeof StyledProgessRoot, ProgressProps>(
+  ({ value, max = 100, size = "standard", ...props }, ref) => {
     return (
-      <ProgressRadix.Root
+      <StyledProgessRoot
         {...props}
+        $size={size}
         value={value}
         max={max}
         ref={ref}
-        className={classNames("rempi-progress", sizeClasses[size], className)}
       >
-        <ProgressRadix.Indicator
-          className="rempi-progress__bar"
-          style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
-        />
-      </ProgressRadix.Root>
+        <StyledProgressBar style={{ transform: `translateX(-${100 - (value || 0)}%)` }} />
+      </StyledProgessRoot>
     );
   }
 );

@@ -1,13 +1,12 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { Label, LabelContext, LabelProps } from "@rempi-ui/label";
-import classNames from "classnames";
 import { useContext, useEffect } from "react";
-import "./Textarea.scss";
+import { StyledTextArea } from "./Textarea.styles";
 
 export type TextareaProps = Omit<HTMLRempiProps<"textarea">, "as">;
 
 export const Textarea = forwardRef<"textarea", TextareaProps>(
-  ({ className, ...props }, ref) => {
+  ({ ...props }, ref) => {
     const { setAttrs: setLabelAttrs } = useContext(LabelContext);
 
     useEffect(() => {
@@ -19,11 +18,10 @@ export const Textarea = forwardRef<"textarea", TextareaProps>(
     }, [props.disabled, props["aria-invalid"]]);
 
     return (
-      <textarea
+      <StyledTextArea
         {...props}
         ref={ref}
         data-disabled={props.disabled}
-        className={classNames("rempi-textarea", className)}
       />
     );
   }
