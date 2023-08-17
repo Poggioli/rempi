@@ -2,7 +2,7 @@ import { Select } from "@rempi-ui/select";
 import { ThemeProviderContext } from "app/ThemeProvider";
 import { MoonStar, Palette, Sun } from "lucide-react";
 import { FC, useContext, useEffect, useState } from "react";
-import "./ThemeSelector.scss";
+import { StyledTrigger } from "./ThemeSelector.styles";
 
 const themes: Record<string, any> = {
   "dark-theme": <MoonStar size={20} />,
@@ -35,7 +35,7 @@ export const ThemeSelector: FC = () => {
 
   return (
     <Select.Root value={theme} onValueChange={handleSelectTheme}>
-      <Select.Trigger className="theme-selector__trigger" aria-label="Theme">
+      <StyledTrigger as={Select.Trigger} aria-label="Theme">
         <Select.Value placeholder={<Palette size={20} />}>
           {themes[theme]}
         </Select.Value>
@@ -45,7 +45,7 @@ export const ThemeSelector: FC = () => {
             <Select.Item value="indigo-pink-theme">Light</Select.Item>
           </Select.Viewport>
         </Select.Content>
-      </Select.Trigger>
+      </StyledTrigger>
     </Select.Root>
   );
 };

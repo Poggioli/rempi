@@ -9,7 +9,12 @@ import { FC, PropsWithChildren, useContext } from "react";
 import { ThemeProvider, ThemeProviderContext } from "./ThemeProvider";
 import { Container } from "@rempi-ui/container";
 import { Footer } from "@/components/Footer";
-import "./layout.scss";
+import { ThemeProvider as ThemeProviderCore } from "@rempi-ui/core";
+import {
+  StyledBody,
+  StyledContainerBody,
+  StyledContent,
+} from "./layout.styles";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,24 +36,26 @@ const Html: FC<PropsWithChildren> = ({ children }) => {
   } = useContext(ThemeProviderContext);
 
   return (
-    <Tooltip.Provider>
-      <Toast.Provider>
-        <html lang="en" className={`${className} ${inter.className}`}>
-          <head>
-            <style
-              id="rempi"
-              dangerouslySetInnerHTML={{ __html: getCssText() }}
-            ></style>
-          </head>
-          <body className="body">
-            <NavigationMenu />
-            <Container variant="md" centered className="layout__container-body">
-              <div className="layout__content">{children}</div>
-              <Footer />
-            </Container>
-          </body>
-        </html>
-      </Toast.Provider>
-    </Tooltip.Provider>
+    <ThemeProviderCore theme={theme}>
+      <Tooltip.Provider>
+        <Toast.Provider>
+          <html lang="en" className={`${className} ${inter.className}`}>
+            <head>
+              <style
+                id="rempi"
+                dangerouslySetInnerHTML={{ __html: getCssText() }}
+              ></style>
+            </head>
+            <StyledBody>
+              <NavigationMenu />
+              <StyledContainerBody as={Container} variant="md" centered>
+                <StyledContent>{children}</StyledContent>
+                <Footer />
+              </StyledContainerBody>
+            </StyledBody>
+          </html>
+        </Toast.Provider>
+      </Tooltip.Provider>
+    </ThemeProviderCore>
   );
 };

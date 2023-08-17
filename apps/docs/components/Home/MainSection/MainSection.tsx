@@ -4,37 +4,46 @@ import { Heading } from "@rempi-ui/heading";
 import { Typography } from "@rempi-ui/typography";
 import { Github } from "lucide-react";
 import { FC } from "react";
-import "./MainSection.scss";
+import {
+  StyledMainSection,
+  StyledMainSectionButtons,
+  StyledMainSectionGithubIconLink,
+  StyledMainSectionLead,
+  StyledMainSectionStartLink,
+  StyledMainSectionTitle,
+} from "./MainSection.styles";
 
 export const MainSection: FC = () => {
   return (
-    <Flex as="section" direction="column" className="main-section">
-      <Heading
+    <StyledMainSection
+      as={(props: any) => <Flex {...props} as="section" />}
+      flexDirection="column"
+    >
+      <StyledMainSectionTitle
+        as={Heading}
         fontWeight="semi-bold"
         lineHeight={1}
-        className="main-section__title"
       >
         Construa interfaces amigáveis.
-      </Heading>
-      <Typography
+      </StyledMainSectionTitle>
+      <StyledMainSectionLead
+        as={Typography}
         variant="lead1"
         color="low-contrast"
         fontWeight="normal"
-        className="main-section__lead"
       >
         Componentes acessíveis e bonitos. Desenvolvimento suave, design bonito,
         experiência agradável para todos os usuários.
-      </Typography>
-      <Flex direction="row" className="main-section__buttons">
-        <Button
-          as="a"
+      </StyledMainSectionLead>
+      <StyledMainSectionButtons as={Flex} flexDirection="row">
+        <StyledMainSectionStartLink
+          as={(props: any) => <Button {...props} as="a" />}
           href="/docs"
           variant="solid"
           color="primary"
-          className="main-section__start-link"
         >
           Iniciar
-        </Button>
+        </StyledMainSectionStartLink>
         <Button
           as="a"
           href="https://github.com/Poggioli/rempi"
@@ -42,10 +51,10 @@ export const MainSection: FC = () => {
           variant="outlined"
           color="primary"
         >
-          <Github size={16} className="main-section__github-icon-link" />
+          <StyledMainSectionGithubIconLink as={Github} size={16} />
           GitHub
         </Button>
-      </Flex>
-    </Flex>
+      </StyledMainSectionButtons>
+    </StyledMainSection>
   );
 };

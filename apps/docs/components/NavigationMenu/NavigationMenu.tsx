@@ -5,19 +5,25 @@ import { NavigationMenu as RempiNavigationMenu } from "@rempi-ui/navigation-menu
 import { Popover } from "@rempi-ui/popover";
 import { Menu } from "lucide-react";
 import { FC } from "react";
-import "./NavigationMenu.scss";
+import {
+  StyledNavigationMenuHeader,
+  StyledNavigationMenuHeaderContainer,
+  StyledNavigationMenuHeaderMenuDesktop,
+  StyledNavigationMenuHeaderMenuMobile,
+  StyledNavigationMenuHeaderPopoverContent,
+  StyledNavigationMenuHeaderPopoverTrigger,
+} from "./NavigationMenu.styles";
 
 export const NavigationMenu: FC = () => {
   return (
-    <div className="navigation-menu-header">
-      <Container
-        as="header"
+    <StyledNavigationMenuHeader>
+      <StyledNavigationMenuHeaderContainer
+        as={(props: any) => <Container {...props} as="header" />}
         variant="md"
         centered
-        className="navigation-menu-header__container"
       >
         <Popover.Root>
-          <Popover.Trigger className="navigation-menu-header__popover-trigger">
+          <StyledNavigationMenuHeaderPopoverTrigger as={Popover.Trigger}>
             <IconButton
               size="small"
               variant="text"
@@ -25,9 +31,9 @@ export const NavigationMenu: FC = () => {
             >
               <Menu size={24} />
             </IconButton>
-          </Popover.Trigger>
-          <Popover.Content className="navigation-menu-header__popover-content">
-            <RempiNavigationMenu.Root className="navigation-menu-header__menu--mobile">
+          </StyledNavigationMenuHeaderPopoverTrigger>
+          <StyledNavigationMenuHeaderPopoverContent as={Popover.Content}>
+            <StyledNavigationMenuHeaderMenuMobile as={RempiNavigationMenu.Root}>
               <RempiNavigationMenu.Item>
                 <RempiNavigationMenu.Link href="/">
                   Rempi-UI
@@ -48,11 +54,11 @@ export const NavigationMenu: FC = () => {
                   Examples
                 </RempiNavigationMenu.Link>
               </RempiNavigationMenu.Item>
-            </RempiNavigationMenu.Root>
-          </Popover.Content>
+            </StyledNavigationMenuHeaderMenuMobile>
+          </StyledNavigationMenuHeaderPopoverContent>
         </Popover.Root>
 
-        <RempiNavigationMenu.Root className="navigation-menu-header__menu--desktop">
+        <StyledNavigationMenuHeaderMenuDesktop as={RempiNavigationMenu.Root}>
           <RempiNavigationMenu.Item>
             <RempiNavigationMenu.Link href="/">
               Rempi-UI
@@ -73,9 +79,9 @@ export const NavigationMenu: FC = () => {
               Examples
             </RempiNavigationMenu.Link>
           </RempiNavigationMenu.Item>
-        </RempiNavigationMenu.Root>
+        </StyledNavigationMenuHeaderMenuDesktop>
         <SocialMedias />
-      </Container>
-    </div>
+      </StyledNavigationMenuHeaderContainer>
+    </StyledNavigationMenuHeader>
   );
 };

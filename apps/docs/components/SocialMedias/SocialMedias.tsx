@@ -3,11 +3,11 @@ import { IconButton } from "@rempi-ui/button";
 import { Flex } from "@rempi-ui/flex";
 import { Github, Twitter } from "lucide-react";
 import { FC } from "react";
-import "./SocialMedias.scss";
+import { StyledSocialMedias } from "./SocialMedias.styles";
 
 export const SocialMedias: FC = () => {
   return (
-    <Flex direction="row" alignItems="center" className="social-media">
+    <StyledSocialMedias as={Flex} flexDirection="row" alignItems="center">
       <IconButton
         as="a"
         href="https://github.com/Poggioli/rempi"
@@ -29,6 +29,6 @@ export const SocialMedias: FC = () => {
         <Twitter size={20} />
       </IconButton>
       <ThemeSelector />
-    </Flex>
+    </StyledSocialMedias>
   );
 };

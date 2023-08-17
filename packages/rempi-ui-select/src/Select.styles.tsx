@@ -101,7 +101,7 @@ export const StyledSelectTrigger = styled(Select.Trigger)`
   }  
 `;
 
-export const StyledSelectContent = styled(Select.Content) <{ $condensed: boolean }>`
+export const StyledSelectContent = styled(Select.Content) <{ $condensed?: boolean }>`
   background-color: ${(props) => props.theme.colors.grey2};
   border: ${(props) => props.theme.borderWidths[1]} solid ${(props) => props.theme.colors.grey6};
   border-radius: ${(props) => props.theme.radii[2]};

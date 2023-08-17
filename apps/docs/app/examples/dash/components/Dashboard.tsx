@@ -3,23 +3,29 @@
 import { Flex } from "@rempi-ui/flex";
 import { FC, useState } from "react";
 import { Combobox } from "@rempi-ui/combobox";
-import "./Dashboard.scss";
 import { NavigationMenu } from "@rempi-ui/navigation-menu";
 import { Avatar } from "@rempi-ui/avatar";
 import { DropdownMenu } from "@rempi-ui/dropdown-menu";
 import { Input } from "@rempi-ui/input";
+import {
+  StyledDashboard,
+  StyledDashboardBody,
+  StyledDashboardHeader,
+  StyledDashboardSearch,
+  StyledDashboardSelectProfile,
+} from "./Dashboard.styles";
 
 const Dashboard: FC = () => {
   const [selectedValue, setSelectedValue] = useState("john-stone");
 
   return (
-    <Flex direction="column" className="dashboard">
-      <Flex
+    <StyledDashboard as={Flex} flexDirection="column">
+      <StyledDashboardHeader
+        as={Flex}
         alignItems="center"
         justifyContent="space-between"
-        className="dashboard__header"
       >
-        <Flex alignItems="center">
+        <StyledDashboardSelectProfile as={Flex} alignItems="center">
           <Combobox.Root value={selectedValue} onValueChange={setSelectedValue}>
             <Combobox.Trigger>
               <Combobox.Value placeholder="Selecione um time" />
@@ -60,10 +66,10 @@ const Dashboard: FC = () => {
               </NavigationMenu.Link>
             </NavigationMenu.Item>
           </NavigationMenu.Root>
-        </Flex>
+        </StyledDashboardSelectProfile>
 
-        <Flex alignItems="center">
-          <Input.Root placeholder="Search..." />
+        <StyledDashboardSearch as={Flex} alignItems="center">
+          <Input.Root placeholder="Buscar..." />
           <DropdownMenu.Root>
             <DropdownMenu.Trigger>
               <Avatar.Root size="small">
@@ -91,11 +97,11 @@ const Dashboard: FC = () => {
               </DropdownMenu.Item>
             </DropdownMenu.Content>
           </DropdownMenu.Root>
-        </Flex>
-      </Flex>
+        </StyledDashboardSearch>
+      </StyledDashboardHeader>
 
-      <Flex className="dashboard__body"></Flex>
-    </Flex>
+      <StyledDashboardBody as={Flex}></StyledDashboardBody>
+    </StyledDashboard>
   );
 };
 
