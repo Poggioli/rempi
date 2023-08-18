@@ -1,5 +1,5 @@
 import * as ContextMenu from "@radix-ui/react-context-menu";
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import { Check, ChevronRight, Dot } from "lucide-react";
 import {
   StyledContextMenuCheckboxItem,
@@ -45,7 +45,7 @@ export type ContextMenuContentProps = Omit<
 > &
   ContextMenu.ContextMenuContentProps &
   ContextMenuPortalProps & {
-    condensed?: boolean;
+    condensed?: RempiVariant<boolean>;
   };
 
 export const ContextMenuContent = forwardRef<

@@ -1,4 +1,4 @@
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import { FlexProps } from "@rempi-ui/flex";
 import { Heading, HeadingProps } from "@rempi-ui/heading";
 import { Typography, TypographyProps } from "@rempi-ui/typography";
@@ -13,7 +13,7 @@ export type CardProps = Omit<
   HTMLRempiProps<typeof StyledCardRoot>,
   "$bordered"
 > & {
-  bordered?: boolean;
+  bordered?: RempiVariant<boolean>;
 } & FlexProps;
 
 export const Card = forwardRef<typeof StyledCardRoot, CardProps>(
@@ -36,25 +36,18 @@ export type CardHeaderProps = HTMLRempiProps<typeof StyledCardHeader> &
 
 export const CardHeader = forwardRef<typeof StyledCardHeader, CardHeaderProps>(
   ({ flexDirection = "column", ...props }, ref) => {
-    return <StyledCardHeader {...props} ref={ref} flexDirection={flexDirection} />;
+    return (
+      <StyledCardHeader {...props} ref={ref} flexDirection={flexDirection} />
+    );
   }
 );
 
 // ------------------------------------------------------------------------- //
 
-export type CardTitleProps = HTMLRempiProps<typeof Heading> &
-  HeadingProps;
+export type CardTitleProps = HTMLRempiProps<typeof Heading> & HeadingProps;
 
 export const CardTitle = forwardRef<typeof Heading, CardTitleProps>(
-  (
-    {
-      as = "h3",
-      fontSize = "md",
-      variant = "6",
-      ...props
-    },
-    ref
-  ) => {
+  ({ as = "h3", fontSize = "md", variant = "6", ...props }, ref) => {
     return (
       <Heading
         {...props}
@@ -69,18 +62,14 @@ export const CardTitle = forwardRef<typeof Heading, CardTitleProps>(
 
 // ------------------------------------------------------------------------- //
 
-export type CardDescriptionProps = HTMLRempiProps<
-  typeof Typography
-> &
+export type CardDescriptionProps = HTMLRempiProps<typeof Typography> &
   TypographyProps;
 
 export const CardDescription = forwardRef<
   typeof Typography,
   CardDescriptionProps
 >(({ as = "p", variant = "body2", ...props }, ref) => {
-  return (
-    <Typography {...props} ref={ref} as={as} variant={variant} />
-  );
+  return <Typography {...props} ref={ref} as={as} variant={variant} />;
 });
 
 // ------------------------------------------------------------------------- //

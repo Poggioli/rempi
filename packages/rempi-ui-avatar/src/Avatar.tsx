@@ -1,4 +1,4 @@
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import * as Avatar from "@radix-ui/react-avatar";
 import {
   StyledAvatarFallback,
@@ -12,7 +12,7 @@ export type AvatarRootProps = Omit<
   HTMLRempiProps<typeof StyledAvatarRoot>,
   "$size"
 > &
-  Avatar.AvatarProps & { size?: Size };
+  Avatar.AvatarProps & { size?: RempiVariant<Size> };
 
 export const AvatarRoot = forwardRef<typeof StyledAvatarRoot, AvatarRootProps>(
   ({ size = "standard", ...props }, ref) => {

@@ -8,7 +8,7 @@ import {
   StyledNavigationMenuRoot,
   StyledNavigationMenuTrigger,
   StyledNavigationMenuViewport,
-  StyledNavigationMenuViewportPosition
+  StyledNavigationMenuViewportPosition,
 } from "./NavigationMenu.styles";
 
 export type NavigationMenuRootProps = HTMLRempiProps<
@@ -27,8 +27,7 @@ export const NavigationMenuRoot = forwardRef<
       <NavigationMenuViewport forceMount={forceMount} />
     </StyledNavigationMenuRoot>
   );
-}
-);
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -39,9 +38,7 @@ const NavigationMenuList = forwardRef<
   typeof StyledNavigationMenuList,
   NavigationMenuListProps
 >(({ ...props }, ref) => {
-  return (
-    <StyledNavigationMenuList {...props} ref={ref} />
-  );
+  return <StyledNavigationMenuList {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -55,9 +52,7 @@ export const NavigationMenuItem = forwardRef<
   typeof NavigationMenu.Item,
   NavigationMenuItemProps
 >(({ as: Component = NavigationMenu.Item, ...props }, ref) => {
-  return (
-    <Component {...props} ref={ref} />
-  );
+  return <Component {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -72,13 +67,12 @@ export const NavigationMenuTrigger = forwardRef<
   NavigationMenuTriggerProps
 >(({ children, ...props }, ref) => {
   return (
-    <StyledNavigationMenuTrigger {...props} ref={ref} >
+    <StyledNavigationMenuTrigger {...props} ref={ref}>
       {children}
       <StyledNavigationMenuChevronDown size={16} />
     </StyledNavigationMenuTrigger>
   );
-}
-);
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -91,9 +85,7 @@ export const NavigationMenuContent = forwardRef<
   typeof StyledNavigationMenuContent,
   NavigationMenuContentProps
 >(({ ...props }, ref) => {
-  return (
-    <StyledNavigationMenuContent {...props} ref={ref} />
-  );
+  return <StyledNavigationMenuContent {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -107,9 +99,7 @@ export const NavigationMenuLink = forwardRef<
   typeof StyledNavigationMenuLink,
   NavigationMenuLinkProps
 >(({ ...props }, ref) => {
-  return (
-    <StyledNavigationMenuLink {...props} ref={ref} />
-  );
+  return <StyledNavigationMenuLink {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //

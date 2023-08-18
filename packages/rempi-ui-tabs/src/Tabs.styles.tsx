@@ -7,62 +7,61 @@ export const StyledTabsRoot = styled(Tabs.Root)`
 
 export const StyledTabsList = styled(Tabs.List)`
   align-items: center;
-  background-color: ${(props) => props.theme.colors.grey4};
-  border-radius: ${(props) => props.theme.radii[2]};
+  background-color: ${({ theme }) => theme.colors.grey4};
+  border-radius: ${({ theme }) => theme.radii[2]};
   display: flex;
   flex-direction: row;
-  gap: ${(props) => props.theme.spaces[1]};
-  padding: ${(props) => props.theme.spaces[1]};
+  gap: ${({ theme }) => theme.spaces[1]};
+  padding: ${({ theme }) => theme.spaces[1]};
 `;
 
 export const StyledTabsTrigger = styled(Tabs.Trigger)`
   background-color: transparent;
-  border-radius: ${(props) => props.theme.radii[2]};
-  color: ${(props) => props.theme.colors.grey12};
+  border-radius: ${({ theme }) => theme.radii[2]};
+  color: ${({ theme }) => theme.colors.grey12};
   cursor: pointer;
   flex: 1;
-  font-size: ${(props) => props.theme.fontSizes[4]};
-  font-weight: ${(props) => props.theme.fontWeights[3]};
-  padding: ${(props) => props.theme.spaces[1]}
-    ${(props) => props.theme.spaces[4]};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
+  font-weight: ${({ theme }) => theme.fontWeights[3]};
+  padding: ${({ theme }) => theme.spaces[1]} ${({ theme }) => theme.spaces[4]};
   transition: background-color 200ms ease;
 
   * {
-    color: ${(props) => props.theme.colors.grey12};
-    font-size: ${(props) => props.theme.fontSizes[4]};
-    font-weight: ${(props) => props.theme.fontWeights[3]};
+    color: ${({ theme }) => theme.colors.grey12};
+    font-size: ${({ theme }) => theme.fontSizes[4]};
+    font-weight: ${({ theme }) => theme.fontWeights[3]};
   }
 
   &:hover:not([data-disabled], [data-state="active"]) {
-    background-color: ${(props) => props.theme.colors.grey2};
+    background-color: ${({ theme }) => theme.colors.grey2};
   }
 
   &:focus-visible,
   &:focus {
-    outline-color: ${(props) => props.theme.colors.info9};
+    outline-color: ${({ theme }) => theme.colors.info9};
     outline-style: solid;
-    outline-width: ${(props) => props.theme.borderWidths[1]};
+    outline-width: ${({ theme }) => theme.borderWidths[1]};
   }
 
   &[data-state="active"] {
-    background-color: ${(props) => props.theme.colors.grey1};
-    color: ${(props) => props.theme.colors.grey12};
+    background-color: ${({ theme }) => theme.colors.grey1};
+    color: ${({ theme }) => theme.colors.grey12};
 
     * {
-      color: ${(props) => props.theme.colors.grey12};
+      color: ${({ theme }) => theme.colors.grey12};
     }
   }
 
   &[data-disabled] {
-    color: ${(props) => props.theme.colors.grey8};
+    color: ${({ theme }) => theme.colors.grey8};
     cursor: not-allowed;
 
     * {
-      color: ${(props) => props.theme.colors.grey8};
+      color: ${({ theme }) => theme.colors.grey8};
     }
   }
 `;
 
 export const StyledTabsContent = styled(Tabs.Content)`
-  margin-top: ${(props) => props.theme.spaces[2]};
+  margin-top: ${({ theme }) => theme.spaces[2]};
 `;

@@ -1,5 +1,12 @@
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
-import { css, keyframes, styled } from "@rempi-ui/core";
+import {
+  ApplyResponsiveVariant,
+  css,
+  keyframes,
+  RempiConfig,
+  RempiVariant,
+  styled,
+} from "@rempi-ui/core";
 
 const overlayShow = keyframes`
   from {
@@ -24,32 +31,47 @@ const contentShow = keyframes`
 `;
 
 export const StyledAlertDialogOverlay = styled(AlertDialog.Overlay)<{
-  $blur?: boolean;
+  $blur?: RempiVariant<boolean>;
 }>`
   animation: ${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: ${(props) => props.theme.colors.black10};
+  background-color: ${({ theme }) => theme.colors.black10};
   inset: 0;
   position: fixed;
 
-  ${(props) => props.$blur && css`backdrop-filter: blur(${props.theme.spaces[1]});`}
+  ${(props) => {
+    const apply = (value: boolean) => {
+      return (
+        value &&
+        css`
+          backdrop-filter: blur(${props.theme.spaces[1]});
+        `
+      );
+    };
+
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$blur
+    );
+  }}
 `;
 
 export const StyledAlertDialogContent = styled(AlertDialog.Content)`
   animation: ${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: ${(props) => props.theme.colors.primary2};
-  box-shadow: ${(props) => props.theme.shadows[2]};
+  background-color: ${({ theme }) => theme.colors.primary2};
+  box-shadow: ${({ theme }) => theme.shadows[2]};
   display: flex;
   flex-direction: column;
   height: 100%;
   left: 50%;
-  padding: ${(props) => props.theme.spaces[6]};
+  padding: ${({ theme }) => theme.spaces[6]};
   position: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
 
-  @media (min-width: 576px) {
-    border-radius: ${(props) => props.theme.radii[2]};
+  ${({ theme }) => theme.breakpoints[1]} {
+    border-radius: ${({ theme }) => theme.radii[2]};
     display: block;
     height: auto;
     max-height: 85vh;
@@ -62,18 +84,18 @@ export const StyledAlertDialogContent = styled(AlertDialog.Content)`
 `;
 
 export const StyledAlertDialogTitle = styled(AlertDialog.Title)`
-  color: ${(props) => props.theme.colors.grey12};
-  font-size: ${(props) => props.theme.fontSizes[6]};
-  font-weight: ${(props) => props.theme.fontWeights[3]};
+  color: ${({ theme }) => theme.colors.grey12};
+  font-size: ${({ theme }) => theme.fontSizes[6]};
+  font-weight: ${({ theme }) => theme.fontWeights[3]};
   margin: 0;
 `;
 
 export const StyledAlertDialogDescription = styled(AlertDialog.Description)`
-  color: ${(props) => props.theme.colors.grey11};
-  font-size: ${(props) => props.theme.fontSizes[4]};
-  line-height: ${(props) => props.theme.lineHeights[2]};
-  margin: ${(props) => props.theme.spaces[4]} 0
-    ${(props) => props.theme.spaces[5]} 0;
+  color: ${({ theme }) => theme.colors.grey11};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
+  line-height: ${({ theme }) => theme.lineHeights[2]};
+  margin: ${({ theme }) => theme.spaces[4]} 0 ${({ theme }) => theme.spaces[5]}
+    0;
 `;
 
 export const StyledAlertDialogFooter = styled.div`
@@ -82,14 +104,14 @@ export const StyledAlertDialogFooter = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   margin: auto 0 0 0;
-  row-gap: ${(props) => props.theme.spaces[5]};
+  row-gap: ${({ theme }) => theme.spaces[5]};
 
   > * {
     width: 100%;
   }
 
-  @media (min-width: 576px) {
-    column-gap: ${(props) => props.theme.spaces[5]};
+  ${({ theme }) => theme.breakpoints[1]} {
+    column-gap: ${({ theme }) => theme.spaces[5]};
     flex-direction: row;
     margin: 0;
 

@@ -1,17 +1,17 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import { Check, ChevronRight, Dot } from "lucide-react";
 import {
-  StyledDropdownMenuItem,
   StyledDropdownMenuCheckboxItem,
-  StyledDropdownMenuRadioItem,
-  StyledDropdownMenuSubMenuTrigger,
-  StyledDropdownMenuLabel,
-  StyledDropdownMenuSeparator,
-  StyledDropdownMenuItemIndicator,
   StyledDropdownMenuContent,
+  StyledDropdownMenuItem,
+  StyledDropdownMenuItemIndicator,
+  StyledDropdownMenuLabel,
+  StyledDropdownMenuRadioItem,
+  StyledDropdownMenuSeparator,
   StyledDropdownMenuSubContent,
-} from './DropdownMenu.styles'
+  StyledDropdownMenuSubMenuTrigger,
+} from "./DropdownMenu.styles";
 
 export type DropdownMenuRootProps = DropdownMenu.DropdownMenuProps;
 
@@ -28,15 +28,8 @@ export const DropdownMenuTrigger = forwardRef<
   typeof DropdownMenu.Trigger,
   DropdownMenuTriggerProps
 >(({ as: Component = DropdownMenu.Trigger, asChild = true, ...props }, ref) => {
-  return (
-    <Component
-      {...props}
-      ref={ref}
-      asChild={asChild}
-    />
-  );
-}
-);
+  return <Component {...props} ref={ref} asChild={asChild} />;
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -46,43 +39,59 @@ const DropdownMenuPortal = DropdownMenu.Portal;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type DropdownMenuContentProps = Omit<HTMLRempiProps<
-  typeof StyledDropdownMenuContent
->, "$condensed"> &
+export type DropdownMenuContentProps = Omit<
+  HTMLRempiProps<typeof StyledDropdownMenuContent>,
+  "$condensed"
+> &
   DropdownMenu.DropdownMenuContentProps &
   DropdownMenuPortalProps & {
-    condensed?: boolean;
+    condensed?: RempiVariant<boolean>;
   };
 
 export const DropdownMenuContent = forwardRef<
   typeof StyledDropdownMenuContent,
   DropdownMenuContentProps
->(({ children, forceMount, container, sideOffset = 5, collisionPadding = 16, condensed = true, ...props }, ref) => {
-  return (
-    <DropdownMenuPortal forceMount={forceMount} container={container}>
-      <StyledDropdownMenuContent
-        {...props}
-        ref={ref}
-        sideOffset={sideOffset}
-        collisionPadding={collisionPadding}
-        $condensed={condensed}
-      >
-        {children}
-      </StyledDropdownMenuContent>
-    </DropdownMenuPortal>
-  );
-}
+>(
+  (
+    {
+      children,
+      forceMount,
+      container,
+      sideOffset = 5,
+      collisionPadding = 16,
+      condensed = true,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <DropdownMenuPortal forceMount={forceMount} container={container}>
+        <StyledDropdownMenuContent
+          {...props}
+          ref={ref}
+          sideOffset={sideOffset}
+          collisionPadding={collisionPadding}
+          $condensed={condensed}
+        >
+          {children}
+        </StyledDropdownMenuContent>
+      </DropdownMenuPortal>
+    );
+  }
 );
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type DropdownMenuItemProps = HTMLRempiProps<typeof StyledDropdownMenuItem> &
+export type DropdownMenuItemProps = HTMLRempiProps<
+  typeof StyledDropdownMenuItem
+> &
   DropdownMenu.DropdownMenuItemProps;
 
-export const DropdownMenuItem = forwardRef<typeof StyledDropdownMenuItem, DropdownMenuItemProps>(({ ...props }, ref) => {
-  return (
-    <StyledDropdownMenuItem {...props} ref={ref} />
-  );
+export const DropdownMenuItem = forwardRef<
+  typeof StyledDropdownMenuItem,
+  DropdownMenuItemProps
+>(({ ...props }, ref) => {
+  return <StyledDropdownMenuItem {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -93,16 +102,16 @@ export const DropdownMenuGroup = DropdownMenu.Group;
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type DropdownMenuLabelProps = HTMLRempiProps<typeof StyledDropdownMenuLabel> &
+export type DropdownMenuLabelProps = HTMLRempiProps<
+  typeof StyledDropdownMenuLabel
+> &
   DropdownMenu.DropdownMenuLabelProps;
 
 export const DropdownMenuLabel = forwardRef<
   typeof StyledDropdownMenuLabel,
   DropdownMenuLabelProps
 >(({ ...props }, ref) => {
-  return (
-    <StyledDropdownMenuLabel {...props} ref={ref} />
-  );
+  return <StyledDropdownMenuLabel {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -124,8 +133,7 @@ export const DropdownMenuCheckboxItem = forwardRef<
       {children}
     </StyledDropdownMenuCheckboxItem>
   );
-}
-);
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -138,9 +146,7 @@ export const DropdownMenuRadioGroup = forwardRef<
   typeof DropdownMenu.RadioGroup,
   DropdownMenuRadioGroupProps
 >(({ as: Component = DropdownMenu.RadioGroup, ...props }, ref) => {
-  return (
-    <Component {...props} ref={ref} />
-  );
+  return <Component {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -162,8 +168,7 @@ export const DropdownMenuRadioItem = forwardRef<
       {children}
     </StyledDropdownMenuRadioItem>
   );
-}
-);
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -177,9 +182,7 @@ const DropdownMenuItemIndicator = forwardRef<
   typeof StyledDropdownMenuItemIndicator,
   DropdownMenuItemIndicatorProps
 >(({ ...props }, ref) => {
-  return (
-    <StyledDropdownMenuItemIndicator {...props} ref={ref} />
-  );
+  return <StyledDropdownMenuItemIndicator {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -193,9 +196,7 @@ export const DropdownMenuSeparator = forwardRef<
   typeof StyledDropdownMenuSeparator,
   DropdownMenuSeparatorProps
 >(({ ...props }, ref) => {
-  return (
-    <StyledDropdownMenuSeparator  {...props} ref={ref} />
-  );
+  return <StyledDropdownMenuSeparator {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -221,14 +222,14 @@ export const DropdownMenuSubMenuTrigger = forwardRef<
       <ChevronRight size={16} />
     </StyledDropdownMenuSubMenuTrigger>
   );
-}
-);
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
-export type DropdownMenuSubMenuContentProps = Omit<HTMLRempiProps<
-  typeof StyledDropdownMenuSubContent
->, "$condensed"> &
+export type DropdownMenuSubMenuContentProps = Omit<
+  HTMLRempiProps<typeof StyledDropdownMenuSubContent>,
+  "$condensed"
+> &
   DropdownMenu.DropdownMenuSubContentProps &
   DropdownMenuPortalProps;
 
@@ -238,10 +239,9 @@ export const DropdownMenuSubMenuContent = forwardRef<
 >(({ children, forceMount, container, ...props }, ref) => {
   return (
     <DropdownMenuPortal forceMount={forceMount} container={container}>
-      <StyledDropdownMenuSubContent {...props} ref={ref} >
+      <StyledDropdownMenuSubContent {...props} ref={ref}>
         {children}
       </StyledDropdownMenuSubContent>
     </DropdownMenuPortal>
   );
-}
-);
+});

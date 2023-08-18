@@ -1,4 +1,6 @@
 import * as React from "react";
+import { css } from "styled-components";
+import { RempiConfig } from "../config/rempi.config";
 
 export type Dict<T = any> = Record<string, T>;
 
@@ -60,4 +62,58 @@ export const forwardRef = <Component extends As, Props extends object = {}>(
     Component,
     Props
   >;
+};
+
+type RempiResponsiveVariant<T> = {
+  "@initial": T;
+  "@1"?: T;
+  "@2"?: T;
+  "@3"?: T;
+  "@4"?: T;
+  "@5"?: T;
+};
+
+export type RempiVariant<T> = T | RempiResponsiveVariant<T>;
+
+export const ApplyResponsiveVariant = (
+  imp: (...values: any[]) => any,
+  theme: RempiConfig,
+  variant: RempiVariant<unknown>
+) => {
+  if (typeof variant === "object") {
+    const varianValue: RempiResponsiveVariant<any> = variant as RempiResponsiveVariant<any>;
+
+    const initialValue = varianValue["@initial"];
+    const bp1 = varianValue["@1"] ?? varianValue["@initial"];
+    const bp2 = varianValue["@2"] ?? bp1;
+    const bp3 = varianValue["@3"] ?? bp2;
+    const bp4 = varianValue["@4"] ?? bp3;
+    const bp5 = varianValue["@5"] ?? bp4;
+
+    return css`
+      ${imp(initialValue)};
+
+      ${theme.breakpoints[1]} {
+        ${imp(bp1)};
+      }
+
+      ${theme.breakpoints[2]} {
+        ${imp(bp2)};
+      }
+
+      ${theme.breakpoints[3]} {
+        ${imp(bp3)};
+      }
+
+      ${theme.breakpoints[4]} {
+        ${imp(bp4)};
+      }
+
+      ${theme.breakpoints[5]} {
+        ${imp(bp5)};
+      }
+    `;
+  }
+
+  return imp(variant);
 };

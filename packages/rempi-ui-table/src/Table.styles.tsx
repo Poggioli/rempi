@@ -1,4 +1,9 @@
-import { css, styled } from "@rempi-ui/core";
+import {
+  ApplyResponsiveVariant,
+  css,
+  RempiConfig,
+  styled,
+} from "@rempi-ui/core";
 
 export const StyledTableWrapper = styled.div`
   overflow: auto;
@@ -7,47 +12,45 @@ export const StyledTableWrapper = styled.div`
 
 export const StyledTableRow = styled.tr`
   background-color: transparent;
-  border-bottom: ${(props) => props.theme.borderWidths[1]} solid
-    ${(props) => props.theme.colors.grey6};
+  border-bottom: ${({ theme }) => theme.borderWidths[1]} solid
+    ${({ theme }) => theme.colors.grey6};
   transition: background-color 200ms ease;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.primary4} !important;
+    background-color: ${({ theme }) => theme.colors.primary4} !important;
   }
 `;
 
 export const StyledTableHeader = styled.thead``;
 
 export const StyledTableHead = styled.th`
-  color: ${(props) => props.theme.colors.grey11};
-  font-weight: ${(props) => props.theme.fontWeights[3]};
-  height: ${(props) => props.theme.spaces[10]};
-  padding: ${(props) => props.theme.spaces[1]}
-    ${(props) => props.theme.spaces[4]};
+  color: ${({ theme }) => theme.colors.grey11};
+  font-weight: ${({ theme }) => theme.fontWeights[3]};
+  height: ${({ theme }) => theme.spaces[10]};
+  padding: ${({ theme }) => theme.spaces[1]} ${({ theme }) => theme.spaces[4]};
   text-align: left;
   vertical-align: middle;
 `;
 
 export const StyledTableFooter = styled.tfoot`
-  color: ${(props) => props.theme.colors.grey11};
-  font-weight: ${(props) => props.theme.fontWeights[3]};
-  height: ${(props) => props.theme.spaces[10]};
-  padding: ${(props) => props.theme.spaces[1]}
-    ${(props) => props.theme.spaces[4]};
+  color: ${({ theme }) => theme.colors.grey11};
+  font-weight: ${({ theme }) => theme.fontWeights[3]};
+  height: ${({ theme }) => theme.spaces[10]};
+  padding: ${({ theme }) => theme.spaces[1]} ${({ theme }) => theme.spaces[4]};
   text-align: left;
   vertical-align: middle;
 `;
 
 export const StyledTableCell = styled.td`
-  color: ${(props) => props.theme.colors.grey12};
-  padding: ${(props) => props.theme.spaces[4]};
+  color: ${({ theme }) => theme.colors.grey12};
+  padding: ${({ theme }) => theme.spaces[4]};
   vertical-align: middle;
 `;
 
 export const StyledTableCaption = styled.caption`
-  color: ${(props) => props.theme.colors.grey11};
-  font-size: ${(props) => props.theme.fontSizes[3]};
-  line-height: ${(props) => props.theme.lineHeights[2]};
+  color: ${({ theme }) => theme.colors.grey11};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
+  line-height: ${({ theme }) => theme.lineHeights[2]};
   width: 100%;
 `;
 
@@ -63,36 +66,58 @@ export const StyledTableRoot = styled.table<{
 }>`
   border-collapse: collapse;
   caption-side: bottom;
-  color: ${(props) => props.theme.colors.grey11};
-  font-size: ${(props) => props.theme.fontSizes[3]};
-  line-height: ${(props) => props.theme.lineHeights[2]};
+  color: ${({ theme }) => theme.colors.grey11};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
+  line-height: ${({ theme }) => theme.lineHeights[2]};
   width: 100%;
-  margin-top: ${(props) => props.theme.spaces[4]};
+  margin-top: ${({ theme }) => theme.spaces[4]};
 
-  ${(props) =>
-    props.$striped &&
-    css`
-      ${StyledTableBody.toString()} ${StyledTableRow.toString()} {
-        &:nth-child(even) {
-          background-color: ${(props) => props.theme.colors.primary2};
-        }
+  ${(props) => {
+    const apply = (value: boolean) => {
+      return (
+        value &&
+        css`
+          ${StyledTableHead.toString()},
+          ${StyledTableFooter.toString()} {
+            padding: 0 ${({ theme }) => theme.spaces[2]};
+          }
 
-        &:nth-child(odd) {
-          background-color: ${(props) => props.theme.colors.primary3};
-        }
-      }
-    `}
+          ${StyledTableCell.toString()} {
+            padding: ${({ theme }) => theme.spaces[2]};
+          }
+        `
+      );
+    };
 
-  ${(props) =>
-    props.$condensed &&
-    css`
-      ${StyledTableHead.toString()},
-      ${StyledTableFooter.toString()} {
-        padding: 0 ${(props) => props.theme.spaces[2]};
-      }
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$condensed
+    );
+  }};
 
-      ${StyledTableCell.toString()} {
-        padding: ${(props) => props.theme.spaces[2]};
-      }
-    `}
+  ${(props) => {
+    const apply = (value: boolean) => {
+      return (
+        value &&
+        css`
+          ${StyledTableBody.toString()} ${StyledTableRow.toString()} {
+            &:nth-child(even) {
+              background-color: ${({ theme }) => theme.colors.primary2};
+            }
+
+            &:nth-child(odd) {
+              background-color: ${({ theme }) => theme.colors.primary3};
+            }
+          }
+        `
+      );
+    };
+
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$striped
+    );
+  }};
 `;

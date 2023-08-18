@@ -1,5 +1,5 @@
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import {
   StyledAlertDialogOverlay,
   StyledAlertDialogContent,
@@ -44,7 +44,7 @@ export type AlertDialogOverlayProps = Omit<
   HTMLRempiProps<typeof StyledAlertDialogContent>,
   "$blur"
 > &
-  AlertDialog.AlertDialogOverlayProps & { blur?: boolean };
+  AlertDialog.AlertDialogOverlayProps & { blur?: RempiVariant<boolean> };
 
 export const AlertDialogOverlay = forwardRef<
   typeof StyledAlertDialogContent,

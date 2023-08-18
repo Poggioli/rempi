@@ -87,40 +87,40 @@ export const StyledNavigationMenuList = styled(NavigationMenu.List)`
   justify-content: center;
   list-style: none;
   margin: 0;
-  padding: ${(props) => props.theme.spaces[1]};
+  padding: ${({ theme }) => theme.spaces[1]};
 `;
 
 export const StyledNavigationMenuChevronDown = styled(ChevronDown)`
   position: relative;
-  color: ${(props) => props.theme.colors.grey10};
+  color: ${({ theme }) => theme.colors.grey10};
   top: 1px;
   transition: transform 250ms ease;
 `;
 
 const styledOfTriggerAndLink = css`
-  border-radius: ${(props) => props.theme.radii[1]};
-  color: ${(props) => props.theme.colors.grey11};
-  font-size: ${(props) => props.theme.fontSizes[4]};
-  font-weight: ${(props) => props.theme.fontWeights[3]};
-  line-height: ${(props) => props.theme.lineHeights[1]};
+  border-radius: ${({ theme }) => theme.radii[1]};
+  color: ${({ theme }) => theme.colors.grey11};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
+  font-weight: ${({ theme }) => theme.fontWeights[3]};
+  line-height: ${({ theme }) => theme.lineHeights[1]};
   outline: none;
-  padding: ${(props) => props.theme.spaces[2]} ${(props) => props.theme.spaces[3]};
+  padding: ${({ theme }) => theme.spaces[2]} ${({ theme }) => theme.spaces[3]};
   user-select: none;
 
   &:focus-visible,
   &:focus {
-    outline-color: ${(props) => props.theme.colors.info9};
+    outline-color: ${({ theme }) => theme.colors.info9};
     outline-style: solid;
-    outline-width: ${(props) => props.theme.borderWidths[1]};
+    outline-width: ${({ theme }) => theme.borderWidths[1]};
   }
 
   &:hover:not([data-disabled]) {
-    background-color: ${(props) => props.theme.colors.primary3};
+    background-color: ${({ theme }) => theme.colors.primary3};
   }
 
   &[data-active] {
-    background-color: ${(props) => props.theme.colors.primary2};
-    color: ${(props) => props.theme.colors.primary12};
+    background-color: ${({ theme }) => theme.colors.primary2};
+    color: ${({ theme }) => theme.colors.primary12};
   }
 `;
 
@@ -128,12 +128,12 @@ export const StyledNavigationMenuTrigger = styled(NavigationMenu.Trigger)`
   ${styledOfTriggerAndLink};
   align-items: center;
   display: flex;
-  gap: ${(props) => props.theme.spaces[2]};
+  gap: ${({ theme }) => theme.spaces[2]};
   justify-content: space-between;
 
   &[data-state="open"] {
-    background-color: ${(props) => props.theme.colors.primary3};
-    
+    background-color: ${({ theme }) => theme.colors.primary3};
+
     ${StyledNavigationMenuChevronDown.toString()} {
       transform: rotate(-180deg);
     }
@@ -142,7 +142,7 @@ export const StyledNavigationMenuTrigger = styled(NavigationMenu.Trigger)`
   &[data-disabled],
   &[data-disabled] * {
     cursor: not-allowed;
-    color: ${(props) => props.theme.colors.grey8};
+    color: ${({ theme }) => theme.colors.grey8};
   }
 `;
 
@@ -160,7 +160,7 @@ export const StyledNavigationMenuContent = styled(NavigationMenu.Content)`
   top: 0;
   width: 100%;
 
-  @media only screen and (min-width: 600px) {
+  ${({ theme }) => theme.breakpoints[1]} {
     width: auto;
   }
 
@@ -182,18 +182,19 @@ export const StyledNavigationMenuContent = styled(NavigationMenu.Content)`
 `;
 
 export const StyledNavigationMenuViewport = styled(NavigationMenu.Viewport)`
-  background-color: ${(props) => props.theme.colors.grey2};
-  border: ${(props) => props.theme.borderWidths[1]} solid ${(props) => props.theme.colors.grey6};
-  border-radius: ${(props) => props.theme.radii[2]};
-  box-shadow: ${(props) => props.theme.shadows[1]};
+  background-color: ${({ theme }) => theme.colors.grey2};
+  border: ${({ theme }) => theme.borderWidths[1]} solid
+    ${({ theme }) => theme.colors.grey6};
+  border-radius: ${({ theme }) => theme.radii[2]};
+  box-shadow: ${({ theme }) => theme.shadows[1]};
   height: var(--radix-navigation-menu-viewport-height);
   overflow: hidden;
   position: relative;
   transform-origin: top center;
   transition: width, height, 300ms ease;
   width: 100%;
-    
-  @media only screen and (min-width: 600px) {
+
+  ${({ theme }) => theme.breakpoints[1]} {
     width: var(--radix-navigation-menu-viewport-width);
   }
 
@@ -204,7 +205,6 @@ export const StyledNavigationMenuViewport = styled(NavigationMenu.Viewport)`
   &[data-state="closed"] {
     animation: ${scaleOut} 200ms ease;
   }
-
 `;
 
 export const StyledNavigationMenuViewportPosition = styled.div`

@@ -1,4 +1,4 @@
-import { HTMLRempiProps } from "@rempi-ui/core";
+import { HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import { forwardRef } from "react";
 import { StyledContainer } from "./Container.styles";
 
@@ -9,7 +9,7 @@ export type ContainerProps = Omit<
   "$variant" | "$centered"
 > & {
   variant?: Variant;
-  centered?: boolean;
+  centered?: RempiVariant<boolean>;
 };
 
 export const Container = forwardRef<typeof StyledContainer, ContainerProps>(

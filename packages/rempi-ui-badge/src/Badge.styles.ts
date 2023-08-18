@@ -1,5 +1,59 @@
-import { css, DefaultTheme, styled } from "@rempi-ui/core";
+import {
+  ApplyResponsiveVariant,
+  css,
+  RempiConfig,
+  RuleSet,
+  styled,
+} from "@rempi-ui/core";
 import { Variant } from "./Badge";
+
+const variant: Record<Variant, RuleSet<object>> = {
+  primary: css`
+    background-color: ${({ theme }) => theme.colors.primary9};
+    border: ${({ theme }) => theme.borderWidths[1]} solid
+      ${({ theme }) => theme.colors.primary9};
+    color: ${({ theme }) => theme.colors.primary1};
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.primary11};
+      border-color: ${({ theme }) => theme.colors.primary11};
+      cursor: text;
+    }
+  `,
+
+  secondary: css`
+    background-color: ${({ theme }) => theme.colors.secondary9};
+    border: ${({ theme }) => theme.borderWidths[1]} solid
+      ${({ theme }) => theme.colors.secondary9};
+    color: ${({ theme }) => theme.colors.secondary1};
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.secondary11};
+      border-color: ${({ theme }) => theme.colors.secondary11};
+      cursor: text;
+    }
+  `,
+
+  destructive: css`
+    background-color: ${({ theme }) => theme.colors.error9};
+    border: ${({ theme }) => theme.borderWidths[1]} solid
+      ${({ theme }) => theme.colors.error9};
+    color: ${({ theme }) => theme.colors.error1};
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.error11};
+      border-color: ${({ theme }) => theme.colors.error11};
+      cursor: text;
+    }
+  `,
+
+  outlined: css`
+    background-color: transparent;
+    border: ${({ theme }) => theme.borderWidths[1]} solid
+      ${({ theme }) => theme.colors.grey9};
+    color: ${({ theme }) => theme.colors.grey12};
+  `,
+};
 
 export const StyledBadge = styled.div<{
   $variant?: Variant;
@@ -8,18 +62,17 @@ export const StyledBadge = styled.div<{
   align-items: center;
   appearance: none;
   border: none;
-  border-radius: ${(props) => props.theme.radii[1]};
+  border-radius: ${({ theme }) => theme.radii[1]};
   display: inline-flex;
   flex-direction: row;
-  font-size: ${(props) => props.theme.fontSizes[2]};
-  font-weight: ${(props) => props.theme.fontWeights[3]};
-  gap: ${(props) => props.theme.spaces[2]};
+  font-size: ${({ theme }) => theme.fontSizes[2]};
+  font-weight: ${({ theme }) => theme.fontWeights[3]};
+  gap: ${({ theme }) => theme.spaces[2]};
   justify-content: center;
   letter-spacing: 10%;
-  line-height: ${(props) => props.theme.lineHeights[1]};
+  line-height: ${({ theme }) => theme.lineHeights[1]};
   outline: none;
-  padding: ${(props) => props.theme.spaces[1]}
-    ${(props) => props.theme.spaces[2]};
+  padding: ${({ theme }) => theme.spaces[1]} ${({ theme }) => theme.spaces[2]};
   transition: background-color 200ms ease, color 200ms ease,
     border-color 200ms ease;
   user-select: none;
@@ -28,59 +81,20 @@ export const StyledBadge = styled.div<{
 
   &:focus-visible,
   &:focus {
-    outline-color: ${(props) => props.theme.colors.info9};
+    outline-color: ${({ theme }) => theme.colors.info9};
     outline-style: solid;
-    outline-width: ${(props) => props.theme.borderWidths[1]};
+    outline-width: ${({ theme }) => theme.borderWidths[1]};
   }
 
   ${(props) => {
-    switch (props.$variant) {
-      case "primary":
-        return css`
-          background-color: ${props.theme.colors.primary9};
-          border: ${props.theme.borderWidths[1]} solid
-            ${props.theme.colors.primary9};
-          color: ${props.theme.colors.primary1};
+    const apply = (value: Variant) => {
+      return value && variant[value];
+    };
 
-          &:hover {
-            background-color: ${props.theme.colors.primary11};
-            border-color: ${props.theme.colors.primary11};
-            cursor: text;
-          }
-        `;
-      case "secondary":
-        return css`
-          background-color: ${props.theme.colors.secondary9};
-          border: ${props.theme.borderWidths[1]} solid
-            ${props.theme.colors.secondary9};
-          color: ${props.theme.colors.secondary1};
-
-          &:hover {
-            background-color: ${props.theme.colors.secondary11};
-            border-color: ${props.theme.colors.secondary11};
-            cursor: text;
-          }
-        `;
-      case "destructive":
-        return css`
-          background-color: ${props.theme.colors.error9};
-          border: ${props.theme.borderWidths[1]} solid
-            ${props.theme.colors.error9};
-          color: ${props.theme.colors.error1};
-
-          &:hover {
-            background-color: ${props.theme.colors.error11};
-            border-color: ${props.theme.colors.error11};
-            cursor: text;
-          }
-        `;
-      case "outlined":
-        return css`
-          background-color: transparent;
-          border: ${props.theme.borderWidths[1]} solid
-            ${props.theme.colors.grey9};
-          color: ${props.theme.colors.grey12};
-        `;
-    }
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$variant
+    );
   }}
 `;

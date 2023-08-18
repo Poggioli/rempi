@@ -6,7 +6,7 @@ import {
   StyledAccordionItem,
   StyledAccordionRoot,
   StyledAccordionTrigger,
-  StyledContent
+  StyledContent,
 } from "./Accordion.styles";
 
 export type AccordionRootProps = HTMLRempiProps<typeof StyledAccordionRoot> &

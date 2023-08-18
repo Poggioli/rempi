@@ -1,22 +1,22 @@
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import {
-  StyledTableWrapper,
-  StyledTableRow,
-  StyledTableHeader,
-  StyledTableHead,
-  StyledTableFooter,
-  StyledTableCell,
-  StyledTableCaption,
   StyledTableBody,
+  StyledTableCaption,
+  StyledTableCell,
+  StyledTableFooter,
+  StyledTableHead,
+  StyledTableHeader,
   StyledTableRoot,
+  StyledTableRow,
+  StyledTableWrapper,
 } from "./Table.styles";
 
 export type TableProps = Omit<
   HTMLRempiProps<typeof StyledTableRoot>,
   "as" | "$striped" | "$condensed"
 > & {
-  striped?: boolean;
-  condensed?: boolean;
+  striped?: RempiVariant<boolean>;
+  condensed?: RempiVariant<boolean>;
 };
 
 export const Table = forwardRef<typeof StyledTableRoot, TableProps>(

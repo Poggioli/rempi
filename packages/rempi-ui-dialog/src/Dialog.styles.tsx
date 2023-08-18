@@ -1,5 +1,11 @@
 import * as Dialog from "@radix-ui/react-dialog";
-import { css, keyframes, styled } from "@rempi-ui/core";
+import {
+  ApplyResponsiveVariant,
+  css,
+  keyframes,
+  RempiConfig,
+  styled,
+} from "@rempi-ui/core";
 import { X } from "lucide-react";
 
 const overlayShow = keyframes`
@@ -24,33 +30,48 @@ const contentShow = keyframes`
   }
 `;
 
-export const StyledDialogOverlay = styled(Dialog.Overlay) <{
+export const StyledDialogOverlay = styled(Dialog.Overlay)<{
   $blur?: boolean;
 }>`
   animation: ${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: ${(props) => props.theme.colors.black10};
+  background-color: ${({ theme }) => theme.colors.black10};
   inset: 0;
   position: fixed;
 
-  ${(props) => props.$blur && css`backdrop-filter: blur(${props.theme.spaces[1]});`}
+  ${(props) => {
+    const apply = (value: boolean) => {
+      return (
+        value &&
+        css`
+          backdrop-filter: blur(${props.theme.spaces[1]});
+        `
+      );
+    };
+
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$blur
+    );
+  }}
 `;
 
 export const StyledDialogContent = styled(Dialog.Content)`
   animation: ${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: ${(props) => props.theme.colors.primary2};
-  box-shadow: ${(props) => props.theme.shadows[2]};
+  background-color: ${({ theme }) => theme.colors.primary2};
+  box-shadow: ${({ theme }) => theme.shadows[2]};
   display: flex;
   flex-direction: column;
   height: 100%;
   left: 50%;
-  padding: ${(props) => props.theme.spaces[6]};
+  padding: ${({ theme }) => theme.spaces[6]};
   position: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
 
-  @media (min-width: 576px) {
-    border-radius: ${(props) => props.theme.radii[2]};
+  ${({ theme }) => theme.breakpoints[1]} {
+    border-radius: ${({ theme }) => theme.radii[2]};
     display: block;
     height: auto;
     max-height: 85vh;
@@ -63,18 +84,18 @@ export const StyledDialogContent = styled(Dialog.Content)`
 `;
 
 export const StyledDialogTitle = styled(Dialog.Title)`
-  color: ${(props) => props.theme.colors.grey12};
-  font-size: ${(props) => props.theme.fontSizes[6]};
-  font-weight: ${(props) => props.theme.fontWeights[3]};
+  color: ${({ theme }) => theme.colors.grey12};
+  font-size: ${({ theme }) => theme.fontSizes[6]};
+  font-weight: ${({ theme }) => theme.fontWeights[3]};
   margin: 0;
 `;
 
 export const StyledDialogDescription = styled(Dialog.Description)`
-  color: ${(props) => props.theme.colors.grey11};
-  font-size: ${(props) => props.theme.fontSizes[4]};
-  line-height: ${(props) => props.theme.lineHeights[2]};
-  margin: ${(props) => props.theme.spaces[4]} 0
-    ${(props) => props.theme.spaces[5]} 0;
+  color: ${({ theme }) => theme.colors.grey11};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
+  line-height: ${({ theme }) => theme.lineHeights[2]};
+  margin: ${({ theme }) => theme.spaces[4]} 0 ${({ theme }) => theme.spaces[5]}
+    0;
 `;
 
 export const StyledDialogFooter = styled.div`
@@ -83,14 +104,14 @@ export const StyledDialogFooter = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   margin: auto 0 0 0;
-  row-gap: ${(props) => props.theme.spaces[5]};
+  row-gap: ${({ theme }) => theme.spaces[5]};
 
   > * {
     width: 100%;
   }
 
-  @media (min-width: 576px) {
-    column-gap: ${(props) => props.theme.spaces[5]};
+  ${({ theme }) => theme.breakpoints[1]} {
+    column-gap: ${({ theme }) => theme.spaces[5]};
     flex-direction: row;
     margin: 0;
 
@@ -102,25 +123,25 @@ export const StyledDialogFooter = styled.div`
 
 export const StyledDialogCloseCross = styled(Dialog.Close)`
   font-family: inherit;
-  border-radius: ${(props) => props.theme.radii.pill};
-  height: ${(props) => props.theme.spaces[6]};
-  width: ${(props) => props.theme.spaces[6]};
+  border-radius: ${({ theme }) => theme.radii.pill};
+  height: ${({ theme }) => theme.spaces[6]};
+  width: ${({ theme }) => theme.spaces[6]};
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: ${(props) => props.theme.colors.grey11};
+  color: ${({ theme }) => theme.colors.grey11};
   position: absolute;
-  top: ${(props) => props.theme.spaces[3]};
-  right: ${(props) => props.theme.spaces[3]};
+  top: ${({ theme }) => theme.spaces[3]};
+  right: ${({ theme }) => theme.spaces[3]};
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.grey4};
+    background-color: ${({ theme }) => theme.colors.grey4};
   }
 
   &:focus-visible,
   &:focus {
-    outline-color: ${(props) => props.theme.colors.info9};
+    outline-color: ${({ theme }) => theme.colors.info9};
     outline-style: solid;
-    outline-width: ${(props) => props.theme.borderWidths[1]};
+    outline-width: ${({ theme }) => theme.borderWidths[1]};
   }
-`
+`;

@@ -1,20 +1,20 @@
 import * as Menubar from "@radix-ui/react-menubar";
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import {
-  StyledMenuBarRoot,
-  StyledMenuBarTrigger,
-  StyledMenubarItem,
-  StyledMenubarCheckboxItem,
-  StyledMenubarRadioItem,
-  StyledMenubarSubMenuTrigger,
-  StyledMenubarContent,
-  StyledMenubarSubContent,
-  StyledMenubarLabel,
-  StyledMenubarSeparator,
-  StyledMenubarItemIndicator,
-} from "./Menubar.styles";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import { Check, ChevronRight, Dot } from "lucide-react";
 import { PointerEvent } from "react";
+import {
+  StyledMenubarCheckboxItem,
+  StyledMenubarContent,
+  StyledMenubarItem,
+  StyledMenubarItemIndicator,
+  StyledMenubarLabel,
+  StyledMenubarRadioItem,
+  StyledMenuBarRoot,
+  StyledMenubarSeparator,
+  StyledMenubarSubContent,
+  StyledMenubarSubMenuTrigger,
+  StyledMenuBarTrigger,
+} from "./Menubar.styles";
 
 export type MenubarRootProps = HTMLRempiProps<typeof StyledMenuBarRoot> &
   Menubar.MenubarProps;
@@ -73,7 +73,7 @@ export type MenubarContentProps = Omit<
 > &
   Menubar.MenubarContentProps &
   MenubarPortalProps & {
-    condensed?: boolean;
+    condensed?: RempiVariant<boolean>;
   };
 
 export const MenubarContent = forwardRef<

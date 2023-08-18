@@ -1,4 +1,4 @@
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import { StyledTypography } from "./Typography.styles";
 
 export type FontSize = "2xsm" | "xsm" | "sm" | "md" | "lg" | "xlg";
@@ -35,13 +35,13 @@ export type TypographyProps = Omit<
   | "$textAlign"
   | "$isTruncated"
 > & {
-  color?: Color;
-  fontSize?: FontSize;
-  fontWeight?: FontWeight;
-  lineHeight?: LineHeight;
-  isTruncated?: boolean;
-  textAlign?: TextAlign;
-  variant?: Variant;
+  color?: RempiVariant<Color>;
+  fontSize?: RempiVariant<FontSize>;
+  fontWeight?: RempiVariant<FontWeight>;
+  lineHeight?: RempiVariant<LineHeight>;
+  isTruncated?: RempiVariant<boolean>;
+  textAlign?: RempiVariant<TextAlign>;
+  variant?: RempiVariant<Variant>;
 };
 
 export const Typography = forwardRef<typeof StyledTypography, TypographyProps>(

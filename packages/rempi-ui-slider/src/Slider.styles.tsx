@@ -2,8 +2,8 @@ import * as Slider from "@radix-ui/react-slider";
 import { styled } from "@rempi-ui/core";
 
 export const StyledSliderRange = styled(Slider.Range)`
-  background-color: ${(props) => props.theme.colors.primary11};
-  border-radius: ${(props) => props.theme.radii.pill};
+  background-color: ${({ theme }) => theme.colors.primary11};
+  border-radius: ${({ theme }) => theme.radii.pill};
   position: absolute;
 
   &[data-orientation="horizontal"] {
@@ -16,28 +16,28 @@ export const StyledSliderRange = styled(Slider.Range)`
 `;
 
 export const StyledSliderTrack = styled(Slider.Track)`
-  background-color: ${(props) => props.theme.colors.grey8};
-  border-radius: ${(props) => props.theme.radii.pill};
+  background-color: ${({ theme }) => theme.colors.grey8};
+  border-radius: ${({ theme }) => theme.radii.pill};
   flex-grow: 1;
   position: relative;
 
   &[data-orientation="horizontal"] {
-    height: ${(props) => props.theme.spaces[1]};
+    height: ${({ theme }) => theme.spaces[1]};
   }
 
   &[data-orientation="vertical"] {
-    width: ${(props) => props.theme.spaces[1]};
+    width: ${({ theme }) => theme.spaces[1]};
   }
 `;
 
 export const StyledSliderThumb = styled(Slider.Thumb)`
   display: block;
-  background-color: ${(props) => props.theme.colors.primary11};
-  border-radius: ${(props) => props.theme.radii.pill};
-  box-shadow: ${(props) => props.theme.shadows[1]};
-  height: ${(props) => props.theme.spaces[5]};
+  background-color: ${({ theme }) => theme.colors.primary11};
+  border-radius: ${({ theme }) => theme.radii.pill};
+  box-shadow: ${({ theme }) => theme.shadows[1]};
+  height: ${({ theme }) => theme.spaces[5]};
   transition: background-color 200ms ease, transform 200ms ease;
-  width: ${(props) => props.theme.spaces[5]};
+  width: ${({ theme }) => theme.spaces[5]};
 
   &:hover {
     cursor: pointer;
@@ -47,9 +47,9 @@ export const StyledSliderThumb = styled(Slider.Thumb)`
   &:focus-visible,
   &:focus {
     transform: scale(1.1);
-    outline-color: ${(props) => props.theme.colors.info9};
+    outline-color: ${({ theme }) => theme.colors.info9};
     outline-style: solid;
-    outline-width: ${(props) => props.theme.borderWidths[1]};
+    outline-width: ${({ theme }) => theme.borderWidths[1]};
   }
 `;
 
@@ -62,13 +62,13 @@ export const StyledSliderRoot = styled(Slider.Root)`
 
   &[data-orientation="vertical"] {
     flex-direction: column;
-    width: ${(props) => props.theme.spaces[1]};
+    width: ${({ theme }) => theme.spaces[1]};
     height: 100%;
   }
 
   &[data-orientation="horizontal"] {
     flex-direction: row;
-    height: ${(props) => props.theme.spaces[1]};
+    height: ${({ theme }) => theme.spaces[1]};
     width: 100%;
   }
 
@@ -76,15 +76,15 @@ export const StyledSliderRoot = styled(Slider.Root)`
     cursor: not-allowed;
 
     ${StyledSliderRange.toString()} {
-      background-color: ${(props) => props.theme.colors.grey7};
+      background-color: ${({ theme }) => theme.colors.grey7};
     }
 
     ${StyledSliderTrack.toString()} {
-      background-color: ${(props) => props.theme.colors.grey4};
+      background-color: ${({ theme }) => theme.colors.grey4};
     }
 
     ${StyledSliderThumb.toString()} {
-      background-color: ${(props) => props.theme.colors.grey6};
+      background-color: ${({ theme }) => theme.colors.grey6};
       box-shadow: none;
 
       &:hover {
