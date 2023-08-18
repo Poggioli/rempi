@@ -1,10 +1,14 @@
 import { styled } from "@rempi-ui/core";
 
 export const StyledNavigationMenuHeader = styled.div`
-  background-color: ${(props) => props.theme.colors.primary1};
-  border-bottom: ${(props) => props.theme.borderWidths[1]} solid
-    ${(props) => props.theme.colors.grey6};
-  height: ${(props) => props.theme.spaces[13]};
+  background-color: ${({ theme }) => theme.colors.primary1};
+  border-bottom: ${({ theme }) => theme.borderWidths[1]} solid
+    ${({ theme }) => theme.colors.grey6};
+  padding: calc(
+      ${({ theme }) => theme.spaces[2]} +
+        calc(${({ theme }) => theme.spaces[1]} / 2)
+    )
+    0;
   left: 0;
   position: fixed;
   top: 0;
@@ -14,7 +18,6 @@ export const StyledNavigationMenuHeader = styled.div`
 export const StyledNavigationMenuHeaderContainer = styled.div`
   align-items: center;
   display: flex;
-  height: ${(props) => props.theme.spaces[13]};
   justify-content: space-between;
 `;
 
@@ -27,7 +30,7 @@ export const StyledNavigationMenuHeaderPopoverTrigger = styled.div`
 `;
 
 export const StyledNavigationMenuHeaderPopoverContent = styled.div`
-  padding: ${(props) => props.theme.spaces[3]};
+  padding: ${({ theme }) => theme.spaces[3]};
 `;
 
 export const StyledNavigationMenuHeaderMenuDesktop = styled.div`

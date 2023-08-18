@@ -9,7 +9,7 @@ import { Separator } from "@rempi-ui/separator";
 import { ChevronDown, Search } from "lucide-react";
 
 export const StyledComboboxChevron = styled(ChevronDown)`
-  color: ${({ theme }) => theme.colors.grey8};
+  color: ${({ theme }) => theme.colors.grey11};
 `;
 
 export const StyledComboboxTrigger = styled(Popover.Trigger)`

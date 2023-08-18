@@ -48,6 +48,7 @@
     "@rempi-ui/toggle": "*",
     "@rempi-ui/tooltip": "*",
     "@rempi-ui/typography": "*",
+    "date-fns": "^2.30.0",
     "lucide-react": "^0.258.0",
     "next": "^13.4.1",
     "react": "^18.2.0",

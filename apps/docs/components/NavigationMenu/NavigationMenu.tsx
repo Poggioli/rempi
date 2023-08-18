@@ -3,6 +3,7 @@ import { IconButton } from "@rempi-ui/button";
 import { Container } from "@rempi-ui/container";
 import { NavigationMenu as RempiNavigationMenu } from "@rempi-ui/navigation-menu";
 import { Popover } from "@rempi-ui/popover";
+import { Collapsible } from "@rempi-ui/collpasible";
 import { Menu } from "lucide-react";
 import { FC } from "react";
 import {
@@ -22,8 +23,8 @@ export const NavigationMenu: FC = () => {
         variant="md"
         centered
       >
-        <Popover.Root>
-          <StyledNavigationMenuHeaderPopoverTrigger as={Popover.Trigger}>
+        <Collapsible.Root>
+          <StyledNavigationMenuHeaderPopoverTrigger as={Collapsible.Trigger}>
             <IconButton
               size="small"
               variant="text"
@@ -32,7 +33,7 @@ export const NavigationMenu: FC = () => {
               <Menu size={24} />
             </IconButton>
           </StyledNavigationMenuHeaderPopoverTrigger>
-          <StyledNavigationMenuHeaderPopoverContent as={Popover.Content}>
+          <StyledNavigationMenuHeaderPopoverContent as={Collapsible.Content}>
             <StyledNavigationMenuHeaderMenuMobile as={RempiNavigationMenu.Root}>
               <RempiNavigationMenu.Item>
                 <RempiNavigationMenu.Link href="/">
@@ -56,7 +57,7 @@ export const NavigationMenu: FC = () => {
               </RempiNavigationMenu.Item>
             </StyledNavigationMenuHeaderMenuMobile>
           </StyledNavigationMenuHeaderPopoverContent>
-        </Popover.Root>
+        </Collapsible.Root>
 
         <StyledNavigationMenuHeaderMenuDesktop as={RempiNavigationMenu.Root}>
           <RempiNavigationMenu.Item>
@@ -80,7 +81,9 @@ export const NavigationMenu: FC = () => {
             </RempiNavigationMenu.Link>
           </RempiNavigationMenu.Item>
         </StyledNavigationMenuHeaderMenuDesktop>
-        <SocialMedias />
+        <div>
+          <SocialMedias />
+        </div>
       </StyledNavigationMenuHeaderContainer>
     </StyledNavigationMenuHeader>
   );
