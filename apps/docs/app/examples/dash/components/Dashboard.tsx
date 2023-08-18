@@ -12,7 +12,6 @@ import {
   StyledDashboardBody,
   StyledDashboardHeader,
   StyledDashboardSearch,
-  StyledDashboardSelectProfile,
 } from "./Dashboard.styles";
 
 const Dashboard: FC = () => {
@@ -22,10 +21,26 @@ const Dashboard: FC = () => {
     <StyledDashboard as={Flex} flexDirection="column">
       <StyledDashboardHeader
         as={Flex}
-        alignItems="center"
+        alignItems={{
+          "@initial": "flex-start",
+          "@3": "center",
+        }}
+        flexDirection={{
+          "@initial": "column",
+          "@3": "row",
+        }}
         justifyContent="space-between"
       >
-        <StyledDashboardSelectProfile as={Flex} alignItems="center">
+        <Flex
+          flexDirection={{
+            "@initial": "column",
+            "@2": "row",
+          }}
+          alignItems={{
+            "@initial": "flex-start",
+            "@2": "center",
+          }}
+        >
           <Combobox.Root value={selectedValue} onValueChange={setSelectedValue}>
             <Combobox.Trigger>
               <Combobox.Value placeholder="Selecione um time" />
@@ -66,7 +81,7 @@ const Dashboard: FC = () => {
               </NavigationMenu.Link>
             </NavigationMenu.Item>
           </NavigationMenu.Root>
-        </StyledDashboardSelectProfile>
+        </Flex>
 
         <StyledDashboardSearch as={Flex} alignItems="center">
           <Input.Root placeholder="Buscar..." />

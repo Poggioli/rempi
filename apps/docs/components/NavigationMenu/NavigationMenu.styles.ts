@@ -19,10 +19,10 @@ export const StyledNavigationMenuHeaderContainer = styled.div`
 `;
 
 export const StyledNavigationMenuHeaderPopoverTrigger = styled.div`
-  display: none;
+  display: block;
 
-  @media (max-width: 768px) {
-    display: block;
+  ${({ theme }) => theme.breakpoints[2]} {
+    display: none;
   }
 `;
 
@@ -31,8 +31,10 @@ export const StyledNavigationMenuHeaderPopoverContent = styled.div`
 `;
 
 export const StyledNavigationMenuHeaderMenuDesktop = styled.div`
-  @media (max-width: 768px) {
-    display: none;
+  display: none;
+
+  ${({ theme }) => theme.breakpoints[2]} {
+    display: inherit;
   }
 
   justify-content: flex-start;
