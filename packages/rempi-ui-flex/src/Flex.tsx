@@ -1,4 +1,4 @@
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import { StyledFlex } from "./Flex.styles";
 
 export type FlexDirection =
@@ -97,12 +97,12 @@ export type FlexProps = Omit<
   | "$alignContents"
   | "$alignSelf"
 > & {
-  flexDirection?: FlexDirection;
-  flexWrap?: FlexWrap;
-  justifyContent?: JustifyContent;
-  alignItems?: AlignItems;
-  alignContents?: AlignContent;
-  alignSelf?: AlignSelf;
+  flexDirection?: RempiVariant<FlexDirection>;
+  flexWrap?: RempiVariant<FlexWrap>;
+  justifyContent?: RempiVariant<JustifyContent>;
+  alignItems?: RempiVariant<AlignItems>;
+  alignContents?: RempiVariant<AlignContent>;
+  alignSelf?: RempiVariant<AlignSelf>;
 };
 
 export const Flex = forwardRef<typeof StyledFlex, FlexProps>(

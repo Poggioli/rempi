@@ -2,7 +2,7 @@ import * as Separator from "@radix-ui/react-separator";
 import { styled } from "@rempi-ui/core";
 
 export const StyledSeparator = styled(Separator.Root)`
-  background-color: ${(props) => props.theme.colors.grey6};
+  background-color: ${({ theme }) => theme.colors.grey6};
 
   &[data-orientation="horizontal"] {
     height: 1px;

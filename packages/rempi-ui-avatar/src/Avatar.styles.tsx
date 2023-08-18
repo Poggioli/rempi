@@ -1,5 +1,11 @@
 import * as Avatar from "@radix-ui/react-avatar";
-import { css, styled } from "@rempi-ui/core";
+import {
+  ApplyResponsiveVariant,
+  css,
+  RempiConfig,
+  RuleSet,
+  styled,
+} from "@rempi-ui/core";
 import { Size } from "./Avatar";
 
 export const StyledAvatarFallback = styled(Avatar.Fallback)`
@@ -22,7 +28,26 @@ export const StyledAvatarImage = styled(Avatar.Image)`
   width: 100%;
 `;
 
-export const StyledAvatarRoot = styled(Avatar.Root) <{
+const size: Record<Size, RuleSet<object>> = {
+  small: css`
+    height: ${(props) => props.theme.spaces[8]};
+    width: ${(props) => props.theme.spaces[8]};
+
+    ${StyledAvatarFallback.toString()} {
+      font-size: ${(props) => props.theme.fontSizes[2]};
+    }
+  `,
+  standard: css`
+    height: ${(props) => props.theme.spaces[12]};
+    width: ${(props) => props.theme.spaces[12]};
+  `,
+  large: css`
+    height: ${(props) => props.theme.spaces[14]};
+    width: ${(props) => props.theme.spaces[14]};
+  `,
+};
+
+export const StyledAvatarRoot = styled(Avatar.Root)<{
   $size?: Size;
 }>`
   align-items: center;
@@ -35,26 +60,14 @@ export const StyledAvatarRoot = styled(Avatar.Root) <{
   vertical-align: middle;
 
   ${(props) => {
-    switch (props.$size) {
-      case "small":
-        return css`
-          height: ${(props) => props.theme.spaces[8]};
-          width: ${(props) => props.theme.spaces[8]};
+    const apply = (value: Size) => {
+      return value && size[value];
+    };
 
-          ${StyledAvatarFallback.toString()} {
-            font-size: ${(props) => props.theme.fontSizes[2]};
-          }
-        `;
-      case "standard":
-        return css`
-          height: ${(props) => props.theme.spaces[12]};
-          width: ${(props) => props.theme.spaces[12]};
-        `;
-      case "large":
-        return css`
-          height: ${(props) => props.theme.spaces[14]};
-          width: ${(props) => props.theme.spaces[14]};
-        `;
-    }
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$size
+    );
   }}
-` 
+`;

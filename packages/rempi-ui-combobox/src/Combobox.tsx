@@ -1,7 +1,7 @@
 import { createCollection } from "@radix-ui/react-collection";
 import { createContextScope, Scope } from "@radix-ui/react-context";
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
-import { InputProps } from "@rempi-ui/input";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
+import { Input, InputProps } from "@rempi-ui/input";
 import {
   Popover,
   PopoverContentProps,
@@ -260,7 +260,7 @@ const [ComboboxContentContextProvider, useComboboxContentContext] =
   createComboboxContext<ComboboxContentContextValue>(CONTENT_NAME);
 
 export type ComboboxContentProps = PopoverContentProps & {
-  condensed?: boolean;
+  condensed?: RempiVariant<boolean>;
 };
 
 export const ComboboxContent = forwardRef<
@@ -588,6 +588,7 @@ export const ComboboxInput = forwardRef<
     <StyledComboboxSearchWrapper>
       <StyledComboboxSearchInput
         {...props}
+        as={Input.Root}
         onChange={onChange}
         onKeyDown={onKeyDown}
         value={value ?? contentContext.searchValue}

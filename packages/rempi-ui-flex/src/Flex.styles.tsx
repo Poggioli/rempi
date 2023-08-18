@@ -1,4 +1,10 @@
-import { css, RuleSet, styled } from "@rempi-ui/core";
+import {
+  ApplyResponsiveVariant,
+  css,
+  RempiConfig,
+  RuleSet,
+  styled,
+} from "@rempi-ui/core";
 import {
   AlignContent,
   AlignItems,
@@ -8,7 +14,7 @@ import {
   JustifyContent,
 } from "./Flex";
 
-const flexDirection: Record<string, RuleSet<object>> = {
+const flexDirection: Record<FlexDirection, RuleSet<object>> = {
   column: css`
     flex-direction: column;
   `,
@@ -35,7 +41,7 @@ const flexDirection: Record<string, RuleSet<object>> = {
   `,
 };
 
-const flexWrap: Record<string, RuleSet<object>> = {
+const flexWrap: Record<FlexWrap, RuleSet<object>> = {
   inherit: css`
     flex-wrap: inherit;
   `,
@@ -59,7 +65,7 @@ const flexWrap: Record<string, RuleSet<object>> = {
   `,
 };
 
-const justifyContent: Record<string, RuleSet<object>> = {
+const justifyContent: Record<JustifyContent, RuleSet<object>> = {
   center: css`
     justify-content: center;
   `,
@@ -110,7 +116,7 @@ const justifyContent: Record<string, RuleSet<object>> = {
   `,
 };
 
-const alignItems: Record<string, RuleSet<object>> = {
+const alignItems: Record<AlignItems, RuleSet<object>> = {
   baseline: css`
     align-items: baseline;
   `,
@@ -155,7 +161,7 @@ const alignItems: Record<string, RuleSet<object>> = {
   `,
 };
 
-const alignContents: Record<string, RuleSet<object>> = {
+const alignContents: Record<AlignContent, RuleSet<object>> = {
   baseline: css`
     align-content: baseline;
   `,
@@ -203,7 +209,7 @@ const alignContents: Record<string, RuleSet<object>> = {
   `,
 };
 
-const alignSelf: Record<string, RuleSet<object>> = {
+const alignSelf: Record<AlignSelf, RuleSet<object>> = {
   auto: css`
     align-self: auto;
   `,
@@ -262,10 +268,75 @@ export const StyledFlex = styled.div<{
   box-sizing: border-box;
   display: flex;
 
-  ${(props) => props.$flexDirection && flexDirection[props.$flexDirection]};
-  ${(props) => props.$flexWrap && flexWrap[props.$flexWrap]};
-  ${(props) => props.$justifyContent && justifyContent[props.$justifyContent]};
-  ${(props) => props.$alignItems && alignItems[props.$alignItems]};
-  ${(props) => props.$alignContents && alignContents[props.$alignContents]};
-  ${(props) => props.$alignSelf && alignSelf[props.$alignSelf]};
+  ${(props) => {
+    const apply = (value: FlexDirection) => {
+      return value && flexDirection[value];
+    };
+
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$flexDirection
+    );
+  }};
+
+  ${(props) => {
+    const apply = (value: FlexWrap) => {
+      return value && flexWrap[value];
+    };
+
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$flexWrap
+    );
+  }};
+
+  ${(props) => {
+    const apply = (value: JustifyContent) => {
+      return value && justifyContent[value];
+    };
+
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$justifyContent
+    );
+  }};
+
+  ${(props) => {
+    const apply = (value: AlignItems) => {
+      return value && alignItems[value];
+    };
+
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$alignItems
+    );
+  }};
+
+  ${(props) => {
+    const apply = (value: AlignContent) => {
+      return value && alignContents[value];
+    };
+
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$alignContents
+    );
+  }};
+
+  ${(props) => {
+    const apply = (value: AlignSelf) => {
+      return value && alignSelf[value];
+    };
+
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$alignSelf
+    );
+  }};
 `;

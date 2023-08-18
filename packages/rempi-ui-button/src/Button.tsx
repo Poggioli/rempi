@@ -1,4 +1,4 @@
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import { StyledButton, StyledIconButton } from "./Button.styles";
 
 export type Size = "small" | "standard" | "large";
@@ -10,14 +10,14 @@ export type Shape = "flat" | "smoth" | "rounded";
 export type Color = "primary" | "secondary" | "success" | "error";
 
 export type ButtonProps = HTMLRempiProps<"button"> & {
-  size?: Size;
-  variant?: Variant;
-  shape?: Shape;
-  color?: Color;
-  upperCase?: boolean;
+  size?: RempiVariant<Size>;
+  variant?: RempiVariant<Variant>;
+  shape?: RempiVariant<Shape>;
+  color?: RempiVariant<Color>;
+  upperCase?: RempiVariant<boolean>;
 };
 
-export const Button = forwardRef<"button", ButtonProps>(  
+export const Button = forwardRef<"button", ButtonProps>(
   (
     {
       size = "standard",

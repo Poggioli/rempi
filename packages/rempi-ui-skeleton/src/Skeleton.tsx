@@ -1,4 +1,4 @@
-import { HTMLRempiProps, forwardRef } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { StyledSkeleton } from "./Skeleton.styles";
 
 export type SkeletonProps = HTMLRempiProps<typeof StyledSkeleton>;

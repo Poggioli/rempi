@@ -43,7 +43,7 @@ import {
   FoldVertical,
   HelpCircle,
   Italic,
-  SlidersHorizontal
+  SlidersHorizontal,
 } from "lucide-react";
 import { Fragment, useContext, useEffect, useRef, useState } from "react";
 import "./page.scss";

@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 
-type Theme = ReturnType<typeof createTheme>;
+export type Theme = ReturnType<typeof createTheme>;
 
 export type ThemeProviderProps = {
   setTheme: Dispatch<SetStateAction<Theme>>;

@@ -1,4 +1,4 @@
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import * as ProgressRadix from "@radix-ui/react-progress";
 import { StyledProgessRoot, StyledProgressBar } from "./Progress.styles";
 
@@ -9,7 +9,7 @@ export type ProgressProps = Omit<
   "as" | "children" | "$size"
 > &
   ProgressRadix.ProgressProps & {
-    size?: Size;
+    size?: RempiVariant<Size>;
   };
 
 export const Progress = forwardRef<typeof StyledProgessRoot, ProgressProps>(

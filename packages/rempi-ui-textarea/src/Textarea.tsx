@@ -18,11 +18,7 @@ export const Textarea = forwardRef<"textarea", TextareaProps>(
     }, [props.disabled, props["aria-invalid"]]);
 
     return (
-      <StyledTextArea
-        {...props}
-        ref={ref}
-        data-disabled={props.disabled}
-      />
+      <StyledTextArea {...props} ref={ref} data-disabled={props.disabled} />
     );
   }
 );

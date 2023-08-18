@@ -8,14 +8,14 @@ export const StyledDayPicker = styled(DayPicker)`
     &__months {
       display: flex;
       flex-direction: column;
-      gap: ${(props) => props.theme.spaces[8]};
-      border-color: ${(props) => props.theme.colors.grey6};
-      border-radius: ${(props) => props.theme.radii[2]};
+      gap: ${({ theme }) => theme.spaces[8]};
+      border-color: ${({ theme }) => theme.colors.grey6};
+      border-radius: ${({ theme }) => theme.radii[2]};
       border-style: solid;
-      border-width: ${(props) => props.theme.borderWidths[1]};
-      padding: ${(props) => props.theme.spaces[2]};
+      border-width: ${({ theme }) => theme.borderWidths[1]};
+      padding: ${({ theme }) => theme.spaces[2]};
 
-      @media (min-width: 576px) {
+      ${({ theme }) => theme.breakpoints[1]} {
         flex-direction: row;
       }
     }
@@ -28,21 +28,21 @@ export const StyledDayPicker = styled(DayPicker)`
       display: flex;
       flex-direction: row;
       justify-content: center;
-      padding-top: ${(props) => props.theme.spaces[1]};
+      padding-top: ${({ theme }) => theme.spaces[1]};
       position: relative;
 
       &-label {
-        color: ${(props) => props.theme.colors.grey12};
-        font-size: ${(props) => props.theme.fontSizes[3]};
-        font-weight: ${(props) => props.theme.fontWeights[3]};
-        line-height: ${(props) => props.theme.lineHeights[2]};
+        color: ${({ theme }) => theme.colors.grey12};
+        font-size: ${({ theme }) => theme.fontSizes[3]};
+        font-weight: ${({ theme }) => theme.fontWeights[3]};
+        line-height: ${({ theme }) => theme.lineHeights[2]};
         text-transform: capitalize;
       }
 
       &-dropdown {
         display: flex;
         width: 100%;
-        gap: ${(props) => props.theme.spaces[6]};
+        gap: ${({ theme }) => theme.spaces[6]};
         justify-content: space-between;
 
         .rdp-vhidden {
@@ -66,16 +66,16 @@ export const StyledDayPicker = styled(DayPicker)`
         appearance: none;
         background-color: transparent;
         border: none;
-        border-color: ${(props) => props.theme.colors.grey7};
+        border-color: ${({ theme }) => theme.colors.grey7};
         border-style: solid;
-        border-radius: ${(props) => props.theme.radii[2]};
-        border-width: ${(props) => props.theme.borderWidths[1]};
+        border-radius: ${({ theme }) => theme.radii[2]};
+        border-width: ${({ theme }) => theme.borderWidths[1]};
         cursor: pointer;
         display: inline-flex;
         flex-direction: row;
-        font-size: ${(props) => props.theme.fontSizes[3]};
-        font-weight: ${(props) => props.theme.fontWeights[3]};
-        height: ${(props) => props.theme.spaces[7]};
+        font-size: ${({ theme }) => theme.fontSizes[3]};
+        font-weight: ${({ theme }) => theme.fontWeights[3]};
+        height: ${({ theme }) => theme.spaces[7]};
         justify-content: center;
         line-height: normal;
         outline: none;
@@ -84,54 +84,54 @@ export const StyledDayPicker = styled(DayPicker)`
           border-color 200ms ease, opacity 200ms ease;
         user-select: none;
         vertical-align: middle;
-        width: ${(props) => props.theme.spaces[7]};
+        width: ${({ theme }) => theme.spaces[7]};
         white-space: nowrap;
 
         &,
         * {
-          color: ${(props) => props.theme.colors.grey11};
+          color: ${({ theme }) => theme.colors.grey11};
         }
 
         &:hover:enabled {
-          background-color: ${(props) => props.theme.colors.grey4};
-          border-color: ${(props) => props.theme.colors.grey8};
+          background-color: ${({ theme }) => theme.colors.grey4};
+          border-color: ${({ theme }) => theme.colors.grey8};
         }
 
         &:focus {
-          background-color: ${(props) => props.theme.colors.grey5};
+          background-color: ${({ theme }) => theme.colors.grey5};
         }
 
         &:focus-visible,
         &:focus {
-          outline-color: ${(props) => props.theme.colors.info9};
+          outline-color: ${({ theme }) => theme.colors.info9};
           outline-style: solid;
-          outline-width: ${(props) => props.theme.borderWidths[1]};
+          outline-width: ${({ theme }) => theme.borderWidths[1]};
         }
 
         &[disabled] {
           cursor: not-allowed;
-          background-color: ${(props) => props.theme.colors.grey2};
-          border-color: ${(props) => props.theme.colors.grey7};
+          background-color: ${({ theme }) => theme.colors.grey2};
+          border-color: ${({ theme }) => theme.colors.grey7};
 
           &,
           * {
-            color: ${(props) => props.theme.colors.grey8};
+            color: ${({ theme }) => theme.colors.grey8};
           }
         }
 
         &--previous {
-          left: ${(props) => props.theme.spaces[2]};
+          left: ${({ theme }) => theme.spaces[2]};
         }
 
         &--next {
-          right: ${(props) => props.theme.spaces[2]};
+          right: ${({ theme }) => theme.spaces[2]};
         }
       }
     }
 
     &__table {
       border-collapse: collapse;
-      margin-top: ${(props) => props.theme.spaces[4]};
+      margin-top: ${({ theme }) => theme.spaces[4]};
       width: 100%;
     }
 
@@ -141,17 +141,17 @@ export const StyledDayPicker = styled(DayPicker)`
       }
 
       &-cell {
-        border-radius: ${(props) => props.theme.radii[1]};
-        color: ${(props) => props.theme.colors.grey10};
-        font-size: ${(props) => props.theme.fontSizes[3]};
-        font-weight: ${(props) => props.theme.fontWeights[4]};
-        line-height: ${(props) => props.theme.lineHeights[1]};
-        width: ${(props) => props.theme.spaces[9]};
+        border-radius: ${({ theme }) => theme.radii[1]};
+        color: ${({ theme }) => theme.colors.grey10};
+        font-size: ${({ theme }) => theme.fontSizes[3]};
+        font-weight: ${({ theme }) => theme.fontWeights[4]};
+        line-height: ${({ theme }) => theme.lineHeights[1]};
+        width: ${({ theme }) => theme.spaces[9]};
       }
     }
 
     &__row {
-      margin-top: ${(props) => props.theme.spaces[2]};
+      margin-top: ${({ theme }) => theme.spaces[2]};
       display: flex;
       flex-direction: row;
       width: 100%;
@@ -159,7 +159,7 @@ export const StyledDayPicker = styled(DayPicker)`
 
     &__cell {
       text-align: center;
-      font-size: ${(props) => props.theme.fontSizes[3]};
+      font-size: ${({ theme }) => theme.fontSizes[3]};
       padding: 0;
       position: relative;
       transition: background-color 200ms ease;
@@ -170,81 +170,83 @@ export const StyledDayPicker = styled(DayPicker)`
       }
 
       &:has(${Wrapper.toString()}__day--range-start) {
-        background-color: ${(props) => props.theme.colors.primary9};
-        border-radius: ${(props) => props.theme.radii.pill} 0 0
-          ${(props) => props.theme.radii.pill};
+        background-color: ${({ theme }) => theme.colors.primary9};
+        border-radius: ${({ theme }) => theme.radii.pill} 0 0
+          ${({ theme }) => theme.radii.pill};
       }
 
       &:has(${Wrapper.toString()}__day--range-end) {
-        background-color: ${(props) => props.theme.colors.primary9};
-        border-radius: 0 ${(props) => props.theme.radii.pill}
-          ${(props) => props.theme.radii.pill} 0;
+        background-color: ${({ theme }) => theme.colors.primary9};
+        border-radius: 0 ${({ theme }) => theme.radii.pill}
+          ${({ theme }) => theme.radii.pill} 0;
       }
 
-      &:has(${Wrapper.toString()}__day--range-start${Wrapper.toString()}__day--range-end) {
-        background-color: ${(props) => props.theme.colors.primary9};
-        border-radius: ${(props) => props.theme.radii.pill};
+      &:has(
+          ${Wrapper.toString()}__day--range-start${Wrapper.toString()}__day--range-end
+        ) {
+        background-color: ${({ theme }) => theme.colors.primary9};
+        border-radius: ${({ theme }) => theme.radii.pill};
       }
     }
 
     &__day {
       align-items: center;
-      border-radius: ${(props) => props.theme.radii.pill};
-      color: ${(props) => props.theme.colors.grey12};
+      border-radius: ${({ theme }) => theme.radii.pill};
+      color: ${({ theme }) => theme.colors.grey12};
       cursor: pointer;
       display: inline-flex;
-      font-weight: ${(props) => props.theme.fontWeights[3]};
+      font-weight: ${({ theme }) => theme.fontWeights[3]};
       justify-content: center;
-      height: ${(props) => props.theme.spaces[9]};
+      height: ${({ theme }) => theme.spaces[9]};
       padding: 0;
-      width: ${(props) => props.theme.spaces[9]};
+      width: ${({ theme }) => theme.spaces[9]};
       transition: background-color 200ms ease, color 200ms ease,
         border-color 200ms ease, opacity 200ms ease;
 
       &:focus-visible,
       &:focus {
-        outline-color: ${(props) => props.theme.colors.info9};
+        outline-color: ${({ theme }) => theme.colors.info9};
         outline-style: solid;
-        outline-width: ${(props) => props.theme.borderWidths[1]};
+        outline-width: ${({ theme }) => theme.borderWidths[1]};
       }
 
       &:hover:not([aria-selected]):not([disabled]) {
-        background-color: ${(props) => props.theme.colors.primary4};
+        background-color: ${({ theme }) => theme.colors.primary4};
       }
 
       &--outside {
-        color: ${(props) => props.theme.colors.grey9};
+        color: ${({ theme }) => theme.colors.grey9};
       }
 
       &--disabled {
-        color: ${(props) => props.theme.colors.grey7};
+        color: ${({ theme }) => theme.colors.grey7};
         cursor: not-allowed;
       }
 
       &--selected {
-        background-color: ${(props) => props.theme.colors.primary11};
-        color: ${(props) => props.theme.colors.grey1};
+        background-color: ${({ theme }) => theme.colors.primary11};
+        color: ${({ theme }) => theme.colors.grey1};
       }
 
       &--today {
-        background-color: ${(props) => props.theme.colors.primary4};
-        border-color: ${(props) => props.theme.colors.primary7};
+        background-color: ${({ theme }) => theme.colors.primary4};
+        border-color: ${({ theme }) => theme.colors.primary7};
         border-style: solid;
-        border-width: ${(props) => props.theme.borderWidths[1]};
-        color: ${(props) => props.theme.colors.grey12};
+        border-width: ${({ theme }) => theme.borderWidths[1]};
+        color: ${({ theme }) => theme.colors.grey12};
       }
 
       &--range-middle {
         border-radius: 0;
-        background-color: ${(props) => props.theme.colors.primary9};
-        
+        background-color: ${({ theme }) => theme.colors.primary9};
+
         &${Wrapper.toString()}__day--disabled {
-          color: ${(props) => props.theme.colors.grey11};
+          color: ${({ theme }) => theme.colors.grey11};
         }
 
         &${Wrapper.toString()}__day--today {
           border: none;
-          color: ${(props) => props.theme.colors.grey1};
+          color: ${({ theme }) => theme.colors.grey1};
         }
       }
 

@@ -1,97 +1,101 @@
 import * as Menubar from "@radix-ui/react-menubar";
-import { css, styled } from "@rempi-ui/core";
+import {
+  ApplyResponsiveVariant,
+  css,
+  RempiConfig,
+  styled,
+} from "@rempi-ui/core";
 
 export const StyledMenuBarRoot = styled(Menubar.Root)`
-  background-color: ${(props) => props.theme.colors.primary2};
-  border: ${(props) => props.theme.borderWidths[1]} solid
-    ${(props) => props.theme.colors.grey6};
-  border-radius: ${(props) => props.theme.radii[1]};
+  background-color: ${({ theme }) => theme.colors.primary2};
+  border: ${({ theme }) => theme.borderWidths[1]} solid
+    ${({ theme }) => theme.colors.grey6};
+  border-radius: ${({ theme }) => theme.radii[1]};
   display: flex;
-  padding: ${(props) => props.theme.spaces[1]};
+  padding: ${({ theme }) => theme.spaces[1]};
 `;
 
 export const StyledMenuBarTrigger = styled(Menubar.Trigger)`
   align-items: center;
-  border-radius: ${(props) => props.theme.radii[1]};
-  color: ${(props) => props.theme.colors.grey11};
+  border-radius: ${({ theme }) => theme.radii[1]};
+  color: ${({ theme }) => theme.colors.grey11};
   cursor: pointer;
   display: flex;
-  font-weight: ${(props) => props.theme.fontWeights[3]};
-  font-size: ${(props) => props.theme.fontSizes[4]};
-  gap: calc(${(props) => props.theme.spaces[1]} / 2);
+  font-weight: ${({ theme }) => theme.fontWeights[3]};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
+  gap: calc(${({ theme }) => theme.spaces[1]} / 2);
   justify-content: space-between;
-  line-height: ${(props) => props.theme.lineHeights[1]};
+  line-height: ${({ theme }) => theme.lineHeights[1]};
   outline: none;
-  padding: ${(props) => props.theme.spaces[2]}
-    ${(props) => props.theme.spaces[3]};
+  padding: ${({ theme }) => theme.spaces[2]} ${({ theme }) => theme.spaces[3]};
   transition: background-color 200ms ease, color 200ms ease;
   user-select: none;
 
   &[data-highlighted],
   &[data-state="open"] {
-    color: ${(props) => props.theme.colors.grey12};
-    background-color: ${(props) => props.theme.colors.primary4};
+    color: ${({ theme }) => theme.colors.grey12};
+    background-color: ${({ theme }) => theme.colors.primary4};
   }
 
   &[data-disabled] {
     cursor: not-allowed;
-    color: ${(props) => props.theme.colors.grey8};
+    color: ${({ theme }) => theme.colors.grey8};
   }
 `;
 
 const styledOfItems = css`
   align-items: center;
-  border-radius: ${(props) => props.theme.radii[1]};
-  color: ${(props) => props.theme.colors.grey11};
+  border-radius: ${({ theme }) => theme.radii[1]};
+  color: ${({ theme }) => theme.colors.grey11};
   display: flex;
-  font-size: ${(props) => props.theme.fontSizes[3]};
-  height: ${(props) => props.theme.spaces[9]};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
+  height: ${({ theme }) => theme.spaces[9]};
   justify-content: space-between;
-  line-height: ${(props) => props.theme.lineHeights[2]};
-  padding: 0 ${(props) => props.theme.spaces[1]} 0
-    ${(props) => props.theme.spaces[6]};
+  line-height: ${({ theme }) => theme.lineHeights[2]};
+  padding: 0 ${({ theme }) => theme.spaces[1]} 0
+    ${({ theme }) => theme.spaces[6]};
   position: relative;
   user-select: none;
   outline: none;
   transition: background-color 200ms ease, color 200ms ease;
 
   * {
-    font-size: ${(props) => props.theme.fontSizes[3]};
-    line-height: ${(props) => props.theme.lineHeights[2]};
-    color: ${(props) => props.theme.colors.grey11};
+    font-size: ${({ theme }) => theme.fontSizes[3]};
+    line-height: ${({ theme }) => theme.lineHeights[2]};
+    color: ${({ theme }) => theme.colors.grey11};
   }
 
   &[data-disabled] {
-    color: ${(props) => props.theme.colors.grey8};
+    color: ${({ theme }) => theme.colors.grey8};
     pointer-events: "none";
 
     svg {
-      stroke: ${(props) => props.theme.colors.grey8};
+      stroke: ${({ theme }) => theme.colors.grey8};
     }
 
     * {
-      color: ${(props) => props.theme.colors.grey8};
+      color: ${({ theme }) => theme.colors.grey8};
       pointer-events: "none";
 
       svg {
-        stroke: ${(props) => props.theme.colors.grey8};
+        stroke: ${({ theme }) => theme.colors.grey8};
       }
     }
   }
 
   &[data-highlighted] {
-    background-color: ${(props) => props.theme.colors.grey12};
-    color: ${(props) => props.theme.colors.grey1};
+    background-color: ${({ theme }) => theme.colors.grey12};
+    color: ${({ theme }) => theme.colors.grey1};
 
     svg {
-      stroke: ${(props) => props.theme.colors.grey1};
+      stroke: ${({ theme }) => theme.colors.grey1};
     }
 
     * {
-      color: ${(props) => props.theme.colors.grey1};
+      color: ${({ theme }) => theme.colors.grey1};
 
       svg {
-        stroke: ${(props) => props.theme.colors.grey1};
+        stroke: ${({ theme }) => theme.colors.grey1};
       }
     }
   }
@@ -113,19 +117,19 @@ export const StyledMenubarSubMenuTrigger = styled(Menubar.SubTrigger)`
   ${styledOfItems}
 
   &[data-state='open'] {
-    background-color: ${(props) => props.theme.colors.grey6};
-    color: ${(props) => props.theme.colors.grey12};
+    background-color: ${({ theme }) => theme.colors.grey6};
+    color: ${({ theme }) => theme.colors.grey12};
 
     svg {
-      stroke: ${(props) => props.theme.colors.grey12};
+      stroke: ${({ theme }) => theme.colors.grey12};
     }
 
     &,
     * {
-      color: ${(props) => props.theme.colors.grey12};
+      color: ${({ theme }) => theme.colors.grey12};
 
       svg {
-        stroke: ${(props) => props.theme.colors.grey12};
+        stroke: ${({ theme }) => theme.colors.grey12};
       }
     }
   }
@@ -133,24 +137,35 @@ export const StyledMenubarSubMenuTrigger = styled(Menubar.SubTrigger)`
 
 const styleOfContentAndSubContent = css<{ $condensed?: boolean }>`
   min-width: 220px;
-  background-color: ${(props) => props.theme.colors.grey2};
-  border-radius: ${(props) => props.theme.radii[2]};
+  background-color: ${({ theme }) => theme.colors.grey2};
+  border-radius: ${({ theme }) => theme.radii[2]};
   overflow: hidden;
-  padding: ${(props) => props.theme.spaces[2]};
-  box-shadow: ${(props) => props.theme.shadows[1]};
-  border: ${(props) => props.theme.borderWidths[1]} solid
-    ${(props) => props.theme.colors.grey6};
+  padding: ${({ theme }) => theme.spaces[2]};
+  box-shadow: ${({ theme }) => theme.shadows[1]};
+  border: ${({ theme }) => theme.borderWidths[1]} solid
+    ${({ theme }) => theme.colors.grey6};
 
-  ${(props) =>
-    props.$condensed &&
-    css`
-      ${StyledMenubarItem.toString()},
-      ${StyledMenubarCheckboxItem.toString()},
-      ${StyledMenubarRadioItem.toString()},
-      ${StyledMenubarSubMenuTrigger.toString()} {
-        height: ${(props) => props.theme.spaces[7]};
-      }
-    `}
+  ${(props) => {
+    const apply = (value: boolean) => {
+      return (
+        value &&
+        css`
+          ${StyledMenubarItem.toString()},
+          ${StyledMenubarCheckboxItem.toString()},
+          ${StyledMenubarRadioItem.toString()},
+          ${StyledMenubarSubMenuTrigger.toString()} {
+            height: ${({ theme }) => theme.spaces[7]};
+          }
+        `
+      );
+    };
+
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$condensed
+    );
+  }};
 `;
 
 export const StyledMenubarContent = styled(Menubar.Content)<{
@@ -166,34 +181,34 @@ export const StyledMenubarSubContent = styled(Menubar.SubContent)<{
 `;
 
 export const StyledMenubarLabel = styled(Menubar.Label)`
-  padding-left: ${(props) => props.theme.spaces[4]};
-  font-size: ${(props) => props.theme.fontSizes[2]};
-  line-height: ${(props) => props.theme.lineHeights[2]};
-  color: ${(props) => props.theme.colors.grey11};
+  padding-left: ${({ theme }) => theme.spaces[4]};
+  font-size: ${({ theme }) => theme.fontSizes[2]};
+  line-height: ${({ theme }) => theme.lineHeights[2]};
+  color: ${({ theme }) => theme.colors.grey11};
 
   * {
-    font-size: ${(props) => props.theme.fontSizes[2]};
-    line-height: ${(props) => props.theme.lineHeights[2]};
-    color: ${(props) => props.theme.colors.grey11};
+    font-size: ${({ theme }) => theme.fontSizes[2]};
+    line-height: ${({ theme }) => theme.lineHeights[2]};
+    color: ${({ theme }) => theme.colors.grey11};
   }
 `;
 
 export const StyledMenubarSeparator = styled(Menubar.Separator)`
   height: 1px;
-  background-color: ${(props) => props.theme.colors.grey6};
-  margin: ${(props) => props.theme.spaces[1]};
+  background-color: ${({ theme }) => theme.colors.grey6};
+  margin: ${({ theme }) => theme.spaces[1]};
 `;
 
 export const StyledMenubarItemIndicator = styled(Menubar.ItemIndicator)`
   position: absolute;
   left: 0;
-  width: ${(props) => props.theme.spaces[6]};
+  width: ${({ theme }) => theme.spaces[6]};
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
   svg {
-    stroke: ${(props) => props.theme.colors.grey11};
+    stroke: ${({ theme }) => theme.colors.grey11};
     stroke-width: 3;
   }
 `;

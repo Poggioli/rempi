@@ -1,5 +1,5 @@
 import * as SelectRadix from "@radix-ui/react-select";
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
 import {
   StyledSelectContent,
@@ -28,13 +28,12 @@ export const SelectTrigger = forwardRef<
   SelectTriggerProps
 >(({ children, ...props }, ref) => {
   return (
-    <StyledSelectTrigger {...props} ref={ref} >
+    <StyledSelectTrigger {...props} ref={ref}>
       {children}
       <SelectIcon />
     </StyledSelectTrigger>
   );
-}
-);
+});
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
@@ -45,9 +44,7 @@ export const SelectValue = forwardRef<
   typeof SelectRadix.Value,
   SelectValueProps
 >(({ as: Component = SelectRadix.Value, ...props }, ref) => {
-  return (
-    <Component {...props} ref={ref} />
-  );
+  return <Component {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -82,7 +79,7 @@ export type SelectContentProps = Omit<
 > &
   SelectRadix.SelectContentProps &
   SelectPortalProps & {
-    condensed?: boolean;
+    condensed?: RempiVariant<boolean>;
   };
 
 export const SelectContent = forwardRef<
@@ -109,9 +106,7 @@ export const SelectViewport = forwardRef<
   typeof StyledSelectViewport,
   SelectViewportProps
 >(({ ...props }, ref) => {
-  return (
-    <StyledSelectViewport  {...props} ref={ref} />
-  );
+  return <StyledSelectViewport {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -122,7 +117,7 @@ export type SelectItemProps = HTMLRempiProps<typeof StyledSelectItem> &
 export const SelectItem = forwardRef<typeof StyledSelectItem, SelectItemProps>(
   ({ children, ...props }, ref) => {
     return (
-      <StyledSelectItem  {...props} ref={ref}  >
+      <StyledSelectItem {...props} ref={ref}>
         <SelectItemIndicator />
         <SelectItemText>{children}</SelectItemText>
       </StyledSelectItem>
@@ -139,9 +134,7 @@ const SelectItemText = forwardRef<
   typeof SelectRadix.ItemText,
   SelectItemTextProps
 >(({ as: Component = SelectRadix.ItemText, ...props }, ref) => {
-  return (
-    <Component {...props} ref={ref} />
-  );
+  return <Component {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -157,7 +150,7 @@ const SelectItemIndicator = forwardRef<
   SelectItemIndicatorProps
 >(({ ...props }, ref) => {
   return (
-    <StyledSelectItemIndicator {...props} ref={ref} >
+    <StyledSelectItemIndicator {...props} ref={ref}>
       <Check size={12} />
     </StyledSelectItemIndicator>
   );
@@ -176,7 +169,7 @@ const SelectScrollUpButton = forwardRef<
   SelectScrollUpButtonProps
 >(({ ...props }, ref) => {
   return (
-    <StyledSelectScrollUpButton {...props} ref={ref} >
+    <StyledSelectScrollUpButton {...props} ref={ref}>
       <ChevronUp size={18} />
     </StyledSelectScrollUpButton>
   );
@@ -216,9 +209,7 @@ export const SelectLabel = forwardRef<
   typeof StyledSelectLabel,
   SelectLabelProps
 >(({ ...props }, ref) => {
-  return (
-    <StyledSelectLabel {...props} ref={ref} />
-  );
+  return <StyledSelectLabel {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
@@ -232,9 +223,7 @@ export const SelectSeparator = forwardRef<
   typeof StyledSelectSeparator,
   SelectSeparatorProps
 >(({ ...props }, ref) => {
-  return (
-    <StyledSelectSeparator {...props} ref={ref} />
-  );
+  return <StyledSelectSeparator {...props} ref={ref} />;
 });
 
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //

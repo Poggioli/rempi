@@ -9,19 +9,9 @@ export const AspectRatio = forwardRef<
   AspectRatioProps
 >(
   (
-    {
-      ratio = 16 / 9,
-      as: Component = AspectRatioRadix.Root,
-      ...props
-    },
+    { ratio = 16 / 9, as: Component = AspectRatioRadix.Root, ...props },
     ref
   ) => {
-    return (
-      <Component
-        {...props}
-        ratio={ratio}
-        ref={ref}
-      />
-    );
+    return <Component {...props} ratio={ratio} ref={ref} />;
   }
 );

@@ -52,13 +52,13 @@ const slideLeftAndFade = keyframes`
 export const StyledHoverCardContent = styled(HoverCard.Content)`
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: ${(props) => props.theme.colors.grey2};
-  border: ${(props) => props.theme.borderWidths[1]} solid
-    ${(props) => props.theme.colors.grey6};
-  border-radius: ${(props) => props.theme.radii[2]};
-  box-shadow: ${(props) => props.theme.shadows[1]}
+  background-color: ${({ theme }) => theme.colors.grey2};
+  border: ${({ theme }) => theme.borderWidths[1]} solid
+    ${({ theme }) => theme.colors.grey6};
+  border-radius: ${({ theme }) => theme.radii[2]};
+  box-shadow: ${({ theme }) => theme.shadows[1]}
   min-width: 220px;
-  padding: ${(props) => props.theme.spaces[4]};
+  padding: ${({ theme }) => theme.spaces[4]};
   will-change: transform, opacity;
 
   &[data-side="top"] {
@@ -79,5 +79,5 @@ export const StyledHoverCardContent = styled(HoverCard.Content)`
 `;
 
 export const StyledHoverCardArrow = styled(HoverCard.Arrow)`
-  fill: ${(props) => props.theme.colors.grey6};
+  fill: ${({ theme }) => theme.colors.grey6};
 `;

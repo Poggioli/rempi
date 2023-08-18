@@ -213,6 +213,16 @@ type ZIndices = {
   [key: string]: number;
 };
 
+type Breakpoints = {
+  1: string;
+  2: string;
+  3: string;
+  4: string;
+  5: string;
+} & {
+  [key: string]: string;
+};
+
 export type RempiConfig = {
   colors: Color;
   spaces: Spaces;
@@ -225,6 +235,7 @@ export type RempiConfig = {
   radii: Radiis;
   shadows: Shadows;
   zIndices: ZIndices;
+  breakpoints: Breakpoints;
 };
 
 export type RempiConfigCreateTheme = Partial<{
@@ -239,6 +250,7 @@ export type RempiConfigCreateTheme = Partial<{
   radii: Partial<Radiis>;
   shadows: Partial<Shadows>;
   zIndices: Partial<ZIndices>;
+  breakpoints: Breakpoints;
 }>;
 
 export const rempiDefaultConfig: RempiConfig = {
@@ -439,6 +451,13 @@ export const rempiDefaultConfig: RempiConfig = {
     10: 1010,
     11: 1011,
     12: 1012,
+  },
+  breakpoints: {
+    1: "@media only screen and (min-width: 576px)",
+    2: "@media only screen and (min-width: 768px)",
+    3: "@media only screen and (min-width: 992px)",
+    4: "@media only screen and (min-width: 1200px)",
+    5: "@media only screen and (min-width: 1400px)",
   },
 };
 
@@ -1117,6 +1136,29 @@ export function createTheme(selector: string, theme: RempiConfigCreateTheme) {
         rempiDefaultConfig.zIndices[12]
       ) as number,
     },
+    breakpoints: {
+      ...(theme.breakpoints || {}),
+      1: useValue(
+        theme.breakpoints?.[1],
+        rempiDefaultConfig.breakpoints[1]
+      ) as string,
+      2: useValue(
+        theme.breakpoints?.[2],
+        rempiDefaultConfig.breakpoints[2]
+      ) as string,
+      3: useValue(
+        theme.breakpoints?.[3],
+        rempiDefaultConfig.breakpoints[3]
+      ) as string,
+      4: useValue(
+        theme.breakpoints?.[4],
+        rempiDefaultConfig.breakpoints[4]
+      ) as string,
+      5: useValue(
+        theme.breakpoints?.[5],
+        rempiDefaultConfig.breakpoints[5]
+      ) as string,
+    },
   };
 
   const cssVariables: any = {};
@@ -1130,8 +1172,12 @@ export function createTheme(selector: string, theme: RempiConfigCreateTheme) {
 
     Object.entries(value).forEach(([keyVal, valueVal]) => {
       const cssVariableName = `--${toDashLowerCase(key)}-${keyVal}`;
-      cssVariables[cssVariableName] = valueVal as string;
-      themeValues[key][keyVal] = `var(${cssVariableName})`;
+      if (key !== "breakpoints") {
+        cssVariables[cssVariableName] = valueVal as string;
+        themeValues[key][keyVal] = `var(${cssVariableName})`;
+      } else {
+        themeValues[key][keyVal] = valueVal as string;
+      }
     });
   });
 

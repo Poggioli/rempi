@@ -50,20 +50,20 @@ const slideLeftAndFade = keyframes`
 `;
 
 export const StyledTooltipContent = styled(Tooltip.Content)`
-  background-color: ${(props) => props.theme.colors.grey2};
-  border-radius: ${(props) => props.theme.radii[2]};
-  color: ${(props) => props.theme.colors.grey12};
-  font-size: ${(props) => props.theme.fontSizes[3]};
-  line-height: ${(props) => props.theme.lineHeights[1]};
+  background-color: ${({ theme }) => theme.colors.grey2};
+  border-radius: ${({ theme }) => theme.radii[2]};
+  color: ${({ theme }) => theme.colors.grey12};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
+  line-height: ${({ theme }) => theme.lineHeights[1]};
   overflow: hidden;
-  padding: ${(props) => props.theme.spaces[2]};
-  box-shadow: ${(props) => props.theme.shadows[1]};
-  border: ${(props) => props.theme.borderWidths[1]} solid
-    ${(props) => props.theme.colors.grey6};
+  padding: ${({ theme }) => theme.spaces[2]};
+  box-shadow: ${({ theme }) => theme.shadows[1]};
+  border: ${({ theme }) => theme.borderWidths[1]} solid
+    ${({ theme }) => theme.colors.grey6};
 
   * {
-    font-size: ${(props) => props.theme.fontSizes[3]};
-    line-height: ${(props) => props.theme.lineHeights[1]};
+    font-size: ${({ theme }) => theme.fontSizes[3]};
+    line-height: ${({ theme }) => theme.lineHeights[1]};
   }
 
   &[data-state="delayed-open"][data-side="top"] {
@@ -84,5 +84,5 @@ export const StyledTooltipContent = styled(Tooltip.Content)`
 `;
 
 export const StyledTooltipArrow = styled(Tooltip.Arrow)`
-  fill: ${(props) => props.theme.colors.grey6};
+  fill: ${({ theme }) => theme.colors.grey6};
 `;

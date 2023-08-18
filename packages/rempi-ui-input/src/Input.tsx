@@ -1,4 +1,4 @@
-import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
+import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
 import { Label, LabelContext, LabelProps } from "@rempi-ui/label";
 import { useContext, useEffect } from "react";
 import { StyledInput } from "./Input.styles";
@@ -6,7 +6,7 @@ import { StyledInput } from "./Input.styles";
 export type Size = "small" | "standard" | "large";
 
 export type InputProps = Omit<HTMLRempiProps<"input">, "as"> & {
-  inputSize?: Size;
+  inputSize?: RempiVariant<Size>;
 };
 
 export const Input = forwardRef<"input", InputProps>(
