@@ -3,10 +3,12 @@
 - Aspect Ratio - OK
 - Avatar - OK
 - Badge - OK
+- Blockquote - OK
 - Button - OK
 - Calendar - OK
 - Card - OK
 - Checkbox - OK
+- Code - OK
 - Collapsible - OK
 - Combobox - OK
 - Container - OK
