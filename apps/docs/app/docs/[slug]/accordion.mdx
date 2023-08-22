@@ -1,0 +1,55 @@
+---
+title: Accordion
+slug: Accordion
+radixUI: https://www.radix-ui.com/primitives/docs/components/accordion
+radixAPI: https://www.radix-ui.com/primitives/docs/components/accordion#api-reference
+---
+
+# Accordion
+
+A vertically stacked set of interactive headings that each reveal an associated section of content.
+
+<Flex style={{ gap: 8 }}>
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/accordion" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/accordion#api-reference" />
+</Flex>
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/accordion
+```
+
+## Example
+
+<PreviewComponent name="accordion" />
+
+## Usage
+
+Import the <strong>Accordion</strong> and piece all composition components together.
+
+```jsx
+import { Accordion } from "@rempi-ui/accordion";
+
+() => (
+  <Accordion.Root>
+    <Accordion.Item value="item-1">
+      <Accordion.Header>
+        <Accordion.Trigger>Is it accessible?</Accordion.Trigger>
+      </Accordion.Header>
+      <Accordion.Content>
+        Yes. It adheres to the WAI-ARIA design pattern.
+      </Accordion.Content>
+    </Accordion.Item>
+  </Accordion.Root>
+);
+```
+
+<NavigationNextPrevious
+  next={{
+    link: "/docs/alert-dialog",
+    label: "Alert dialog",
+  }}
+/>

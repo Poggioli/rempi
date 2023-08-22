@@ -1,0 +1,90 @@
+---
+title: Alert Dialog
+slug: alert-dialog
+radixUI: https://www.radix-ui.com/primitives/docs/components/alert-dialog
+radixAPI: https://www.radix-ui.com/primitives/docs/components/alert-dialog#api-reference
+---
+
+# Alert Dialog
+
+A modal dialog that interrupts the user with important content and expects a response.
+
+<Flex style={{ gap: 8 }}>
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/alert-dialog" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/alert-dialog#api-reference" />
+</Flex>
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/alert-dialog
+```
+
+## Example
+
+<PreviewComponent name="alert-dialog" />
+
+## API reference
+
+### Overlay
+
+A layer that covers the inert portion of the view when the dialog is open. <br/> Has common <strong>Props</strong> with [Radix Alert Dialog Overlay](https://www.radix-ui.com/primitives/docs/components/alert-dialog#overlay)
+
+<APIReference
+  data={[
+    {
+      name: "blur",
+      required: false,
+      type: "boolean",
+      description: 'Turns overlay background to blurry',
+    },
+  ]}
+/>
+
+## Usage
+
+Import the <strong>AlertDialog</strong> and piece all composition components together.
+
+```jsx
+import { AlertDialog } from "@rempi-ui/alert-dialog";
+import { Button } from "@rempi-ui/button";
+
+() => (
+  <AlertDialog.Root>
+    <AlertDialog.Trigger>
+      <Button color="error">Delete account</Button>
+    </AlertDialog.Trigger>
+    <AlertDialog.Portal>
+      <AlertDialog.Overlay />
+      <AlertDialog.Content>
+        <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
+        <AlertDialog.Description>
+          This action cannot be undone. This will permanently delete your
+          account and remove your data from our servers.
+        </AlertDialog.Description>
+        <AlertDialog.Footer>
+          <AlertDialog.Cancel>
+            <Button variant="text">Cancel</Button>
+          </AlertDialog.Cancel>
+          <AlertDialog.Action>
+            <Button color="error">Yes, delete account</Button>
+          </AlertDialog.Action>
+        </AlertDialog.Footer>
+      </AlertDialog.Content>
+    </AlertDialog.Portal>
+  </AlertDialog.Root>
+);
+```
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/accordion",
+    label: "Accordion",
+  }}
+  next={{
+    link: "/docs/aspect-ratio",
+    label: "Aspect ratio",
+  }}
+/>
