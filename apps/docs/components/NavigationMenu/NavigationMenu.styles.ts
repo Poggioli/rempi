@@ -4,15 +4,12 @@ export const StyledNavigationMenuHeader = styled.div`
   background-color: ${({ theme }) => theme.colors.primary1};
   border-bottom: ${({ theme }) => theme.borderWidths[1]} solid
     ${({ theme }) => theme.colors.grey6};
-  padding: calc(
-      ${({ theme }) => theme.spaces[2]} +
-        calc(${({ theme }) => theme.spaces[1]} / 2)
-    )
-    0;
+  padding: calc(${({ theme }) => theme.spaces[1]} * 1.5) 0;
   left: 0;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 `;
 
 export const StyledNavigationMenuHeaderContainer = styled.div`
