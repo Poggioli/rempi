@@ -10,6 +10,7 @@ import { AlertDialogPreview } from "./PreviewComponents/AlertDialog";
 import { AspectRatioPreview } from "./PreviewComponents/AspectRatio";
 import { AvatarPreview } from "./PreviewComponents/Avatar";
 import { BadgePreview } from "./PreviewComponents/Badge";
+import { BlockquotePreview } from "./PreviewComponents/Blockquote";
 
 type PreviewComponentProps = {
   name: string;
@@ -20,7 +21,8 @@ const COMPONENTS: any = {
   "alert-dialog": AlertDialogPreview,
   "aspect-ratio": AspectRatioPreview,
   avatar: AvatarPreview,
-  badge: BadgePreview
+  badge: BadgePreview,
+  blockquote: BlockquotePreview
 };
 
 const StyledFlex = styled.div`

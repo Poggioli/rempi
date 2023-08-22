@@ -87,7 +87,7 @@ export const APIReference: FC<APIReferenceProps> = ({ data }) => {
                       align="center"
                       style={{ maxWidth: 600 }}
                     >
-                      <Code style={{ whiteSpace: "pre", display: "block" }}>
+                      <Code style={{ whiteSpace: "pre-line", display: "block" }}>
                         {type}
                       </Code>
                     </Popover.Content>

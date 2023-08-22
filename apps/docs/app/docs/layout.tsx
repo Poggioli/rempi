@@ -18,7 +18,10 @@ const StyledContainer = styled.div`
 export default function DocsPage({ children }) {
   return (
     <StyledContainerBody>
-      <StyledContainer as={Container} variant="sm">
+      <StyledContainer
+        as={(props: any) => <Container {...props} as="section" />}
+        variant="sm"
+      >
         <MDXProviderDocs>{children}</MDXProviderDocs>
       </StyledContainer>
     </StyledContainerBody>

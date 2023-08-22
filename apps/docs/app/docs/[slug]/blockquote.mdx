@@ -1,0 +1,104 @@
+---
+title: Blockquote
+slug: blockquote
+---
+
+# Blockquote
+
+A block level extended quotation.
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/blockquote
+```
+
+## Example
+
+<PreviewComponent name="blockquote" />
+
+## API reference
+
+### Blockquote
+
+Contains all the parts of an blockquote.
+
+<APIReference
+  data={[
+    {
+      name: "fontSize",
+      required: false,
+      type: '"2xsm" | \n "xsm" | \n "sm" | \n "md" | \n "lg" | \n "xlg"',
+      typeSimple: "enum",
+      description: "Set the font-size of Blockquote",
+    },
+    {
+      name: "fontWeight",
+      required: false,
+      type: '"tiny" | \n "normal" | \n "regular" | \n "semi-bold" | \n "bold" | \n "extra-bold"',
+      typeSimple: "enum",
+      description: "Set the font-weight of Blockquote",
+    },
+    {
+      name: "lineHeight",
+      required: false,
+      type: '"1" | "2"',
+      typeSimple: "enum",
+      description: "Set the line-height of Blockquote",
+    },
+    {
+      name: "color",
+      required: false,
+      type: '"low-contrast" | "high-contrast"',
+      typeSimple: "enum",
+      defaultValue: '"low-contrast"',
+      description: "Set the color of Blockquote",
+    },
+    {
+      name: "textAlign",
+      required: false,
+      type: '"left" | "center" | "right"',
+      typeSimple: "enum",
+      description: "Set the text-align of Blockquote",
+    },
+    {
+      name: "isTruncated",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: '"false"',
+      description:
+        "Determines whether to add an ellipsis to the end of the text if the content does not fit",
+    },
+    {
+      name: "variant",
+      required: false,
+      type: '"lead1" | \n "lead2" | \n "body1" | \n "body2" | \n "caption" | \n "subtitle"',
+      typeSimple: "enum",
+      defaultValue: '"body2"',
+      description: "Set the Blockquote styles",
+    },
+  ]}
+/>
+
+## Usage
+
+Import the <strong>Blockquote</strong>.
+
+```jsx
+import { Blockquote } from "@rempi-ui/blockquote";
+
+() => <Blockquote>Hello I'm a Blockquote</Blockquote>;
+```
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/badge",
+    label: "Badge",
+  }}
+  next={{
+    link: "/docs/button",
+    label: "Button",
+  }}
+/>
