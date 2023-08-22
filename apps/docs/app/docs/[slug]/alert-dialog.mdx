@@ -28,9 +28,44 @@ yarn add @rempi-ui/alert-dialog
 
 ## API reference
 
+### Root
+
+Has common <strong>Props</strong> with [Radix Alert Dialog Root](https://www.radix-ui.com/primitives/docs/components/alert-dialog#root).
+
+### Trigger
+
+Has common <strong>Props</strong> with [Radix Alert Dialog Trigger](https://www.radix-ui.com/primitives/docs/components/alert-dialog#trigger).
+
+<APIReference
+  data={[
+    {
+      name: "asChild",
+      required: false,
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <>
+          Change the default rendered element for the one passed as a child,
+          merging their props and behavior.
+          <br />
+          <br />
+          Read the <a href="https://www.radix-ui.com/primitives/docs/guides/composition">
+            Radix Composition
+          </a> guide for more details.
+        </>
+      ),
+    },
+  ]}
+/>
+
+### Portal
+
+Has common <strong>Props</strong> with [Radix Alert Dialog Portal](https://www.radix-ui.com/primitives/docs/components/alert-dialog#portal).
+
 ### Overlay
 
-A layer that covers the inert portion of the view when the dialog is open. <br/> Has common <strong>Props</strong> with [Radix Alert Dialog Overlay](https://www.radix-ui.com/primitives/docs/components/alert-dialog#overlay)
+A layer that covers the inert portion of the view when the dialog is open.<br/>
+Has common <strong>Props</strong> with [Radix Alert Dialog Overlay](https://www.radix-ui.com/primitives/docs/components/alert-dialog#overlay).
 
 <APIReference
   data={[
@@ -38,10 +73,78 @@ A layer that covers the inert portion of the view when the dialog is open. <br/>
       name: "blur",
       required: false,
       type: "boolean",
-      description: 'Turns overlay background to blurry',
+      defaultValue: "false",
+      description: "Turns overlay background to blurry",
     },
   ]}
 />
+
+### Content
+
+Has common <strong>Props</strong> with [Radix Alert Dialog Content](https://www.radix-ui.com/primitives/docs/components/alert-dialog#content).
+
+### Cancel
+
+Has common <strong>Props</strong> with [Radix Alert Dialog Cancel](https://www.radix-ui.com/primitives/docs/components/alert-dialog#cancel).
+
+<APIReference
+  data={[
+    {
+      name: "asChild",
+      required: false,
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <>
+          Change the default rendered element for the one passed as a child,
+          merging their props and behavior.
+          <br />
+          <br />
+          Read the <a href="https://www.radix-ui.com/primitives/docs/guides/composition">
+            Radix Composition
+          </a> guide for more details.
+        </>
+      ),
+    },
+  ]}
+/>
+### Action
+
+Has common <strong>Props</strong> with [Radix Alert Dialog Action](https://www.radix-ui.com/primitives/docs/components/alert-dialog#action).
+
+<APIReference
+  data={[
+    {
+      name: "asChild",
+      required: false,
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <>
+          Change the default rendered element for the one passed as a child,
+          merging their props and behavior.
+          <br />
+          <br />
+          Read the <a href="https://www.radix-ui.com/primitives/docs/guides/composition">
+            Radix Composition
+          </a> guide for more details.
+        </>
+      ),
+    },
+  ]}
+/>
+
+### Title
+
+Has common <strong>Props</strong> with [Radix Alert Dialog Title](https://www.radix-ui.com/primitives/docs/components/alert-dialog#title).
+
+### Description
+
+Has common <strong>Props</strong> with [Radix Alert Dialog Description](https://www.radix-ui.com/primitives/docs/components/alert-dialog#description).
+
+### Footer
+
+A `<div/>` that in desktop resolution is aligned to the lower right corner and in mobile resolution is aligned to the center.
 
 ## Usage
 

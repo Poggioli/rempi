@@ -1,0 +1,66 @@
+---
+title: Badge
+slug: Badge
+---
+
+# Badge
+
+Displays a badge or a component that looks like a badge.
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/badge
+```
+
+## Example
+
+<PreviewComponent name="badge" />
+
+## API reference
+
+### Root
+
+Contains all the parts of an badge. <br/>
+
+<APIReference
+  data={[
+    {
+      name: "variant",
+      required: false,
+      type: '"primary" | "secondary" | "outlined" | "destructive"',
+      typeSimple: "enum",
+      defaultValue: '"primary"',
+      description: "Set the Badge styles",
+    },
+    {
+      name: "as",
+      required: false,
+      typeSimple: "HTMLElement",
+      description: "For changing which tag a component outputs.",
+    },
+  ]}
+/>
+
+## Usage
+
+Import the <strong>Badge</strong>.
+
+```jsx
+import { Badge } from "@rempi-ui/badge";
+
+() => <Badge>Hello I'm a Badge</Badge>;
+```
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/avatar",
+    label: "Avatar",
+  }}
+  next={{
+    link: "/docs/blockquote",
+    label: "Blockquote",
+  }}
+/>

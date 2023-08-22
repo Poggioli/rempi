@@ -61,7 +61,7 @@ export const APIReference: FC<APIReferenceProps> = ({ data }) => {
                         (event.currentTarget as HTMLElement)?.focus();
                       }}
                     >
-                      <Typography as="div" variant="body2" fontSize="xsm">
+                      <Typography as="div" variant="body2" fontSize="sm">
                         {description}
                       </Typography>
                     </Popover.Content>

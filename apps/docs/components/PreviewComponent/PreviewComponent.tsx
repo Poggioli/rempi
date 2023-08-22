@@ -8,6 +8,8 @@ import { FC, PropsWithChildren } from "react";
 import { AccordionPreview } from "./PreviewComponents/Accordion";
 import { AlertDialogPreview } from "./PreviewComponents/AlertDialog";
 import { AspectRatioPreview } from "./PreviewComponents/AspectRatio";
+import { AvatarPreview } from "./PreviewComponents/Avatar";
+import { BadgePreview } from "./PreviewComponents/Badge";
 
 type PreviewComponentProps = {
   name: string;
@@ -17,6 +19,8 @@ const COMPONENTS: any = {
   accordion: AccordionPreview,
   "alert-dialog": AlertDialogPreview,
   "aspect-ratio": AspectRatioPreview,
+  avatar: AvatarPreview,
+  badge: BadgePreview
 };
 
 const StyledFlex = styled.div`
@@ -28,8 +32,7 @@ const StyledFlex = styled.div`
 
 const StyledPreviewContainer = styled.div`
   overflow: hidden;
-  text-align: center;
-  flex: 1;
+  width: 100%;
   max-width: 100%;
 
   ${({ theme }) => theme.breakpoints[2]} {
@@ -39,6 +42,10 @@ const StyledPreviewContainer = styled.div`
 
 const StyledTabRoot = styled.div`
   margin-top: ${({ theme }) => theme.spaces[12]};
+`;
+
+const StyledTypography = styled.div`
+  margin: 0 auto;
 `;
 
 const PreviewContainer: FC<PropsWithChildren> = ({ children }) => {
@@ -60,7 +67,9 @@ export const PreviewComponent: FC<PreviewComponentProps> = ({ name }) => {
   if (!Preview) {
     return (
       <PreviewContainer>
-        <Typography>Component not found!</Typography>
+        <StyledTypography as={Typography}>
+          Component not found!
+        </StyledTypography>
       </PreviewContainer>
     );
   }

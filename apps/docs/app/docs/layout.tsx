@@ -11,12 +11,16 @@ const StyledContainerBody = styled.div`
   min-height: 100vh;
 `;
 
+const StyledContainer = styled.div`
+  width: min(860px, 100%);
+`;
+
 export default function DocsPage({ children }) {
   return (
     <StyledContainerBody>
-      <Container variant="sm">
+      <StyledContainer as={Container} variant="sm">
         <MDXProviderDocs>{children}</MDXProviderDocs>
-      </Container>
+      </StyledContainer>
     </StyledContainerBody>
   );
 }

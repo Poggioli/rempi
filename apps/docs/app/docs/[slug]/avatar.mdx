@@ -1,0 +1,84 @@
+---
+title: Avatar
+slug: avatar
+radixUI: https://www.radix-ui.com/primitives/docs/components/avatar
+radixAPI: https://www.radix-ui.com/primitives/docs/components/avatar#api-reference
+---
+
+# Avatar
+
+An image element with a fallback for representing the user.
+
+<Flex style={{ gap: 8 }}>
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/avatar" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/avatar#api-reference" />
+</Flex>
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/avatar
+```
+
+## Example
+
+<PreviewComponent name="avatar" />
+
+## API reference
+
+### Root
+
+Contains all the parts of an avatar. <br/>
+Has common <strong>Props</strong> with [Radix Avatar Root](https://www.radix-ui.com/primitives/docs/components/avatar#root).
+
+<APIReference
+  data={[
+    {
+      name: "size",
+      required: false,
+      type: '"small" | "standard" | "large"',
+      typeSimple: "enum",
+      defaultValue: '"standard"',
+      description: "Set the size of Avatar component",
+    },
+  ]}
+/>
+
+### Image
+
+Has common <strong>Props</strong> with [Radix Avatar Image](https://www.radix-ui.com/primitives/docs/components/avatar#image).
+
+### Fallback
+
+Has common <strong>Props</strong> with [Radix Avatar Fallback](https://www.radix-ui.com/primitives/docs/components/avatar#fallback).
+
+## Usage
+
+Import the <strong>Avatar</strong> and piece all composition components together.
+
+```jsx
+import { Avatar } from "@rempi-ui/avatar";
+
+() => (
+  <Avatar.Root size="standard">
+    <Avatar.Image
+      src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+      alt="Colm Tuite"
+    />
+    <Avatar.Fallback delayMs={600}>CT</Avatar.Fallback>
+  </Avatar.Root>
+);
+```
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/aspect-ratio",
+    label: "Aspect Ratio",
+  }}
+  next={{
+    link: "/docs/badge",
+    label: "Badge",
+  }}
+/>
