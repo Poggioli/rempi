@@ -6,9 +6,28 @@ import {
 } from "@rempi-ui/core";
 import { Flex } from "@rempi-ui/flex";
 
-export const StyledCardRoot = styled(Flex)<{ $bordered?: boolean }>`
-  background-color: ${({ theme }) => theme.colors.grey3};
+export const StyledCardRoot = styled(Flex)<{
+  $bordered?: boolean;
+  $colored?: boolean;
+}>`
   border-radius: ${({ theme }) => theme.radii[2]};
+
+  ${(props) => {
+    const apply = (value: boolean) => {
+      return (
+        value &&
+        css`
+          background-color: ${({ theme }) => theme.colors.grey3};
+        `
+      );
+    };
+
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$colored
+    );
+  }}
 
   ${(props) => {
     const apply = (value: boolean) => {

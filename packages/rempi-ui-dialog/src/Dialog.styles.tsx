@@ -69,6 +69,7 @@ export const StyledDialogContent = styled(Dialog.Content)`
   top: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+  z-index: ${({ theme }) => theme.zIndices[1]};
 
   ${({ theme }) => theme.breakpoints[1]} {
     border-radius: ${({ theme }) => theme.radii[2]};

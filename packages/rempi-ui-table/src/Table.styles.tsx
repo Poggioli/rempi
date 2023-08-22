@@ -30,6 +30,7 @@ export const StyledTableHead = styled.th`
   padding: ${({ theme }) => theme.spaces[1]} ${({ theme }) => theme.spaces[4]};
   text-align: left;
   vertical-align: middle;
+  white-space: nowrap;
 `;
 
 export const StyledTableFooter = styled.tfoot`

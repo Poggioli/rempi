@@ -11,19 +11,21 @@ import {
 
 export type CardProps = Omit<
   HTMLRempiProps<typeof StyledCardRoot>,
-  "$bordered"
+  "$bordered" | "$colored"
 > & {
   bordered?: RempiVariant<boolean>;
+  colored?: RempiVariant<boolean>;
 } & FlexProps;
 
 export const Card = forwardRef<typeof StyledCardRoot, CardProps>(
-  ({ bordered = true, flexDirection = "column", ...props }, ref) => {
+  ({ bordered = true, colored, flexDirection = "column", ...props }, ref) => {
     return (
       <StyledCardRoot
         {...props}
         ref={ref}
         flexDirection={flexDirection}
         $bordered={bordered}
+        $colored={colored}
       />
     );
   }

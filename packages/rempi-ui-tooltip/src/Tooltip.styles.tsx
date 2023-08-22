@@ -60,6 +60,7 @@ export const StyledTooltipContent = styled(Tooltip.Content)`
   box-shadow: ${({ theme }) => theme.shadows[1]};
   border: ${({ theme }) => theme.borderWidths[1]} solid
     ${({ theme }) => theme.colors.grey6};
+  z-index: ${({ theme }) => theme.zIndices[12]};
 
   * {
     font-size: ${({ theme }) => theme.fontSizes[3]};
