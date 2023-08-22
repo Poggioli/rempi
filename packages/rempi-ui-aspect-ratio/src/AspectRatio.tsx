@@ -1,17 +1,13 @@
 import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import * as AspectRatioRadix from "@radix-ui/react-aspect-ratio";
+import { StyledAspectRatio } from "./AspectRatio.styles";
 
-export type AspectRatioProps = HTMLRempiProps<typeof AspectRatioRadix.Root> &
+export type AspectRatioProps = HTMLRempiProps<typeof StyledAspectRatio> &
   AspectRatioRadix.AspectRatioProps;
 
 export const AspectRatio = forwardRef<
-  typeof AspectRatioRadix.Root,
+  typeof StyledAspectRatio,
   AspectRatioProps
->(
-  (
-    { ratio = 16 / 9, as: Component = AspectRatioRadix.Root, ...props },
-    ref
-  ) => {
-    return <Component {...props} ratio={ratio} ref={ref} />;
-  }
-);
+>(({ ratio = 16 / 9, ...props }, ref) => {
+  return <StyledAspectRatio {...props} ratio={ratio} ref={ref} />;
+});
