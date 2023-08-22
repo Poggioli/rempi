@@ -11,6 +11,7 @@ import { AspectRatioPreview } from "./PreviewComponents/AspectRatio";
 import { AvatarPreview } from "./PreviewComponents/Avatar";
 import { BadgePreview } from "./PreviewComponents/Badge";
 import { BlockquotePreview } from "./PreviewComponents/Blockquote";
+import { ButtonPreview } from "./PreviewComponents/Button";
 
 type PreviewComponentProps = {
   name: string;
@@ -22,7 +23,8 @@ const COMPONENTS: any = {
   "aspect-ratio": AspectRatioPreview,
   avatar: AvatarPreview,
   badge: BadgePreview,
-  blockquote: BlockquotePreview
+  blockquote: BlockquotePreview,
+  button: ButtonPreview
 };
 
 const StyledFlex = styled.div`

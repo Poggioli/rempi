@@ -38,7 +38,7 @@ export const APIReference: FC<APIReferenceProps> = ({ data }) => {
             <Table.Row key={`${name}-${index}`}>
               <Table.Cell style={{ whiteSpace: "nowrap" }}>
                 <Code>
-                  {name} {required ? "*" : null}
+                  {name}{required ? "*" : null}
                 </Code>
                 {description && (
                   <Popover.Root>
