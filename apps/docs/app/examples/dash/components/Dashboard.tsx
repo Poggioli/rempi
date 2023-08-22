@@ -1,19 +1,11 @@
 "use client";
 
 import { Avatar } from "@rempi-ui/avatar";
-import { Button } from "@rempi-ui/button";
-import { Calendar } from "@rempi-ui/calendar";
 import { Combobox } from "@rempi-ui/combobox";
 import { DropdownMenu } from "@rempi-ui/dropdown-menu";
 import { Flex } from "@rempi-ui/flex";
-import { Heading } from "@rempi-ui/heading";
 import { Input } from "@rempi-ui/input";
 import { NavigationMenu } from "@rempi-ui/navigation-menu";
-import { Popover } from "@rempi-ui/popover";
-import { format } from "date-fns";
-import {
-  DownloadIcon
-} from "lucide-react";
 import { FC, useState } from "react";
 import {
   StyledDashboard,
@@ -21,8 +13,8 @@ import {
   StyledDashboardHeader,
   StyledDashboardSearch,
 } from "./Dashboard.styles";
-import { DashboardTabs } from "./DashboardTabs";
 import { DashboardBodyHeader } from "./DashboardBodyHeader";
+import { DashboardTabs } from "./DashboardTabs";
 
 const Dashboard: FC = () => {
   const [selectedValue, setSelectedValue] = useState("john-stone");
@@ -134,4 +126,3 @@ const Dashboard: FC = () => {
 };
 
 export { Dashboard };
-
