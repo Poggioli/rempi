@@ -14,10 +14,18 @@ export const StyledCheckboxRoot = styled(Checkbox.Root)`
     ${({ theme }) => theme.spaces[4]} +
       calc(${({ theme }) => theme.spaces[1]} / 2)
   );
+  min-height: calc(
+    ${({ theme }) => theme.spaces[4]} +
+      calc(${({ theme }) => theme.spaces[1]} / 2)
+  );
   justify-content: center;
   line-height: 1;
   transition: background-color 300ms ease, border-color 300ms ease;
   width: calc(
+    ${({ theme }) => theme.spaces[4]} +
+      calc(${({ theme }) => theme.spaces[1]} / 2)
+  );
+  min-width: calc(
     ${({ theme }) => theme.spaces[4]} +
       calc(${({ theme }) => theme.spaces[1]} / 2)
   );
