@@ -4,7 +4,7 @@ import { FC } from "react";
 
 export const AvatarPreview: FC = () => {
   return (
-    <Flex justifyContent="center">
+    <Flex justifyContent="center" style={{ padding: 2 }}>
       <Avatar.Root size="large">
         <Avatar.Image
           src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"

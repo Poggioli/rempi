@@ -4,7 +4,7 @@ import { FC } from "react";
 
 export const BadgePreview: FC = () => {
   return (
-    <Flex justifyContent="center">
+    <Flex justifyContent="center" style={{ padding: 2 }}>
       <Badge>Primary</Badge>
     </Flex>
   );

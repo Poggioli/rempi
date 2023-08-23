@@ -9,6 +9,7 @@ export const ButtonPreview: FC = () => {
       justifyContent="center"
       style={{
         gap: 16,
+        padding: 2,
       }}
     >
       <Button>Hello I'm a Button</Button>

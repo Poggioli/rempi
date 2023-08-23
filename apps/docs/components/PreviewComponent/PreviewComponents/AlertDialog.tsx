@@ -5,7 +5,7 @@ import { FC } from "react";
 
 export const AlertDialogPreview: FC = () => {
   return (
-    <Flex justifyContent="center">
+    <Flex justifyContent="center" style={{ padding: 2 }}>
       <AlertDialog.Root>
         <AlertDialog.Trigger>
           <Button color="error">Delete account</Button>

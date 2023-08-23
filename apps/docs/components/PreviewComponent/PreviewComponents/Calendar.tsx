@@ -4,7 +4,7 @@ import { FC } from "react";
 
 export const CalendarPreview: FC = () => {
   return (
-    <Flex justifyContent="center">
+    <Flex justifyContent="center" style={{ padding: 2 }}>
       <Calendar />
     </Flex>
   );

@@ -9,7 +9,7 @@ import { FC } from "react";
 
 export const CardPreview: FC = () => {
   return (
-    <Flex justifyContent="center">
+    <Flex justifyContent="center" style={{ padding: 2 }}>
       <Card.Root>
         <Card.Header>
           <Card.Title>Notifications</Card.Title>
