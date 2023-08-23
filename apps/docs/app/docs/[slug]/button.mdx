@@ -5,7 +5,11 @@ slug: button
 
 # Button
 
-Displays a button or a component that looks like a button.
+<Description>Buttons allow users to take actions, and make choices, with a single tap.</Description>
+
+## Example
+
+<PreviewComponent name="button" />
 
 ## Installation
 
@@ -14,116 +18,6 @@ Install the component from your command line.
 ```bash
 yarn add @rempi-ui/button
 ```
-
-## Example
-
-<PreviewComponent name="button" />
-
-## API reference
-
-### Button
-
-Contains all the parts of an button.
-
-<APIReference
-  data={[
-    {
-      name: "size",
-      required: false,
-      type: '"small" | "standard" | "large"',
-      typeSimple: "enum",
-      defaultValue: '"standard"',
-      description: "Set the container size of Button",
-    },
-    {
-      name: "variant",
-      required: false,
-      type: '"text" | "contained" | "outlined" | "solid"',
-      typeSimple: "enum",
-      defaultValue: '"solid"',
-      description: "Set the Button styles",
-    },
-    {
-      name: "shape",
-      required: false,
-      type: '"flat" | "smoth" | "rounded"',
-      typeSimple: "enum",
-      defaultValue: '"smoth"',
-      description: "Set the corner shape",
-    },
-    {
-      name: "color",
-      required: false,
-      type: '"primary" | "secondary" | "success" | "error"',
-      typeSimple: "enum",
-      defaultValue: '"primary"',
-      description: "Set the color of Button",
-    },
-    {
-      name: "upperCase",
-      required: false,
-      typeSimple: "boolean",
-      defaultValue: "false",
-      description:
-        "Determines whether letters will be uppercase",
-    }
-  ]}
-/>
-
-### Icon Button
-
-Contains all the parts of an icon button.
-
-<APIReference
-  data={[
-    {
-      name: "aria-label",
-      required: true,
-      typeSimple: "string",
-      description: "Set the aria-label to accessibility",
-    },
-    {
-      name: "size",
-      required: false,
-      type: '"small" | "standard" | "large"',
-      typeSimple: "enum",
-      defaultValue: '"standard"',
-      description: "Set the container size of Button",
-    },
-    {
-      name: "variant",
-      required: false,
-      type: '"text" | "contained" | "outlined" | "solid"',
-      typeSimple: "enum",
-      defaultValue: '"solid"',
-      description: "Set the Button styles",
-    },
-    {
-      name: "shape",
-      required: false,
-      type: '"flat" | "smoth" | "rounded"',
-      typeSimple: "enum",
-      defaultValue: '"smoth"',
-      description: "Set the corner shape",
-    },
-    {
-      name: "color",
-      required: false,
-      type: '"primary" | "secondary" | "success" | "error"',
-      typeSimple: "enum",
-      defaultValue: '"primary"',
-      description: "Set the color of Button",
-    },
-    {
-      name: "upperCase",
-      required: false,
-      typeSimple: "boolean",
-      defaultValue: "false",
-      description:
-        "Determines whether letters will be uppercase",
-    }
-  ]}
-/>
 
 ## Usage
 
@@ -140,6 +34,110 @@ import { TrashIcon } from "lucide-react";
   </IconButton>
 );
 ```
+
+## API reference
+
+### Button
+
+Contains all the parts of an button.
+
+<APIReference
+  data={[
+    {
+      name: "size",
+      required: false,
+      type: '"small" | "standard" | "large"',
+      typeSimple: "enum",
+      defaultValue: '"standard"',
+      description: "Set the container size of Button.",
+    },
+    {
+      name: "variant",
+      required: false,
+      type: '"text" | "contained" | "outlined" | "solid"',
+      typeSimple: "enum",
+      defaultValue: '"solid"',
+      description: "Set the Button styles.",
+    },
+    {
+      name: "shape",
+      required: false,
+      type: '"flat" | "smoth" | "rounded"',
+      typeSimple: "enum",
+      defaultValue: '"smoth"',
+      description: "Set the corner shape.",
+    },
+    {
+      name: "color",
+      required: false,
+      type: '"primary" | "secondary" | "success" | "error"',
+      typeSimple: "enum",
+      defaultValue: '"primary"',
+      description: "Set the color of Button.",
+    },
+    {
+      name: "upperCase",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "false",
+      description: "Determines whether letters will be uppercase.",
+    },
+  ]}
+/>
+
+### Icon Button
+
+Contains all the parts of an icon button.
+
+<APIReference
+  data={[
+    {
+      name: "aria-label",
+      required: true,
+      typeSimple: "string",
+      description: "Set the aria-label to accessibility.",
+    },
+    {
+      name: "size",
+      required: false,
+      type: '"small" | "standard" | "large"',
+      typeSimple: "enum",
+      defaultValue: '"standard"',
+      description: "Set the container size of Button.",
+    },
+    {
+      name: "variant",
+      required: false,
+      type: '"text" | "contained" | "outlined" | "solid"',
+      typeSimple: "enum",
+      defaultValue: '"solid"',
+      description: "Set the Button styles.",
+    },
+    {
+      name: "shape",
+      required: false,
+      type: '"flat" | "smoth" | "rounded"',
+      typeSimple: "enum",
+      defaultValue: '"smoth"',
+      description: "Set the corner shape.",
+    },
+    {
+      name: "color",
+      required: false,
+      type: '"primary" | "secondary" | "success" | "error"',
+      typeSimple: "enum",
+      defaultValue: '"primary"',
+      description: "Set the color of Button.",
+    },
+    {
+      name: "upperCase",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "false",
+      description: "Determines whether letters will be uppercase.",
+    },
+  ]}
+/>
 
 <NavigationNextPrevious
   previous={{

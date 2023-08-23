@@ -14,7 +14,7 @@ export const ButtonPreview: FC = () => {
     >
       <Button>Hello I'm a Button</Button>
       <IconButton aria-label="download" color="success">
-        <DownloadCloudIcon size={18} />
+        <DownloadCloudIcon size={20} />
       </IconButton>
     </Flex>
   );
