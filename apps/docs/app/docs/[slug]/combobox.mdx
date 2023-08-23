@@ -5,7 +5,11 @@ slug: combobox
 
 # Combobox
 
-Autocomplete input and command palette with a list of suggestions.
+<Description>Autocomplete input and command palette with a list of suggestions.</Description>
+
+## Example
+
+<PreviewComponent name="combobox" />
 
 ## Installation
 
@@ -15,16 +19,48 @@ Install the component from your command line.
 yarn add @rempi-ui/combobox
 ```
 
-## Example
+## Usage
 
-<PreviewComponent name="combobox" />
+Import the <strong>Combobox</strong> and piece all composition components together.
+
+```jsx
+import { Combobox } from "@rempi-ui/combobox";
+
+() => (
+  <Combobox.Root>
+    <Combobox.Trigger>
+      <Combobox.Value placeholder="Select framework..." />
+    </Combobox.Trigger>
+    <Combobox.Content>
+      <Combobox.Input placeholder="Search framework..." />
+      <Combobox.Empty style={{ maxWidth: 180 }}>
+        No framework found.
+      </Combobox.Empty>
+      <Combobox.Label>Backend</Combobox.Label>
+      <Combobox.Item value="spring-boot">SpringBoot</Combobox.Item>
+      <Combobox.Item value="django" disabled>
+        Django
+      </Combobox.Item>
+      <Combobox.Item value="laravel">Laravel</Combobox.Item>
+      <Combobox.Item value="express-js">Express.js</Combobox.Item>
+      <Combobox.Item value="ruby-on-rails">Ruby on Rails</Combobox.Item>
+      <Combobox.Separator />
+      <Combobox.Label>Frontend</Combobox.Label>
+      <Combobox.Item value="next-js">Next.js</Combobox.Item>
+      <Combobox.Item value="svelte-kit">SvelteKit</Combobox.Item>
+      <Combobox.Item value="remix">Remix</Combobox.Item>
+      <Combobox.Item value="astro">Astro</Combobox.Item>
+    </Combobox.Content>
+  </Combobox.Root>
+);
+```
 
 ## API reference
 
 ### Root
 
 Contains all the parts of a Combobox. <br />
-Has common <strong>Props</strong> with [Rempi-UI Popover Root](/docs/popover).
+For more information access [Rempi-UI Popover Root](/docs/popover) documentation.
 
 <APIReference
   data={[
@@ -86,7 +122,7 @@ Has common <strong>Props</strong> with [Rempi-UI Popover Root](/docs/popover).
 
 ### Trigger
 
-Has common <strong>Props</strong> with [Rempi-UI Popover Trigger](/docs/popover).
+For more information access [Rempi-UI Popover Trigger](/docs/popover) documentation.
 
 ### Value
 
@@ -111,7 +147,7 @@ The part that reflects the selected value. By default the selected item's text w
 
 ### Content
 
-Has common <strong>Props</strong> with [Rempi-UI Popover Content](/docs/popover).
+For more information access [Rempi-UI Popover Content](/docs/popover) documentation.
 
 <APIReference
   data={[
@@ -153,13 +189,13 @@ The component that contains the select items.
 
 ### Separator
 
-Used to visually separate items in the select.
-Has common <strong>Props</strong> with [Rempi-UI Separator](/docs/separator).
+Used to visually separate items in the select.<br />
+For more information access [Rempi-UI Popover Separator](/docs/separator) documentation.
 
 ### Input
 
-Used to user insert the value to be searched.
-Has common <strong>Props</strong> with [Rempi-UI Input](/docs/input).
+Used to user insert the value to be searched.<br />
+For more information access [Rempi-UI Popover Input](/docs/input) documentation.
 
 ### Empty
 
@@ -168,42 +204,6 @@ Used to indicates when searched value not found any correspondence.
 ### Label
 
 Used to render the label of a group. It won't be focusable using arrow keys.
-
-## Usage
-
-Import the <strong>Combobox</strong> and piece all composition components together.
-
-```jsx
-import { Combobox } from "@rempi-ui/combobox";
-
-() => (
-  <Combobox.Root>
-    <Combobox.Trigger>
-      <Combobox.Value placeholder="Select framework..." />
-    </Combobox.Trigger>
-    <Combobox.Content>
-      <Combobox.Input placeholder="Search framework..." />
-      <Combobox.Empty style={{ maxWidth: 180 }}>
-        No framework found.
-      </Combobox.Empty>
-      <Combobox.Label>Backend</Combobox.Label>
-      <Combobox.Item value="spring-boot">SpringBoot</Combobox.Item>
-      <Combobox.Item value="django" disabled>
-        Django
-      </Combobox.Item>
-      <Combobox.Item value="laravel">Laravel</Combobox.Item>
-      <Combobox.Item value="express-js">Express.js</Combobox.Item>
-      <Combobox.Item value="ruby-on-rails">Ruby on Rails</Combobox.Item>
-      <Combobox.Separator />
-      <Combobox.Label>Frontend</Combobox.Label>
-      <Combobox.Item value="next-js">Next.js</Combobox.Item>
-      <Combobox.Item value="svelte-kit">SvelteKit</Combobox.Item>
-      <Combobox.Item value="remix">Remix</Combobox.Item>
-      <Combobox.Item value="astro">Astro</Combobox.Item>
-    </Combobox.Content>
-  </Combobox.Root>
-);
-```
 
 <NavigationNextPrevious
   previous={{
