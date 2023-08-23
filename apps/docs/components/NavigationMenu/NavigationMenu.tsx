@@ -41,7 +41,7 @@ export const NavigationMenu: FC = () => {
                 </RempiNavigationMenu.Link>
               </RempiNavigationMenu.Item>
               <RempiNavigationMenu.Item>
-                <RempiNavigationMenu.Link href="/docs">
+                <RempiNavigationMenu.Link href="/docs/accordion">
                   Documentation
                 </RempiNavigationMenu.Link>
               </RempiNavigationMenu.Item>
@@ -66,7 +66,7 @@ export const NavigationMenu: FC = () => {
             </RempiNavigationMenu.Link>
           </RempiNavigationMenu.Item>
           <RempiNavigationMenu.Item>
-            <RempiNavigationMenu.Link href="/docs">
+            <RempiNavigationMenu.Link href="/docs/accordion">
               Documentation
             </RempiNavigationMenu.Link>
           </RempiNavigationMenu.Item>

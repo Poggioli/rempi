@@ -39,7 +39,7 @@ export const MainSection: FC = () => {
       <StyledMainSectionButtons as={Flex} flexDirection="row">
         <StyledMainSectionStartLink
           as={(props: any) => <Button {...props} as="a" />}
-          href="/docs"
+          href="/docs/accordion"
           variant="solid"
           color="primary"
         >

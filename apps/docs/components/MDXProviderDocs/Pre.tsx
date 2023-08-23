@@ -9,6 +9,8 @@ const StyledPre = styled.pre`
   margin: ${({ theme }) => theme.spaces[4]} 0;
   overflow-x: auto;
   padding: ${({ theme }) => theme.spaces[4]};
+  max-height: 440px;
+  overflow-y: auto;
 
   code {
     color: ${({ theme }) => theme.colors.grey12};

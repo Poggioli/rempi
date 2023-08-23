@@ -8,7 +8,7 @@ import { FC, PropsWithChildren } from "react";
 const ExamplesLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
-      <Flex as="section" direction="column" className="main-section">
+      <Flex as="section" flexDirection="column" className="main-section">
         <Heading
           fontWeight="semi-bold"
           lineHeight={1}
@@ -25,10 +25,10 @@ const ExamplesLayout: FC<PropsWithChildren> = ({ children }) => {
           Dashboard, cards, autenticações. Alguns exemplos construídos com{" "}
           <strong>Rempi-UI</strong>.
         </Typography>
-        <Flex direction="row" className="main-section__buttons">
+        <Flex flexDirection="row" className="main-section__buttons">
           <Button
             as="a"
-            href="/docs"
+            href="/docs/accordion"
             variant="solid"
             color="primary"
             className="main-section__start-link"
