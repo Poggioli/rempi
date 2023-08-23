@@ -1,0 +1,91 @@
+---
+title: Collapsible
+slug: collapsible
+radixUI: https://www.radix-ui.com/primitives/docs/components/collapsible
+radixAPI: https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference
+---
+
+# Collapsible
+
+An interactive component which expands/collapses a panel.
+
+<Flex style={{ gap: 8 }}>
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/collapsible" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference" />
+</Flex>
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/collapsible
+```
+
+## Example
+
+<PreviewComponent name="collapsible" />
+
+## API reference
+
+### Root
+
+Has common <strong>Props</strong> with [Radix Collapsible Root](https://www.radix-ui.com/primitives/docs/components/collapsible#root).
+
+### Trigger
+
+Has common <strong>Props</strong> with [Radix Collapsible Trigger](https://www.radix-ui.com/primitives/docs/components/collapsible#trigger).
+
+### Content
+
+Has common <strong>Props</strong> with [Radix Collapsible Content](https://www.radix-ui.com/primitives/docs/components/collapsible#content).
+
+## Usage
+
+Import the <strong>Collapsible</strong> and piece all composition components together.
+
+```jsx
+import { IconButton } from "@rempi-ui/button";
+import { Collapsible } from "@rempi-ui/collpasible";
+import { Flex } from "@rempi-ui/flex";
+import { Typography } from "@rempi-ui/typography";
+import { FoldVertical } from "lucide-react";
+
+() => (
+  <Collapsible.Root>
+    <Flex justifyContent="space-between" alignItems="center">
+      <Typography>@peduarte starred 3 repositories</Typography>
+      <Collapsible.Trigger>
+        <IconButton
+          shape="rounded"
+          size="small"
+          aria-label="open repos"
+          variant="text"
+        >
+          <FoldVertical />
+        </IconButton>
+      </Collapsible.Trigger>
+    </Flex>
+    <Flex>
+      <Typography>@radix-ui/primitives</Typography>
+    </Flex>
+    <Collapsible.Content>
+      <Flex flexDirection="column">
+        <Typography>@radix-ui/colors</Typography>
+        <Typography>@radix-ui/react</Typography>
+      </Flex>
+    </Collapsible.Content>
+  </Collapsible.Root>
+);
+```
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/code",
+    label: "Code",
+  }}
+  next={{
+    link: "/docs/combobox",
+    label: "Combobox",
+  }}
+/>

@@ -16,6 +16,7 @@ import { CalendarPreview } from "./PreviewComponents/Calendar";
 import { CardPreview } from "./PreviewComponents/Card";
 import { CheckboxPreview } from "./PreviewComponents/Checkbox";
 import { CodePreview } from "./PreviewComponents/Code";
+import { CollapsiblePreview } from "./PreviewComponents/Collapsible";
 
 type PreviewComponentProps = {
   name: string;
@@ -33,6 +34,7 @@ const COMPONENTS: any = {
   card: CardPreview,
   checkbox: CheckboxPreview,
   code: CodePreview,
+  collapsible: CollapsiblePreview
 };
 
 const StyledFlex = styled.div`
