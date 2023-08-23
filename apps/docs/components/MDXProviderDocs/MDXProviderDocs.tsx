@@ -15,6 +15,7 @@ import { RadixUI } from "./RadixUI";
 import { Step, Steps } from "./Steps";
 import { Code } from "@rempi-ui/code";
 import { DataReference } from "./DataReference";
+import { Description } from "./Description";
 
 export const MDXProviderDocs: FC<PropsWithChildren> = ({ children }) => {
   return (
@@ -23,6 +24,7 @@ export const MDXProviderDocs: FC<PropsWithChildren> = ({ children }) => {
         h1: Heading1,
         h2: Heading2,
         h3: Heading3,
+        Description,
         p: Paragraph,
         Steps,
         Step,
