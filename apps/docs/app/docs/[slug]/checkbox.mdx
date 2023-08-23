@@ -7,12 +7,18 @@ radixAPI: https://www.radix-ui.com/primitives/docs/components/checkbox#api-refer
 
 # Checkbox
 
-A control that allows the user to toggle between checked and not checked.
+<Description>
+  A control that allows the user to toggle between checked and not checked.
+</Description>
 
 <Flex style={{ gap: 8 }}>
   <RadixUI href="https://www.radix-ui.com/primitives/docs/components/checkbox" />
   <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/checkbox#api-reference" />
 </Flex>
+
+## Example
+
+<PreviewComponent name="checkbox" />
 
 ## Installation
 
@@ -22,21 +28,119 @@ Install the component from your command line.
 yarn add @rempi-ui/checkbox
 ```
 
-## Example
+## Usage
 
-<PreviewComponent name="checkbox" />
+Import the <strong>Checkbox</strong> and piece all composition components together.
+
+```jsx
+import { Checkbox } from "@rempi-ui/checkbox";
+
+() => (
+  <Checkbox.Label>
+    <Checkbox.Check />I have read and accept the terms of use
+  </Checkbox.Label>
+);
+```
+
+## About
+
+Rempi-UI Checkbox component is built on top [Radix Checkbox](https://www.radix-ui.com/primitives/docs/components/checkbox).
 
 ## API reference
 
 ### Check
 
-Contains all the parts of an checkbox. <br/>
-Has common <strong>Props</strong> with [Radix Checkbox Root](https://www.radix-ui.com/primitives/docs/components/checkbox#root) and [Radix Checkbox Indicator](https://www.radix-ui.com/primitives/docs/components/checkbox#indicator).
+It's a mix of [Radix Checkbox Root](https://www.radix-ui.com/primitives/docs/components/checkbox#root) and [Radix Checkbox Indicator](https://www.radix-ui.com/primitives/docs/components/checkbox#indicator).<br/><br/>
+Contains all the parts of a checkbox. An `input` will also render when used within a `form` to ensure events propagate correctly. <br/>
+Renders when the checkbox is in a checked or indeterminate state. You can style this element directly, or you can use it as a wrapper to put an icon into, or both. <br />
+
+<APIReference
+  data={[
+    {
+      name: "defaultChecked",
+      type: "boolean",
+      description:
+        "The checked state of the checkbox when it is initially rendered. Use when you do not need to control its checked state.",
+    },
+    {
+      name: "checked",
+      type: "boolean",
+      description: (
+        <span>
+          The controlled checked state of the checkbox. Must be used in
+          conjunction with <code>onCheckedChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onCheckedChange",
+      type: `(checked: boolean | 'indeterminate') => void`,
+      typeSimple: "function",
+      description:
+        "Event handler called when the checked state of the checkbox changes.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with the
+          checkbox.
+        </span>
+      ),
+    },
+    {
+      name: "required",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, indicates that the user must check the
+          checkbox before the owning form can be submitted.
+        </span>
+      ),
+    },
+    {
+      name: "name",
+      type: "string",
+      description:
+        "The name of the checkbox. Submitted with its owning form as part of a name/value pair.",
+    },
+    {
+      name: "value",
+      type: "string",
+      defaultValue: "on",
+      description: (
+        <span>
+          The value given as data when submitted with a <code>name</code>.
+        </span>
+      ),
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description:
+        "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["checked", "unchecked", "indeterminate"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
 
 ### Label
 
-Renders an accessible label associated with controls.
-Has common <strong>Props</strong> with [Rempi-UI Label](/docs/label).
+Renders an accessible label associated with controls.<br />
+Rempi-UI <strong>Checkbox.Label</strong> component is built on top of <strong>Rempi-UI Label</strong>, for more information access [Rempi-UI Label](/docs/label) documentation.
 
 <DataReference
   data={[
@@ -54,20 +158,6 @@ Has common <strong>Props</strong> with [Rempi-UI Label](/docs/label).
     },
   ]}
 />
-
-## Usage
-
-Import the <strong>Checkbox</strong> and piece all composition components together.
-
-```jsx
-import { Checkbox } from "@rempi-ui/checkbox";
-
-() => (
-  <Checkbox.Label>
-    <Checkbox.Check />I have read and accept the terms of use
-  </Checkbox.Label>
-);
-```
 
 <NavigationNextPrevious
   previous={{
