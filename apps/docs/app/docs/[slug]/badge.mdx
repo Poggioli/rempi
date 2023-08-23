@@ -5,7 +5,11 @@ slug: badge
 
 # Badge
 
-Displays a badge or a component that looks like a badge.
+<Description>Are compact elements that represent an input, attribute, or action.</Description>
+
+## Example
+
+<PreviewComponent name="badge" />
 
 ## Installation
 
@@ -15,34 +19,6 @@ Install the component from your command line.
 yarn add @rempi-ui/badge
 ```
 
-## Example
-
-<PreviewComponent name="badge" />
-
-## API reference
-
-### Root
-
-Contains all the parts of an badge. <br/>
-
-<APIReference
-  data={[
-    {
-      name: "variant",
-      required: false,
-      type: '"primary" | "secondary" | "outlined" | "destructive"',
-      typeSimple: "enum",
-      defaultValue: '"primary"',
-      description: "Set the Badge styles",
-    },
-    {
-      name: "as",
-      required: false,
-      typeSimple: "HTMLElement",
-      description: "For changing which tag a component outputs.",
-    },
-  ]}
-/>
 
 ## Usage
 
@@ -53,6 +29,25 @@ import { Badge } from "@rempi-ui/badge";
 
 () => <Badge>Hello I'm a Badge</Badge>;
 ```
+
+## API reference
+
+### Root
+
+Contains all the parts of an badge.
+
+<APIReference
+  data={[
+    {
+      name: "variant",
+      required: false,
+      type: '"primary" | "secondary" | "outlined" | "destructive"',
+      typeSimple: "enum",
+      defaultValue: '"primary"',
+      description: "Set the Badge styles.",
+    }
+  ]}
+/>
 
 <NavigationNextPrevious
   previous={{
