@@ -2,7 +2,12 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 
-function loadMdxFile(pathName: string, mdxFileName: string) {
+type MDXType = {
+  frontmatter: { [key: string]: any };
+  content: string
+};
+
+function loadMdxFile(pathName: string, mdxFileName: string): MDXType {
   const mdxDir = path.join(process.cwd(), pathName, mdxFileName.concat(".mdx"));
 
   try {
@@ -22,6 +27,7 @@ function loadMdxFile(pathName: string, mdxFileName: string) {
   } catch (error) {
     return {
       content: "<p>Ops, error</p>",
+      frontmatter: {},
     };
   }
 }
