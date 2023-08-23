@@ -13,6 +13,7 @@ import { BadgePreview } from "./PreviewComponents/Badge";
 import { BlockquotePreview } from "./PreviewComponents/Blockquote";
 import { ButtonPreview } from "./PreviewComponents/Button";
 import { CalendarPreview } from "./PreviewComponents/Calendar";
+import { CardPreview } from "./PreviewComponents/Card";
 
 type PreviewComponentProps = {
   name: string;
@@ -26,7 +27,8 @@ const COMPONENTS: any = {
   badge: BadgePreview,
   blockquote: BlockquotePreview,
   button: ButtonPreview,
-  calendar: CalendarPreview
+  calendar: CalendarPreview,
+  card: CardPreview
 };
 
 const StyledFlex = styled.div`

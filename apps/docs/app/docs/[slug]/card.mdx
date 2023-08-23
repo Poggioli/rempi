@@ -1,0 +1,172 @@
+---
+title: Card
+slug: card
+---
+
+# Card
+
+Displays a card with header, content, and footer.
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/card
+```
+
+## Example
+
+<PreviewComponent name="card" />
+
+## API reference
+
+### Root
+
+Has common <strong>Props</strong> with [Rempi-UI Flex](/docs/flex).
+
+<APIReference
+  data={[
+    {
+      name: "bordered",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description: "Determines whether card has border or not",
+    },
+    {
+      name: "colored",
+      required: false,
+      typeSimple: "boolean",
+      description: "Determines whether card has background-color or not",
+    },
+  ]}
+/>
+
+### Header
+
+Has common <strong>Props</strong> with [Rempi-UI Flex](/docs/flex).
+
+### Title
+
+Has common <strong>Props</strong> with [Rempi-UI Heading](/docs/heading).
+
+<APIReference
+  data={[
+    {
+      name: "as",
+      required: false,
+      typeSimple: "HTMLElement",
+      defaultValue: '"h3"',
+      description: "For changing which tag a component outputs.",
+    },
+  ]}
+/>
+
+### Description
+
+Has common <strong>Props</strong> with [Rempi-UI Typography](/docs/typography).
+
+<APIReference
+  data={[
+    {
+      name: "as",
+      required: false,
+      typeSimple: "HTMLElement",
+      defaultValue: '"p"',
+      description: "For changing which tag a component outputs.",
+    },
+  ]}
+/>
+
+### Content
+
+Has common <strong>Props</strong> with [Rempi-UI Flex](/docs/flex).
+
+### Footer
+
+Has common <strong>Props</strong> with [Rempi-UI Flex](/docs/flex).
+
+## Usage
+
+Import the <strong>Card</strong> and piece all composition components together.
+
+```jsx
+import { Button } from "@rempi-ui/button";
+import { Card } from "@rempi-ui/card";
+import { Flex } from "@rempi-ui/flex";
+import { Switch } from "@rempi-ui/switch";
+import { Typography } from "@rempi-ui/typography";
+import { BellIcon, Check } from "lucide-react";
+
+() => (
+  <Card.Root>
+    <Card.Header>
+      <Card.Title>Notifications</Card.Title>
+      <Card.Description>You have 3 unread messages.</Card.Description>
+    </Card.Header>
+    <Card.Content flexDirection="column">
+      <Flex alignItems="center">
+        <BellIcon size={16} />
+        <Flex flexDirection="column">
+          <Typography
+            fontSize="sm"
+            fontWeight="semi-bold"
+            color="high-contrast"
+            lineHeight={1}
+          >
+            Push Notifications
+          </Typography>
+          <Typography
+            fontSize="sm"
+            fontWeight="regular"
+            color="low-contrast"
+            lineHeight={1}
+          >
+            Send notifications to device.
+          </Typography>
+        </Flex>
+        <Switch.Thumb />
+      </Flex>
+      <Flex flexDirection="row" alignItems="start">
+        <Typography />
+        <Flex flexDirection="column">
+          <Typography
+            fontSize="sm"
+            fontWeight="semi-bold"
+            color="high-contrast"
+            lineHeight={1}
+          >
+            Your call has been confirmed.
+          </Typography>
+          <Typography
+            fontSize="sm"
+            fontWeight="regular"
+            color="low-contrast"
+            lineHeight={1}
+          >
+            1 hour ago
+          </Typography>
+        </Flex>
+      </Flex>
+    </Card.Content>
+    <Card.Footer>
+      <Button>
+        <Check size={16} />
+        Mark all as read
+      </Button>
+    </Card.Footer>
+  </Card.Root>
+);
+```
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/calendar",
+    label: "Calendar",
+  }}
+  next={{
+    link: "/docs/checkbox",
+    label: "Checkbox",
+  }}
+/>

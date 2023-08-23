@@ -1,5 +1,5 @@
 import { forwardRef, HTMLRempiProps, RempiVariant } from "@rempi-ui/core";
-import { FlexProps } from "@rempi-ui/flex";
+import { Flex, FlexProps } from "@rempi-ui/flex";
 import { Heading, HeadingProps } from "@rempi-ui/heading";
 import { Typography, TypographyProps } from "@rempi-ui/typography";
 import {
@@ -22,6 +22,7 @@ export const Card = forwardRef<typeof StyledCardRoot, CardProps>(
     return (
       <StyledCardRoot
         {...props}
+        as={(props: any) => <Flex {...props} />}
         ref={ref}
         flexDirection={flexDirection}
         $bordered={bordered}
@@ -39,7 +40,12 @@ export type CardHeaderProps = HTMLRempiProps<typeof StyledCardHeader> &
 export const CardHeader = forwardRef<typeof StyledCardHeader, CardHeaderProps>(
   ({ flexDirection = "column", ...props }, ref) => {
     return (
-      <StyledCardHeader {...props} ref={ref} flexDirection={flexDirection} />
+      <StyledCardHeader
+        {...props}
+        as={(props: any) => <Flex {...props} />}
+        ref={ref}
+        flexDirection={flexDirection}
+      />
     );
   }
 );
@@ -83,7 +89,13 @@ export const CardContent = forwardRef<
   typeof StyledCardContent,
   CardContentProps
 >(({ ...props }, ref) => {
-  return <StyledCardContent {...props} ref={ref} />;
+  return (
+    <StyledCardContent
+      {...props}
+      as={(props: any) => <Flex {...props} />}
+      ref={ref}
+    />
+  );
 });
 
 // ------------------------------------------------------------------------- //
@@ -94,7 +106,12 @@ export type CardFooterProps = HTMLRempiProps<typeof StyledCardFooter> &
 export const CardFooter = forwardRef<typeof StyledCardFooter, CardFooterProps>(
   ({ justifyContent = "flex-end", ...props }, ref) => {
     return (
-      <StyledCardFooter {...props} ref={ref} justifyContent={justifyContent} />
+      <StyledCardFooter
+        {...props}
+        as={(props: any) => <Flex {...props} />}
+        ref={ref}
+        justifyContent={justifyContent}
+      />
     );
   }
 );
