@@ -5,7 +5,11 @@ slug: card
 
 # Card
 
-Displays a card with header, content, and footer.
+<Description>Displays a card with header, content, and footer.</Description>
+
+## Example
+
+<PreviewComponent name="card" />
 
 ## Installation
 
@@ -14,78 +18,6 @@ Install the component from your command line.
 ```bash
 yarn add @rempi-ui/card
 ```
-
-## Example
-
-<PreviewComponent name="card" />
-
-## API reference
-
-### Root
-
-Has common <strong>Props</strong> with [Rempi-UI Flex](/docs/flex).
-
-<APIReference
-  data={[
-    {
-      name: "bordered",
-      required: false,
-      typeSimple: "boolean",
-      defaultValue: "true",
-      description: "Determines whether card has border or not",
-    },
-    {
-      name: "colored",
-      required: false,
-      typeSimple: "boolean",
-      description: "Determines whether card has background-color or not",
-    },
-  ]}
-/>
-
-### Header
-
-Has common <strong>Props</strong> with [Rempi-UI Flex](/docs/flex).
-
-### Title
-
-Has common <strong>Props</strong> with [Rempi-UI Heading](/docs/heading).
-
-<APIReference
-  data={[
-    {
-      name: "as",
-      required: false,
-      typeSimple: "HTMLElement",
-      defaultValue: '"h3"',
-      description: "For changing which tag a component outputs.",
-    },
-  ]}
-/>
-
-### Description
-
-Has common <strong>Props</strong> with [Rempi-UI Typography](/docs/typography).
-
-<APIReference
-  data={[
-    {
-      name: "as",
-      required: false,
-      typeSimple: "HTMLElement",
-      defaultValue: '"p"',
-      description: "For changing which tag a component outputs.",
-    },
-  ]}
-/>
-
-### Content
-
-Has common <strong>Props</strong> with [Rempi-UI Flex](/docs/flex).
-
-### Footer
-
-Has common <strong>Props</strong> with [Rempi-UI Flex](/docs/flex).
 
 ## Usage
 
@@ -159,6 +91,50 @@ import { BellIcon, Check } from "lucide-react";
   </Card.Root>
 );
 ```
+
+## API reference
+
+### Root
+
+The <strong>Card.Root</strong> component is built on top of [Rempi-UI Flex](/docs/flex), access the documentation to see all <strong>Props</strong>.
+
+<APIReference
+  data={[
+    {
+      name: "bordered",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description: "Determines whether card has border or not",
+    },
+    {
+      name: "colored",
+      required: false,
+      typeSimple: "boolean",
+      description: "Determines whether card has background-color or not",
+    },
+  ]}
+/>
+
+### Header
+
+The <strong>Card.Header</strong> component is built on top of [Rempi-UI Flex](/docs/flex), access the documentation to see all <strong>Props</strong>.
+
+### Title
+
+The <strong>Card.Title</strong> component is built on top of [Rempi-UI Heading](/docs/heading), access the documentation to see all <strong>Props</strong>.
+
+### Description
+
+The <strong>Card.Description</strong> component is built on top of [Rempi-UI Typography](/docs/typography), access the documentation to see all <strong>Props</strong>.
+
+### Content
+
+The <strong>Card.Content</strong> component is built on top of [Rempi-UI Flex](/docs/flex), access the documentation to see all <strong>Props</strong>.
+
+### Footer
+
+The <strong>Card.Footer</strong> component is built on top of [Rempi-UI Flex](/docs/flex), access the documentation to see all <strong>Props</strong>.
 
 <NavigationNextPrevious
   previous={{
