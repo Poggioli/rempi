@@ -13,16 +13,17 @@ import {
 
 export type TableProps = Omit<
   HTMLRempiProps<typeof StyledTableRoot>,
-  "as" | "$striped" | "$condensed"
+  "as" | "$striped" | "$condensed" | "$bordered"
 > & {
   striped?: RempiVariant<boolean>;
   condensed?: RempiVariant<boolean>;
+  bordered?: RempiVariant<boolean>;
 };
 
 export const Table = forwardRef<typeof StyledTableRoot, TableProps>(
-  ({ children, striped = true, condensed = true, ...props }, ref) => {
+  ({ children, striped = true, condensed = true, bordered = true, ...props }, ref) => {
     return (
-      <StyledTableWrapper>
+      <StyledTableWrapper $bordered={bordered}>
         <StyledTableRoot
           ref={ref}
           {...props}

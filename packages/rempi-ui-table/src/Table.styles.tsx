@@ -2,12 +2,34 @@ import {
   ApplyResponsiveVariant,
   css,
   RempiConfig,
+  RempiVariant,
   styled,
 } from "@rempi-ui/core";
 
-export const StyledTableWrapper = styled.div`
+export const StyledTableWrapper = styled.div<{
+  $bordered?: RempiVariant<boolean>;
+}>`
+  margin-top: ${({ theme }) => theme.spaces[4]};
   overflow: auto;
   width: 100%;
+  border-radius: ${({ theme }) => theme.radii[2]};
+
+  ${(props) => {
+    const apply = (value: boolean) => {
+      return (
+        value &&
+        css`
+          box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.grey6};
+        `
+      );
+    };
+
+    return ApplyResponsiveVariant(
+      apply,
+      props.theme as RempiConfig,
+      props.$bordered
+    );
+  }};
 `;
 
 export const StyledTableRow = styled.tr`
@@ -62,8 +84,8 @@ export const StyledTableBody = styled.tbody`
 `;
 
 export const StyledTableRoot = styled.table<{
-  $striped?: boolean;
-  $condensed?: boolean;
+  $striped?: RempiVariant<boolean>;
+  $condensed?: RempiVariant<boolean>;
 }>`
   border-collapse: collapse;
   caption-side: bottom;
@@ -71,7 +93,6 @@ export const StyledTableRoot = styled.table<{
   font-size: ${({ theme }) => theme.fontSizes[3]};
   line-height: ${({ theme }) => theme.lineHeights[2]};
   width: 100%;
-  margin-top: ${({ theme }) => theme.spaces[4]};
 
   ${(props) => {
     const apply = (value: boolean) => {
