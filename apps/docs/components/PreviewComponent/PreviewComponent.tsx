@@ -15,6 +15,7 @@ import { ButtonPreview } from "./PreviewComponents/Button";
 import { CalendarPreview } from "./PreviewComponents/Calendar";
 import { CardPreview } from "./PreviewComponents/Card";
 import { CheckboxPreview } from "./PreviewComponents/Checkbox";
+import { CodePreview } from "./PreviewComponents/Code";
 
 type PreviewComponentProps = {
   name: string;
@@ -30,7 +31,8 @@ const COMPONENTS: any = {
   button: ButtonPreview,
   calendar: CalendarPreview,
   card: CardPreview,
-  checkbox: CheckboxPreview
+  checkbox: CheckboxPreview,
+  code: CodePreview,
 };
 
 const StyledFlex = styled.div`

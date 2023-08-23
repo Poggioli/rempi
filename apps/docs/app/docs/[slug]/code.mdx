@@ -1,0 +1,102 @@
+---
+title: Code
+slug: code
+---
+
+# Code
+
+Marks text to signify a short fragment of computer code.
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/code
+```
+
+## Example
+
+<PreviewComponent name="code" />
+
+## API reference
+
+### Code
+
+Contains all the parts of an code.
+
+<APIReference
+  data={[
+    {
+      name: "fontSize",
+      required: false,
+      type: '"2xsm" | \n "xsm" | \n "sm" | \n "md" | \n "lg" | \n "xlg"',
+      typeSimple: "enum",
+      description: "Set the font-size of Code",
+    },
+    {
+      name: "fontWeight",
+      required: false,
+      type: '"tiny" | \n "normal" | \n "regular" | \n "semi-bold" | \n "bold" | \n "extra-bold"',
+      typeSimple: "enum",
+      description: "Set the font-weight of Code",
+    },
+    {
+      name: "lineHeight",
+      required: false,
+      type: '"1" | "2"',
+      typeSimple: "enum",
+      description: "Set the line-height of Code",
+    },
+    {
+      name: "color",
+      required: false,
+      type: '"low-contrast" | "high-contrast"',
+      typeSimple: "enum",
+      description: "Set the color of Code",
+    },
+    {
+      name: "textAlign",
+      required: false,
+      type: '"left" | "center" | "right"',
+      typeSimple: "enum",
+      description: "Set the text-align of Code",
+    },
+    {
+      name: "isTruncated",
+      required: false,
+      typeSimple: "boolean",
+      description:
+        "Determines whether to add an ellipsis to the end of the text if the content does not fit",
+    },
+    {
+      name: "variant",
+      required: false,
+      type: '"lead1" | \n "lead2" | \n "body1" | \n "body2" | \n "caption" | \n "subtitle"',
+      typeSimple: "enum",
+      defaultValue: '"body2"',
+      description: "Set the Code styles",
+    },
+  ]}
+/>
+
+## Usage
+
+Import the <strong>Code</strong>.
+
+```jsx
+import { Code } from "@rempi-ui/code";
+
+() => <Code>console.log('Hello I'm a Code')</Code>;
+```
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/checkbox",
+    label: "Checkbox",
+  }}
+  next={{
+    link: "/docs/collapsible",
+    label: "Collapsible",
+  }}
+/>
