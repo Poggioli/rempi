@@ -7,12 +7,19 @@ radixAPI: https://www.radix-ui.com/primitives/docs/components/alert-dialog#api-r
 
 # Alert Dialog
 
-A modal dialog that interrupts the user with important content and expects a response.
+<Description>
+  A modal dialog that interrupts the user with important content and expects a
+  response.
+</Description>
 
 <Flex style={{ gap: 8 }}>
   <RadixUI href="https://www.radix-ui.com/primitives/docs/components/alert-dialog" />
   <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/alert-dialog#api-reference" />
 </Flex>
+
+## Example
+
+<PreviewComponent name="alert-dialog" />
 
 ## Installation
 
@@ -21,130 +28,6 @@ Install the component from your command line.
 ```bash
 yarn add @rempi-ui/alert-dialog
 ```
-
-## Example
-
-<PreviewComponent name="alert-dialog" />
-
-## API reference
-
-### Root
-
-Has common <strong>Props</strong> with [Radix Alert Dialog Root](https://www.radix-ui.com/primitives/docs/components/alert-dialog#root).
-
-### Trigger
-
-Has common <strong>Props</strong> with [Radix Alert Dialog Trigger](https://www.radix-ui.com/primitives/docs/components/alert-dialog#trigger).
-
-<APIReference
-  data={[
-    {
-      name: "asChild",
-      required: false,
-      type: "boolean",
-      defaultValue: "true",
-      description: (
-        <>
-          Change the default rendered element for the one passed as a child,
-          merging their props and behavior.
-          <br />
-          <br />
-          Read the <a href="https://www.radix-ui.com/primitives/docs/guides/composition">
-            Radix Composition
-          </a> guide for more details.
-        </>
-      ),
-    },
-  ]}
-/>
-
-### Portal
-
-Has common <strong>Props</strong> with [Radix Alert Dialog Portal](https://www.radix-ui.com/primitives/docs/components/alert-dialog#portal).
-
-### Overlay
-
-A layer that covers the inert portion of the view when the dialog is open.<br/>
-Has common <strong>Props</strong> with [Radix Alert Dialog Overlay](https://www.radix-ui.com/primitives/docs/components/alert-dialog#overlay).
-
-<APIReference
-  data={[
-    {
-      name: "blur",
-      required: false,
-      type: "boolean",
-      defaultValue: "false",
-      description: "Turns overlay background to blurry",
-    },
-  ]}
-/>
-
-### Content
-
-Has common <strong>Props</strong> with [Radix Alert Dialog Content](https://www.radix-ui.com/primitives/docs/components/alert-dialog#content).
-
-### Cancel
-
-Has common <strong>Props</strong> with [Radix Alert Dialog Cancel](https://www.radix-ui.com/primitives/docs/components/alert-dialog#cancel).
-
-<APIReference
-  data={[
-    {
-      name: "asChild",
-      required: false,
-      type: "boolean",
-      defaultValue: "true",
-      description: (
-        <>
-          Change the default rendered element for the one passed as a child,
-          merging their props and behavior.
-          <br />
-          <br />
-          Read the <a href="https://www.radix-ui.com/primitives/docs/guides/composition">
-            Radix Composition
-          </a> guide for more details.
-        </>
-      ),
-    },
-  ]}
-/>
-### Action
-
-Has common <strong>Props</strong> with [Radix Alert Dialog Action](https://www.radix-ui.com/primitives/docs/components/alert-dialog#action).
-
-<APIReference
-  data={[
-    {
-      name: "asChild",
-      required: false,
-      type: "boolean",
-      defaultValue: "true",
-      description: (
-        <>
-          Change the default rendered element for the one passed as a child,
-          merging their props and behavior.
-          <br />
-          <br />
-          Read the <a href="https://www.radix-ui.com/primitives/docs/guides/composition">
-            Radix Composition
-          </a> guide for more details.
-        </>
-      ),
-    },
-  ]}
-/>
-
-### Title
-
-Has common <strong>Props</strong> with [Radix Alert Dialog Title](https://www.radix-ui.com/primitives/docs/components/alert-dialog#title).
-
-### Description
-
-Has common <strong>Props</strong> with [Radix Alert Dialog Description](https://www.radix-ui.com/primitives/docs/components/alert-dialog#description).
-
-### Footer
-
-A `<div/>` that in desktop resolution is aligned to the lower right corner and in mobile resolution is aligned to the center.
 
 ## Usage
 
@@ -180,6 +63,205 @@ import { Button } from "@rempi-ui/button";
   </AlertDialog.Root>
 );
 ```
+
+## About
+
+Rempi-UI Alert Dialog component is built on top [Radix Alert Dialog](https://www.radix-ui.com/primitives/docs/components/alert-dialog).
+
+## API reference
+
+### Root
+
+Contains all the parts of an alert dialog. <br />
+For more information access [Radix Alert Dialog Root](https://www.radix-ui.com/primitives/docs/components/alert-dialog#root) documentation.
+
+<APIReference
+  data={[
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description:
+        "The open state of the dialog when it is initially rendered. Use when you do not need to control its open state.",
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          The controlled open state of the dialog. Must be used in conjunction
+          with <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description:
+        "Event handler called when the open state of the dialog changes.",
+    },
+  ]}
+/>
+
+### Trigger
+
+A button that opens the dialog.<br />
+For more information access [Radix Alert Dialog Trigger](https://www.radix-ui.com/primitives/docs/components/alert-dialog#trigger) documentation.
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### Portal
+
+When used, portals your overlay and content parts into the `body`. <br />
+For more information access [Radix Alert Dialog Portal](https://www.radix-ui.com/primitives/docs/components/alert-dialog#portal) documentation.
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. If used on this
+          part, it will be inherited by <code>AlertDialog.Overlay</code> and{" "}
+          <code>AlertDialog.Content</code>.
+        </span>
+      ),
+    },
+    {
+      name: "container",
+      type: "HTMLElement",
+      default: "document.body",
+      description: "Specify a container element to portal the content into.",
+    },
+  ]}
+/>
+
+### Overlay
+
+A layer that covers the inert portion of the view when the dialog is open. <br />
+For more information access [Radix Alert Dialog Overlay](https://www.radix-ui.com/primitives/docs/components/alert-dialog#overlay) documentation.
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. It inherits from
+          <code>AlertDialog.Portal</code>.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### Content
+
+Contains content to be rendered when the dialog is open. <br />
+For more information access [Radix Alert Dialog Content](https://www.radix-ui.com/primitives/docs/components/alert-dialog#content) documentation.
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. It inherits from{" "}
+          <code>AlertDialog.Portal</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when focus moves to the destructive action after
+          opening. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onCloseAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when focus moves to the trigger after closing. It
+          can be prevented by calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the escape key is down. It can be prevented
+          by calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### Cancel
+
+A button that closes the dialog. This button should be distinguished visually from `AlertDialog.Action` buttons.<br/>
+For more information access [Radix Alert Dialog Cancel](https://www.radix-ui.com/primitives/docs/components/alert-dialog#cancel) documentation.
+
+### Action
+
+A button that closes the dialog. These buttons should be distinguished visually from the `AlertDialog.Cancel` button.<br/>
+For more information access [Radix Alert Dialog Action](https://www.radix-ui.com/primitives/docs/components/alert-dialog#action) documentation.
+
+### Title
+
+An accessible name to be announced when the dialog is opened. Alternatively, you can provide `aria-label` or `aria-labelledby` to `AlertDialog.Content` and exclude this component.<br/>
+For more information access [Radix Alert Dialog Title](https://www.radix-ui.com/primitives/docs/components/alert-dialog#title) documentation.
+
+### Description
+
+An accessible description to be announced when the dialog is opened. Alternatively, you can provide `aria-describedby` to `AlertDialog.Content` and exclude this component.<br/>
+For more information access [Radix Alert Dialog Description](https://www.radix-ui.com/primitives/docs/components/alert-dialog#description) documentation.
+
+### Footer
+
+A `<div/>` that in desktop resolution is aligned to the lower right corner and in mobile resolution is aligned to the center.
 
 <NavigationNextPrevious
   previous={{
