@@ -7,12 +7,16 @@ radixAPI: https://www.radix-ui.com/primitives/docs/components/aspect-ratio#api-r
 
 # Aspect Ratio
 
-Displays content within a desired ratio.
+<Description>Displays content within a desired ratio.</Description>
 
 <Flex style={{ gap: 8 }}>
   <RadixUI href="https://www.radix-ui.com/primitives/docs/components/aspect-ratio" />
   <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/aspect-ratio#api-reference" />
 </Flex>
+
+## Example
+
+<PreviewComponent name="aspect-ratio" />
 
 ## Installation
 
@@ -21,16 +25,6 @@ Install the component from your command line.
 ```bash
 yarn add @rempi-ui/aspect-ratio
 ```
-
-## Example
-
-<PreviewComponent name="aspect-ratio" />
-
-## API reference
-
-### AspectRatio
-
-Has common <strong>Props</strong> with [Radix Aspect Ratio Root](https://www.radix-ui.com/primitives/docs/components/aspect-ratio#root).
 
 ## Usage
 
@@ -49,6 +43,24 @@ import { AspectRatio } from "@rempi-ui/aspect-ratio";
   </AspectRatio>
 );
 ```
+
+## API reference
+
+### AspectRatio
+
+Contains the content you want to constrain to a given ratio. <br />
+For more information access [Radix Aspect Ratio](https://www.radix-ui.com/primitives/docs/components/aspect-ratio#root) documentation.
+
+<APIReference
+  data={[
+    {
+      name: 'ratio',
+      type: 'number',
+      defaultValue: '16/9',
+      description: 'The desired ratio',
+    },
+  ]}
+/>
 
 <NavigationNextPrevious
   previous={{
