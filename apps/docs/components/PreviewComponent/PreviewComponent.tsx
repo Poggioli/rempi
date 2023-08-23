@@ -18,6 +18,7 @@ import { CheckboxPreview } from "./PreviewComponents/Checkbox";
 import { CodePreview } from "./PreviewComponents/Code";
 import { CollapsiblePreview } from "./PreviewComponents/Collapsible";
 import { ComboboxPreview } from "./PreviewComponents/Combobox";
+import { ContainerPreview } from "./PreviewComponents/Container";
 
 type PreviewComponentProps = {
   name: string;
@@ -36,7 +37,8 @@ const COMPONENTS: any = {
   checkbox: CheckboxPreview,
   code: CodePreview,
   collapsible: CollapsiblePreview,
-  combobox: ComboboxPreview
+  combobox: ComboboxPreview,
+  container: ContainerPreview
 };
 
 const StyledFlex = styled.div`
