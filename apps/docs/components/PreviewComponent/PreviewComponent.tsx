@@ -14,6 +14,7 @@ import { BlockquotePreview } from "./PreviewComponents/Blockquote";
 import { ButtonPreview } from "./PreviewComponents/Button";
 import { CalendarPreview } from "./PreviewComponents/Calendar";
 import { CardPreview } from "./PreviewComponents/Card";
+import { CheckboxPreview } from "./PreviewComponents/Checkbox";
 
 type PreviewComponentProps = {
   name: string;
@@ -28,7 +29,8 @@ const COMPONENTS: any = {
   blockquote: BlockquotePreview,
   button: ButtonPreview,
   calendar: CalendarPreview,
-  card: CardPreview
+  card: CardPreview,
+  checkbox: CheckboxPreview
 };
 
 const StyledFlex = styled.div`
