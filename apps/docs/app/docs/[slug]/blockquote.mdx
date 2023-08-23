@@ -5,7 +5,11 @@ slug: blockquote
 
 # Blockquote
 
-A block level extended quotation.
+<Description>A block level extended quotation.</Description>
+
+## Example
+
+<PreviewComponent name="blockquote" />
 
 ## Installation
 
@@ -15,9 +19,15 @@ Install the component from your command line.
 yarn add @rempi-ui/blockquote
 ```
 
-## Example
+## Usage
 
-<PreviewComponent name="blockquote" />
+Import the <strong>Blockquote</strong>.
+
+```jsx
+import { Blockquote } from "@rempi-ui/blockquote";
+
+() => <Blockquote>Hello I'm a Blockquote</Blockquote>;
+```
 
 ## API reference
 
@@ -30,14 +40,14 @@ Contains all the parts of an blockquote.
     {
       name: "fontSize",
       required: false,
-      type: '"2xsm" | \n "xsm" | \n "sm" | \n "md" | \n "lg" | \n "xlg"',
+      type: '"2xsm" | "xsm" | "sm" | "md" | "lg" | "xlg"',
       typeSimple: "enum",
       description: "Set the font-size of Blockquote",
     },
     {
       name: "fontWeight",
       required: false,
-      type: '"tiny" | \n "normal" | \n "regular" | \n "semi-bold" | \n "bold" | \n "extra-bold"',
+      type: '"tiny" | "normal" | "regular" | "semi-bold" | "bold" | "extra-bold"',
       typeSimple: "enum",
       description: "Set the font-weight of Blockquote",
     },
@@ -74,23 +84,13 @@ Contains all the parts of an blockquote.
     {
       name: "variant",
       required: false,
-      type: '"lead1" | \n "lead2" | \n "body1" | \n "body2" | \n "caption" | \n "subtitle"',
+      type: '"lead1" | "lead2" | "body1" | "body2" | "caption" | "subtitle"',
       typeSimple: "enum",
       defaultValue: '"body2"',
       description: "Set the Blockquote styles",
     },
   ]}
 />
-
-## Usage
-
-Import the <strong>Blockquote</strong>.
-
-```jsx
-import { Blockquote } from "@rempi-ui/blockquote";
-
-() => <Blockquote>Hello I'm a Blockquote</Blockquote>;
-```
 
 <NavigationNextPrevious
   previous={{
