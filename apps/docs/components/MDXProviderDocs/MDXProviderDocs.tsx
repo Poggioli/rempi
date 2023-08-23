@@ -14,6 +14,7 @@ import { RadixAPI } from "./RadixAPI";
 import { RadixUI } from "./RadixUI";
 import { Step, Steps } from "./Steps";
 import { Code } from "@rempi-ui/code";
+import { DataReference } from "./DataReference";
 
 export const MDXProviderDocs: FC<PropsWithChildren> = ({ children }) => {
   return (
@@ -33,6 +34,7 @@ export const MDXProviderDocs: FC<PropsWithChildren> = ({ children }) => {
         PreviewComponent,
         NavigationNextPrevious,
         APIReference,
+        DataReference
       }}
     >
       {children}
