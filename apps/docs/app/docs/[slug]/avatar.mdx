@@ -7,12 +7,16 @@ radixAPI: https://www.radix-ui.com/primitives/docs/components/avatar#api-referen
 
 # Avatar
 
-An image element with a fallback for representing the user.
+<Description>An image element with a fallback for representing the user.</Description>
 
 <Flex style={{ gap: 8 }}>
   <RadixUI href="https://www.radix-ui.com/primitives/docs/components/avatar" />
   <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/avatar#api-reference" />
 </Flex>
+
+## Example
+
+<PreviewComponent name="avatar" />
 
 ## Installation
 
@@ -21,38 +25,6 @@ Install the component from your command line.
 ```bash
 yarn add @rempi-ui/avatar
 ```
-
-## Example
-
-<PreviewComponent name="avatar" />
-
-## API reference
-
-### Root
-
-Contains all the parts of an avatar. <br/>
-Has common <strong>Props</strong> with [Radix Avatar Root](https://www.radix-ui.com/primitives/docs/components/avatar#root).
-
-<APIReference
-  data={[
-    {
-      name: "size",
-      required: false,
-      type: '"small" | "standard" | "large"',
-      typeSimple: "enum",
-      defaultValue: '"standard"',
-      description: "Set the size of Avatar component",
-    },
-  ]}
-/>
-
-### Image
-
-Has common <strong>Props</strong> with [Radix Avatar Image](https://www.radix-ui.com/primitives/docs/components/avatar#image).
-
-### Fallback
-
-Has common <strong>Props</strong> with [Radix Avatar Fallback](https://www.radix-ui.com/primitives/docs/components/avatar#fallback).
 
 ## Usage
 
@@ -71,6 +43,46 @@ import { Avatar } from "@rempi-ui/avatar";
   </Avatar.Root>
 );
 ```
+
+## API reference
+
+### Root
+
+Contains all the parts of an avatar.<br />
+For more information access [Radix Avatar Root](https://www.radix-ui.com/primitives/docs/components/avatar#root) documentation.
+
+### Image
+
+The image to render. By default it will only render when it has loaded. You can use the `onLoadingStatusChange` handler if you need more control.<br />
+For more information access [Radix Avatar Image](https://www.radix-ui.com/primitives/docs/components/avatar#image) documentation.
+
+<APIReference
+  data={[
+    {
+      name: "onLoadingStatusChange",
+      type: '(status: "idle" | "loading" | "loaded" | "error") => void',
+      typeSimple: "function",
+      description:
+        "A callback providing information about the loading status of the image. This is useful in case you want to control more precisely what to render as the image is loading.",
+    },
+  ]}
+/>
+
+### Fallback
+
+An element that renders when the image hasn't loaded. This means whilst it's loading, or if there was an error. If you notice a flash during loading, you can provide a `delayMs` prop to delay its rendering so it only renders for those with slower connections. For more control, use the `onLoadingStatusChange` handler on `Avatar.Image`.<br />
+For more information access [Radix Avatar Fallback](https://www.radix-ui.com/primitives/docs/components/avatar#fallback) documentation.
+
+<APIReference
+  data={[
+    {
+      name: "delayMs",
+      type: "number",
+      description:
+        "Useful for delaying rendering so it only appears for those with slower connections.",
+    },
+  ]}
+/>
 
 <NavigationNextPrevious
   previous={{
