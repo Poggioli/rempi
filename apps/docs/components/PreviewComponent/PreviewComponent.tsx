@@ -22,6 +22,7 @@ import { ContainerPreview } from "./PreviewComponents/Container";
 import { ContextMenuPreview } from "./PreviewComponents/ContextMenu";
 import { DialogPreview } from "./PreviewComponents/Dialog";
 import { DropdownMenuPreview } from "./PreviewComponents/DropdownMenu";
+import { FlexPreview } from "./PreviewComponents/Flex";
 
 type PreviewComponentProps = {
   name: string;
@@ -44,7 +45,8 @@ const COMPONENTS: any = {
   container: ContainerPreview,
   "context-menu": ContextMenuPreview,
   dialog: DialogPreview,
-  "dropdown-menu": DropdownMenuPreview
+  "dropdown-menu": DropdownMenuPreview,
+  flex: FlexPreview
 };
 
 const StyledFlex = styled.div`
