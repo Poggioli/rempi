@@ -7,7 +7,7 @@ radixAPI: https://www.radix-ui.com/primitives/docs/components/alert-dialog#api-r
 
 # Alert Dialog
 
-<Description>A modal dialog that interrupts the user with important content and expects a response.</Description>
+<Description text="A modal dialog that interrupts the user with important content and expects a response." />
 
 <Flex style={{ gap: 8 }}>
   <RadixUI href="https://www.radix-ui.com/primitives/docs/components/alert-dialog" />
@@ -63,7 +63,7 @@ import { Button } from "@rempi-ui/button";
 
 ## About
 
-Rempi-UI Alert Dialog component is built on top [Radix Alert Dialog](https://www.radix-ui.com/primitives/docs/components/alert-dialog).
+Rempi-UI Alert Dialog component is built on top of [Radix Alert Dialog](https://www.radix-ui.com/primitives/docs/components/alert-dialog).
 
 ## API reference
 
@@ -173,6 +173,15 @@ A layer that covers the inert portion of the view when the dialog is open.
           Used to force mounting when more control is needed. Useful when
           controlling animation with React animation libraries. It inherits from
           <code>AlertDialog.Portal</code>.
+        </span>
+      ),
+    },
+    {
+      name: "blur",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, makes the background blurry.
         </span>
       ),
     },

@@ -7,10 +7,7 @@ radixAPI: https://www.radix-ui.com/primitives/docs/components/context-menu#api-r
 
 # Context Menu
 
-<Description>
-  Displays a menu located at the pointer, triggered by a right-click or a
-  long-press.
-</Description>
+<Description text="Displays a menu located at the pointer, triggered by a right-click or a long-press." />
 
 <Flex style={{ gap: 8 }}>
   <RadixUI href="https://www.radix-ui.com/primitives/docs/components/context-menu" />
@@ -74,7 +71,7 @@ import { Typography } from "@rempi-ui/typography";
 
 ## About
 
-<strong>Rempi-UI Context Menu</strong> component is built on top [Radix Context Menu](https://www.radix-ui.com/primitives/docs/components/context-menu).
+<strong>Rempi-UI Context Menu</strong> component is built on top of [Radix Context Menu](https://www.radix-ui.com/primitives/docs/components/context-menu).
 
 ## API reference
 
@@ -385,22 +382,6 @@ The component that contains the context menu items.
 <APIReference
   data={[
     {
-      name: "asChild",
-      required: false,
-      type: "boolean",
-      defaultValue: "false",
-      description: (
-        <>
-          Change the default rendered element for the one passed as a child,
-          merging their props and behavior.
-          <br />
-          <br />
-          Read our <a href="../guides/composition">Composition</a> guide for more
-          details.
-        </>
-      ),
-    },
-    {
       name: "disabled",
       type: "boolean",
       description: (
@@ -458,27 +439,6 @@ Used to group multiple `ContextMenu.Item`s.
   componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#group"
 />
 
-<APIReference
-  data={[
-    {
-      name: "asChild",
-      required: false,
-      type: "boolean",
-      defaultValue: "false",
-      description: (
-        <>
-          Change the default rendered element for the one passed as a child,
-          merging their props and behavior.
-          <br />
-          <br />
-          Read our <a href="../guides/composition">Composition</a> guide for more
-          details.
-        </>
-      ),
-    },
-  ]}
-/>
-
 ### Label
 
 Used to render a label. It won't be focusable using arrow keys.
@@ -486,27 +446,6 @@ Used to render a label. It won't be focusable using arrow keys.
 <MoreInfo
   componentName="Radix Context Menu Label"
   componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#label"
-/>
-
-<APIReference
-  data={[
-    {
-      name: "asChild",
-      required: false,
-      type: "boolean",
-      defaultValue: "false",
-      description: (
-        <>
-          Change the default rendered element for the one passed as a child,
-          merging their props and behavior.
-          <br />
-          <br />
-          Read our <a href="../guides/composition">Composition</a> guide for more
-          details.
-        </>
-      ),
-    },
-  ]}
 />
 
 ### CheckboxItem
@@ -520,22 +459,6 @@ An item that can be controlled and rendered like a checkbox.
 
 <APIReference
   data={[
-    {
-      name: "asChild",
-      required: false,
-      type: "boolean",
-      defaultValue: "false",
-      description: (
-        <>
-          Change the default rendered element for the one passed as a child,
-          merging their props and behavior.
-          <br />
-          <br />
-          Read our <a href="../guides/composition">Composition</a> guide for more
-          details.
-        </>
-      ),
-    },
     {
       name: "checked",
       type: `boolean | 'indeterminate'`,
@@ -618,22 +541,6 @@ Used to group multiple `ContextMenu.RadioItem`s.
 
 <APIReference
   data={[
-    {
-      name: "asChild",
-      required: false,
-      type: "boolean",
-      defaultValue: "false",
-      description: (
-        <>
-          Change the default rendered element for the one passed as a child,
-          merging their props and behavior.
-          <br />
-          <br />
-          Read our <a href="../guides/composition">Composition</a> guide for more
-          details.
-        </>
-      ),
-    },
     {
       name: "value",
       type: "string",
@@ -799,22 +706,6 @@ An item that opens a submenu. Must be rendered inside `ContextMenu.Sub`.
 <APIReference
   data={[
     {
-      name: "asChild",
-      required: false,
-      type: "boolean",
-      defaultValue: "false",
-      description: (
-        <>
-          Change the default rendered element for the one passed as a child,
-          merging their props and behavior.
-          <br />
-          <br />
-          Read our <a href="../guides/composition">Composition</a> guide for more
-          details.
-        </>
-      ),
-    },
-    {
       name: "disabled",
       type: "boolean",
       description: (
@@ -866,22 +757,6 @@ The component that pops out when a submenu is open. Must be rendered inside `Con
 
 <APIReference
   data={[
-    {
-      name: "asChild",
-      required: false,
-      type: "boolean",
-      defaultValue: "false",
-      description: (
-        <>
-          Change the default rendered element for the one passed as a child,
-          merging their props and behavior.
-          <br />
-          <br />
-          Read our <a href="../guides/composition">Composition</a> guide for more
-          details.
-        </>
-      ),
-    },
     {
       name: "loop",
       required: false,

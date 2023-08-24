@@ -6,7 +6,7 @@ const StyledTypographyP = styled.p`
   margin: ${({ theme }) => theme.spaces[4]} 0;
 `;
 
-export const Description: FC<any> = ({ ...props }) => {
+export const Description: FC<any> = ({ text, children, ...props }) => {
   return (
     <StyledTypographyP
       {...props}
@@ -14,6 +14,8 @@ export const Description: FC<any> = ({ ...props }) => {
       variant="lead1"
       color="low-contrast"
       fontWeight="normal"
-    />
+    >
+      {text}
+    </StyledTypographyP>
   );
 };
