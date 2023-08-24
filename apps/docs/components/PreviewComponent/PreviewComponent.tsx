@@ -19,6 +19,7 @@ import { CodePreview } from "./PreviewComponents/Code";
 import { CollapsiblePreview } from "./PreviewComponents/Collapsible";
 import { ComboboxPreview } from "./PreviewComponents/Combobox";
 import { ContainerPreview } from "./PreviewComponents/Container";
+import { ContextMenuPreview } from "./PreviewComponents/ContextMenu";
 
 type PreviewComponentProps = {
   name: string;
@@ -38,7 +39,8 @@ const COMPONENTS: any = {
   code: CodePreview,
   collapsible: CollapsiblePreview,
   combobox: ComboboxPreview,
-  container: ContainerPreview
+  container: ContainerPreview,
+  "context-menu": ContextMenuPreview
 };
 
 const StyledFlex = styled.div`

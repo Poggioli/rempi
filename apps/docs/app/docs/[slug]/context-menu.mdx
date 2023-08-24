@@ -7,7 +7,10 @@ radixAPI: https://www.radix-ui.com/primitives/docs/components/context-menu#api-r
 
 # Context Menu
 
-<Description>Displays a menu located at the pointer, triggered by a right-click or a long-press.</Description>
+<Description>
+  Displays a menu located at the pointer, triggered by a right-click or a
+  long-press.
+</Description>
 
 <Flex style={{ gap: 8 }}>
   <RadixUI href="https://www.radix-ui.com/primitives/docs/components/context-menu" />
@@ -343,6 +346,12 @@ When used, portals the content part into the `body`. The component that pops out
           Whether to hide the content when the trigger becomes fully occluded.
         </span>
       ),
+    },
+    {
+      name: "condensed",
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description: "Make items more condensed than the common behavior.",
     },
   ]}
 />
