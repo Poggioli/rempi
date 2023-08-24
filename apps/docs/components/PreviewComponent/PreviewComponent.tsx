@@ -20,6 +20,7 @@ import { CollapsiblePreview } from "./PreviewComponents/Collapsible";
 import { ComboboxPreview } from "./PreviewComponents/Combobox";
 import { ContainerPreview } from "./PreviewComponents/Container";
 import { ContextMenuPreview } from "./PreviewComponents/ContextMenu";
+import { DialogPreview } from "./PreviewComponents/Dialog";
 
 type PreviewComponentProps = {
   name: string;
@@ -40,7 +41,8 @@ const COMPONENTS: any = {
   collapsible: CollapsiblePreview,
   combobox: ComboboxPreview,
   container: ContainerPreview,
-  "context-menu": ContextMenuPreview
+  "context-menu": ContextMenuPreview,
+  dialog: DialogPreview
 };
 
 const StyledFlex = styled.div`
