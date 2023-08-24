@@ -24,6 +24,7 @@ import { DialogPreview } from "./PreviewComponents/Dialog";
 import { DropdownMenuPreview } from "./PreviewComponents/DropdownMenu";
 import { FlexPreview } from "./PreviewComponents/Flex";
 import { HeadingPreview } from "./PreviewComponents/Heading";
+import { HoverCardPreview } from "./PreviewComponents/HoverCard";
 
 type PreviewComponentProps = {
   name: string;
@@ -48,7 +49,8 @@ const COMPONENTS: any = {
   dialog: DialogPreview,
   "dropdown-menu": DropdownMenuPreview,
   flex: FlexPreview,
-  heading: HeadingPreview
+  heading: HeadingPreview,
+  "hover-card": HoverCardPreview,
 };
 
 const StyledFlex = styled.div`
