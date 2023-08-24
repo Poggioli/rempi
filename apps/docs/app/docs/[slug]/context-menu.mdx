@@ -35,43 +35,48 @@ import { ContextMenu } from "@rempi-ui/context-menu";
 import { Flex } from "@rempi-ui/flex";
 import { Typography } from "@rempi-ui/typography";
 
-<ContextMenu.Root>
-  <ContextMenu.Trigger>
-    <Flex flexDirection="row" alignItems="center" justifyContent="center">
-      <Typography>Right click here</Typography>
-    </Flex>
-  </ContextMenu.Trigger>
-  <ContextMenu.Content>
-    <ContextMenu.Item>Back</ContextMenu.Item>
-    <ContextMenu.Item disabled>Foward</ContextMenu.Item>
-    <ContextMenu.Item>Reload</ContextMenu.Item>
+() => (
+  <ContextMenu.Root>
+    <ContextMenu.Trigger>
+      <Flex flexDirection="row" alignItems="center" justifyContent="center">
+        <Typography>Right click here</Typography>
+      </Flex>
+    </ContextMenu.Trigger>
+    <ContextMenu.Content>
+      <ContextMenu.Item>Back</ContextMenu.Item>
+      <ContextMenu.Item disabled>Foward</ContextMenu.Item>
+      <ContextMenu.Item>Reload</ContextMenu.Item>
 
-    <ContextMenu.SubMenu>
-      <ContextMenu.SubMenuTrigger>More Tools</ContextMenu.SubMenuTrigger>
-      <ContextMenu.SubMenuContent sideOffset={2} alignOffset={-5}>
-        <ContextMenu.Item>Save Page As…</ContextMenu.Item>
-        <ContextMenu.Item>Create Shortcut…</ContextMenu.Item>
-        <ContextMenu.Item>Name Window…</ContextMenu.Item>
-        <ContextMenu.Separator />
-        <ContextMenu.Item>Developer Tools</ContextMenu.Item>
-      </ContextMenu.SubMenuContent>
-    </ContextMenu.SubMenu>
-    <ContextMenu.Separator />
-    <ContextMenu.CheckboxItem>Show Bookmarks</ContextMenu.CheckboxItem>
-    <ContextMenu.CheckboxItem>Show Full URLs</ContextMenu.CheckboxItem>
-    <ContextMenu.Separator />
-    <ContextMenu.Label>People</ContextMenu.Label>
-    <ContextMenu.RadioGroup>
-      <ContextMenu.RadioItem value="pedro">Pedro Duarte</ContextMenu.RadioItem>
-      <ContextMenu.RadioItem value="colm">Colm Tuite</ContextMenu.RadioItem>
-    </ContextMenu.RadioGroup>
-  </ContextMenu.Content>
-</ContextMenu.Root>;
+      <ContextMenu.SubMenu>
+        <ContextMenu.SubMenuTrigger>More Tools</ContextMenu.SubMenuTrigger>
+        <ContextMenu.SubMenuContent sideOffset={2} alignOffset={-5}>
+          <ContextMenu.Item>Save Page As…</ContextMenu.Item>
+          <ContextMenu.Item>Create Shortcut…</ContextMenu.Item>
+          <ContextMenu.Item>Name Window…</ContextMenu.Item>
+          <ContextMenu.Separator />
+          <ContextMenu.Item>Developer Tools</ContextMenu.Item>
+        </ContextMenu.SubMenuContent>
+      </ContextMenu.SubMenu>
+      <ContextMenu.Separator />
+      <ContextMenu.CheckboxItem>Show Bookmarks</ContextMenu.CheckboxItem>
+      <ContextMenu.CheckboxItem>Show Full URLs</ContextMenu.CheckboxItem>
+      <ContextMenu.Separator />
+      <ContextMenu.Label>People</ContextMenu.Label>
+      <ContextMenu.RadioGroup>
+        <ContextMenu.RadioItem value="pedro">
+          Pedro Duarte
+        </ContextMenu.RadioItem>
+        <ContextMenu.RadioItem value="colm">Colm Tuite</ContextMenu.RadioItem>
+      </ContextMenu.RadioGroup>
+    </ContextMenu.Content>
+  </ContextMenu.Root>
+);
 ```
 
 ## About
 
-<strong>Rempi-UI Context Menu</strong> component is built on top of [Radix Context Menu](https://www.radix-ui.com/primitives/docs/components/context-menu).
+<strong>Rempi-UI Context Menu</strong> component is built on top of [Radix Context
+Menu](https://www.radix-ui.com/primitives/docs/components/context-menu).
 
 ## API reference
 

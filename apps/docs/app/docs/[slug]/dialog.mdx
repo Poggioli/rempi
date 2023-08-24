@@ -36,45 +36,47 @@ import { Flex } from "@rempi-ui/flex";
 import { Input } from "@rempi-ui/input";
 import { Typography } from "@rempi-ui/typography";
 
-<Dialog.Root>
-  <Dialog.Trigger>
-    <Button>Edit profile</Button>
-  </Dialog.Trigger>
-  <Dialog.Portal>
-    <Dialog.Overlay blur />
-    <Dialog.Content>
-      <Dialog.CloseCross aria-label="Close" />
-      <Dialog.Title>Edit profile</Dialog.Title>
-      <Dialog.Description>
-        Make changes to your profile here. Click save when you're done.
-      </Dialog.Description>
-      <Flex
-        flexDirection="column"
-        flexWrap="wrap"
-        justifyContent="space-between"
-      >
-        <Input.Label alignItems="flex-start" flexDirection="column">
-          Name
-          <Input.Root placeholder="Enter your name" />
-        </Input.Label>
-        <Input.Label alignItems="flex-start" flexDirection="column">
-          Username
-          <Input.Root placeholder="Enter your username" />
-        </Input.Label>
-      </Flex>
-      <Dialog.Footer>
-        <Dialog.Close>
-          <Button color="primary" variant="text">
-            Cancel
-          </Button>
-        </Dialog.Close>
-        <Dialog.Close>
-          <Button color="success">Save changes</Button>
-        </Dialog.Close>
-      </Dialog.Footer>
-    </Dialog.Content>
-  </Dialog.Portal>
-</Dialog.Root>;
+() => (
+  <Dialog.Root>
+    <Dialog.Trigger>
+      <Button>Edit profile</Button>
+    </Dialog.Trigger>
+    <Dialog.Portal>
+      <Dialog.Overlay blur />
+      <Dialog.Content>
+        <Dialog.CloseCross aria-label="Close" />
+        <Dialog.Title>Edit profile</Dialog.Title>
+        <Dialog.Description>
+          Make changes to your profile here. Click save when you're done.
+        </Dialog.Description>
+        <Flex
+          flexDirection="column"
+          flexWrap="wrap"
+          justifyContent="space-between"
+        >
+          <Input.Label alignItems="flex-start" flexDirection="column">
+            Name
+            <Input.Root placeholder="Enter your name" />
+          </Input.Label>
+          <Input.Label alignItems="flex-start" flexDirection="column">
+            Username
+            <Input.Root placeholder="Enter your username" />
+          </Input.Label>
+        </Flex>
+        <Dialog.Footer>
+          <Dialog.Close>
+            <Button color="primary" variant="text">
+              Cancel
+            </Button>
+          </Dialog.Close>
+          <Dialog.Close>
+            <Button color="success">Save changes</Button>
+          </Dialog.Close>
+        </Dialog.Footer>
+      </Dialog.Content>
+    </Dialog.Portal>
+  </Dialog.Root>
+);
 ```
 
 ## About
