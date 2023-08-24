@@ -25,6 +25,7 @@ import { DropdownMenuPreview } from "./PreviewComponents/DropdownMenu";
 import { FlexPreview } from "./PreviewComponents/Flex";
 import { HeadingPreview } from "./PreviewComponents/Heading";
 import { HoverCardPreview } from "./PreviewComponents/HoverCard";
+import { InputPreview } from "./PreviewComponents/Input";
 
 type PreviewComponentProps = {
   name: string;
@@ -51,6 +52,7 @@ const COMPONENTS: any = {
   flex: FlexPreview,
   heading: HeadingPreview,
   "hover-card": HoverCardPreview,
+  input: InputPreview
 };
 
 const StyledFlex = styled.div`

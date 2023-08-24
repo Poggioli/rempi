@@ -1,0 +1,92 @@
+---
+title: Input
+slug: input
+---
+
+# Input
+
+<Description text="Captures user input." />
+
+## Example
+
+<PreviewComponent name="input" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/input
+```
+
+## Usage
+
+Import the <strong>Input</strong> and piece all composition components together.
+
+```jsx
+import { Input } from "@rempi-ui/input";
+
+() => (
+  <Input.Label>
+    Name
+    <Input.Root placeholder="Enter your name" />
+  </Input.Label>
+);
+```
+
+## API reference
+
+### Root
+
+The input element. This component is based on the <code>input</code> element
+
+<APIReference
+  data={[
+    {
+      name: "inputSize",
+      type: '"small" | "standard" | "large"',
+      typeSimple: "enum",
+      defaultValue: '"standard"',
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+### Label
+
+Renders an accessible label associated with controls.<br />
+Rempi-UI <strong>Input.Label</strong> component is built on top of <strong>Rempi-UI Label</strong>
+
+<MoreInfo componentName="Rempi-UI Label" componentLink="/docs/label" />
+
+<DataReference
+  data={[
+    {
+      name: "data-disabled",
+      value: "Present when disabled",
+    },
+    {
+      name: "data-invalid",
+      value: "Present when invalid",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/hover-card",
+    label: "Hover Card",
+  }}
+  next={{
+    link: "/docs/label",
+    label: "Label",
+  }}
+/>
