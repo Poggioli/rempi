@@ -16,6 +16,7 @@ import { Step, Steps } from "./Steps";
 import { Code } from "@rempi-ui/code";
 import { DataReference } from "./DataReference";
 import { Description } from "./Description";
+import { MoreInfo } from "./MoreInfo";
 
 export const MDXProviderDocs: FC<PropsWithChildren> = ({ children }) => {
   return (
@@ -36,7 +37,8 @@ export const MDXProviderDocs: FC<PropsWithChildren> = ({ children }) => {
         PreviewComponent,
         NavigationNextPrevious,
         APIReference,
-        DataReference
+        DataReference,
+        MoreInfo
       }}
     >
       {children}
