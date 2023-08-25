@@ -28,6 +28,7 @@ import { HoverCardPreview } from "./PreviewComponents/HoverCard";
 import { InputPreview } from "./PreviewComponents/Input";
 import { LabelPreview } from "./PreviewComponents/Label";
 import { MenuBarPreview } from "./PreviewComponents/MenuBar";
+import { NavigationMenuPreview } from "./PreviewComponents/NavigationMenu";
 
 type PreviewComponentProps = {
   name: string;
@@ -56,7 +57,8 @@ const COMPONENTS: any = {
   "hover-card": HoverCardPreview,
   input: InputPreview,
   label: LabelPreview,
-  menubar: MenuBarPreview
+  menubar: MenuBarPreview,
+  "navigation-menu": NavigationMenuPreview,
 };
 
 const StyledFlex = styled.div`
@@ -67,7 +69,6 @@ const StyledFlex = styled.div`
 `;
 
 const StyledPreviewContainer = styled.div`
-  overflow: hidden;
   width: 100%;
   max-width: 100%;
 
