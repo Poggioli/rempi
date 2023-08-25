@@ -215,5 +215,4 @@ export const StyledNavigationMenuViewportPosition = styled.div`
   perspective: 2000px;
   position: absolute;
   top: 100%;
-  width: 100%;
 `;
