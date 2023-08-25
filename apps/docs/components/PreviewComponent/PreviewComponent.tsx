@@ -29,6 +29,7 @@ import { InputPreview } from "./PreviewComponents/Input";
 import { LabelPreview } from "./PreviewComponents/Label";
 import { MenuBarPreview } from "./PreviewComponents/MenuBar";
 import { NavigationMenuPreview } from "./PreviewComponents/NavigationMenu";
+import { PopoverPreview } from "./PreviewComponents/Popover";
 
 type PreviewComponentProps = {
   name: string;
@@ -59,6 +60,7 @@ const COMPONENTS: any = {
   label: LabelPreview,
   menubar: MenuBarPreview,
   "navigation-menu": NavigationMenuPreview,
+  popover: PopoverPreview
 };
 
 const StyledFlex = styled.div`
