@@ -14,10 +14,9 @@ export const DropdownMenuPreview: FC = () => {
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
           <IconButton
-            className="rounded-button"
             style={{
-              borderRadius: 'var(--radii-pill)',
-              padding: 12
+              borderRadius: "var(--radii-pill)",
+              padding: 12,
             }}
             aria-label="settings"
             variant="contained"
