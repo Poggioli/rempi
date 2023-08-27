@@ -32,6 +32,7 @@ import { NavigationMenuPreview } from "./PreviewComponents/NavigationMenu";
 import { PopoverPreview } from "./PreviewComponents/Popover";
 import { ProgressPreview } from "./PreviewComponents/Progress";
 import { RadioPreview } from "./PreviewComponents/Radio";
+import { SelectPreview } from "./PreviewComponents/Select";
 
 type PreviewComponentProps = {
   name: string;
@@ -64,7 +65,8 @@ const COMPONENTS: any = {
   "navigation-menu": NavigationMenuPreview,
   popover: PopoverPreview,
   progress: ProgressPreview,
-  radio: RadioPreview
+  radio: RadioPreview,
+  select: SelectPreview
 };
 
 const StyledFlex = styled.div`
