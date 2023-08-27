@@ -6,6 +6,7 @@
 - Blockquote - OK
 - Button - OK
 - Calendar - OK
+- Callout
 - Card - OK
 - Checkbox - OK
 - Code - OK
@@ -21,6 +22,7 @@
 - Heading - OK
 - Hover Card - OK
 - Input - OK
+- Inset
 - Label - OK
 - Menubar - OK
 - Navigation Menu - OK
