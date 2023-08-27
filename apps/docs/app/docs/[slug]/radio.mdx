@@ -72,10 +72,7 @@ Rempi-UI Radio component is built on top of [Radix Radio](https://www.radix-ui.c
 It's a mix of [Rempi-UI Flex](/docs/flex) and [Radix Radio Root](https://www.radix-ui.com/primitives/docs/components/radio-group#root).<br /><br />
 Contains all the parts of a radio group.
 
-<MoreInfo
-  componentName="Rempi-UI Flex" 
-  componentLink="/docs/flex"
-/>
+<MoreInfo componentName="Rempi-UI Flex" componentLink="/docs/flex" />
 <MoreInfo
   componentName="Radix Radio Root"
   componentLink="https://www.radix-ui.com/primitives/docs/components/radio-group#root"
@@ -84,14 +81,14 @@ Contains all the parts of a radio group.
 <APIReference
   data={[
     {
-      name: 'defaultValue',
-      type: 'string',
+      name: "defaultValue",
+      type: "string",
       description:
-        'The value of the radio item that should be checked when initially rendered. Use when you do not need to control the state of the radio items.',
+        "The value of the radio item that should be checked when initially rendered. Use when you do not need to control the state of the radio items.",
     },
     {
-      name: 'value',
-      type: 'string',
+      name: "value",
+      type: "string",
       description: (
         <span>
           The controlled value of the radio item to check. Should be used in
@@ -100,14 +97,14 @@ Contains all the parts of a radio group.
       ),
     },
     {
-      name: 'onValueChange',
-      type: '(value: string) => void',
-      typeSimple: 'function',
-      description: 'Event handler called when the value changes.',
+      name: "onValueChange",
+      type: "(value: string) => void",
+      typeSimple: "function",
+      description: "Event handler called when the value changes.",
     },
     {
-      name: 'disabled',
-      type: 'boolean',
+      name: "disabled",
+      type: "boolean",
       description: (
         <span>
           When <code>true</code>, prevents the user from interacting with radio
@@ -116,14 +113,14 @@ Contains all the parts of a radio group.
       ),
     },
     {
-      name: 'name',
-      type: 'string',
+      name: "name",
+      type: "string",
       description:
-        'The name of the group. Submitted with its owning form as part of a name/value pair.',
+        "The name of the group. Submitted with its owning form as part of a name/value pair.",
     },
     {
-      name: 'required',
-      type: 'boolean',
+      name: "required",
+      type: "boolean",
       description: (
         <span>
           When <code>true</code>, indicates that the user must check a radio
@@ -132,18 +129,18 @@ Contains all the parts of a radio group.
       ),
     },
     {
-      name: 'orientation',
+      name: "orientation",
       required: false,
       type: '"horizontal" | "vertical" | undefined',
-      typeSimple: 'enum',
-      defaultValue: 'undefined',
-      description: 'The orientation of the component.',
+      typeSimple: "enum",
+      defaultValue: "undefined",
+      description: "The orientation of the component.",
     },
     {
-      name: 'dir',
+      name: "dir",
       required: false,
       type: '"ltr" | "rtl"',
-      typeSimple: 'enum',
+      typeSimple: "enum",
       description: (
         <span>
           The reading direction of the radio group. If omitted, inherits
@@ -153,10 +150,10 @@ Contains all the parts of a radio group.
       ),
     },
     {
-      name: 'loop',
+      name: "loop",
       required: false,
-      type: 'boolean',
-      defaultValue: 'true',
+      type: "boolean",
+      defaultValue: "true",
       description: (
         <span>
           When <code>true</code>, keyboard navigation will loop from last item
@@ -184,8 +181,8 @@ An item in the group that can be checked. An `input` will also render when used 
 <APIReference
   data={[
     {
-      name: 'value',
-      type: 'string',
+      name: "value",
+      type: "string",
       description: (
         <span>
           The value given as data when submitted with a <code>name</code>.
@@ -193,8 +190,8 @@ An item in the group that can be checked. An `input` will also render when used 
       ),
     },
     {
-      name: 'disabled',
-      type: 'boolean',
+      name: "disabled",
+      type: "boolean",
       description: (
         <span>
           When <code>true</code>, prevents the user from interacting with the
@@ -203,8 +200,8 @@ An item in the group that can be checked. An `input` will also render when used 
       ),
     },
     {
-      name: 'required',
-      type: 'boolean',
+      name: "required",
+      type: "boolean",
       description: (
         <span>
           When <code>true</code>, indicates that the user must check the radio
@@ -213,23 +210,23 @@ An item in the group that can be checked. An `input` will also render when used 
       ),
     },
     {
-      name: 'forceMount',
-      type: 'boolean',
+      name: "forceMount",
+      type: "boolean",
       description:
-        'Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.',
-    }
+        "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+    },
   ]}
 />
 
 <DataReference
   data={[
     {
-      name: '[data-state]',
-      value: ['checked', 'unchecked'],
+      name: "[data-state]",
+      value: ["checked", "unchecked"],
     },
     {
-      name: '[data-disabled]',
-      value: 'Present when disabled',
+      name: "[data-disabled]",
+      value: "Present when disabled",
     },
   ]}
 />
@@ -250,7 +247,7 @@ Rempi-UI <strong>Radio.Label</strong> component is built on top of <strong>Rempi
     {
       name: "data-invalid",
       value: "Present when invalid",
-    }
+    },
   ]}
 />
 
