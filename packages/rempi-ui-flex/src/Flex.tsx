@@ -109,7 +109,7 @@ export const Flex = forwardRef<typeof StyledFlex, FlexProps>(
   (
     {
       flexDirection = "row",
-      flexWrap,
+      flexWrap= "wrap",
       justifyContent = "flex-start",
       alignItems = "flex-start",
       alignContents,

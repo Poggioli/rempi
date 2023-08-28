@@ -27,7 +27,8 @@ export const SkeletonPreview: FC = () => {
           <Skeleton
             style={{
               height: "71px",
-              width: "330px",
+              maxWidth: "330px",
+              width: "100%",
               borderRadius: "var(--radii-1)",
             }}
           />
