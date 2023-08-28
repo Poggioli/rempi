@@ -34,11 +34,9 @@ Import the <strong>Slider</strong> and piece all composition components together
 import { Slider } from "@rempi-ui/slider";
 
 () => (
-  <Flex flexDirection="column">
-    <Heading>Between us there</Heading>
-    <Slider />
-    <Heading>Is a slider</Heading>
-  </Flex>
+  <Slider.Root defaultValue={[50]} max={100} step={1}>
+    <Slider.Thumb aria-label="Volume" />
+  </Slider.Root>
 );
 ```
 
