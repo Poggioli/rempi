@@ -1,0 +1,344 @@
+---
+title: Tabs
+slug: tabs
+radixUI: https://www.radix-ui.com/primitives/docs/components/tabs
+radixAPI: https://www.radix-ui.com/primitives/docs/components/tabs#api-reference
+---
+
+# Tabs
+
+<Description text="A set of layered sections of content—known as tab panels—that are displayed one at a time." />
+
+<Flex style={{ gap: 8 }}>
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/tabs" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/tabs#api-reference" />
+</Flex>
+
+## Example
+
+<PreviewComponent name="tabs" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/tabs
+```
+
+## Usage
+
+Import the <strong>Tabs</strong> and piece all composition components together.
+
+```jsx
+import { Avatar } from "@rempi-ui/avatar";
+import { Flex } from "@rempi-ui/flex";
+import { Tabs } from "@rempi-ui/tabs";
+import { Typography } from "@rempi-ui/typography";
+
+() => (
+  <Tabs.Root defaultValue="photos">
+    <Tabs.List>
+      <Tabs.Trigger value="photos">Photos</Tabs.Trigger>
+      <Tabs.Trigger value="description">Description</Tabs.Trigger>
+      <Tabs.Trigger value="personal-settings" disabled>
+        Personal Settings
+      </Tabs.Trigger>
+    </Tabs.List>
+    <Tabs.Content value="photos">
+      <Flex
+        flexDirection="row"
+        flexWrap="wrap"
+        justifyContent="space-around"
+        alignItems="center"
+      >
+        <Avatar.Root size="large">
+          <Avatar.Image
+            src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+            alt="Boy"
+          />
+          <Avatar.Fallback delayMs={600}>B</Avatar.Fallback>
+        </Avatar.Root>
+        <Avatar.Root size="large">
+          <Avatar.Image
+            src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80"
+            alt="Girl"
+          />
+          <Avatar.Fallback delayMs={600}>G</Avatar.Fallback>
+        </Avatar.Root>
+        <Avatar.Root size="large">
+          <Avatar.Image
+            src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80"
+            alt="Dog"
+          />
+          <Avatar.Fallback delayMs={600}>D</Avatar.Fallback>
+        </Avatar.Root>
+      </Flex>
+    </Tabs.Content>
+    <Tabs.Content value="description">
+      <Flex
+        flexDirection="row"
+        flexWrap="wrap"
+        justifyContent="space-around"
+        alignItems="center"
+      >
+        <Typography color="low-contrast" fontSize="md" lineHeight={1}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          porttitor venenatis ipsum, ac volutpat justo. Praesent ut molestie
+          sem, eu laoreet nulla. Nullam varius ut neque sit amet dignissim.
+          Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi eu
+          ante posuere, bibendum ante nec, auctor felis. Donec vitae luctus
+          risus, a venenatis nisi. Nunc consectetur lectus at dolor aliquet
+          fermentum. Duis vehicula, nisl sed imperdiet porta, lorem dolor
+          accumsan mi, vel semper lectus arcu vel arcu. Maecenas porttitor lacus
+          et arcu ultrices, quis pharetra magna cursus. Nullam cursus mattis
+          hendrerit. Donec leo purus, lacinia sed lacus et, aliquam.
+        </Typography>
+      </Flex>
+    </Tabs.Content>
+    <Tabs.Content value="personal-setting"></Tabs.Content>
+  </Tabs.Root>
+);
+```
+
+## About
+
+Rempi-UI Tabs component is built on top of [Radix Tabs](https://www.radix-ui.com/primitives/docs/components/tabs).
+
+## API reference
+
+### Root
+
+Contains all the tabs component parts.
+
+<MoreInfo
+  componentName="Radix Tabs Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/tabs#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "asChild",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <>
+          Change the default rendered element for the one passed as a child,
+          merging their props and behavior.
+          <br />
+          <br />
+          Read our <a href="../guides/composition">Composition</a> guide for more
+          details.
+        </>
+      ),
+    },
+    {
+      name: "defaultValue",
+      required: false,
+      type: "string",
+      description:
+        "The value of the tab that should be active when initially rendered. Use when you do not need to control the state of the tabs.",
+    },
+    {
+      name: "value",
+      required: false,
+      type: "string",
+      description: (
+        <span>
+          The controlled value of the tab to activate. Should be used in
+          conjunction with <code>onValueChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onValueChange",
+      required: false,
+      type: "(value: string) => void",
+      typeSimple: "function",
+      description: "Event handler called when the value changes.",
+    },
+    {
+      name: "orientation",
+      required: false,
+      type: '"horizontal" | "vertical" | undefined',
+      typeSimple: "enum",
+      defaultValue: '"horizontal"',
+      description: "The orientation of the component.",
+    },
+    {
+      name: "dir",
+      required: false,
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      description: (
+        <span>
+          The reading direction of the tabs. If omitted, inherits globally from{" "}
+          <code>DirectionProvider</code> or assumes LTR (left-to-right) reading
+          mode.
+        </span>
+      ),
+    },
+    {
+      name: "activationMode",
+      required: false,
+      type: '"automatic" | "manual"',
+      typeSimple: "enum",
+      defaultValue: '"automatic"',
+      description: (
+        <span>
+          When <code>automatic</code>, tabs are activated when receiving focus.
+          When <code>manual</code>, tabs are activated when clicked.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+### List
+
+Contains the triggers that are aligned along the edge of the active content.
+
+<MoreInfo
+  componentName="Radix Tabs List"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/tabs#list"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "loop",
+      required: false,
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          When <code>true</code>, keyboard navigation will loop from last tab to
+          first, and vice versa.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+### Trigger
+
+The button that activates its associated content.
+
+<MoreInfo
+  componentName="Radix Tabs Trigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/tabs#trigger"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "value",
+      required: true,
+      type: "string",
+      description: "A unique value that associates the trigger with a content.",
+    },
+    {
+      name: "disabled",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with the
+          tab.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["active", "inactive"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+### Content
+
+Contains the content associated with each trigger.
+
+<MoreInfo
+  componentName="Radix Tabs Content"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/tabs#content"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "value",
+      required: true,
+      type: "string",
+      description: "A unique value that associates the content with a trigger.",
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["active", "inactive"],
+    },
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/table",
+    label: "Table",
+  }}
+  next={{
+    link: "/docs/textarea",
+    label: "Textarea",
+  }}
+/>
