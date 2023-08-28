@@ -29,7 +29,7 @@ export const TabsPreview: FC = () => {
             style={{
               gap: "var(--spaces-4)",
               padding: "var(--spaces-6)",
-              border: "var(--border-widths-6) solid var(--colors-grey6)",
+              border: "var(--border-widths-1) solid var(--colors-grey6)",
               borderRadius: "var(--radii-3)",
             }}
           >
@@ -65,7 +65,7 @@ export const TabsPreview: FC = () => {
             style={{
               gap: "var(--spaces-4)",
               padding: "var(--spaces-6)",
-              border: "var(--border-widths-6) solid var(--colors-grey6)",
+              border: "var(--border-widths-1) solid var(--colors-grey6)",
               borderRadius: "var(--radii-3)",
             }}
           >
