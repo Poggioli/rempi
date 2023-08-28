@@ -37,6 +37,7 @@ import { SeparatorPreview } from "./PreviewComponents/Separator";
 import { SkeletonPreview } from "./PreviewComponents/Skeleton";
 import { SliderPreview } from "./PreviewComponents/Slider";
 import { SwitchPreview } from "./PreviewComponents/Switch";
+import { TablePreview } from "./PreviewComponents/Table";
 
 type PreviewComponentProps = {
   name: string;
@@ -74,7 +75,8 @@ const COMPONENTS: any = {
   separator: SeparatorPreview,
   skeleton: SkeletonPreview,
   slider: SliderPreview,
-  switch: SwitchPreview
+  switch: SwitchPreview,
+  table: TablePreview
 };
 
 const StyledFlex = styled.div`
