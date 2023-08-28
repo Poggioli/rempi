@@ -40,6 +40,7 @@ import { SwitchPreview } from "./PreviewComponents/Switch";
 import { TablePreview } from "./PreviewComponents/Table";
 import { TabsPreview } from "./PreviewComponents/Tabs";
 import { TextareaPreview } from "./PreviewComponents/Textarea";
+import { ToastPreview } from "./PreviewComponents/Toast";
 
 type PreviewComponentProps = {
   name: string;
@@ -81,6 +82,7 @@ const COMPONENTS: any = {
   table: TablePreview,
   tabs: TabsPreview,
   textarea: TextareaPreview,
+  toast: ToastPreview,
 };
 
 const StyledFlex = styled.div`
