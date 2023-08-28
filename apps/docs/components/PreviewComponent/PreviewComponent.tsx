@@ -43,6 +43,7 @@ import { TextareaPreview } from "./PreviewComponents/Textarea";
 import { ToastPreview } from "./PreviewComponents/Toast";
 import { TogglePreview } from "./PreviewComponents/Toggle";
 import { TooltipPreview } from "./PreviewComponents/Tooltip";
+import { TypographyPreview } from "./PreviewComponents/Typography";
 
 type PreviewComponentProps = {
   name: string;
@@ -86,7 +87,8 @@ const COMPONENTS: any = {
   textarea: TextareaPreview,
   toast: ToastPreview,
   toggle: TogglePreview,
-  tooltip: TooltipPreview
+  tooltip: TooltipPreview,
+  typography: TypographyPreview
 };
 
 const StyledFlex = styled.div`
