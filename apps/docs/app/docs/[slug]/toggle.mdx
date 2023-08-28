@@ -1,0 +1,134 @@
+---
+title: Toggle
+slug: toggle
+radixUI: https://www.radix-ui.com/primitives/docs/components/toggle
+radixAPI: https://www.radix-ui.com/primitives/docs/components/toggle#api-reference
+---
+
+# Toggle
+
+<Description text="A two-state button that can be either on or off." />
+
+<Flex style={{ gap: 8 }}>
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/toggle" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/toggle#api-reference" />
+</Flex>
+
+## Example
+
+<PreviewComponent name="toggle" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/toggle
+```
+
+## Usage
+
+Import the <strong>Toggle</strong>.
+
+```jsx
+import { Flex } from "@rempi-ui/Flex";
+import { Toggle } from "@rempi-ui/toggle";
+import { Italic } from "lucide-react";
+
+() => (
+  <Flex alignItems="center" justifyContent="center">
+    <Toggle>
+      <Italic size={16} />
+    </Toggle>
+
+    <Toggle defaultPressed>
+      <Italic size={16} />
+    </Toggle>
+
+    <Toggle disabled>
+      <Italic size={16} />
+    </Toggle>
+
+    <Toggle disabled defaultPressed>
+      <Italic size={16} />
+    </Toggle>
+  </Flex>
+);
+```
+
+## About
+
+<strong>Rempi-UI Toggle</strong> component is built on top of [Radix Toggle](https://www.radix-ui.com/primitives/docs/components/toggle).
+
+## API reference
+
+### Root
+
+The toggle.
+
+<MoreInfo
+  componentName="Radix Toggle"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toggle#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultPressed",
+      type: "boolean",
+      description:
+        "The pressed state of the toggle when it is initially rendered. Use when you do not need to control its pressed state.",
+    },
+    {
+      name: "pressed",
+      type: "boolean",
+      description: (
+        <span>
+          The controlled pressed state of the toggle. Must be used in
+          conjunction with <code>onPressedChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onPressedChange",
+      type: "(pressed: boolean) => void",
+      typeSimple: "function",
+      description:
+        "Event handler called when the pressed state of the toggle changes.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with the
+          toggle.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["on", "off"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/toast",
+    label: "Toast",
+  }}
+  next={{
+    link: "/docs/tooltip",
+    label: "Tooltip",
+  }}
+/>
