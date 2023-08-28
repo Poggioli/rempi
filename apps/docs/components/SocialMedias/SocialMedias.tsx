@@ -7,7 +7,12 @@ import { StyledSocialMedias } from "./SocialMedias.styles";
 
 export const SocialMedias: FC = () => {
   return (
-    <StyledSocialMedias as={Flex} flexDirection="row" alignItems="center">
+    <StyledSocialMedias
+      as={Flex}
+      flexDirection="row"
+      alignItems="center"
+      flexWrap="initial"
+    >
       <IconButton
         as="a"
         href="https://github.com/Poggioli/rempi"

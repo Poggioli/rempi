@@ -8,31 +8,16 @@ import { FC, PropsWithChildren } from "react";
 const ExamplesLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
-      <Flex as="section" flexDirection="column" className="main-section">
-        <Heading
-          fontWeight="semi-bold"
-          lineHeight={1}
-          className="main-section__title"
-        >
+      <Flex as="section" flexDirection="column" flexWrap="initial">
+        <Heading fontWeight="semi-bold" lineHeight={1}>
           Veja alguns exemplos.
         </Heading>
-        <Typography
-          variant="lead1"
-          color="low-contrast"
-          fontWeight="normal"
-          className="main-section__lead"
-        >
+        <Typography variant="lead1" color="low-contrast" fontWeight="normal">
           Dashboard, cards, autenticações. Alguns exemplos construídos com{" "}
           <strong>Rempi-UI</strong>.
         </Typography>
-        <Flex flexDirection="row" className="main-section__buttons">
-          <Button
-            as="a"
-            href="/docs/accordion"
-            variant="solid"
-            color="primary"
-            className="main-section__start-link"
-          >
+        <Flex flexDirection="row" flexWrap="initial">
+          <Button as="a" href="/docs/accordion" variant="solid" color="primary">
             Iniciar
           </Button>
           <Button
