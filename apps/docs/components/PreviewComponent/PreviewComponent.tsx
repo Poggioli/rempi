@@ -35,6 +35,7 @@ import { RadioPreview } from "./PreviewComponents/Radio";
 import { SelectPreview } from "./PreviewComponents/Select";
 import { SeparatorPreview } from "./PreviewComponents/Separator";
 import { SkeletonPreview } from "./PreviewComponents/Skeleton";
+import { SliderPreview } from "./PreviewComponents/Slider";
 
 type PreviewComponentProps = {
   name: string;
@@ -70,7 +71,8 @@ const COMPONENTS: any = {
   radio: RadioPreview,
   select: SelectPreview,
   separator: SeparatorPreview,
-  skeleton: SkeletonPreview
+  skeleton: SkeletonPreview,
+  slider: SliderPreview
 };
 
 const StyledFlex = styled.div`
