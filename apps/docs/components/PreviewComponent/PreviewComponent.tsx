@@ -36,6 +36,7 @@ import { SelectPreview } from "./PreviewComponents/Select";
 import { SeparatorPreview } from "./PreviewComponents/Separator";
 import { SkeletonPreview } from "./PreviewComponents/Skeleton";
 import { SliderPreview } from "./PreviewComponents/Slider";
+import { SwitchPreview } from "./PreviewComponents/Switch";
 
 type PreviewComponentProps = {
   name: string;
@@ -72,7 +73,8 @@ const COMPONENTS: any = {
   select: SelectPreview,
   separator: SeparatorPreview,
   skeleton: SkeletonPreview,
-  slider: SliderPreview
+  slider: SliderPreview,
+  switch: SwitchPreview
 };
 
 const StyledFlex = styled.div`
