@@ -1,0 +1,101 @@
+---
+title: Separator
+slug: separator
+radixUI: https://www.radix-ui.com/primitives/docs/components/separator
+radixAPI: https://www.radix-ui.com/primitives/docs/components/separator#api-reference
+---
+
+# Separator
+
+<Description text="Visually or semantically separates content." />
+
+<Flex style={{ gap: 8 }}>
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/separator" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/separator#api-reference" />
+</Flex>
+
+## Example
+
+<PreviewComponent name="separator" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/separator
+```
+
+## Usage
+
+Import the <strong>Separator</strong>.
+
+```jsx
+import { Separator } from "@rempi-ui/separator";
+
+() => (
+  <Flex flexDirection="column">
+    <Heading>Between us there</Heading>
+    <Separator />
+    <Heading>Is a separator</Heading>
+  </Flex>
+);
+```
+
+## About
+
+Rempi-UI Separator component is built on top of [Radix Separator](https://www.radix-ui.com/primitives/docs/components/separator).
+
+## API reference
+
+### Root
+
+Contains all the parts of a separator.
+
+<MoreInfo
+  componentName="Radix Separator"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/separator#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "orientation",
+      type: '"horizontal" | "vertical"',
+      typeSimple: "enum",
+      defaultValue: '"horizontal"',
+      description: "The orientation of the separator.",
+    },
+    {
+      name: "decorative",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, signifies that it is purely visual, carries no
+          semantic meaning, and ensures it is not present in the accessibility
+          tree.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/select",
+    label: "Select",
+  }}
+  next={{
+    link: "/docs/skeleton",
+    label: "Skeleton",
+  }}
+/>
