@@ -13,6 +13,7 @@ export const StyledTabsList = styled(Tabs.List)`
   flex-direction: row;
   gap: ${({ theme }) => theme.spaces[1]};
   padding: ${({ theme }) => theme.spaces[1]};
+  overflow-x: auto;
 `;
 
 export const StyledTabsTrigger = styled(Tabs.Trigger)`
