@@ -101,11 +101,11 @@ export const StyledTableRoot = styled.table<{
         css`
           ${StyledTableHead.toString()},
           ${StyledTableFooter.toString()} {
-            padding: 0 ${({ theme }) => theme.spaces[2]};
+            padding: 0 ${({ theme }) => theme.spaces[4]};
           }
 
           ${StyledTableCell.toString()} {
-            padding: ${({ theme }) => theme.spaces[2]};
+            padding: ${({ theme }) => theme.spaces[2]} ${({ theme }) => theme.spaces[4]};
           }
         `
       );
