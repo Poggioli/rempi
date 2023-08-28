@@ -39,6 +39,7 @@ import { SliderPreview } from "./PreviewComponents/Slider";
 import { SwitchPreview } from "./PreviewComponents/Switch";
 import { TablePreview } from "./PreviewComponents/Table";
 import { TabsPreview } from "./PreviewComponents/Tabs";
+import { TextareaPreview } from "./PreviewComponents/Textarea";
 
 type PreviewComponentProps = {
   name: string;
@@ -78,7 +79,8 @@ const COMPONENTS: any = {
   slider: SliderPreview,
   switch: SwitchPreview,
   table: TablePreview,
-  tabs: TabsPreview
+  tabs: TabsPreview,
+  textarea: TextareaPreview,
 };
 
 const StyledFlex = styled.div`
