@@ -1,0 +1,441 @@
+---
+title: Navigation Menu
+slug: navigation-menu
+radixUI: https://www.radix-ui.com/primitives/docs/components/navigation-menu
+radixAPI: https://www.radix-ui.com/primitives/docs/components/navigation-menu#api-reference
+---
+
+# Navigation Menu
+
+<Description text="A collection of links for navigating websites." />
+
+<Flex style={{ gap: 8 }}>
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/navigation-menu" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/navigation-menu#api-reference" />
+</Flex>
+
+## Example
+
+<PreviewComponent name="navigation-menu" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/navigation-menu
+```
+
+## Usage
+
+Import the <strong>NavigationMenu</strong> and piece all composition components together.
+
+```jsx
+import { NavigationMenu } from "@rempi-ui/navigation-menu";
+
+() => (
+  <NavigationMenu.Root>
+    <NavigationMenu.Menu>
+      <NavigationMenu.Trigger>File</NavigationMenu.Trigger>
+      <NavigationMenu.Content align="start">
+        <NavigationMenu.Item>New Tab</NavigationMenu.Item>
+        <NavigationMenu.Item>New Window</NavigationMenu.Item>
+        <NavigationMenu.Item disabled>New Incognito Window</NavigationMenu.Item>
+        <NavigationMenu.Separator />
+        <NavigationMenu.SubMenu>
+          <NavigationMenu.SubMenuTrigger>Share</NavigationMenu.SubMenuTrigger>
+          <NavigationMenu.SubMenuContent alignOffset={-5}>
+            <NavigationMenu.Item>Email Link</NavigationMenu.Item>
+            <NavigationMenu.Item>Messages</NavigationMenu.Item>
+            <NavigationMenu.Item>Notes</NavigationMenu.Item>
+          </NavigationMenu.SubMenuContent>
+        </NavigationMenu.SubMenu>
+        <NavigationMenu.Separator />
+        <NavigationMenu.Item>Print…</NavigationMenu.Item>
+      </NavigationMenu.Content>
+    </NavigationMenu.Menu>
+
+    <NavigationMenu.Menu>
+      <NavigationMenu.Trigger>Edit</NavigationMenu.Trigger>
+      <NavigationMenu.Content align="start">
+        <NavigationMenu.Item>Undo</NavigationMenu.Item>
+        <NavigationMenu.Item>Redo</NavigationMenu.Item>
+        <NavigationMenu.Separator />
+        <NavigationMenu.SubMenu>
+          <NavigationMenu.SubMenuTrigger>Find</NavigationMenu.SubMenuTrigger>
+
+          <NavigationMenu.SubMenuContent alignOffset={-5}>
+            <NavigationMenu.Item>Search the web…</NavigationMenu.Item>
+            <NavigationMenu.Separator />
+            <NavigationMenu.Item>Find…</NavigationMenu.Item>
+            <NavigationMenu.Item>Find Next</NavigationMenu.Item>
+            <NavigationMenu.Item>Find Previous</NavigationMenu.Item>
+          </NavigationMenu.SubMenuContent>
+        </NavigationMenu.SubMenu>
+        <NavigationMenu.Separator />
+        <NavigationMenu.Item>Cut</NavigationMenu.Item>
+        <NavigationMenu.Item>Copy</NavigationMenu.Item>
+        <NavigationMenu.Item>Paste</NavigationMenu.Item>
+      </NavigationMenu.Content>
+    </NavigationMenu.Menu>
+
+    <NavigationMenu.Menu>
+      <NavigationMenu.Trigger>View</NavigationMenu.Trigger>
+      <NavigationMenu.Content align="start" alignOffset={-14}>
+        <NavigationMenu.CheckboxItem value="always-show-bookmarks-bar">
+          Always Show Bookmarks Bar
+        </NavigationMenu.CheckboxItem>
+        <NavigationMenu.CheckboxItem value="always-show-full-urls">
+          Always Show Full URLs
+        </NavigationMenu.CheckboxItem>
+        <NavigationMenu.Separator />
+        <NavigationMenu.Item>Reload</NavigationMenu.Item>
+        <NavigationMenu.Item disabled>Force Reload</NavigationMenu.Item>
+        <NavigationMenu.Separator />
+        <NavigationMenu.Item>Toggle Fullscreen</NavigationMenu.Item>
+        <NavigationMenu.Separator />
+        <NavigationMenu.Item>Hide Sidebar</NavigationMenu.Item>
+      </NavigationMenu.Content>
+    </NavigationMenu.Menu>
+
+    <NavigationMenu.Menu>
+      <NavigationMenu.Trigger disabled>Companies</NavigationMenu.Trigger>
+    </NavigationMenu.Menu>
+  </NavigationMenu.Root>
+);
+```
+
+## About
+
+<strong>Rempi-UI Navigation Menu</strong> component is built on top of [Radix Navigation
+Menu](https://www.radix-ui.com/primitives/docs/components/navigation-menu).
+
+## API reference
+
+### Root
+
+It's a mix of [Radix Navigation Menu Root](https://www.radix-ui.com/primitives/docs/components/navigation-menu#root), [Radix Navigation Menu List](https://www.radix-ui.com/primitives/docs/components/navigation-menu#list) and [Radix Navigation Menu Viewport](https://www.radix-ui.com/primitives/docs/components/navigation-menu#viewport).<br/><br/>
+
+Contains all the parts of a navigation menu. Contains the top level menu items. An optional viewport element that is used to render active content outside of the list.
+
+<MoreInfo
+  componentName="Radix Navigation Menu Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/navigation-menu#root"
+/>
+
+<MoreInfo
+  componentName="Radix Navigation Menu List"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/navigation-menu#list"
+/>
+
+<MoreInfo
+  componentName="Radix Navigation Menu Viewport"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/navigation-menu#viewport"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultValue",
+      required: false,
+      type: "string",
+      description:
+        "The value of the menu item that should be active when initially rendered. Use when you do not need to control the value state.",
+    },
+    {
+      name: "value",
+      required: false,
+      type: "string",
+      description: (
+        <span>
+          The controlled value of the menu item to activate. Should be used in
+          conjunction with <code>onValueChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onValueChange",
+      required: false,
+      type: "(value: string) => void",
+      typeSimple: "function",
+      description: "Event handler called when the value changes.",
+    },
+    {
+      name: "delayDuration",
+      type: "number",
+      defaultValue: 200,
+      description:
+        "The duration from when the mouse enters a trigger until the content opens.",
+    },
+    {
+      name: "skipDelayDuration",
+      type: "number",
+      defaultValue: 300,
+      description:
+        "How much time a user has to enter another trigger without incurring a delay again.",
+    },
+    {
+      name: "dir",
+      required: false,
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      description: (
+        <span>
+          The reading direction of the menu when applicable. If omitted,
+          inherits globally from <code>DirectionProvider</code> or assumes LTR
+          (left-to-right) reading mode.
+        </span>
+      ),
+    },
+    {
+      name: "orientation",
+      required: false,
+      type: '"horizontal" | "vertical"',
+      typeSimple: "enum",
+      defaultValue: '"horizontal"',
+      description: "The orientation of the menu.",
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### Item
+
+A top level menu item, contains a link or trigger with content combination.
+
+<MoreInfo
+  componentName="Radix Navigation Menu Item"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/navigation-menu#item"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "value",
+      required: false,
+      type: "string",
+      description: (
+        <span>
+          A unique value that associates the item with an active value when the
+          navigation menu is controlled. This prop is managed automatically when
+          uncontrolled.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+### Trigger
+
+The button that toggles the content.
+
+<MoreInfo
+  componentName="Radix Navigation Menu Trigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/navigation-menu#trigger"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+### Content
+
+Contains the content associated with each trigger.
+
+<MoreInfo
+  componentName="Radix Navigation Menu Content"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/navigation-menu#content"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "disableOutsidePointerEvents",
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          When <code>true</code>, hover/focus/click interactions will be
+          disabled on elements outside the bounds of the component. Users will
+          need to click twice on outside elements to interact with them: Once to
+          close the navigation menu, and again to activate the element.
+        </span>
+      ),
+    },
+    {
+      name: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the escape key is down. It can be prevented
+          by calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onPointerDownOutside",
+      type: "(event: PointerDownOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when a pointer event occurs outside the bounds of
+          the component. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onFocusOutside",
+      type: "(event: FocusOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when focus moves outside the bounds of the
+          component. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onInteractOutside",
+      type: "(event: React.FocusEvent | MouseEvent | TouchEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when an interaction (pointer or focus event)
+          happens outside the bounds of the component. It can be prevented by
+          calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-motion]",
+      value: ["to-start", "to-end", "from-start", "from-end"],
+    },
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+### Link
+
+A navigational link.
+
+<MoreInfo
+  componentName="Radix Navigation Menu Link"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/navigation-menu#link"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "asChild",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <>
+          Change the default rendered element for the one passed as a child,
+          merging their props and behavior.
+          <br />
+          <br />
+          Read our <a href="../guides/composition">Composition</a> guide for more
+          details.
+        </>
+      ),
+    },
+    {
+      name: "active",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: "Used to identify the link as the currently active page.",
+    },
+    {
+      name: "onSelect",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the user selects a link (via mouse or
+          keyboard). Calling <code>event.preventDefault</code> in this handler
+          will prevent the navigation menu from closing when selecting that
+          link.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-active]",
+      value: "Present when active",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/menubar",
+    label: "Menu bar",
+  }}
+  next={{
+    link: "/docs/components/popover",
+    label: "Popover",
+  }}
+/>

@@ -1,0 +1,81 @@
+---
+title: Aspect Ratio
+slug: aspect-ratio
+radixUI: https://www.radix-ui.com/primitives/docs/components/aspect-ratio
+radixAPI: https://www.radix-ui.com/primitives/docs/components/aspect-ratio#api-reference
+---
+
+# Aspect Ratio
+
+<Description text="Displays content within a desired ratio." />
+
+<Flex style={{ gap: 8 }}>
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/aspect-ratio" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/aspect-ratio#api-reference" />
+</Flex>
+
+## Example
+
+<PreviewComponent name="aspect-ratio" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/aspect-ratio
+```
+
+## Usage
+
+Import the <strong>AspectRatio</strong>.
+
+```jsx
+import { AspectRatio } from "@rempi-ui/aspect-ratio";
+
+() => (
+  <AspectRatio>
+    <img
+      src="https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80"
+      alt="Landscape photograph by Tobias Tullius"
+    />
+  </AspectRatio>
+);
+```
+
+## About
+
+Rempi-UI Aspect Ratio component is built on top of [Radix Aspect Ratio](https://www.radix-ui.com/primitives/docs/components/aspect-ratio).
+
+## API reference
+
+### AspectRatio
+
+Contains the content you want to constrain to a given ratio.
+
+<MoreInfo
+  componentName="Radix Aspect Ratio"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/aspect-ratio#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "ratio",
+      type: "number",
+      defaultValue: "16/9",
+      description: "The desired ratio",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/alert-dialog",
+    label: "Alert dialog",
+  }}
+  next={{
+    link: "/docs/components/avatar",
+    label: "Avatar",
+  }}
+/>

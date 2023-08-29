@@ -1,0 +1,151 @@
+---
+title: Button
+slug: button
+---
+
+# Button
+
+<Description text="Buttons allow users to take actions, and make choices, with a single tap." />
+
+## Example
+
+<PreviewComponent name="button" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/button
+```
+
+## Usage
+
+Import the <strong>Button</strong> or <strong>IconButton</strong>.
+
+```jsx
+import { Button, IconButton } from "@rempi-ui/button";
+import { TrashIcon } from "lucide-react";
+
+() => <Button>Hello I'm a Button</Button>;
+() => (
+  <IconButton>
+    <TrashIcon />
+  </IconButton>
+);
+```
+
+## API reference
+
+### Button
+
+Contains all the parts of an button.
+
+<APIReference
+  data={[
+    {
+      name: "size",
+      required: false,
+      type: '"small" | "standard" | "large"',
+      typeSimple: "enum",
+      defaultValue: '"standard"',
+      description: "Set the container size of Button.",
+    },
+    {
+      name: "variant",
+      required: false,
+      type: '"text" | "contained" | "outlined" | "solid"',
+      typeSimple: "enum",
+      defaultValue: '"solid"',
+      description: "Set the Button styles.",
+    },
+    {
+      name: "shape",
+      required: false,
+      type: '"flat" | "smoth" | "rounded"',
+      typeSimple: "enum",
+      defaultValue: '"smoth"',
+      description: "Set the corner shape.",
+    },
+    {
+      name: "color",
+      required: false,
+      type: '"primary" | "secondary" | "success" | "error"',
+      typeSimple: "enum",
+      defaultValue: '"primary"',
+      description: "Set the color of Button.",
+    },
+    {
+      name: "upperCase",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "false",
+      description: "Determines whether letters will be uppercase.",
+    },
+  ]}
+/>
+
+### Icon Button
+
+Contains all the parts of an icon button.
+
+<APIReference
+  data={[
+    {
+      name: "aria-label",
+      required: true,
+      typeSimple: "string",
+      description: "Set the aria-label to accessibility.",
+    },
+    {
+      name: "size",
+      required: false,
+      type: '"small" | "standard" | "large"',
+      typeSimple: "enum",
+      defaultValue: '"standard"',
+      description: "Set the container size of Button.",
+    },
+    {
+      name: "variant",
+      required: false,
+      type: '"text" | "contained" | "outlined" | "solid"',
+      typeSimple: "enum",
+      defaultValue: '"solid"',
+      description: "Set the Button styles.",
+    },
+    {
+      name: "shape",
+      required: false,
+      type: '"flat" | "smoth" | "rounded"',
+      typeSimple: "enum",
+      defaultValue: '"smoth"',
+      description: "Set the corner shape.",
+    },
+    {
+      name: "color",
+      required: false,
+      type: '"primary" | "secondary" | "success" | "error"',
+      typeSimple: "enum",
+      defaultValue: '"primary"',
+      description: "Set the color of Button.",
+    },
+    {
+      name: "upperCase",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "false",
+      description: "Determines whether letters will be uppercase.",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/blockquote",
+    label: "Blockquote",
+  }}
+  next={{
+    link: "/docs/components/calendar",
+    label: "Calendar",
+  }}
+/>

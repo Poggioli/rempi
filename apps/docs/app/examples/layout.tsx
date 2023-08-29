@@ -17,7 +17,7 @@ const ExamplesLayout: FC<PropsWithChildren> = ({ children }) => {
           <strong>Rempi-UI</strong>.
         </Typography>
         <Flex flexDirection="row" flexWrap="initial">
-          <Button as="a" href="/docs/accordion" variant="solid" color="primary">
+          <Button as="a" href="/docs/components/accordion" variant="solid" color="primary">
             Iniciar
           </Button>
           <Button

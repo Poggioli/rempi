@@ -1,0 +1,90 @@
+---
+title: Typography
+slug: typography
+---
+
+# Typography
+
+<Description text="A foundational text primitive." />
+
+## Example
+
+<PreviewComponent name="typography" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/typography
+```
+
+## Usage
+
+Import the <strong>Typography</strong>.
+
+```jsx
+import { Flex } from "@rempi-ui/flex";
+import { Typography } from "@rempi-ui/typography";
+
+() => (
+  <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
+    <Typography>Hello I'm a Typography</Typography>
+  </Flex>
+);
+```
+
+## API reference
+
+### Typography
+
+This component is based on the `<span/>` element.
+
+<APIReference
+  data={[
+    {
+      name: "color",
+      type: '"low-contrast" | "high-contrast"',
+      typeSimple: "enum",
+    },
+    {
+      name: "fontSize",
+      type: '"2xsm" | "xsm" | "sm" | "md" | "lg" | "xlg"',
+      typeSimple: "enum",
+    },
+    {
+      name: "fontWeight",
+      type: '"tiny" | "normal" | "regular" | "semi-bold" | "bold" | "extra-bold"',
+      typeSimple: "enum",
+    },
+    {
+      name: "lineHeight",
+      type: "1 | 2",
+      typeSimple: "enum",
+    },
+    {
+      name: "isTruncated",
+      typeSimple: "boolean",
+      description:
+        "Determines whether to add an ellipsis to the end of the text if the content does not fit.",
+    },
+    {
+      name: "textAlign",
+      type: '"left" | "center" | "right"',
+      typeSimple: "enum",
+    },
+    {
+      name: "variant",
+      type: '"lead1" | "lead2" | "body1" | "body2" | "caption" | "subtitle"',
+      typeSimple: "enum",
+      defaultValue: '"body1"',
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/tooltip",
+    label: "Tooltip",
+  }}
+/>
