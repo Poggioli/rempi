@@ -13,6 +13,7 @@ import { BadgePreview } from "./PreviewComponents/Badge";
 import { BlockquotePreview } from "./PreviewComponents/Blockquote";
 import { ButtonPreview } from "./PreviewComponents/Button";
 import { CalendarPreview } from "./PreviewComponents/Calendar";
+import { CalloutPreview } from "./PreviewComponents/Callout";
 import { CardPreview } from "./PreviewComponents/Card";
 import { CheckboxPreview } from "./PreviewComponents/Checkbox";
 import { CodePreview } from "./PreviewComponents/Code";
@@ -58,6 +59,7 @@ const COMPONENTS: any = {
   blockquote: BlockquotePreview,
   button: ButtonPreview,
   calendar: CalendarPreview,
+  callout: CalloutPreview,
   card: CardPreview,
   checkbox: CheckboxPreview,
   code: CodePreview,

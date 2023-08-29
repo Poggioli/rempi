@@ -6,6 +6,7 @@
 - Blockquote - OK
 - Button - OK
 - Calendar - OK
+- Callout - OK
 - Card - OK
 - Checkbox - OK
 - Code - OK

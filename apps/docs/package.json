@@ -20,6 +20,7 @@
     "@rempi-ui/blockquote": "*",
     "@rempi-ui/button": "*",
     "@rempi-ui/calendar": "*",
+    "@rempi-ui/callout": "*",
     "@rempi-ui/card": "*",
     "@rempi-ui/checkbox": "*",
     "@rempi-ui/code": "*",
