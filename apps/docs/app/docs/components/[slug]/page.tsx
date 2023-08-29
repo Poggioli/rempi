@@ -7,7 +7,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   const { slug } = params;
   const {
     frontmatter: { title },
-  } = loadMdxFile("app/docs/components/[slug]", slug);
+  } = loadMdxFile("documentations/components", slug);
 
   return {
     title: title ? `${title} - Rempi-UI` : "Rempi-UI",
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 
 async function SlugPage({ params }) {
   const { slug } = params;
-  const source = loadMdxFile("app/docs/components/[slug]", slug);
+  const source = loadMdxFile("documentations/components", slug);
   const content = await serialize(source.content);
 
   return <MDXWrapper source={content} />;
