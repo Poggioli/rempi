@@ -17,6 +17,7 @@ import { Code } from "@rempi-ui/code";
 import { DataReference } from "./DataReference";
 import { Description } from "./Description";
 import { MoreInfo } from "./MoreInfo";
+import { SelectVersion } from "./SelectVersion";
 
 export const MDXProviderDocs: FC<PropsWithChildren> = ({ children }) => {
   return (
@@ -38,7 +39,8 @@ export const MDXProviderDocs: FC<PropsWithChildren> = ({ children }) => {
         NavigationNextPrevious,
         APIReference,
         DataReference,
-        MoreInfo
+        MoreInfo,
+        SelectVersion,
       }}
     >
       {children}
