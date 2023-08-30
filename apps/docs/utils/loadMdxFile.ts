@@ -4,7 +4,7 @@ import path from "path";
 
 type MDXType = {
   frontmatter: { [key: string]: any };
-  content: string
+  content: string;
 };
 
 function loadMdxFile(pathName: string, mdxFileName: string): MDXType {
@@ -32,4 +32,11 @@ function loadMdxFile(pathName: string, mdxFileName: string): MDXType {
   }
 }
 
-export default loadMdxFile;
+function readAllFilesInPath(pathName: string): string[] {
+  const mdxDir = path.join(process.cwd(), pathName);
+  const files = fs.readdirSync(mdxDir);
+
+  return files;
+}
+
+export { loadMdxFile, readAllFilesInPath };
