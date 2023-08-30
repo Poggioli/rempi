@@ -10,11 +10,15 @@ export const SelectVersion: FC = () => {
 
   const { versions } = useContext(VersionContext);
 
+  if (versions.length <= 1) {
+    return null;
+  }
+
   const versionParamAsString = searchParams.get("v") as string;
 
-  const initialVersionValue: string = (versions || []).includes(versionParamAsString)
+  const initialVersionValue: string = versions.includes(versionParamAsString)
     ? versionParamAsString
-    : (versions || [])[0];
+    : versions[0];
 
   const [value, setValue] = useState<string>(initialVersionValue);
 
@@ -35,7 +39,7 @@ export const SelectVersion: FC = () => {
       </Select.Trigger>
       <Select.Content>
         <Select.Viewport>
-          {(versions || []).map((version, index) => (
+          {versions.map((version, index) => (
             <Select.Item key={version} value={version}>
               {version} {index === 0 ? "(latest)" : null}
             </Select.Item>

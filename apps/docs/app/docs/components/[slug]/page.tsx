@@ -51,7 +51,7 @@ async function SlugPage({ params, searchParams }) {
   const versions = loadAvailableVersions(slug);
   const source = loadDocBySlug(slug, v);
   const content = await serialize(source.content);
-  const showNewVersionWarning = v ? versions[0] !== v : false;
+  const showNewVersionWarning = v ? versions[0] !== v && versions.includes(v) : false;
 
   return (
     <VersionProvider versions={versions}>
