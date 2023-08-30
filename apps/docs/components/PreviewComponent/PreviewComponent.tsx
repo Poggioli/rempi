@@ -2,9 +2,12 @@
 
 import { styled } from "@rempi-ui/core";
 import { Flex } from "@rempi-ui/flex";
+import { Heading } from "@rempi-ui/heading";
 import { Tabs } from "@rempi-ui/tabs";
 import { Typography } from "@rempi-ui/typography";
-import { FC, PropsWithChildren } from "react";
+import { useSearchParams } from "next/navigation";
+import { FC, PropsWithChildren, useContext } from "react";
+import { VersionContext } from "../VersionProvider";
 import { AccordionPreview } from "./PreviewComponents/Accordion";
 import { AlertDialogPreview } from "./PreviewComponents/AlertDialog";
 import { AspectRatioPreview } from "./PreviewComponents/AspectRatio";
@@ -90,7 +93,7 @@ const COMPONENTS: any = {
   toast: ToastPreview,
   toggle: TogglePreview,
   tooltip: TooltipPreview,
-  typography: TypographyPreview
+  typography: TypographyPreview,
 };
 
 const StyledFlex = styled.div`
@@ -117,6 +120,15 @@ const StyledTypography = styled.div`
   margin: 0 auto;
 `;
 
+const StyledHeadingLvl2 = styled.h2`
+  border-bottom: ${({ theme }) => theme.borderWidths[1]} solid
+    ${({ theme }) => theme.colors.grey6};
+  margin: ${({ theme }) => theme.spaces[12]} 0 ${({ theme }) => theme.spaces[4]}
+    0;
+  padding-bottom: ${({ theme }) => theme.spaces[2]};
+  font-size: ${({ theme }) => theme.fontSizes[10]};
+`;
+
 const PreviewContainer: FC<PropsWithChildren> = ({ children }) => {
   return (
     <StyledFlex
@@ -131,6 +143,13 @@ const PreviewContainer: FC<PropsWithChildren> = ({ children }) => {
 };
 
 export const PreviewComponent: FC<PreviewComponentProps> = ({ name }) => {
+  const { versions } = useContext(VersionContext);
+  const searchParams = useSearchParams();
+
+  if (searchParams.get("v") !== versions[0]) {
+    return null;
+  }
+
   const Preview = COMPONENTS[name];
 
   if (!Preview) {
@@ -144,21 +163,29 @@ export const PreviewComponent: FC<PreviewComponentProps> = ({ name }) => {
   }
 
   return (
-    <StyledTabRoot as={Tabs.Root} defaultValue="example">
-      <Tabs.List>
-        <Tabs.Trigger value="example">Example</Tabs.Trigger>
-        <Tabs.Trigger value="code" disabled>
-          Code
-        </Tabs.Trigger>
-      </Tabs.List>
-      <Tabs.Content value="example">
-        <PreviewContainer>
-          <Preview />
-        </PreviewContainer>
-      </Tabs.Content>
-      <Tabs.Content value="code">
-        <PreviewContainer></PreviewContainer>
-      </Tabs.Content>
-    </StyledTabRoot>
+    <>
+      <StyledHeadingLvl2
+        as={(props: any) => <Heading {...props} as="h2" />}
+        variant="2"
+      >
+        Example
+      </StyledHeadingLvl2>
+      <StyledTabRoot as={Tabs.Root} defaultValue="example">
+        <Tabs.List>
+          <Tabs.Trigger value="example">Example</Tabs.Trigger>
+          <Tabs.Trigger value="code" disabled>
+            Code
+          </Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content value="example">
+          <PreviewContainer>
+            <Preview />
+          </PreviewContainer>
+        </Tabs.Content>
+        <Tabs.Content value="code">
+          <PreviewContainer></PreviewContainer>
+        </Tabs.Content>
+      </StyledTabRoot>
+    </>
   );
 };
