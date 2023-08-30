@@ -9,7 +9,7 @@ radixAPI: https://www.radix-ui.com/primitives/docs/components/label#api-referenc
 
 <Description text="Renders an accessible label associated with controls." />
 
-## Example
+<SelectVersion />
 
 <PreviewComponent name="label" />
 
@@ -28,9 +28,7 @@ Import the <strong>Label</strong>.
 ```jsx
 import { Label } from "@rempi-ui/label";
 
-() => (
-  <Label>Hi I'm Label</Label>
-);
+() => <Label>Hi I'm Label</Label>;
 ```
 
 ## About
@@ -54,8 +52,8 @@ Contains the content for the label. Has all props of [Rempi-UI Flex](docs/flex).
     {
       name: "htmlFor",
       type: "string",
-      description: "The id of the element the label is associated with."
-    }
+      description: "The id of the element the label is associated with.",
+    },
   ]}
 />
 

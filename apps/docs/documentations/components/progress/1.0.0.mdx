@@ -9,12 +9,11 @@ radixAPI: https://www.radix-ui.com/primitives/docs/components/progress#api-refer
 
 <Description text="Displays an indicator showing the completion progress of a task, typically displayed as a progress bar." />
 
-<Flex style={{ gap: 8 }}>
+<Flex style={{ gap: 8 }} alignItems="center">
   <RadixUI href="https://www.radix-ui.com/primitives/docs/components/progress" />
   <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/progress#api-reference" />
+  <SelectVersion />
 </Flex>
-
-## Example
 
 <PreviewComponent name="progress" />
 
@@ -33,9 +32,7 @@ Import the <strong>Progress</strong>.
 ```jsx
 import { Progress } from "@rempi-ui/progress";
 
-() => (
-  <Progress value={75} />
-);
+() => <Progress value={75} />;
 ```
 
 ## About
@@ -85,10 +82,9 @@ Contains all of the progress parts. Used to show the progress visually. It also 
       typeSimple: "enum",
       defaultValue: '"standard"',
       description: "Set the container size of Progress bar.",
-    }
+    },
   ]}
 />
-
 
 <DataReference
   data={[
