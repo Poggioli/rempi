@@ -1,13 +1,13 @@
 import { MDXProvider } from "@mdx-js/react";
 import { FC, PropsWithChildren } from "react";
-import { Description } from "./Description";
+import { Description } from "@/components/MDXProviderCommon/Description";
 import { Heading1 } from "./Heading1";
 import { Heading2 } from "./Heading2";
 import { Heading3 } from "./Heading3";
-import { NavigationNextPrevious } from "./NavigationNextPrevious";
+import { NavigationNextPrevious } from "@/components/MDXProviderCommon/NavigationNextPrevious";
 import { Paragraph } from "./Paragraph";
-import { Pre } from "./Pre";
-import { Step, Steps } from "./Steps";
+import { Pre } from "@/components/MDXProviderCommon/Pre";
+import { Step, Steps } from "@/components/MDXProviderCommon/Steps";
 
 export const MDXProviderOverview: FC<PropsWithChildren<any>> = ({
   children,
