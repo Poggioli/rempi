@@ -1,12 +1,10 @@
 import { MDXWrapper } from "@/components/MDXWrapper";
+import { NewVersionWarning } from "@/components/NewVersionWarning";
+import { VersionProvider } from "@/components/VersionProvider/VersionProvider";
 import { Metadata } from "next";
 import { serialize } from "next-mdx-remote/serialize";
-import { loadMdxFile, readAllFilesInPath } from "utils/loadMdxFile";
 import semverSort from "semver-sort";
-import { VersionProvider } from "@/components/VersionProvider/VersionProvider";
-import { Callout } from "@rempi-ui/callout";
-import { Megaphone } from "lucide-react";
-import { NewVersionWarning } from "@/components/NewVersionWarning";
+import { loadMdxFile, readAllFilesInPath } from "utils/loadMdxFile";
 
 function loadAvailableVersions(slug: string) {
   const docs: string[] = readAllFilesInPath(
@@ -51,7 +49,9 @@ async function SlugPage({ params, searchParams }) {
   const versions = loadAvailableVersions(slug);
   const source = loadDocBySlug(slug, v);
   const content = await serialize(source.content);
-  const showNewVersionWarning = v ? versions[0] !== v && versions.includes(v) : false;
+  const showNewVersionWarning = v
+    ? versions[0] !== v && versions.includes(v)
+    : false;
 
   return (
     <VersionProvider versions={versions}>
