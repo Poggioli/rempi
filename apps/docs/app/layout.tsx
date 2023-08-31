@@ -1,20 +1,14 @@
 "use client";
 
 import { NavigationMenu } from "@/components/NavigationMenu";
+import { ThemeProvider as ThemeProviderCore } from "@rempi-ui/core";
 import "@rempi-ui/core/src/config/global-reset.scss";
 import { Toast } from "@rempi-ui/toast";
 import { Tooltip } from "@rempi-ui/tooltip";
 import { Inter } from "next/font/google";
 import { FC, PropsWithChildren, useContext } from "react";
+import { StyledBody } from "./layout.styles";
 import { ThemeProvider, ThemeProviderContext } from "./ThemeProvider";
-import { Container } from "@rempi-ui/container";
-import { Footer } from "@/components/Footer";
-import { ThemeProvider as ThemeProviderCore } from "@rempi-ui/core";
-import {
-  StyledBody,
-  StyledContainerBody,
-  StyledContent,
-} from "./layout.styles";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,10 +42,7 @@ const Html: FC<PropsWithChildren> = ({ children }) => {
             </head>
             <StyledBody>
               <NavigationMenu />
-              <StyledContainerBody as={Container} variant="md" centered>
-                <StyledContent>{children}</StyledContent>
-                <Footer />
-              </StyledContainerBody>
+              {children}
             </StyledBody>
           </html>
         </Toast.Provider>
