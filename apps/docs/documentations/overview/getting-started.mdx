@@ -1,3 +1,164 @@
-# Getting started
+# Começando
 
-### Install Radix Themes and start building your project in minutes.
+<Description text="Um tutorial rápido para você começar a usar o Rempi-UI." />
+
+<Steps>
+
+<Step>Instale a biblioteca core</Step>
+
+Instale a biblioteca a partir da sua linha de comando.
+
+```bash
+yarn add @rempi-ui/core
+```
+
+<Step>Usando a biblioteca</Step>
+
+Você <strong>deve</strong> englobar toda a sua aplicação com o componente <strong>ThemeProvider</strong>.
+
+```jsx
+
+import { ThemeProvider } from "@rempi-ui/core";
+
+() => (
+  <ThemeProvider>
+    {...}
+  </ThemeProvider>
+);
+```
+
+<Step>Importando o tema</Step>
+
+A biblioteca <strong>Rempi-UI</strong> disponibiliza um tema escuro como padrão.
+
+```jsx
+import { ThemeProvider, createTheme } from "@rempi-ui/core";
+
+const darkTheme = createTheme("dark-theme", {});
+
+() => (
+  <ThemeProvider theme={darkTheme.theme}>
+    {...}
+  </ThemeProvider>
+);
+```
+
+<Step>Usando um componente</Step>
+
+Agora você pode instalar um dos componentes da <strong>Rempi-UI</strong>.
+
+```bash
+yarn add @rempi-ui/button @rempi-ui/card @rempi-ui/flex @rempi-ui/switch @rempi-ui/typography lucide-react
+```
+
+```jsx
+import { ThemeProvider, createTheme } from "@rempi-ui/core";
+import { Button } from "@rempi-ui/button";
+import { Card } from "@rempi-ui/card";
+import { Flex } from "@rempi-ui/flex";
+import { Switch } from "@rempi-ui/switch";
+import { Typography } from "@rempi-ui/typography";
+import { BellIcon, Check } from "lucide-react";
+
+const darkTheme = createTheme("dark-theme", {});
+
+() => (
+  <ThemeProvider theme={darkTheme.theme}>
+    <Flex justifyContent="center">
+      <Card.Root>
+        <Card.Header>
+          <Card.Title>Notificações</Card.Title>
+          <Card.Description>Você possuí 3 mensagens não lidas</Card.Description>
+        </Card.Header>
+        <Card.Content flexDirection="column">
+          <Flex alignItems="center">
+            <BellIcon size={16} />
+            <Flex flexDirection="column">
+              <Typography
+                fontSize="sm"
+                fontWeight="semi-bold"
+                color="high-contrast"
+                lineHeight={1}
+              >
+                Notificações Push
+              </Typography>
+              <Typography
+                fontSize="sm"
+                fontWeight="regular"
+                color="low-contrast"
+                lineHeight={1}
+              >
+                Enviar notificações para o aparelho.
+              </Typography>
+            </Flex>
+            <Switch.Thumb />
+          </Flex>
+          <div>
+            {[
+              {
+                title: "Sua chamada foi confirmada.",
+                description: "1 hora atrás",
+              },
+              {
+                title: "Você possuí uma nova mensagem!",
+                description: "1 hora atrás",
+              },
+              {
+                title: "Sua inscrição irá se encerrar em breve!",
+                description: "2 horas atrás",
+              },
+            ].map((notification, index, ar) => (
+              <Flex key={index} flexDirection="row" alignItems="start">
+                <Typography />
+                <Flex flexDirection="column">
+                  <Typography
+                    fontSize="sm"
+                    fontWeight="semi-bold"
+                    color="high-contrast"
+                    lineHeight={1}
+                  >
+                    {notification.title}
+                  </Typography>
+                  <Typography
+                    fontSize="sm"
+                    fontWeight="regular"
+                    color="low-contrast"
+                    lineHeight={1}
+                  >
+                    {notification.description}
+                  </Typography>
+                </Flex>
+              </Flex>
+            ))}
+          </div>
+        </Card.Content>
+        <Card.Footer>
+          <Button>
+            <Check size={16} /> Marcar todas como lidas
+          </Button>
+        </Card.Footer>
+      </Card.Root>
+    </Flex>
+  </ThemeProvider>
+);
+```
+
+</Steps>
+
+<br />
+<br />
+
+As etapas acima descrevem brevemente o que está envolvido no uso da <strong>Rempi-UI</strong> em seu projeto. <br />
+Em alguns passos simples, implementamos um Card com aviso de notificações totalmente acessível,
+sem precisar nos preocupar com muitas de suas complexidades.
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/overview/introduction",
+    label: "Introdução",
+  }}
+  next={{
+    link: "/docs/components/accordion",
+    label: "Accordion",
+  }}
+/>
