@@ -19,7 +19,7 @@ import { Description } from "./Description";
 import { MoreInfo } from "./MoreInfo";
 import { SelectVersion } from "./SelectVersion";
 
-export const MDXProviderDocs: FC<PropsWithChildren> = ({ children }) => {
+export const MDXProviderDocs: FC<PropsWithChildren<any>> = ({ children }) => {
   return (
     <MDXProvider
       components={{
