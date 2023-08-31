@@ -1,21 +1,19 @@
-import { Button } from "@rempi-ui/button";
 import { styled } from "@rempi-ui/core";
 import { Flex } from "@rempi-ui/flex";
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import { Typography } from "@rempi-ui/typography";
 import { FC } from "react";
 
 const StyledContainerNextPrevious = styled.div`
   margin-top: ${({ theme }) => theme.spaces[12]};
+  gap: ${({ theme }) => theme.spaces[4]};
 `;
 
-const StyledButton = styled.button`
-  display: inline-flex;
-  align-items: center;
+const StyledContainerLinkGap = styled.div`
   gap: ${({ theme }) => theme.spaces[1]};
 `;
 
-const StyledNextButton = styled(StyledButton)`
-  margin-left: auto;
+const StyledLink = styled.a`
+  color: ${({ theme }) => theme.colors.info10};
 `;
 
 export const NavigationNextPrevious: FC<any> = ({ previous, next }) => {
@@ -27,26 +25,40 @@ export const NavigationNextPrevious: FC<any> = ({ previous, next }) => {
       alignItems="center"
     >
       {previous ? (
-        <StyledButton
-          as={(props: any) => <Button {...props} as="a" />}
-          size="small"
-          variant="outlined"
-          href={previous.link}
+        <StyledContainerLinkGap
+          as={Flex}
+          flexDirection="column"
+          alignItems="flex-start"
         >
-          <ChevronLeftIcon size={18} />
-          {previous.label}
-        </StyledButton>
+          <Typography variant="body1" color="low-contrast" fontWeight="normal">
+            Previous
+          </Typography>
+          <StyledLink
+            as={(props: any) => <Typography as="a" {...props} />}
+            href={previous.link}
+            variant="lead1"
+          >
+            {previous.label}
+          </StyledLink>
+        </StyledContainerLinkGap>
       ) : null}
       {next ? (
-        <StyledNextButton
-          as={(props: any) => <Button {...props} as="a" />}
-          size="small"
-          variant="outlined"
-          href={next.link}
+        <StyledContainerLinkGap
+          as={Flex}
+          flexDirection="column"
+          alignItems="flex-end"
         >
-          {next.label}
-          <ChevronRightIcon size={18} />
-        </StyledNextButton>
+          <Typography variant="body1" color="low-contrast" fontWeight="normal">
+            Next
+          </Typography>
+          <StyledLink
+            as={(props: any) => <Typography as="a" {...props} />}
+            href={next.link}
+            variant="lead1"
+          >
+            {next.label}
+          </StyledLink>
+        </StyledContainerLinkGap>
       ) : null}
     </StyledContainerNextPrevious>
   );
