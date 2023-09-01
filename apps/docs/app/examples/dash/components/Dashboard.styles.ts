@@ -15,7 +15,8 @@ export const StyledDashboardHeader = styled.div`
     ${({ theme }) => theme.colors.grey6};
   padding: ${({ theme }) => theme.spaces[3]} ${({ theme }) => theme.spaces[4]};
   width: 100%;
-  gap: ${({ theme }) => theme.spaces[3]};
+  row-gap: ${({ theme }) => theme.spaces[3]};
+  column-gap: ${({ theme }) => theme.spaces[8]};
 `;
 
 export const StyledDashboardBody = styled.div`

@@ -31,22 +31,22 @@ const Html: FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <ThemeProviderCore theme={theme}>
-      <Tooltip.Provider>
-        <Toast.Provider>
-          <html lang="en" className={`${className} ${inter.className}`}>
-            <head>
-              <style
-                id="rempi"
-                dangerouslySetInnerHTML={{ __html: getCssText() }}
-              ></style>
-            </head>
-            <StyledBody>
-              <NavigationMenu />
-              {children}
-            </StyledBody>
-          </html>
-        </Toast.Provider>
-      </Tooltip.Provider>
+        <Tooltip.Provider>
+          <Toast.Provider>
+            <html lang="en" className={`${className} ${inter.className}`}>
+              <head>
+                <style
+                  id="rempi"
+                  dangerouslySetInnerHTML={{ __html: getCssText() }}
+                ></style>
+              </head>
+              <StyledBody>
+                <NavigationMenu />
+                {children}
+              </StyledBody>
+            </html>
+          </Toast.Provider>
+        </Tooltip.Provider>
     </ThemeProviderCore>
   );
 };

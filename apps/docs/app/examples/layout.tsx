@@ -1,4 +1,3 @@
-import { ExampleNav } from "@/components/ExampleNav";
 import { Button } from "@rempi-ui/button";
 import { Flex } from "@rempi-ui/flex";
 import { Heading } from "@rempi-ui/heading";
@@ -31,7 +30,6 @@ const ExamplesLayout: FC<PropsWithChildren> = ({ children }) => {
           </Button>
         </Flex>
       </Flex>
-      <ExampleNav />
       {children}
     </>
   );

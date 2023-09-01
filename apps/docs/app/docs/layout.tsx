@@ -1,6 +1,7 @@
 "use client";
 
 import { DocsNavigationMenu } from "@/components/DocsNavigationMenu";
+import { useMenuComponent } from "@/components/MenuComponentProvider";
 import { styled } from "@rempi-ui/core";
 import { Flex } from "@rempi-ui/flex";
 

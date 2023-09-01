@@ -5,13 +5,12 @@ import { Combobox } from "@rempi-ui/combobox";
 import { DropdownMenu } from "@rempi-ui/dropdown-menu";
 import { Flex } from "@rempi-ui/flex";
 import { Input } from "@rempi-ui/input";
-import { NavigationMenu } from "@rempi-ui/navigation-menu";
 import { FC, useState } from "react";
 import {
   StyledDashboard,
   StyledDashboardBody,
   StyledDashboardHeader,
-  StyledDashboardSearch,
+  StyledDashboardSearch
 } from "./Dashboard.styles";
 import { DashboardBodyHeader } from "./DashboardBodyHeader";
 import { DashboardTabs } from "./DashboardTabs";
@@ -27,63 +26,26 @@ const Dashboard: FC = () => {
           "@initial": "flex-start",
           "@3": "center",
         }}
-        flexDirection={{
-          "@initial": "column",
-          "@3": "row",
-        }}
         justifyContent="space-between"
       >
-        <Flex
-          flexDirection={{
-            "@initial": "column",
-            "@2": "row",
-          }}
-          alignItems={{
-            "@initial": "flex-start",
-            "@2": "center",
-          }}
-        >
-          <Combobox.Root value={selectedValue} onValueChange={setSelectedValue}>
-            <Combobox.Trigger>
-              <Combobox.Value placeholder="Selecione um time" />
-            </Combobox.Trigger>
-            <Combobox.Content>
-              <Combobox.Input placeholder="Busque pelo time" />
-              <Combobox.Empty>Nenhum time encontrado.</Combobox.Empty>
-              <Combobox.Label>Conta pessoal</Combobox.Label>
-              <Combobox.Item value="john-stone">John Stone</Combobox.Item>
-              <Combobox.Separator />
-              <Combobox.Label>Times</Combobox.Label>
-              <Combobox.Item value="acme-inc">Acme Inc.</Combobox.Item>
-              <Combobox.Item value="monsters-inc">Monsters Inc.</Combobox.Item>
-              <Combobox.Item disabled value="angels-inc">
-                Angles Inc.
-              </Combobox.Item>
-            </Combobox.Content>
-          </Combobox.Root>
-          <NavigationMenu.Root>
-            <NavigationMenu.Item>
-              <NavigationMenu.Link href="/examples/dash">
-                Overview
-              </NavigationMenu.Link>
-            </NavigationMenu.Item>
-            <NavigationMenu.Item>
-              <NavigationMenu.Link href="/examples/dash">
-                Customers
-              </NavigationMenu.Link>
-            </NavigationMenu.Item>
-            <NavigationMenu.Item>
-              <NavigationMenu.Link href="/examples/dash">
-                Products
-              </NavigationMenu.Link>
-            </NavigationMenu.Item>
-            <NavigationMenu.Item>
-              <NavigationMenu.Link href="/examples/dash">
-                Settings
-              </NavigationMenu.Link>
-            </NavigationMenu.Item>
-          </NavigationMenu.Root>
-        </Flex>
+        <Combobox.Root value={selectedValue} onValueChange={setSelectedValue}>
+          <Combobox.Trigger>
+            <Combobox.Value placeholder="Selecione um time" />
+          </Combobox.Trigger>
+          <Combobox.Content>
+            <Combobox.Input placeholder="Busque pelo time" />
+            <Combobox.Empty>Nenhum time encontrado.</Combobox.Empty>
+            <Combobox.Label>Conta pessoal</Combobox.Label>
+            <Combobox.Item value="john-stone">John Stone</Combobox.Item>
+            <Combobox.Separator />
+            <Combobox.Label>Times</Combobox.Label>
+            <Combobox.Item value="acme-inc">Acme Inc.</Combobox.Item>
+            <Combobox.Item value="monsters-inc">Monsters Inc.</Combobox.Item>
+            <Combobox.Item disabled value="angels-inc">
+              Angles Inc.
+            </Combobox.Item>
+          </Combobox.Content>
+        </Combobox.Root>
 
         <StyledDashboardSearch as={Flex} alignItems="center">
           <Input.Root placeholder="Buscar..." />
