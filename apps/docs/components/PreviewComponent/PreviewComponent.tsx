@@ -146,7 +146,11 @@ export const PreviewComponent: FC<PreviewComponentProps> = ({ name }) => {
   const { versions } = useContext(VersionContext);
   const searchParams = useSearchParams();
 
-  if (searchParams.get("v") !== versions[0]) {
+  if (
+    searchParams.get("v") &&
+    versions.includes(searchParams.get("v") as string) &&
+    searchParams.get("v") !== versions[0]
+  ) {
     return null;
   }
 
