@@ -2,7 +2,6 @@ import { Button } from "@rempi-ui/button";
 import { Flex } from "@rempi-ui/flex";
 import { Heading } from "@rempi-ui/heading";
 import { Typography } from "@rempi-ui/typography";
-import { Code } from "@rempi-ui/code";
 import { Github } from "lucide-react";
 import { FC } from "react";
 import {
@@ -11,7 +10,7 @@ import {
   StyledMainSectionGithubIconLink,
   StyledMainSectionLead,
   StyledMainSectionStartLink,
-  StyledMainSectionTitle,
+  StyledMainSectionTitle
 } from "./MainSection.styles";
 
 export const MainSection: FC = () => {
@@ -39,7 +38,7 @@ export const MainSection: FC = () => {
       <StyledMainSectionButtons as={Flex} flexDirection="row">
         <StyledMainSectionStartLink
           as={(props: any) => <Button {...props} as="a" />}
-          href="/docs/components/accordion"
+          href="/docs/overview/introduction"
           variant="solid"
           color="primary"
         >

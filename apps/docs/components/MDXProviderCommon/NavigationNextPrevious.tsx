@@ -16,6 +16,10 @@ const StyledLink = styled.a`
   color: ${({ theme }) => theme.colors.info10};
 `;
 
+const StyledMarginLeftAuto = styled(StyledContainerLinkGap)`
+  margin-left: auto;
+`
+
 export const NavigationNextPrevious: FC<any> = ({ previous, next }) => {
   return (
     <StyledContainerNextPrevious
@@ -43,7 +47,7 @@ export const NavigationNextPrevious: FC<any> = ({ previous, next }) => {
         </StyledContainerLinkGap>
       ) : null}
       {next ? (
-        <StyledContainerLinkGap
+        <StyledMarginLeftAuto
           as={Flex}
           flexDirection="column"
           alignItems="flex-end"
@@ -58,7 +62,7 @@ export const NavigationNextPrevious: FC<any> = ({ previous, next }) => {
           >
             {next.label}
           </StyledLink>
-        </StyledContainerLinkGap>
+        </StyledMarginLeftAuto>
       ) : null}
     </StyledContainerNextPrevious>
   );
