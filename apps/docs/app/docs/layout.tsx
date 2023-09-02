@@ -1,7 +1,6 @@
 "use client";
 
 import { DocsNavigationMenu } from "@/components/DocsNavigationMenu";
-import { useMenuComponent } from "@/components/MenuComponentProvider";
 import { styled } from "@rempi-ui/core";
 import { Flex } from "@rempi-ui/flex";
 
@@ -17,8 +16,7 @@ const StyledSideNav = styled.aside`
 
 const StyledBlock = styled.div`
   z-index: 1;
-  top: ${({ theme }) => theme.spaces[13]};
-  overflow-x: hidden;
+  top: calc(${({ theme }) => theme.spaces[12]} + ${({ theme }) => theme.spaces[0]});
   width: inherit;
   position: fixed;
   left: 0;
