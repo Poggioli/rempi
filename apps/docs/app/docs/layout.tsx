@@ -9,18 +9,21 @@ const StyledSideNav = styled.aside`
 
   ${({ theme }) => theme.breakpoints[3]} {
     display: block;
-    /* flex-shrink: 0; */
     width: 250px;
   }
 `;
 
 const StyledBlock = styled.div`
   z-index: 1;
-  top: calc(${({ theme }) => theme.spaces[12]} + ${({ theme }) => theme.spaces[0]});
+  top: calc(
+    ${({ theme }) => theme.spaces[12]} + ${({ theme }) => theme.spaces[0]}
+  );
   width: inherit;
   position: fixed;
   left: 0;
   bottom: 0;
+  border-right: ${({ theme }) => theme.borderWidths[1]} solid
+    ${({ theme }) => theme.colors.grey6};
 `;
 
 const StyledContent = styled.div`

@@ -59,7 +59,7 @@ const menus: Menu[] = [
       { label: "Dropdown Menu", href: "/docs/components/dropdown-menu" },
       { label: "Flex", href: "/docs/components/flex" },
       { label: "Heading", href: "/docs/components/heading" },
-      { label: "Hover Card", href: "/docs/components/hover" },
+      { label: "Hover Card", href: "/docs/components/hover-card" },
       { label: "Input", href: "/docs/components/input" },
       { label: "Label", href: "/docs/components/label" },
       { label: "Menubar", href: "/docs/components/menubar" },
@@ -74,7 +74,7 @@ const menus: Menu[] = [
       { label: "Switch", href: "/docs/components/switch" },
       { label: "Table", href: "/docs/components/table" },
       { label: "Tabs", href: "/docs/components/tabs" },
-      { label: "TextArea", href: "/docs/components/textarea" },
+      { label: "Textarea", href: "/docs/components/textarea" },
       { label: "Toast", href: "/docs/components/toast" },
       { label: "Toggle", href: "/docs/components/toggle" },
       { label: "Tooltip", href: "/docs/components/tooltip" },
@@ -99,15 +99,15 @@ export const DocsNavigationMenu: FC = () => {
             {title}
           </ListHeadingStyled>
           {items.map(({ label, href }) => (
-            <ListItemStyled $active={pathname.includes(href)}>
-              <LinkStyled
-                as={(props: any) => <Typography {...props} as="a" />}
-                fontSize="sm"
-                href={href}
-              >
+            <LinkStyled
+              as={(props: any) => <Typography {...props} as="a" />}
+              fontSize="sm"
+              href={href}
+            >
+              <ListItemStyled key={href} $active={pathname.includes(href)}>
                 {label}
-              </LinkStyled>
-            </ListItemStyled>
+              </ListItemStyled>
+            </LinkStyled>
           ))}
           {index !== menus.length - 1 ? (
             <SeparatorStyled as={Separator} />

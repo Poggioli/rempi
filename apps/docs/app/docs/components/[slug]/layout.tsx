@@ -14,6 +14,10 @@ const StyledContainerBody = styled.div`
 
 const StyledContainer = styled.div`
   width: min(860px, 100%);
+
+  ${({ theme }) => theme.breakpoints.initial} {
+    padding: 0 ${({ theme }) => theme.spaces[6]};
+  }
 `;
 
 export default function DocsPage({ children }) {
