@@ -1,0 +1,140 @@
+---
+title: Table
+slug: table
+---
+
+# Table
+
+<Description text="A responsive table component." />
+
+<SelectVersion />
+
+<PreviewComponent name="table" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/table
+```
+
+## Usage
+
+Import the <strong>Table</strong> and piece all composition components together..
+
+```jsx
+import { Table } from "@rempi-ui/table";
+
+() => (
+  <Table.Root>
+    <Table.Caption>A list of your recent invoices.</Table.Caption>
+    <Table.Header>
+      <Table.Row>
+        <Table.Head>Invoice</Table.Head>
+        <Table.Head>Status</Table.Head>
+        <Table.Head>Method</Table.Head>
+        <Table.Head>Amount</Table.Head>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>INV001</Table.Cell>
+        <Table.Cell>Paid</Table.Cell>
+        <Table.Cell>$250.00</Table.Cell>
+        <Table.Cell>Credit Card</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>INV002</Table.Cell>
+        <Table.Cell>Pending</Table.Cell>
+        <Table.Cell>$150.00</Table.Cell>
+        <Table.Cell>Paypal</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>INV003</Table.Cell>
+        <Table.Cell>Unpaid</Table.Cell>
+        <Table.Cell>$350.00</Table.Cell>
+        <Table.Cell>Bank Transfer</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>INV004</Table.Cell>
+        <Table.Cell>Paid</Table.Cell>
+        <Table.Cell>$450.00</Table.Cell>
+        <Table.Cell>Credit Card</Table.Cell>
+      </Table.Row>
+    </Table.Body>
+  </Table.Root>
+);
+```
+
+## API reference
+
+### Root
+
+An HTML table consists of one `<table>` element and one or more `<Table.Header />`, `<Table.Body />`, `<Table.Footer />`, `<Table.Row />`, `<Table.Head />`, `<Table.Cell />` and `<Table.Caption />` elements.
+
+<APIReference
+  data={[
+    {
+      name: "striped",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description: "Make table rows to be striped.",
+    },
+    {
+      name: "condensed",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description: "Make items more condensed than the common behavior.",
+    },
+    {
+      name: "bordered",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description: "Determines whether card has border or not",
+    },
+  ]}
+/>
+
+### Header
+
+The `<thead>` element is used in conjunction with the `<Table.Body />` and `<Table.Footer />` elements to specify each part of a table (header, body, footer).
+
+### Body
+
+The `<Table.Body />` element is used in conjunction with the `<Table.Header />` and `<Table.Footer />` elements to specify each part of a table (body, header, footer).
+
+### Footer
+
+The `<Table.Footer />` element is used in conjunction with the `<Table.Header />` and `<Table.Body />` elements to specify each part of a table (footer, header, body).
+
+### Row
+
+The `<Table.Row />` tag defines a row in an HTML table. <br />
+A `<Table.Row />` element contains one or more `<Table.Head>` or `<Table.Cell />` elements.
+
+### Head
+
+The `<Table.Head>` tag defines a header cell in an HTML table.
+
+### Cell
+
+The `<Table.Cell />` tag defines a standard data cell in an HTML table.
+
+### Caption
+
+The `<Table.Caption />` tag defines a table caption, must be inserted immediately after the `<Table.Root />` tag.
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/switch",
+    label: "Switch",
+  }}
+  next={{
+    link: "/docs/components/tabs",
+    label: "Tabs",
+  }}
+/>

@@ -1,0 +1,356 @@
+---
+title: Accordion
+slug: accordion
+radixUI: https://www.radix-ui.com/primitives/docs/components/accordion
+radixAPI: https://www.radix-ui.com/primitives/docs/components/accordion#api-reference
+---
+
+# Accordion
+
+<Description text="A vertically stacked set of interactive headings that each reveal an associated section of content." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/accordion" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/accordion#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="accordion" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/accordion
+```
+
+## Usage
+
+Import the <strong>Accordion</strong> and piece all composition components together.
+
+```jsx
+import { Accordion } from "@rempi-ui/accordion";
+
+() => (
+  <Accordion.Root>
+    <Accordion.Item value="item-1">
+      <Accordion.Header>
+        <Accordion.Trigger>Is it accessible?</Accordion.Trigger>
+      </Accordion.Header>
+      <Accordion.Content>
+        Yes. It adheres to the WAI-ARIA design pattern.
+      </Accordion.Content>
+    </Accordion.Item>
+  </Accordion.Root>
+);
+```
+
+## About
+
+Rempi-UI Accordion component is built on top of [Radix Accordion](https://www.radix-ui.com/primitives/docs/components/accordion).
+
+## API reference
+
+### Root
+
+Contains all the parts of an accordion.
+
+<MoreInfo
+  componentName="Radix Accordion Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/accordion#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "type",
+      required: true,
+      type: '"single" | "multiple"',
+      typeSimple: "enum",
+      description: (
+        <span>
+          Determines whether one or multiple items can be opened at the same
+          time.
+        </span>
+      ),
+    },
+    {
+      name: "value",
+      required: false,
+      type: "string",
+      description: (
+        <span>
+          The controlled value of the item to expand when <code>type</code> is{" "}
+          <code>"single"</code>. Must be used in conjunction with{" "}
+          <code>onValueChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "defaultValue",
+      required: false,
+      type: "string",
+      description: (
+        <span>
+          The value of the item to expand when initially rendered and{" "}
+          <code>type</code> is <code>"single"</code>. Use when you do not need
+          to control the state of the items.
+        </span>
+      ),
+    },
+    {
+      name: "onValueChange",
+      required: false,
+      type: "(value: string) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the expanded state of an item changes and{" "}
+          <code>type</code> is <code>"single"</code>.
+        </span>
+      ),
+    },
+    {
+      name: "value",
+      required: false,
+      defaultValue: "[]",
+      type: "string[]",
+      description: (
+        <span>
+          The controlled value of the item to expand when <code>type</code> is{" "}
+          <code>"multiple"</code>. Must be used in conjunction with{" "}
+          <code>onValueChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "defaultValue",
+      required: false,
+      defaultValue: "[]",
+      type: "string[]",
+      description: (
+        <span>
+          The value of the item to expand when initially rendered when{" "}
+          <code>type</code> is <code>"multiple"</code>. Use when you do not need
+          to control the state of the items.
+        </span>
+      ),
+    },
+    {
+      name: "onValueChange",
+      required: false,
+      type: "(value: string[]) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the expanded state of an item changes and{" "}
+          <code>type</code> is <code>"multiple"</code>.
+        </span>
+      ),
+    },
+    {
+      name: "collapsible",
+      required: false,
+      defaultValue: "false",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>type</code> is <code>"single"</code>, allows closing
+          content when clicking trigger for an open item.
+        </span>
+      ),
+    },
+    {
+      name: "disabled",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with the
+          accordion and all its items.
+        </span>
+      ),
+    },
+    {
+      name: "dir",
+      required: false,
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      defaultValue: '"ltr"',
+      description:
+        "The reading direction of the accordion when applicable. If omitted, assumes LTR (left-to-right) reading mode.",
+    },
+    {
+      name: "orientation",
+      required: false,
+      type: '"horizontal" | "vertical"',
+      typeSimple: "enum",
+      defaultValue: '"vertical"',
+      description: "The orientation of the accordion.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+### Item
+
+Contains all the parts of a collapsible section.
+
+<MoreInfo
+  componentName="Radix Accordion Item"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/accordion#item"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "disabled",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with the
+          item.
+        </span>
+      ),
+    },
+    {
+      name: "value",
+      required: true,
+      type: "string",
+      description: "A unique value for the item.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+### Header
+
+Wraps an `Accordion.Trigger`. Use the asChild prop to update it to the appropriate heading level for your page.
+
+<MoreInfo
+  componentName="Radix Accordion Header"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/accordion#header"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+### Trigger
+
+Toggles the collapsed state of its associated item. It should be nested inside of an `Accordion.Header`.
+
+<MoreInfo
+  componentName="Radix Accordion Trigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/accordion#trigger"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+### Content
+
+Contains the collapsible content for an item.
+
+<MoreInfo
+  componentName="Radix Accordion Content"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/accordion#content"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  next={{
+    link: "/docs/components/alert-dialog",
+    label: "Alert dialog",
+  }}
+  previous={{
+    link: "/docs/overview/getting-started",
+    label: "Começando",
+  }}
+/>

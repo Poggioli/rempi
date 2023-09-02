@@ -1,6 +1,5 @@
 import { Button } from "@rempi-ui/button";
 import { Card } from "@rempi-ui/card";
-import { css } from "@rempi-ui/core";
 import { Flex } from "@rempi-ui/flex";
 import { Switch } from "@rempi-ui/switch";
 import { Typography } from "@rempi-ui/typography";

@@ -107,7 +107,7 @@ export const DashboardTabs: FC = () => {
       <StyledContentGap as={Tabs.Content} value="overview">
         <StyledCardContainer>
           {cards.map((card) => (
-            <DashboardCard {...card} />
+            <DashboardCard key={card.title} {...card} />
           ))}
         </StyledCardContainer>
         <StyledFlexFullWidthWithGapAndFlexChild

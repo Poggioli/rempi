@@ -157,35 +157,38 @@ export const NavigationMenuPreview: FC = () => {
             <StyledUlTwo>
               <ListItem
                 title="Introduction"
-                href="/docs/primitives/overview/introduction"
+                href="https://www.radix-ui.com/docs/primitives/overview/introduction"
               >
                 Build high-quality, accessible design systems and web apps.
               </ListItem>
               <ListItem
                 title="Getting started"
-                href="/docs/primitives/overview/getting-started"
+                href="https://www.radix-ui.com/docs/primitives/overview/getting-started"
               >
                 A quick tutorial to get you up and running with Radix
                 Primitives.
               </ListItem>
-              <ListItem title="Styling" href="/docs/primitives/guides/styling">
+              <ListItem
+                title="Styling"
+                href="https://www.radix-ui.com/docs/primitives/guides/styling"
+              >
                 Unstyled and compatible with any styling solution.
               </ListItem>
               <ListItem
                 title="Animation"
-                href="/docs/primitives/guides/animation"
+                href="https://www.radix-ui.com/docs/primitives/guides/animation"
               >
                 Use CSS keyframes or any animation library of your choice.
               </ListItem>
               <ListItem
                 title="Accessibility"
-                href="/docs/primitives/overview/accessibility"
+                href="https://www.radix-ui.com/docs/primitives/overview/accessibility"
               >
                 Tested in a range of browsers and assistive technologies.
               </ListItem>
               <ListItem
                 title="Releases"
-                href="/docs/primitives/overview/releases"
+                href="https://www.radix-ui.com/docs/primitives/overview/releases"
               >
                 Radix Primitives releases and their changelogs.
               </ListItem>
@@ -199,35 +202,38 @@ export const NavigationMenuPreview: FC = () => {
             <StyledUlTwo>
               <ListItem
                 title="Introduction"
-                href="/docs/primitives/overview/introduction"
+                href="https://www.radix-ui.com/docs/primitives/overview/introduction"
               >
                 Build high-quality, accessible design systems and web apps.
               </ListItem>
               <ListItem
                 title="Getting started"
-                href="/docs/primitives/overview/getting-started"
+                href="https://www.radix-ui.com/docs/primitives/overview/getting-started"
               >
                 A quick tutorial to get you up and running with Radix
                 Primitives.
               </ListItem>
-              <ListItem title="Styling" href="/docs/primitives/guides/styling">
+              <ListItem
+                title="Styling"
+                href="https://www.radix-ui.com/docs/primitives/guides/styling"
+              >
                 Unstyled and compatible with any styling solution.
               </ListItem>
               <ListItem
                 title="Animation"
-                href="/docs/primitives/guides/animation"
+                href="https://www.radix-ui.com/docs/primitives/guides/animation"
               >
                 Use CSS keyframes or any animation library of your choice.
               </ListItem>
               <ListItem
                 title="Accessibility"
-                href="/docs/primitives/overview/accessibility"
+                href="https://www.radix-ui.com/docs/primitives/overview/accessibility"
               >
                 Tested in a range of browsers and assistive technologies.
               </ListItem>
               <ListItem
                 title="Releases"
-                href="/docs/primitives/overview/releases"
+                href="https://www.radix-ui.com/docs/primitives/overview/releases"
               >
                 Radix Primitives releases and their changelogs.
               </ListItem>

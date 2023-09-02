@@ -4,6 +4,11 @@ import { FC } from "react";
 
 const StyledTypographyP = styled.p`
   margin: ${({ theme }) => theme.spaces[4]} 0;
+
+  a,
+  a:visited {
+    color: ${({ theme }) => theme.colors.info10};
+  }
 `;
 
 export const Paragraph: FC<any> = ({ ...props }) => {

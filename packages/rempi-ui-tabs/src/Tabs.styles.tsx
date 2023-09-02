@@ -11,8 +11,11 @@ export const StyledTabsList = styled(Tabs.List)`
   border-radius: ${({ theme }) => theme.radii[2]};
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   gap: ${({ theme }) => theme.spaces[1]};
+  max-width: 100%;
   padding: ${({ theme }) => theme.spaces[1]};
+  overflow-x: auto;
 `;
 
 export const StyledTabsTrigger = styled(Tabs.Trigger)`

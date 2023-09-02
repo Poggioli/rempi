@@ -1,0 +1,84 @@
+---
+title: Textarea
+slug: textarea
+---
+
+# Textarea
+
+<Description text="Captures user input." />
+
+<SelectVersion />
+
+<PreviewComponent name="textarea" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/textarea
+```
+
+## Usage
+
+Import the <strong>Textarea</strong> and piece all composition components together.
+
+```jsx
+import { Textarea } from "@rempi-ui/textarea";
+
+() => (
+  <Textarea.Label alignItems="flex-start" flexDirection="column">
+    Message
+    <Textarea.Root placeholder="Type your message here" />
+  </Textarea.Label>
+);
+```
+
+## API reference
+
+### Root
+
+The textarea element. This component is based on the <code>textarea</code> element.
+
+<DataReference
+  data={[
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+### Label
+
+Renders an accessible label associated with controls.<br />
+Rempi-UI <strong>Textarea.Label</strong> component is built on top of <strong>Rempi-UI Label</strong>
+
+<MoreInfo
+  componentName="Rempi-UI Label"
+  componentLink="/docs/components/label"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "data-disabled",
+      value: "Present when disabled",
+    },
+    {
+      name: "data-invalid",
+      value: "Present when invalid",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/tabs",
+    label: "Tabs",
+  }}
+  next={{
+    link: "/docs/components/toast",
+    label: "Toast",
+  }}
+/>

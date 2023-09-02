@@ -83,7 +83,6 @@ export const StyledNavigationMenuRoot = styled(NavigationMenu.Root)`
 
 export const StyledNavigationMenuList = styled(NavigationMenu.List)`
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   list-style: none;
   margin: 0;
@@ -215,4 +214,9 @@ export const StyledNavigationMenuViewportPosition = styled.div`
   perspective: 2000px;
   position: absolute;
   top: 100%;
+  width: 100%;
+
+  ${({ theme }) => theme.breakpoints[1]} {
+    width: auto;
+  }
 `;

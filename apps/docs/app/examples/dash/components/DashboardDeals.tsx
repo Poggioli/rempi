@@ -80,14 +80,18 @@ export const DashboardDeals: FC = () => {
       <Card.Content>
         <StyledFullWidth as={Table.Root} condensed striped>
           <Table.Header>
-            <StyledWidth80 as={Table.Head}>#</StyledWidth80>
-            <Table.Head>Name</Table.Head>
-            <StyledRightAlign as={Table.Head}>Deal value</StyledRightAlign>
-            <StyledRightAlign as={Table.Head}>Best deal value</StyledRightAlign>
+            <Table.Row>
+              <StyledWidth80 as={Table.Head}>#</StyledWidth80>
+              <Table.Head>Name</Table.Head>
+              <StyledRightAlign as={Table.Head}>Deal value</StyledRightAlign>
+              <StyledRightAlign as={Table.Head}>
+                Best deal value
+              </StyledRightAlign>
+            </Table.Row>
           </Table.Header>
           <Table.Body>
             {orderedData.map(({ img, name, amount, bestAmount }) => (
-              <Table.Row>
+              <Table.Row key={name}>
                 <StyledWidth80 as={Table.Cell}>
                   <Avatar.Root size="small">
                     <Avatar.Image src={img} />

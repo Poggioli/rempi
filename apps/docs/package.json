@@ -20,6 +20,7 @@
     "@rempi-ui/blockquote": "*",
     "@rempi-ui/button": "*",
     "@rempi-ui/calendar": "*",
+    "@rempi-ui/callout": "*",
     "@rempi-ui/card": "*",
     "@rempi-ui/checkbox": "*",
     "@rempi-ui/code": "*",
@@ -60,12 +61,14 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark-gfm": "^3.0.1",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "semver-sort": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.12",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
+    "@types/semver-sort": "^0.0.1",
     "eslint-config-custom": "*",
     "tsconfig": "*",
     "typescript": "^4.5.3"

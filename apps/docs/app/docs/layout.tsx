@@ -1,29 +1,66 @@
 "use client";
 
-import { MDXProviderDocs } from "@/components/MDXProviderDocs";
-import { Container } from "@rempi-ui/container";
+import { DocsNavigationMenu } from "@/components/DocsNavigationMenu";
+import { useMenuComponent } from "@/components/MenuComponentProvider";
 import { styled } from "@rempi-ui/core";
+import { Flex } from "@rempi-ui/flex";
 
-const StyledContainerBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: ${(props) => props.theme.spaces[13]};
-  min-height: 100vh;
+const StyledSideNav = styled.aside`
+  display: none;
+
+  ${({ theme }) => theme.breakpoints[3]} {
+    display: block;
+    /* flex-shrink: 0; */
+    width: 250px;
+  }
+`;
+
+const StyledBlock = styled.div`
+  z-index: 1;
+  top: ${({ theme }) => theme.spaces[13]};
+  overflow-x: hidden;
+  width: inherit;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+`;
+
+const StyledContent = styled.div`
+  max-width: 858px;
+  width: 100%;
+  padding: ${({ theme }) => theme.spaces[16]} 0;
+
+  ${({ theme }) => theme.breakpoints[3]} {
+    padding: ${({ theme }) => theme.spaces[12]}
+      ${({ theme }) => theme.spaces[16]} ${({ theme }) => theme.spaces[16]}
+      calc(
+        ${({ theme }) => theme.spaces[16]} + ${({ theme }) => theme.spaces[6]}
+      );
+  }
 `;
 
 const StyledContainer = styled.div`
-  width: min(860px, 100%);
+  flex-grow: 1;
+  display: flex;
+  max-width: 100%;
+  justify-content: center;
+
+  ${({ theme }) => theme.breakpoints[3]} {
+    margin-left: calc((992px - 100vw) * 0.25);
+  }
 `;
 
 export default function DocsPage({ children }) {
   return (
-    <StyledContainerBody>
-      <StyledContainer
-        as={(props: any) => <Container {...props} as="section" />}
-        variant="sm"
-      >
-        <MDXProviderDocs>{children}</MDXProviderDocs>
+    <Flex justifyContent="flex-start" flexWrap="initial">
+      <StyledSideNav>
+        <StyledBlock>
+          <DocsNavigationMenu />
+        </StyledBlock>
+      </StyledSideNav>
+      <StyledContainer>
+        <StyledContent>{children}</StyledContent>
       </StyledContainer>
-    </StyledContainerBody>
+    </Flex>
   );
 }

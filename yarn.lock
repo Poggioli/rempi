@@ -2053,13 +2053,6 @@
   dependencies:
     "@types/unist" "^2"
 
-"@types/highlight.js@^10.1.0":
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/@types/highlight.js/-/highlight.js-10.1.0.tgz#89bb0c202997d7a90a07bd2ec1f7d00c56bb90b4"
-  integrity sha512-77hF2dGBsOgnvZll1vymYiNUtqJ8cJfXPD6GG/2M0aLRc29PkvB7Au6sIDjIEFcSICBhCh2+Pyq6WSRS7LUm6A==
-  dependencies:
-    highlight.js "*"
-
 "@types/hoist-non-react-statics@*":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
@@ -2152,6 +2145,11 @@
   version "0.16.3"
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.3.tgz#cef09e3ec9af1d63d2a6cc5b383a737e24e6dcf5"
   integrity sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==
+
+"@types/semver-sort@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@types/semver-sort/-/semver-sort-0.0.1.tgz#1a4ffd49cfe7c2705f01baae5ce2005dc960d702"
+  integrity sha512-abYNwum55FpJWDxcWjT1eNI3J5/KXS7cWY7KUgbr/l/vn/5vaB1ejUpipLPZba8BvdbJBAJCWIXfJYZvc4SwTA==
 
 "@types/styled-components@^5.1.26":
   version "5.1.26"
@@ -3812,11 +3810,6 @@ header-case@^1.0.0:
   dependencies:
     no-case "^2.2.0"
     upper-case "^1.1.3"
-
-highlight.js@*, highlight.js@^11.8.0:
-  version "11.8.0"
-  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.8.0.tgz#966518ea83257bae2e7c9a48596231856555bb65"
-  integrity sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==
 
 hoist-non-react-statics@^3.3.0:
   version "3.3.2"
@@ -5772,7 +5765,20 @@ section-matter@^1.0.0:
     extend-shallow "^2.0.1"
     kind-of "^6.0.0"
 
-semver@^5.6.0:
+semver-regex@^3.1.2:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/semver-regex/-/semver-regex-3.1.4.tgz#13053c0d4aa11d070a2f2872b6b1e3ae1e1971b4"
+  integrity sha512-6IiqeZNgq01qGf0TId0t3NvKzSvUsjcpdEO3AQNeIjR6A2+ckTnQlDpl4qu1bjRv0RzN3FP9hzFmws3lKqRWkA==
+
+semver-sort@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/semver-sort/-/semver-sort-1.0.0.tgz#fd07da3904703ee0f1424152674644895f636086"
+  integrity sha512-JicVlQKz/C//4BiPmbHEDou6HihXxo5xqB/8Hm9FaLJ6HHkRRvYgCECq4u/z0XF8kyJQ/KAZt++A/kYz/oOSSg==
+  dependencies:
+    semver "^5.0.3"
+    semver-regex "^3.1.2"
+
+semver@^5.0.3, semver@^5.6.0:
   version "5.7.2"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.2.tgz#48d55db737c3287cd4835e17fa13feace1c41ef8"
   integrity sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==

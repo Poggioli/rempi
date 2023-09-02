@@ -75,7 +75,6 @@ export const StyledDialogContent = styled(Dialog.Content)`
   ${({ theme }) => theme.breakpoints[1]} {
     border-radius: ${({ theme }) => theme.radii[2]};
     display: block;
-    height: auto;
     max-height: 85vh;
     width: min(90vw, 576px);
   }

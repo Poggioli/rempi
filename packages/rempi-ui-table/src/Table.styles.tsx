@@ -9,7 +9,6 @@ import {
 export const StyledTableWrapper = styled.div<{
   $bordered?: RempiVariant<boolean>;
 }>`
-  margin-top: ${({ theme }) => theme.spaces[4]};
   overflow: auto;
   width: 100%;
   border-radius: ${({ theme }) => theme.radii[2]};
@@ -37,10 +36,6 @@ export const StyledTableRow = styled.tr`
   border-bottom: ${({ theme }) => theme.borderWidths[1]} solid
     ${({ theme }) => theme.colors.grey6};
   transition: background-color 200ms ease;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.primary4} !important;
-  }
 `;
 
 export const StyledTableHeader = styled.thead``;
@@ -71,6 +66,7 @@ export const StyledTableCell = styled.td`
 `;
 
 export const StyledTableCaption = styled.caption`
+  margin: ${({ theme }) => theme.spaces[2]} 0;
   color: ${({ theme }) => theme.colors.grey11};
   font-size: ${({ theme }) => theme.fontSizes[3]};
   line-height: ${({ theme }) => theme.lineHeights[2]};
@@ -80,6 +76,10 @@ export const StyledTableCaption = styled.caption`
 export const StyledTableBody = styled.tbody`
   ${StyledTableRow.toString()}:last-child {
     border: 0;
+  }
+
+  ${StyledTableRow.toString()}:hover {
+    background-color: ${({ theme }) => theme.colors.primary4} !important;
   }
 `;
 
@@ -101,11 +101,11 @@ export const StyledTableRoot = styled.table<{
         css`
           ${StyledTableHead.toString()},
           ${StyledTableFooter.toString()} {
-            padding: 0 ${({ theme }) => theme.spaces[2]};
+            padding: 0 ${({ theme }) => theme.spaces[4]};
           }
 
           ${StyledTableCell.toString()} {
-            padding: ${({ theme }) => theme.spaces[2]};
+            padding: ${({ theme }) => theme.spaces[2]} ${({ theme }) => theme.spaces[4]};
           }
         `
       );

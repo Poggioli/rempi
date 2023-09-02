@@ -1,0 +1,378 @@
+---
+title: Toast
+slug: toast
+radixUI: https://www.radix-ui.com/primitives/docs/components/toast
+radixAPI: https://www.radix-ui.com/primitives/docs/components/toast#api-reference
+---
+
+# Toast
+
+<Description text="A succinct message that is displayed temporarily." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/toast" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/toast#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="toast" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/toast
+```
+
+## Usage
+
+Import the <strong>Toast</strong> and piece all composition components together.
+
+```jsx
+import { Toast } from "@rempi-ui/toast";
+
+() => (
+  <html>
+    {...}
+    <Toast.Provider>
+      <Button
+        onClick={() => {
+          setOpen(false);
+          window.clearTimeout(timerRef.current);
+          timerRef.current = window.setTimeout(() => {
+            setOpen(true);
+          }, 100);
+        }}
+      >
+        Show toast
+      </Button>
+
+      <Toast.Root duration={3000} open={open} onOpenChange={setOpen}>
+        <Toast.Title>User will be deleted</Toast.Title>
+        <Toast.Description>
+          The user will be deleted in 5 seconds
+        </Toast.Description>
+        <Toast.Action asChild altText="Goto schedule to undo">
+          <Button size="small">Undo</Button>
+        </Toast.Action>
+        <Toast.CloseCross aria-label="Close" />
+      </Toast.Root>
+      <Toast.Viewport />
+    </Toast.Provider>
+  </html>
+);
+```
+
+## About
+
+<strong>Rempi-UI Toast</strong> component is built on top of [Radix Toast](https://www.radix-ui.com/primitives/docs/components/toast).
+
+## API reference
+
+### Provider
+
+The provider that wraps your toasts and toast viewport. It usually wraps the application.
+
+<MoreInfo
+  componentName="Radix Toast Provider"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#portal"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "duration",
+      type: "number",
+      defaultValue: 5000,
+      description:
+        "The time in milliseconds that should elapse before automatically closing each toast.",
+    },
+    {
+      name: "label",
+      required: true,
+      type: "string",
+      defaultValue: '"Notification"',
+      description:
+        "An author-localized label for each toast. Used to help screen reader users associate the interruption with a toast.",
+    },
+    {
+      name: "swipeDirection",
+      type: '"right" | "left" | "up" | "down"',
+      typeSimple: "enum",
+      defaultValue: '"right"',
+      description:
+        "The direction of the pointer swipe that should close the toast.",
+    },
+    {
+      name: "swipeThreshold",
+      type: "number",
+      defaultValue: 50,
+      description:
+        "The distance in pixels that the swipe gesture must travel before a close is triggered.",
+    },
+  ]}
+/>
+
+### Viewport
+
+The fixed area where toasts appear. Users can jump to the viewport by pressing a hotkey. It is up to you to ensure the discoverability of the hotkey for keyboard users.
+
+<MoreInfo
+  componentName="Radix Toast Viewport"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#viewport"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "hotkey",
+      type: "string[]",
+      defaultValue: '["F8"]',
+      description: (
+        <span>
+          The keys to use as the keyboard shortcut that will move focus to the
+          toast viewport. Use <code>event.code</code> value for each key from{" "}
+          <a href="https://keycode.info/" target="_blank">
+            keycode.info
+          </a>
+          . For meta keys, use <code>ctrlKey</code>, <code>shiftKey</code>, <code>
+            altKey
+          </code> and/or <code>metaKey</code>.
+        </span>
+      ),
+    },
+    {
+      name: "label",
+      type: "string",
+      defaultValue: '"Notifications ({hotkey})"',
+      description:
+        "An author-localized label for the toast region to provide context for screen reader users when navigating page landmarks. The available `{hotkey}` placeholder will be replaced for you.",
+    },
+  ]}
+/>
+
+### Root
+
+The toast that automatically closes. It should not be held open to acquire a user response.
+
+<MoreInfo
+  componentName="Radix Toast Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "type",
+      type: '"foreground" | "background"',
+      typeSimple: "enum",
+      defaultValue: '"foreground"',
+      description: (
+        <span>
+          Control the{" "}
+          <a href="https://www.radix-ui.com/primitives/docs/components/toast#sensitivity">
+            sensitivity
+          </a>{" "}
+          of the toast for accessibility purposes. For toasts that are the
+          result of a user action, choose <code>foreground</code>. Toasts
+          generated from background tasks should use <code>background</code>.
+        </span>
+      ),
+    },
+    {
+      name: "duration",
+      type: "number",
+      description:
+        "The time in milliseconds that should elapse before automatically closing the toast. This will override the value supplied to the provider.",
+    },
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      defaultValue: "true",
+      description:
+        "The open state of the dialog when it is initially rendered. Use when you do not need to control its open state.",
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          The controlled open state of the dialog. Must be used in conjunction
+          with <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description:
+        "Event handler called when the open state of the dialog changes.",
+    },
+    {
+      name: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the escape key is down. It can be prevented
+          by calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onPause",
+      type: "() => void",
+      typeSimple: "function",
+      description:
+        "Event handler called when the dismiss timer is paused. This occurs when the pointer is moved over the viewport, the viewport is focused or when the window is blurred.",
+    },
+    {
+      name: "onResume",
+      type: "() => void",
+      typeSimple: "function",
+      description:
+        "Event handler called when the dismiss timer is resumed. This occurs when the pointer is moved away from the viewport, the viewport is blurred or when the window is focused.",
+    },
+    {
+      name: "onSwipeStart",
+      type: "(event: SwipeEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when starting a swipe interaction. It can be
+          prevented by calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onSwipeMove",
+      type: "(event: SwipeEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called during a swipe interaction. It can be prevented
+          by calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onSwipeEnd",
+      type: "(event: SwipeEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called at the end of a swipe interaction. It can be
+          prevented by calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description:
+        "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-swipe]",
+      value: ["start", "move", "cancel", "end"],
+    },
+    {
+      name: "[data-swipe-direction]",
+      value: ["up", "down", "left", "right"],
+    },
+  ]}
+/>
+
+### Title
+
+An optional title for the toast.
+
+<MoreInfo
+  componentName="Radix Toast Title"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#title"
+/>
+
+### Description
+
+The toast message.
+
+<MoreInfo
+  componentName="Radix Toast Description"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#description"
+/>
+
+### Action
+
+An action that is safe to ignore to ensure users are not expected to complete tasks with unexpected side effects as a result of a [time limit](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html).
+
+When obtaining a user response is necessary, portal an [`AlertDialog`](/docs/components/alert-dialog) styled as a toast into the viewport instead.
+
+<MoreInfo
+  componentName="Radix Toast Action"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#action"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "altText",
+      required: true,
+      type: "string",
+      description: (
+        <>
+          Describe an{" "}
+          <a href="https://www.radix-ui.com/primitives/docs/components/toast#alternative-action">
+            alternative way to achieve the action
+          </a>{" "}
+          for screen reader users who cannot access the toast easily.
+        </>
+      ),
+    },
+  ]}
+/>
+
+### Close
+
+A button that allows users to dismiss the toast before its duration has elapsed.
+
+<MoreInfo
+  componentName="Radix Toast Close"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#close"
+/>
+
+### CloseCross
+
+The button with X icon that closes the toast.
+
+<APIReference
+  data={[
+    {
+      name: "aria-label",
+      required: true,
+      type: "string",
+      description: "aria-label to be announced when screen reader is active",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/textarea",
+    label: "Textarea",
+  }}
+  next={{
+    link: "/docs/components/toggle",
+    label: "Toggle",
+  }}
+/>

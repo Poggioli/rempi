@@ -7,18 +7,19 @@ import { FC, PropsWithChildren } from "react";
 import { Heading1 } from "./Heading1";
 import { Heading2 } from "./Heading2";
 import { Heading3 } from "./Heading3";
-import { NavigationNextPrevious } from "./NavigationNextPrevious";
+import { NavigationNextPrevious } from "@/components/MDXProviderCommon/NavigationNextPrevious";
 import { Paragraph } from "./Paragraph";
-import { Pre } from "./Pre";
+import { Pre } from "@/components/MDXProviderCommon/Pre";
 import { RadixAPI } from "./RadixAPI";
 import { RadixUI } from "./RadixUI";
-import { Step, Steps } from "./Steps";
+import { Step, Steps } from "@/components/MDXProviderCommon/Steps";
 import { Code } from "@rempi-ui/code";
 import { DataReference } from "./DataReference";
-import { Description } from "./Description";
+import { Description } from "@/components/MDXProviderCommon/Description";
 import { MoreInfo } from "./MoreInfo";
+import { SelectVersion } from "./SelectVersion";
 
-export const MDXProviderDocs: FC<PropsWithChildren> = ({ children }) => {
+export const MDXProviderDocs: FC<PropsWithChildren<any>> = ({ children }) => {
   return (
     <MDXProvider
       components={{
@@ -38,7 +39,8 @@ export const MDXProviderDocs: FC<PropsWithChildren> = ({ children }) => {
         NavigationNextPrevious,
         APIReference,
         DataReference,
-        MoreInfo
+        MoreInfo,
+        SelectVersion,
       }}
     >
       {children}

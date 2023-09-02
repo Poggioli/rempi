@@ -40,7 +40,7 @@ export const ToastRoot = forwardRef<typeof StyledToastRoot, ToastRootProps>(
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type ToastTitleProps = HTMLRempiProps<typeof StyledToastTitle> &
-  Toast.ToastProps;
+  Toast.ToastTitleProps;
 
 export const ToastTitle = forwardRef<typeof StyledToastTitle, ToastTitleProps>(
   ({ ...props }, ref) => {
@@ -53,7 +53,7 @@ export const ToastTitle = forwardRef<typeof StyledToastTitle, ToastTitleProps>(
 export type ToastDescriptionProps = HTMLRempiProps<
   typeof StyledToastDescription
 > &
-  Toast.ToastProps;
+  Toast.ToastDescriptionProps;
 
 export const ToastDescription = forwardRef<
   typeof StyledToastDescription,
@@ -65,7 +65,7 @@ export const ToastDescription = forwardRef<
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type ToastActionProps = HTMLRempiProps<typeof StyledToastAction> &
-  Toast.ToastProps;
+  Toast.ToastActionProps;
 
 export const ToastAction = forwardRef<
   typeof StyledToastAction,
@@ -77,7 +77,7 @@ export const ToastAction = forwardRef<
 // -x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x //
 
 export type ToastCloseProps = HTMLRempiProps<typeof Toast.Close> &
-  Toast.ToastProps;
+  Toast.ToastCloseProps;
 
 export const ToastClose = forwardRef<typeof Toast.Close, ToastCloseProps>(
   ({ as: Component = Toast.Close, ...props }, ref) => {
