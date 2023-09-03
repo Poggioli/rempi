@@ -99,15 +99,15 @@ export const DocsNavigationMenu: FC = () => {
             {title}
           </ListHeadingStyled>
           {items.map(({ label, href }) => (
-            <ListItemStyled $active={pathname.includes(href)}>
-              <LinkStyled
-                as={(props: any) => <Typography {...props} as="a" />}
-                fontSize="sm"
-                href={href}
-              >
+            <LinkStyled
+              as={(props: any) => <Typography {...props} as="a" />}
+              fontSize="sm"
+              href={href}
+            >
+              <ListItemStyled key={href} $active={pathname.includes(href)}>
                 {label}
-              </LinkStyled>
-            </ListItemStyled>
+              </ListItemStyled>
+            </LinkStyled>
           ))}
           {index !== menus.length - 1 ? (
             <SeparatorStyled as={Separator} />
