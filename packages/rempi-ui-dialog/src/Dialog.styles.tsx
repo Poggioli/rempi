@@ -63,7 +63,7 @@ export const StyledDialogContent = styled(Dialog.Content)`
   box-shadow: ${({ theme }) => theme.shadows[2]};
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: auto;
   left: 50%;
   padding: ${({ theme }) => theme.spaces[6]};
   position: fixed;

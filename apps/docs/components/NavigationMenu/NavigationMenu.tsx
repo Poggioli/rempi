@@ -34,6 +34,10 @@ const HideInTablet = styled.div`
   }
 `;
 
+const StyledFillAllAvailableHeight = styled.div`
+  height: 100%;
+`;
+
 export const NavigationMenu: FC = () => {
   const pathname = usePathname();
   const isDocPages = pathname.includes("docs");
@@ -71,12 +75,12 @@ export const NavigationMenu: FC = () => {
             </HideInDesktop>
             <Dialog.Portal>
               <Dialog.Overlay blur />
-              <Dialog.Content>
+              <StyledFillAllAvailableHeight as={Dialog.Content}>
                 <HideInTablet as={Dialog.CloseCross} aria-label="Fechar menu de navegação" />
                 <StyledContainer>
                   <DocsNavigationMenu />
                 </StyledContainer>
-              </Dialog.Content>
+              </StyledFillAllAvailableHeight>
             </Dialog.Portal>
           </Dialog.Root>
         </>
