@@ -40,6 +40,7 @@
     "@rempi-ui/popover": "*",
     "@rempi-ui/progress": "*",
     "@rempi-ui/radio": "*",
+    "@rempi-ui/scroll-area": "*",
     "@rempi-ui/select": "*",
     "@rempi-ui/separator": "*",
     "@rempi-ui/skeleton": "*",

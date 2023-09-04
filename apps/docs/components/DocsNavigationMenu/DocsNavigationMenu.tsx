@@ -67,6 +67,7 @@ const menus: Menu[] = [
       { label: "Popover", href: "/docs/components/popover" },
       { label: "Progress", href: "/docs/components/progress" },
       { label: "Radio", href: "/docs/components/radio" },
+      { label: "Scroll Area", href: "/docs/components/scroll-area" },
       { label: "Select", href: "/docs/components/select" },
       { label: "Separator", href: "/docs/components/separator" },
       { label: "Skeleton", href: "/docs/components/skeleton" },

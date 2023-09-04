@@ -36,6 +36,7 @@ import { NavigationMenuPreview } from "./PreviewComponents/NavigationMenu";
 import { PopoverPreview } from "./PreviewComponents/Popover";
 import { ProgressPreview } from "./PreviewComponents/Progress";
 import { RadioPreview } from "./PreviewComponents/Radio";
+import { ScrollAreaPreview } from "./PreviewComponents/ScrollArea";
 import { SelectPreview } from "./PreviewComponents/Select";
 import { SeparatorPreview } from "./PreviewComponents/Separator";
 import { SkeletonPreview } from "./PreviewComponents/Skeleton";
@@ -82,6 +83,7 @@ const COMPONENTS: any = {
   popover: PopoverPreview,
   progress: ProgressPreview,
   radio: RadioPreview,
+  "scroll-area": ScrollAreaPreview,
   select: SelectPreview,
   separator: SeparatorPreview,
   skeleton: SkeletonPreview,
