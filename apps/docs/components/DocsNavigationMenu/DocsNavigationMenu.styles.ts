@@ -19,7 +19,6 @@ export const ListStyled = styled.ul`
   padding: ${({ theme }) => theme.spaces[4]} ${({ theme }) => theme.spaces[8]}
     ${({ theme }) => theme.spaces[4]} ${({ theme }) => theme.spaces[4]};
   max-height: calc(100vh - ${({ theme }) => theme.spaces[12]} + ${({ theme }) => theme.spaces[0]});
-  overflow-y: auto;
 `;
 
 export const LinkStyled = styled.a`

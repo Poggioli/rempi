@@ -2,7 +2,6 @@ import * as ScrollArea from "@radix-ui/react-scroll-area";
 import { styled } from "@rempi-ui/core";
 
 export const StyledScrollAreaRoot = styled(ScrollArea.Root)`
-  border-radius: ${({ theme }) => theme.radii[2]};
   overflow: hidden;
   background-color: transparent;
 `;
@@ -10,7 +9,6 @@ export const StyledScrollAreaRoot = styled(ScrollArea.Root)`
 export const StyledScrollAreaViewport = styled(ScrollArea.Viewport)`
   width: 100%;
   height: 100%;
-  border-radius: inherit;
 `;
 
 export const StyledScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`

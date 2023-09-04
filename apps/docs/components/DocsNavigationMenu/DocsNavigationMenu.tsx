@@ -1,6 +1,7 @@
 import { FC, Fragment } from "react";
 
 import { Heading } from "@rempi-ui/heading";
+import { ScrollArea } from "@rempi-ui/scroll-area";
 import { Separator } from "@rempi-ui/separator";
 import { Typography } from "@rempi-ui/typography";
 import { usePathname } from "next/navigation";
@@ -88,33 +89,44 @@ export const DocsNavigationMenu: FC = () => {
   const pathname = usePathname();
 
   return (
-    <ListStyled>
-      {menus.map(({ title, items }, index) => (
-        <Fragment key={title}>
-          <ListHeadingStyled
-            as={Heading}
-            variant="6"
-            fontSize="xlg"
-            fontWeight="semi-bold"
-          >
-            {title}
-          </ListHeadingStyled>
-          {items.map(({ label, href }) => (
-            <LinkStyled
-              as={(props: any) => <Typography {...props} as="a" />}
-              fontSize="sm"
-              href={href}
-            >
-              <ListItemStyled key={href} $active={pathname.includes(href)}>
-                {label}
-              </ListItemStyled>
-            </LinkStyled>
+    <ScrollArea.Root
+      style={{
+        height: "100%",
+      }}
+    >
+      <ScrollArea.Viewport>
+        <ListStyled>
+          {menus.map(({ title, items }, index) => (
+            <Fragment key={title}>
+              <ListHeadingStyled
+                as={Heading}
+                variant="6"
+                fontSize="xlg"
+                fontWeight="semi-bold"
+              >
+                {title}
+              </ListHeadingStyled>
+              {items.map(({ label, href }) => (
+                <LinkStyled
+                  as={(props: any) => <Typography {...props} as="a" />}
+                  fontSize="sm"
+                  href={href}
+                >
+                  <ListItemStyled key={href} $active={pathname.includes(href)}>
+                    {label}
+                  </ListItemStyled>
+                </LinkStyled>
+              ))}
+              {index !== menus.length - 1 ? (
+                <SeparatorStyled as={Separator} />
+              ) : null}
+            </Fragment>
           ))}
-          {index !== menus.length - 1 ? (
-            <SeparatorStyled as={Separator} />
-          ) : null}
-        </Fragment>
-      ))}
-    </ListStyled>
+        </ListStyled>
+      </ScrollArea.Viewport>
+      <ScrollArea.Scrollbar orientation="vertical">
+        <ScrollArea.Thumb />
+      </ScrollArea.Scrollbar>
+    </ScrollArea.Root>
   );
 };

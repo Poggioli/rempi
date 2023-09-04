@@ -14,12 +14,8 @@ import {
 import { Menu } from "lucide-react";
 
 const StyledContainer = styled.div`
-  max-height: 100%;
-  overflow: auto;
-
-  ul {
-    overflow: initial;
-  }
+  width: calc(100% - ${({ theme }) => theme.spaces[3]});
+  height: 100%;
 `;
 
 const HideInDesktop = styled.div`
@@ -76,7 +72,10 @@ export const NavigationMenu: FC = () => {
             <Dialog.Portal>
               <Dialog.Overlay blur />
               <StyledFillAllAvailableHeight as={Dialog.Content}>
-                <HideInTablet as={Dialog.CloseCross} aria-label="Fechar menu de navegação" />
+                <HideInTablet
+                  as={Dialog.CloseCross}
+                  aria-label="Fechar menu de navegação"
+                />
                 <StyledContainer>
                   <DocsNavigationMenu />
                 </StyledContainer>
