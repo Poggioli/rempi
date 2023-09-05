@@ -1,0 +1,48 @@
+import {
+  DrawerRootProps,
+  DrawerRoot,
+  DrawerTriggerProps,
+  DrawerTrigger,
+  DrawerPortalProps,
+  DrawerPortal,
+  DrawerOverlayProps,
+  DrawerOverlay,
+  DrawerContentProps,
+  DrawerContent,
+  DrawerCloseCrossProps,
+  DrawerCloseCross,
+  DrawerCloseProps,
+  DrawerClose,
+  DrawerTitleProps,
+  DrawerTitle,
+  DrawerDescriptionProps,
+  DrawerDescription,
+  DrawerFooterProps,
+  DrawerFooter,
+} from "./Drawer";
+
+export const Drawer = {
+  Root: DrawerRoot,
+  Trigger: DrawerTrigger,
+  Portal: DrawerPortal,
+  Overlay: DrawerOverlay,
+  Content: DrawerContent,
+  CloseCross: DrawerCloseCross,
+  Close: DrawerClose,
+  Title: DrawerTitle,
+  Description: DrawerDescription,
+  Footer: DrawerFooter,
+};
+
+export type {
+  DrawerRootProps,
+  DrawerTriggerProps,
+  DrawerPortalProps,
+  DrawerOverlayProps,
+  DrawerContentProps,
+  DrawerCloseCrossProps,
+  DrawerCloseProps,
+  DrawerTitleProps,
+  DrawerDescriptionProps,
+  DrawerFooterProps,
+};
