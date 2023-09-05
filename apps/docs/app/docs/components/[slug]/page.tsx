@@ -8,7 +8,7 @@ import { loadMdxFile, readAllFilesInPath } from "utils/loadMdxFile";
 
 function loadAvailableVersions(slug: string) {
   const docs: string[] = readAllFilesInPath(
-    `documentations/components/${slug}`
+    `documentations/components/pt-BR/${slug}`
   );
   const docsWithoutExt = docs.map((doc) => doc.replace(".mdx", ""));
   const docsSortedMoreRecentFirst = semverSort.desc(docsWithoutExt);
@@ -20,10 +20,10 @@ function loadDocBySlug(slug: string, version?: string) {
   const versions = loadAvailableVersions(slug);
 
   if (version && versions.includes(version)) {
-    return loadMdxFile(`documentations/components/${slug}`, version);
+    return loadMdxFile(`documentations/components/pt-BR/${slug}`, version);
   }
 
-  return loadMdxFile(`documentations/components/${slug}`, versions[0]);
+  return loadMdxFile(`documentations/components/pt-BR/${slug}`, versions[0]);
 }
 
 export async function generateMetadata({
