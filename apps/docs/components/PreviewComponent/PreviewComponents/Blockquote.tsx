@@ -5,7 +5,8 @@ import { FC } from "react";
 export const BlockquotePreview: FC = () => {
   return (
     <Flex justifyContent="center" style={{ padding: 2 }}>
-      <Blockquote>Hello I'm a Blockquote</Blockquote>
+      {/* i18n */}
+      <Blockquote>Olá eu sou um Blockquote</Blockquote>
     </Flex>
   );
 };

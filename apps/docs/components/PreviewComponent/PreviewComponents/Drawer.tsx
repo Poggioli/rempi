@@ -12,15 +12,19 @@ export const DrawerPreview: FC = () => {
     >
       <Drawer.Root>
         <Drawer.Trigger>
-          <Button>Left Drawer</Button>
+          {/* i18n */}
+          <Button>Drawer esquerdo</Button>
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Overlay blur />
           <Drawer.Content position="left">
-            <Drawer.CloseCross aria-label="Close" />
-            <Drawer.Title>Edit profile</Drawer.Title>
+            <Drawer.CloseCross aria-label="Fechar" />
+            {/* i18n */}
+            <Drawer.Title>Editar perfil</Drawer.Title>
             <Drawer.Description>
-              Make changes to your profile here. Click save when you're done.
+              {/* i18n */}
+              Faça alterações em seu perfil aqui. Clique em salvar quando
+              terminar.
             </Drawer.Description>
             <Flex
               flexDirection="column"
@@ -33,10 +37,12 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                Name
+                {/* i18n */}
+                Nome
+                {/* i18n */}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Enter your name"
+                  placeholder="Digite seu nome"
                 />
               </Input.Label>
               <Input.Label
@@ -44,21 +50,23 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                Username
+                {/* i18n */}
+                Nome de usuário
+                {/* i18n */}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Enter your username"
+                  placeholder="Digite seu nome de usuário"
                 />
               </Input.Label>
             </Flex>
             <Drawer.Footer>
               <Drawer.Close>
                 <Button color="primary" variant="text">
-                  Cancel
+                  Cancelar
                 </Button>
               </Drawer.Close>
               <Drawer.Close>
-                <Button color="success">Save changes</Button>
+                <Button color="success">Salvar</Button>
               </Drawer.Close>
             </Drawer.Footer>
           </Drawer.Content>
@@ -66,15 +74,18 @@ export const DrawerPreview: FC = () => {
       </Drawer.Root>
       <Drawer.Root>
         <Drawer.Trigger>
-          <Button>Top Drawer</Button>
+          <Button>Drawer topo</Button>
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Overlay blur />
           <Drawer.Content position="top">
-            <Drawer.CloseCross aria-label="Close" />
-            <Drawer.Title>Edit profile</Drawer.Title>
+            <Drawer.CloseCross aria-label="Fechar" />
+            {/* i18n */}
+            <Drawer.Title>Editar perfil</Drawer.Title>
             <Drawer.Description>
-              Make changes to your profile here. Click save when you're done.
+              {/* i18n */}
+              Faça alterações em seu perfil aqui. Clique em salvar quando
+              terminar.
             </Drawer.Description>
             <Flex
               flexDirection="column"
@@ -87,10 +98,12 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                Name
+                {/* i18n */}
+                Nome
+                {/* i18n */}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Enter your name"
+                  placeholder="Digite seu nome"
                 />
               </Input.Label>
               <Input.Label
@@ -98,21 +111,23 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                Username
+                {/* i18n */}
+                Nome de usuário
+                {/* i18n */}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Enter your username"
+                  placeholder="Digite seu nome de usuário"
                 />
               </Input.Label>
             </Flex>
             <Drawer.Footer>
               <Drawer.Close>
                 <Button color="primary" variant="text">
-                  Cancel
+                  Cancelar
                 </Button>
               </Drawer.Close>
               <Drawer.Close>
-                <Button color="success">Save changes</Button>
+                <Button color="success">Salvar</Button>
               </Drawer.Close>
             </Drawer.Footer>
           </Drawer.Content>
@@ -120,15 +135,18 @@ export const DrawerPreview: FC = () => {
       </Drawer.Root>
       <Drawer.Root>
         <Drawer.Trigger>
-          <Button>Right Drawer</Button>
+          <Button>Drawer direito</Button>
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Overlay blur />
           <Drawer.Content position="right">
-            <Drawer.CloseCross aria-label="Close" />
-            <Drawer.Title>Edit profile</Drawer.Title>
+            <Drawer.CloseCross aria-label="Fechar" />
+            {/* i18n */}
+            <Drawer.Title>Editar perfil</Drawer.Title>
             <Drawer.Description>
-              Make changes to your profile here. Click save when you're done.
+              {/* i18n */}
+              Faça alterações em seu perfil aqui. Clique em salvar quando
+              terminar.
             </Drawer.Description>
             <Flex
               flexDirection="column"
@@ -141,10 +159,12 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                Name
+                {/* i18n */}
+                Nome
+                {/* i18n */}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Enter your name"
+                  placeholder="Digite seu nome"
                 />
               </Input.Label>
               <Input.Label
@@ -152,21 +172,23 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                Username
+                {/* i18n */}
+                Nome de usuário
+                {/* i18n */}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Enter your username"
+                  placeholder="Digite seu nome de usuário"
                 />
               </Input.Label>
             </Flex>
             <Drawer.Footer>
               <Drawer.Close>
                 <Button color="primary" variant="text">
-                  Cancel
+                  Cancelar
                 </Button>
               </Drawer.Close>
               <Drawer.Close>
-                <Button color="success">Save changes</Button>
+                <Button color="success">Salvar</Button>
               </Drawer.Close>
             </Drawer.Footer>
           </Drawer.Content>
@@ -174,15 +196,18 @@ export const DrawerPreview: FC = () => {
       </Drawer.Root>
       <Drawer.Root>
         <Drawer.Trigger>
-          <Button>Bottom Drawer</Button>
+          <Button>Drawer abaixo</Button>
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Overlay blur />
           <Drawer.Content position="bottom">
-            <Drawer.CloseCross aria-label="Close" />
-            <Drawer.Title>Edit profile</Drawer.Title>
+            <Drawer.CloseCross aria-label="Fechar" />
+            {/* i18n */}
+            <Drawer.Title>Editar perfil</Drawer.Title>
             <Drawer.Description>
-              Make changes to your profile here. Click save when you're done.
+              {/* i18n */}
+              Faça alterações em seu perfil aqui. Clique em salvar quando
+              terminar.
             </Drawer.Description>
             <Flex
               flexDirection="column"
@@ -195,10 +220,12 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                Name
+                {/* i18n */}
+                Nome
+                {/* i18n */}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Enter your name"
+                  placeholder="Digite seu nome"
                 />
               </Input.Label>
               <Input.Label
@@ -206,21 +233,23 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                Username
+                {/* i18n */}
+                Nome de usuário
+                {/* i18n */}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Enter your username"
+                  placeholder="Digite seu nome de usuário"
                 />
               </Input.Label>
             </Flex>
             <Drawer.Footer>
               <Drawer.Close>
                 <Button color="primary" variant="text">
-                  Cancel
+                  Cancelar
                 </Button>
               </Drawer.Close>
               <Drawer.Close>
-                <Button color="success">Save changes</Button>
+                <Button color="success">Salvar</Button>
               </Drawer.Close>
             </Drawer.Footer>
           </Drawer.Content>

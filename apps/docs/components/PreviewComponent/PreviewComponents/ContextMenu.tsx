@@ -22,12 +22,14 @@ export const ContextMenuPreview: FC = () => {
             border: "var(--border-widths-2) dashed var(--colors-grey9)",
           }}
         >
-          <Typography>Right click here</Typography>
+          {/* i18n */}
+          <Typography>Clique com o botão direito aqui</Typography>
         </Flex>
       </ContextMenu.Trigger>
       <ContextMenu.Content>
         <ContextMenu.Item>
-          Back
+          {/* i18n */}
+          Voltar
           <div
             style={{
               marginLeft: "auto",
@@ -37,7 +39,8 @@ export const ContextMenuPreview: FC = () => {
           </div>
         </ContextMenu.Item>
         <ContextMenu.Item disabled>
-          Foward
+          {/* i18n */}
+          Avançar
           <div
             style={{
               marginLeft: "auto",
@@ -47,7 +50,8 @@ export const ContextMenuPreview: FC = () => {
           </div>
         </ContextMenu.Item>
         <ContextMenu.Item>
-          Reload
+          {/* i18n */}
+          Recarregar
           <div
             style={{
               marginLeft: "auto",
@@ -58,10 +62,14 @@ export const ContextMenuPreview: FC = () => {
         </ContextMenu.Item>
 
         <ContextMenu.SubMenu>
-          <ContextMenu.SubMenuTrigger>More Tools</ContextMenu.SubMenuTrigger>
+          <ContextMenu.SubMenuTrigger>
+            {/* i18n */}
+            Mais ferramentas
+          </ContextMenu.SubMenuTrigger>
           <ContextMenu.SubMenuContent sideOffset={2} alignOffset={-5}>
             <ContextMenu.Item>
-              Save Page As…
+              {/* i18n */}
+              Salvar página como...
               <div
                 style={{
                   marginLeft: "auto",
@@ -70,10 +78,13 @@ export const ContextMenuPreview: FC = () => {
                 ⌘+S
               </div>
             </ContextMenu.Item>
-            <ContextMenu.Item>Create Shortcut…</ContextMenu.Item>
-            <ContextMenu.Item>Name Window…</ContextMenu.Item>
+            {/* i18n */}
+            <ContextMenu.Item>Criar um atalho</ContextMenu.Item>
+            {/* i18n */}
+            <ContextMenu.Item>Nome da janela</ContextMenu.Item>
             <ContextMenu.Separator />
-            <ContextMenu.Item>Developer Tools</ContextMenu.Item>
+            {/* i18n */}
+            <ContextMenu.Item>Ferramentas do desenvolvedor</ContextMenu.Item>
           </ContextMenu.SubMenuContent>
         </ContextMenu.SubMenu>
 
@@ -83,7 +94,8 @@ export const ContextMenuPreview: FC = () => {
           checked={bookmarksChecked}
           onCheckedChange={setBookmarksChecked}
         >
-          Show Bookmarks
+          {/* i18n */}
+          Mostrar favoritos
           <div
             style={{
               marginLeft: "auto",
@@ -96,12 +108,14 @@ export const ContextMenuPreview: FC = () => {
           checked={urlsChecked}
           onCheckedChange={setUrlsChecked}
         >
-          Show Full URLs
+          {/* i18n */}
+          Mostrar URLs completas
         </ContextMenu.CheckboxItem>
 
         <ContextMenu.Separator />
 
-        <ContextMenu.Label>People</ContextMenu.Label>
+        {/* i18n */}
+        <ContextMenu.Label>Pessoas</ContextMenu.Label>
 
         <ContextMenu.RadioGroup value={person} onValueChange={setPerson}>
           <ContextMenu.RadioItem value="pedro">

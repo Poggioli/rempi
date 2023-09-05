@@ -12,8 +12,10 @@ export const ButtonPreview: FC = () => {
         padding: 2,
       }}
     >
-      <Button>Hello I'm a Button</Button>
-      <IconButton aria-label="download" color="success">
+      {/* i18n */}
+      <Button>Olá eu sou um botão</Button>
+      {/* i18n */}
+      <IconButton aria-label="Baixe o conteúdo" color="success">
         <DownloadCloudIcon size={20} />
       </IconButton>
     </Flex>

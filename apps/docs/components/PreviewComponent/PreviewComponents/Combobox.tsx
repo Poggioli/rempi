@@ -7,16 +7,21 @@ export const ComboboxPreview: FC = () => {
     <Flex justifyContent="center" style={{ padding: 2 }}>
       <Combobox.Root>
         <Combobox.Trigger>
-          <Combobox.Value placeholder="Select framework..." />
+          {/* i18n */}
+          <Combobox.Value placeholder="Selecione um framework..." />
         </Combobox.Trigger>
         <Combobox.Content condensed={false}>
-          <Combobox.Input placeholder="Search framework..." />
+          {/* i18n */}
+          <Combobox.Input placeholder="Busque por um framework..." />
           <Combobox.Empty>
-            No framework found.
+            {/* i18n */}
+            Framework não encontrado.
           </Combobox.Empty>
           <Combobox.Label>Backend</Combobox.Label>
           <Combobox.Item value="spring-boot">SpringBoot</Combobox.Item>
-          <Combobox.Item value="django" disabled>Django</Combobox.Item>
+          <Combobox.Item value="django" disabled>
+            Django
+          </Combobox.Item>
           <Combobox.Item value="laravel">Laravel</Combobox.Item>
           <Combobox.Item value="express-js">Express.js</Combobox.Item>
           <Combobox.Item value="ruby-on-rails">Ruby on Rails</Combobox.Item>

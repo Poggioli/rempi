@@ -10,8 +10,10 @@ export const TextareaPreview: FC = () => {
       style={{ padding: "var(--spaces-1)" }}
     >
       <Textarea.Label alignItems="flex-start" flexDirection="column">
-        Message
-        <Textarea.Root placeholder="Type your message here" />
+        {/* i18n */}
+        Mensagem
+        {/* i18n */}
+        <Textarea.Root placeholder="Digite sua mensagem aqui" />
       </Textarea.Label>
     </Flex>
   );

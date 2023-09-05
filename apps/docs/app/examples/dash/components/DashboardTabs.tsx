@@ -14,7 +14,6 @@ import { DashboardDeals } from "./DashboardDeals";
 import { DashboardNPS } from "./DashboardNPS";
 
 const StyledTabsList = styled.div`
-  width: fit-content;
   flex-wrap: wrap;
 `;
 
@@ -64,28 +63,36 @@ const StyledContentGap = styled.div`
 
 const cards: any[] = [
   {
-    title: "Branded search",
+    // i18n
+    title: "Pesquisa de marca",
     mainInfo: "+5.540",
     Icon: SearchIcon,
-    captionMainInfo: "+54.7% from last month",
+    // i18n
+    captionMainInfo: "+54.7% do mês passado",
   },
   {
-    title: "Orders",
+    // i18n
+    title: "Pedidos",
     mainInfo: "+5749",
     Icon: TagIcon,
-    captionMainInfo: "+392.1% from last month",
+    // i18n
+    captionMainInfo: "+392.1% do mês passado",
   },
   {
-    title: "Sales",
+    // i18n
+    title: "Vendas",
     mainInfo: "+11.938",
     Icon: CreditCardIcon,
-    captionMainInfo: "+30% from last month",
+    // i18n
+    captionMainInfo: "+30% do mês passado",
   },
   {
-    title: "Active Now",
+    // i18n
+    title: "Ativos agora",
     mainInfo: "-1060",
     Icon: LineChartIcon,
-    captionMainInfo: "-201 since last hour",
+    // i18n
+    captionMainInfo: "-201 desde a última hora",
   },
 ];
 
@@ -93,15 +100,19 @@ export const DashboardTabs: FC = () => {
   return (
     <Tabs.Root value="overview">
       <StyledTabsList as={Tabs.List}>
-        <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+        {/* i18n */}
+        <Tabs.Trigger value="overview">Visão geral</Tabs.Trigger>
         <Tabs.Trigger value="analytics" disabled>
+          {/* i18n */}
           Analytics
         </Tabs.Trigger>
         <Tabs.Trigger value="reports" disabled>
-          Reports
+          {/* i18n */}
+          Relatórios
         </Tabs.Trigger>
         <Tabs.Trigger value="notifications" disabled>
-          Notifications
+          {/* i18n */}
+          Notificações
         </Tabs.Trigger>
       </StyledTabsList>
       <StyledContentGap as={Tabs.Content} value="overview">

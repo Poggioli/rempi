@@ -5,7 +5,8 @@ import { FC } from "react";
 export const BadgePreview: FC = () => {
   return (
     <Flex justifyContent="center" style={{ padding: 2 }}>
-      <Badge>Primary</Badge>
+      {/* i18n */}
+      <Badge>Olá sou um Badge</Badge>
     </Flex>
   );
 };

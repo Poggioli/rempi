@@ -14,10 +14,13 @@ export const TabsPreview: FC = () => {
         }}
       >
         <Tabs.List>
-          <Tabs.Trigger value="photos">Photos</Tabs.Trigger>
-          <Tabs.Trigger value="description">Description</Tabs.Trigger>
+          {/* i18n */}
+          <Tabs.Trigger value="photos">Fotos</Tabs.Trigger>
+          {/* i18n */}
+          <Tabs.Trigger value="description">Descrição</Tabs.Trigger>
+          {/* i18n */}
           <Tabs.Trigger value="personal-settings" disabled>
-            Personal Settings
+            Configurações pessoais
           </Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="photos">
@@ -34,23 +37,26 @@ export const TabsPreview: FC = () => {
             }}
           >
             <Avatar.Root size="large">
+              {/* i18n */}
               <Avatar.Image
                 src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
-                alt="Boy"
+                alt="Menino"
               />
               <Avatar.Fallback delayMs={600}>B</Avatar.Fallback>
             </Avatar.Root>
             <Avatar.Root size="large">
+              {/* i18n */}
               <Avatar.Image
                 src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80"
-                alt="Girl"
+                alt="Menina"
               />
               <Avatar.Fallback delayMs={600}>G</Avatar.Fallback>
             </Avatar.Root>
             <Avatar.Root size="large">
+              {/* i18n */}
               <Avatar.Image
                 src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80"
-                alt="Dog"
+                alt="Cachorro"
               />
               <Avatar.Fallback delayMs={600}>D</Avatar.Fallback>
             </Avatar.Root>

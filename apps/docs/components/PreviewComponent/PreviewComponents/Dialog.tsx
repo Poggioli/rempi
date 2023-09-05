@@ -9,15 +9,20 @@ export const DialogPreview: FC = () => {
     <Flex justifyContent="center" style={{ padding: 2 }}>
       <Dialog.Root>
         <Dialog.Trigger>
-          <Button>Edit profile</Button>
+          {/* i18n */}
+          <Button>Editar perfil</Button>
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay blur />
           <Dialog.Content>
-            <Dialog.CloseCross aria-label="Close" />
-            <Dialog.Title>Edit profile</Dialog.Title>
+            {/* i18n */}
+            <Dialog.CloseCross aria-label="Fechar" />
+            {/* i18n */}
+            <Dialog.Title>Editar perfil</Dialog.Title>
             <Dialog.Description>
-              Make changes to your profile here. Click save when you're done.
+              {/* i18n */}
+              Faça alterações em seu perfil aqui. Clique em salvar quando
+              terminar.
             </Dialog.Description>
             <Flex
               flexDirection="column"
@@ -30,10 +35,12 @@ export const DialogPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                Name
+                {/* i18n */}
+                Nome
+                {/* i18n */}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Enter your name"
+                  placeholder="Digite seu nome"
                 />
               </Input.Label>
               <Input.Label
@@ -41,21 +48,25 @@ export const DialogPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                Username
+                {/* i18n */}
+                Nome de usuário
+                {/* i18n */}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Enter your username"
+                  placeholder="Digite seu nome de usuário"
                 />
               </Input.Label>
             </Flex>
             <Dialog.Footer>
               <Dialog.Close>
                 <Button color="primary" variant="text">
-                  Cancel
+                  {/* i18n */}
+                  Cancelar
                 </Button>
               </Dialog.Close>
               <Dialog.Close>
-                <Button color="success">Save changes</Button>
+                {/* i18n */}
+                <Button color="success">Salvar</Button>
               </Dialog.Close>
             </Dialog.Footer>
           </Dialog.Content>

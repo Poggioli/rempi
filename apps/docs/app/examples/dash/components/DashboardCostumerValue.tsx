@@ -20,7 +20,8 @@ export const DashboardCostumerValue: FC = () => {
   return (
     <StyledCardRoot as={Card.Root}>
       <Card.Header>
-        <Card.Title>Costumer</Card.Title>
+                {/* i18n */}
+        <Card.Title>Clientes</Card.Title>
       </Card.Header>
       <Card.Content
         flexDirection={{
@@ -61,10 +62,12 @@ export const DashboardCostumerValue: FC = () => {
             fontSize="xlg"
             fontWeight="semi-bold"
           >
-            <StyledNPS as={StyledLineHeight1}>18</StyledNPS>mth
+                {/* i18n */}
+            <StyledNPS as={StyledLineHeight1}>18</StyledNPS>meses
           </StyledLineHeight1>
           <Typography variant="body2" color="low-contrast">
-            Avg. lifetime
+                {/* i18n */}
+            Tempo médio de vida
           </Typography>
         </Flex>
       </Card.Content>

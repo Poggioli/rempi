@@ -11,15 +11,19 @@ export const CardPreview: FC = () => {
     <Flex justifyContent="center" style={{ padding: 2 }}>
       <Card.Root>
         <Card.Header>
-          <Card.Title>Notifications</Card.Title>
-          <Card.Description>You have 3 unread messages.</Card.Description>
+          {/* i18n */}
+          <Card.Title>Notificações</Card.Title>
+          <Card.Description>
+            {/* i18n */}
+            Você possuí 3 mensagens não lidas.
+          </Card.Description>
         </Card.Header>
         <Card.Content flexDirection="column">
           <Flex
             alignItems="center"
             style={{
               gap: 16,
-              padding: '16px 0',
+              padding: "16px 0",
             }}
           >
             <BellIcon
@@ -32,7 +36,7 @@ export const CardPreview: FC = () => {
               flexDirection="column"
               style={{
                 gap: 4,
-                flex: 1
+                flex: 1,
               }}
             >
               <Typography
@@ -41,7 +45,8 @@ export const CardPreview: FC = () => {
                 color="high-contrast"
                 lineHeight={1}
               >
-                Push Notifications
+                {/* i18n */}
+                Notificações via push
               </Typography>
               <Typography
                 fontSize="sm"
@@ -49,24 +54,26 @@ export const CardPreview: FC = () => {
                 color="low-contrast"
                 lineHeight={1}
               >
-                Send notifications to device.
+                {/* i18n */}
+                Envie notificações para o dispositivo.
               </Typography>
             </Flex>
             <Switch.Thumb />
           </Flex>
           <div>
+            {/* i18n */}
             {[
               {
-                title: "Your call has been confirmed.",
-                description: "1 hour ago",
+                title: "Sua chamada foi confirmada.",
+                description: "1 hora atrás",
               },
               {
-                title: "You have a new message!",
-                description: "1 hour ago",
+                title: "Você possuí uma nova mensagem!",
+                description: "1 hora atrás",
               },
               {
-                title: "Your subscription is expiring soon!",
-                description: "2 hours ago",
+                title: "Sua inscrição irá expirar em breve!",
+                description: "2 horas atrás",
               },
             ].map((notification, index, ar) => (
               <Flex
@@ -127,7 +134,8 @@ export const CardPreview: FC = () => {
                 marginRight: 12,
               }}
             />{" "}
-            Mark all as read
+            {/* i18n */}
+            Marcar todas como lida
           </Button>
         </Card.Footer>
       </Card.Root>

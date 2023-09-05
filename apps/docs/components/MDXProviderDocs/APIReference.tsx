@@ -31,8 +31,10 @@ export const APIReference: FC<APIReferenceProps> = ({ data }) => {
         <Table.Header>
           <Table.Row>
             <Table.Head className="w-100">Prop</Table.Head>
-            <Table.Head>Type</Table.Head>
-            <Table.Head>Default</Table.Head>
+            {/* i18n */}
+            <Table.Head>Tipo</Table.Head>
+            {/* i18n */}
+            <Table.Head>Valor padrão</Table.Head>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -50,8 +52,9 @@ export const APIReference: FC<APIReferenceProps> = ({ data }) => {
                   {description && (
                     <Popover.Root>
                       <Popover.Trigger>
+                        {/* i18n */}
                         <IconButton
-                          aria-label="Prop description"
+                          aria-label="Descrição da prop"
                           variant="text"
                           size="small"
                           style={{ verticalAlign: "middle" }}
@@ -80,8 +83,9 @@ export const APIReference: FC<APIReferenceProps> = ({ data }) => {
                   {Boolean(typeSimple) && Boolean(type) && (
                     <Popover.Root>
                       <Popover.Trigger>
+                        {/* i18n */}
                         <IconButton
-                          aria-label="See full type"
+                          aria-label="Ver a tipagem completa"
                           variant="text"
                           size="small"
                           style={{ verticalAlign: "middle" }}

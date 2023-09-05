@@ -41,7 +41,8 @@ export const SwitchPreview: FC = () => {
             color="high-contrast"
             lineHeight={1}
           >
-            Push Notifications
+            {/* i18n */}
+            Notificações via push
           </Typography>
           <Typography
             fontSize="sm"
@@ -49,7 +50,8 @@ export const SwitchPreview: FC = () => {
             color="low-contrast"
             lineHeight={1}
           >
-            Send notifications to device.
+            {/* i18n */}
+            Envie notificações para o dispositivo.
           </Typography>
         </Flex>
         <Switch.Thumb />

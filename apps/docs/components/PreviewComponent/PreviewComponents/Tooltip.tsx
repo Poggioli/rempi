@@ -13,8 +13,9 @@ export const TooltipPreview: FC = () => {
     >
       <Tooltip.Root>
         <Tooltip.Trigger>
+          {/* i18n */}
           <IconButton
-            aria-label="settings"
+            aria-label="Configurações"
             variant="text"
             shape="rounded"
             color="primary"
@@ -24,7 +25,8 @@ export const TooltipPreview: FC = () => {
           </IconButton>
         </Tooltip.Trigger>
         <Tooltip.Content>
-          Add to library
+          {/* i18n */}
+          Adicionar biblioteca
           <Tooltip.Arrow />
         </Tooltip.Content>
       </Tooltip.Root>

@@ -25,20 +25,24 @@ type Menu = {
 
 const menus: Menu[] = [
   {
-    title: "Overview",
+    // i18n
+    title: "Visão geral",
     items: [
       {
-        label: "Introduction",
+        // i18n
+        label: "Introdução",
         href: "/docs/overview/introduction",
       },
       {
-        label: "Getting started",
+        // i18n
+        label: "Tutorial",
         href: "/docs/overview/getting-started",
       },
     ],
   },
   {
-    title: "Components",
+    // i18n
+    title: "Componentes",
     items: [
       { label: "Accordion", href: "/docs/components/accordion" },
       { label: "Alert Dialog", href: "/docs/components/alert-dialog" },

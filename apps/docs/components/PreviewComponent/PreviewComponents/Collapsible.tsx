@@ -16,12 +16,18 @@ export const CollapsiblePreview: FC = () => {
           alignItems="center"
           style={{ gap: 24, padding: "0 4px 0 16px" }}
         >
-          <Typography>@peduarte starred 3 repositories</Typography>
+          {/* i18n */}
+          <Typography>@peduarte favoritou 3 repositórios</Typography>
           <Collapsible.Trigger>
+            {/* i18n */}
             <IconButton
               shape="rounded"
               size="small"
-              aria-label={!open ? "open repos" : "close repos"}
+              aria-label={
+                !open
+                  ? "Abrir repositórios favoritados"
+                  : "Fechar repositórios favoritados"
+              }
               variant="outlined"
               style={{ padding: 8 }}
             >

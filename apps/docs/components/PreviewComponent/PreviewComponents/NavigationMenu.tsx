@@ -80,7 +80,8 @@ export const NavigationMenuPreview: FC = () => {
     <Flex justifyContent="center" style={{ padding: 2 }}>
       <NavigationMenu.Root>
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger>Learn</NavigationMenu.Trigger>
+          {/* i18n */}
+          <NavigationMenu.Trigger>Aprenda</NavigationMenu.Trigger>
           <NavigationMenu.Content>
             <StyledUlOne>
               <li style={{ gridRow: "span 3 / auto" }}>
@@ -132,110 +133,133 @@ export const NavigationMenuPreview: FC = () => {
                         lineHeight: "var(--line-heights-1)",
                       }}
                     >
-                      Unstyled, accessible components for React.
+                      {/* i18n */}
+                      Componentes acessíveis e sem estilo para React.
                     </p>
                   </a>
                 </NavigationMenu.Link>
               </li>
 
               <ListItem href="https://stitches.dev/" title="Stitches">
-                CSS-in-JS with best-in-class developer experience.
+                {/* i18n */}
+                CSS-in-JS com a melhor experiência de desenvolvedor da
+                categoria.
               </ListItem>
-              <ListItem href="/colors" title="Colors">
-                Beautiful, thought-out palettes with auto dark mode.
+              {/* i18n */}
+              <ListItem href="/colors" title="Cores">
+                {/* i18n */}
+                Paletas lindas e bem pensadas com modo escuro automático.
               </ListItem>
-              <ListItem href="https://icons.radix-ui.com/" title="Icons">
-                A crisp set of 15x15 icons, balanced and consistent.
+              {/* i18n */}
+              <ListItem href="https://icons.radix-ui.com/" title="Icones">
+                {/* i18n */}
+                Um conjunto nítido de ícones 15x15, equilibrados e consistentes.
               </ListItem>
             </StyledUlOne>
           </NavigationMenu.Content>
         </NavigationMenu.Item>
 
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger>Overview</NavigationMenu.Trigger>
+          {/* i18n */}
+          <NavigationMenu.Trigger>Visão geral</NavigationMenu.Trigger>
           <NavigationMenu.Content>
             <StyledUlTwo>
               <ListItem
-                title="Introduction"
+                title="Introdução"
                 href="https://www.radix-ui.com/docs/primitives/overview/introduction"
               >
-                Build high-quality, accessible design systems and web apps.
+                {/* i18n */}
+                Crie sistemas de design e aplicativos da web acessíveis e de
+                alta qualidade.
               </ListItem>
               <ListItem
-                title="Getting started"
+                title="Tutorial"
                 href="https://www.radix-ui.com/docs/primitives/overview/getting-started"
               >
-                A quick tutorial to get you up and running with Radix
-                Primitives.
+                {/* i18n */}
+                Um tutorial rápido para você começar a usar o Radix Primitives.
               </ListItem>
               <ListItem
-                title="Styling"
+                title="Estilo"
                 href="https://www.radix-ui.com/docs/primitives/guides/styling"
               >
-                Unstyled and compatible with any styling solution.
+                {/* i18n */}
+                Sem estilo e compatível com qualquer solução de estilo.
               </ListItem>
               <ListItem
-                title="Animation"
+                title="Animações"
                 href="https://www.radix-ui.com/docs/primitives/guides/animation"
               >
-                Use CSS keyframes or any animation library of your choice.
+                {/* i18n */}
+                Use quadros-chave CSS ou qualquer biblioteca de animação de sua
+                escolha.
               </ListItem>
               <ListItem
-                title="Accessibility"
+                title="Acessibilidade"
                 href="https://www.radix-ui.com/docs/primitives/overview/accessibility"
               >
-                Tested in a range of browsers and assistive technologies.
+                {/* i18n */}
+                Testado em vários navegadores e tecnologias assistivas.
               </ListItem>
               <ListItem
-                title="Releases"
+                title="Lançamentos"
                 href="https://www.radix-ui.com/docs/primitives/overview/releases"
               >
-                Radix Primitives releases and their changelogs.
+                {/* i18n */}
+                Lançamentos do Radix Primitives e seus changelogs.
               </ListItem>
             </StyledUlTwo>
           </NavigationMenu.Content>
         </NavigationMenu.Item>
 
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger disabled>Disabled</NavigationMenu.Trigger>
+          {/* i18n */}
+          <NavigationMenu.Trigger disabled>Desabilitado</NavigationMenu.Trigger>
           <NavigationMenu.Content>
             <StyledUlTwo>
               <ListItem
-                title="Introduction"
+                title="Introdução"
                 href="https://www.radix-ui.com/docs/primitives/overview/introduction"
               >
-                Build high-quality, accessible design systems and web apps.
+                {/* i18n */}
+                Crie sistemas de design e aplicativos da web acessíveis e de
+                alta qualidade.
               </ListItem>
               <ListItem
-                title="Getting started"
+                title="Tutorial"
                 href="https://www.radix-ui.com/docs/primitives/overview/getting-started"
               >
-                A quick tutorial to get you up and running with Radix
-                Primitives.
+                {/* i18n */}
+                Um tutorial rápido para você começar a usar o Radix Primitives.
               </ListItem>
               <ListItem
-                title="Styling"
+                title="Estilo"
                 href="https://www.radix-ui.com/docs/primitives/guides/styling"
               >
-                Unstyled and compatible with any styling solution.
+                {/* i18n */}
+                Sem estilo e compatível com qualquer solução de estilo.
               </ListItem>
               <ListItem
-                title="Animation"
+                title="Animações"
                 href="https://www.radix-ui.com/docs/primitives/guides/animation"
               >
-                Use CSS keyframes or any animation library of your choice.
+                {/* i18n */}
+                Use quadros-chave CSS ou qualquer biblioteca de animação de sua
+                escolha.
               </ListItem>
               <ListItem
-                title="Accessibility"
+                title="Acessibilidade"
                 href="https://www.radix-ui.com/docs/primitives/overview/accessibility"
               >
-                Tested in a range of browsers and assistive technologies.
+                {/* i18n */}
+                Testado em vários navegadores e tecnologias assistivas.
               </ListItem>
               <ListItem
-                title="Releases"
+                title="Lançamentos"
                 href="https://www.radix-ui.com/docs/primitives/overview/releases"
               >
-                Radix Primitives releases and their changelogs.
+                {/* i18n */}
+                Lançamentos do Radix Primitives e seus changelogs.
               </ListItem>
             </StyledUlTwo>
           </NavigationMenu.Content>

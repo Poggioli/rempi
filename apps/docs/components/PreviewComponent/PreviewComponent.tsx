@@ -124,6 +124,10 @@ const StyledTypography = styled.div`
   margin: 0 auto;
 `;
 
+const StyledMarginTop = styled.div`
+  margin-top: ${({ theme }) => theme.spaces[6]};
+`;
+
 const StyledHeadingLvl2 = styled.h2`
   border-bottom: ${({ theme }) => theme.borderWidths[1]} solid
     ${({ theme }) => theme.colors.grey6};
@@ -162,11 +166,14 @@ export const PreviewComponent: FC<PreviewComponentProps> = ({ name }) => {
 
   if (!Preview) {
     return (
-      <PreviewContainer>
-        <StyledTypography as={Typography}>
-          Component not found!
-        </StyledTypography>
-      </PreviewContainer>
+      <StyledMarginTop>
+        <PreviewContainer>
+          <StyledTypography as={Typography}>
+            {/* i18n */}
+            Componente não encontrado!
+          </StyledTypography>
+        </PreviewContainer>
+      </StyledMarginTop>
     );
   }
 
@@ -176,13 +183,16 @@ export const PreviewComponent: FC<PreviewComponentProps> = ({ name }) => {
         as={(props: any) => <Heading {...props} as="h2" />}
         variant="2"
       >
-        Example
+        {/* i18n */}
+        Exemplo
       </StyledHeadingLvl2>
       <StyledTabRoot as={Tabs.Root} defaultValue="example">
         <Tabs.List>
-          <Tabs.Trigger value="example">Example</Tabs.Trigger>
+          {/* i18n */}
+          <Tabs.Trigger value="example">Exemplo</Tabs.Trigger>
           <Tabs.Trigger value="code" disabled>
-            Code
+            {/* i18n */}
+            Código
           </Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="example">
@@ -191,7 +201,7 @@ export const PreviewComponent: FC<PreviewComponentProps> = ({ name }) => {
           </PreviewContainer>
         </Tabs.Content>
         <Tabs.Content value="code">
-          <PreviewContainer></PreviewContainer>
+          <PreviewContainer />
         </Tabs.Content>
       </StyledTabRoot>
     </>

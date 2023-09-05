@@ -23,6 +23,7 @@ export const HoverCardPreview: FC = () => {
             target="_blank"
             rel="noreferrer noopener"
           >
+            {/* i18n */}
             <img
               style={{
                 display: "block",
@@ -31,12 +32,13 @@ export const HoverCardPreview: FC = () => {
                 height: "var(--spaces-11)",
               }}
               src="https://pbs.twimg.com/profile_images/1639359724691808262/UErOMnL2_400x400.jpg"
-              alt="_Poggioli Twitter photo"
+              alt="foto de perfil do Twitter de @_Poggioli"
             />
           </a>
         </HoverCard.Trigger>
         <HoverCard.Content style={{ maxWidth: 300 }}>
           <Flex flexDirection="column" style={{ gap: "var(--spaces-2)" }}>
+            {/* i18n */}
             <img
               style={{
                 display: "block",
@@ -45,7 +47,7 @@ export const HoverCardPreview: FC = () => {
                 height: "var(--spaces-15)",
               }}
               src="https://pbs.twimg.com/profile_images/1639359724691808262/UErOMnL2_400x400.jpg"
-              alt="_Poggioli Twitter photo"
+              alt="foto de perfil do Twitter de @_Poggioli"
             />
             <Flex flexDirection="column" style={{ gap: "var(--spaces-4)" }}>
               <Flex flexDirection="column">
@@ -77,7 +79,8 @@ export const HoverCardPreview: FC = () => {
                     282
                   </Typography>
                   <Typography color="low-contrast" fontSize="sm" lineHeight={2}>
-                    Following
+                    {/* i18n */}
+                    Seguindo
                   </Typography>
                 </Flex>
                 <Flex style={{ gap: "var(--spaces-1)" }} alignItems="center">
@@ -90,7 +93,8 @@ export const HoverCardPreview: FC = () => {
                     454
                   </Typography>
                   <Typography color="low-contrast" fontSize="sm" lineHeight={2}>
-                    Followers
+                    {/* i18n */}
+                    Seguidores
                   </Typography>
                 </Flex>
               </Flex>

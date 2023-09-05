@@ -35,14 +35,17 @@ export const ThemeSelector: FC = () => {
 
   return (
     <Select.Root value={theme} onValueChange={handleSelectTheme}>
-      <StyledTrigger as={Select.Trigger} aria-label="Theme">
+      {/* i18n */}
+      <StyledTrigger as={Select.Trigger} aria-label="Tema">
         <Select.Value placeholder={<Palette size={20} />}>
           {themes[theme]}
         </Select.Value>
         <Select.Content>
           <Select.Viewport>
-            <Select.Item value="dark-theme">Dark</Select.Item>
-            <Select.Item value="indigo-pink-theme">Light</Select.Item>
+            {/* i18n */}
+            <Select.Item value="dark-theme">Escuro</Select.Item>
+            {/* i18n */}
+            <Select.Item value="indigo-pink-theme">Claro</Select.Item>
           </Select.Viewport>
         </Select.Content>
       </StyledTrigger>

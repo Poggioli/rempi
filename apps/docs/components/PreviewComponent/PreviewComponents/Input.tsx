@@ -10,8 +10,10 @@ export const InputPreview: FC = () => {
       style={{ padding: "var(--spaces-1)" }}
     >
       <Input.Label alignItems="flex-start" flexDirection="column">
-        Name
-        <Input.Root placeholder="Enter your name" />
+        {/* i18n */}
+        Nome
+        {/* i18n */}
+        <Input.Root placeholder="Digite seu nome" />
       </Input.Label>
     </Flex>
   );

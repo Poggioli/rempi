@@ -11,43 +11,62 @@ export const SelectPreview: FC = () => {
       style={{ padding: "var(--spaces-2)" }}
     >
       <Select.Root>
-        <Select.Trigger aria-label="Food">
-          <Select.Value placeholder="Select a food..." />
+        {/* i18n */}
+        <Select.Trigger aria-label="Comida">
+          {/* i18n */}
+          <Select.Value placeholder="Selecione a comida..." />
         </Select.Trigger>
         <Select.Content>
           <Select.Viewport>
             <Select.Group>
-              <Select.Label>Fruits</Select.Label>
-              <Select.Item value="apple">Apple</Select.Item>
+              {/* i18n */}
+              <Select.Label>Frutas</Select.Label>
+              {/* i18n */}
+              <Select.Item value="apple">Maçã</Select.Item>
+              {/* i18n */}
               <Select.Item disabled value="banana">
                 Banana
               </Select.Item>
-              <Select.Item value="blueberry">Blueberry</Select.Item>
-              <Select.Item value="grapes">Grapes</Select.Item>
-              <Select.Item value="pineapple">Pineapple</Select.Item>
+              {/* i18n */}
+              <Select.Item value="blueberry">Mirtilo</Select.Item>
+              {/* i18n */}
+              <Select.Item value="grapes">Uva</Select.Item>
+              {/* i18n */}
+              <Select.Item value="pineapple">Abacaxi</Select.Item>
             </Select.Group>
 
             <Select.Separator />
 
             <Select.Group>
-              <Select.Label>Vegetables</Select.Label>
-              <Select.Item value="aubergine">Aubergine</Select.Item>
-              <Select.Item value="broccoli">Broccoli</Select.Item>
+              {/* i18n */}
+              <Select.Label>Vegetais</Select.Label>
+              {/* i18n */}
+              <Select.Item value="aubergine">Berinjela</Select.Item>
+              {/* i18n */}
+              <Select.Item value="broccoli">Brócolis</Select.Item>
+              {/* i18n */}
               <Select.Item value="carrot" disabled>
-                Carrot
+                Cenoura
               </Select.Item>
-              <Select.Item value="courgette">Courgette</Select.Item>
-              <Select.Item value="leek">Leek</Select.Item>
+              {/* i18n */}
+              <Select.Item value="courgette">Abobrinha</Select.Item>
+              {/* i18n */}
+              <Select.Item value="leek">Alho-poró</Select.Item>
             </Select.Group>
 
             <Select.Separator />
 
             <Select.Group>
-              <Select.Label>Meat</Select.Label>
-              <Select.Item value="beef">Beef</Select.Item>
-              <Select.Item value="chicken">Chicken</Select.Item>
-              <Select.Item value="lamb">Lamb</Select.Item>
-              <Select.Item value="pork">Pork</Select.Item>
+              {/* i18n */}
+              <Select.Label>Carnes</Select.Label>
+              {/* i18n */}
+              <Select.Item value="beef">Carne bovina</Select.Item>
+              {/* i18n */}
+              <Select.Item value="chicken">Frango</Select.Item>
+              {/* i18n */}
+              <Select.Item value="lamb">Ovelha</Select.Item>
+              {/* i18n */}
+              <Select.Item value="pork">Carne suína</Select.Item>
             </Select.Group>
           </Select.Viewport>
         </Select.Content>

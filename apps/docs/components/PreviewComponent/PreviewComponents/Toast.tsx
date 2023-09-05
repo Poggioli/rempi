@@ -22,18 +22,23 @@ export const ToastPreview: FC = () => {
           }, 100);
         }}
       >
-        Show toast
+        {/* i18n */}
+        Mostrar Toast
       </Button>
 
       <Toast.Root duration={3000} open={open} onOpenChange={setOpen}>
-        <Toast.Title>User will be deleted</Toast.Title>
+        {/* i18n */}
+        <Toast.Title>O usuário será excluído</Toast.Title>
         <Toast.Description>
-          The user will be deleted in 5 seconds
+          {/* i18n */}O usuário será excluído em 5 segundos
         </Toast.Description>
-        <Toast.Action asChild altText="Goto schedule to undo">
-          <Button size="small">Undo</Button>
+        {/* i18n */}
+        <Toast.Action asChild altText="Desfazer ação">
+          {/* i18n */}
+          <Button size="small">Desfazer ação</Button>
         </Toast.Action>
-        <Toast.CloseCross aria-label="Close" />
+        {/* i18n */}
+        <Toast.CloseCross aria-label="Fechar" />
       </Toast.Root>
       <Toast.Viewport />
     </Flex>

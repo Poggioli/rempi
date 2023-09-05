@@ -74,7 +74,8 @@ export const DashboardDeals: FC = () => {
     <StyledFullWidth as={Card.Root}>
       <Card.Header>
         <Card.Title fontWeight="regular" fontSize="lg">
-          Biggest deals this month
+          {/* i18n */}
+          Maiores ofertas deste mês
         </Card.Title>
       </Card.Header>
       <Card.Content>
@@ -82,10 +83,15 @@ export const DashboardDeals: FC = () => {
           <Table.Header>
             <Table.Row>
               <StyledWidth80 as={Table.Head}>#</StyledWidth80>
-              <Table.Head>Name</Table.Head>
-              <StyledRightAlign as={Table.Head}>Deal value</StyledRightAlign>
+              {/* i18n */}
+              <Table.Head>Nome</Table.Head>
               <StyledRightAlign as={Table.Head}>
-                Best deal value
+                {/* i18n */}
+                Valor da oferta
+              </StyledRightAlign>
+              <StyledRightAlign as={Table.Head}>
+                {/* i18n */}
+                Melhor valor do negócio
               </StyledRightAlign>
             </Table.Row>
           </Table.Header>

@@ -10,7 +10,7 @@ import {
   StyledDashboard,
   StyledDashboardBody,
   StyledDashboardHeader,
-  StyledDashboardSearch
+  StyledDashboardSearch,
 } from "./Dashboard.styles";
 import { DashboardBodyHeader } from "./DashboardBodyHeader";
 import { DashboardTabs } from "./DashboardTabs";
@@ -61,18 +61,23 @@ const Dashboard: FC = () => {
             </DropdownMenu.Trigger>
             <DropdownMenu.Content align="end">
               <DropdownMenu.Item>
-                Profile <div className="ml-auto">⌘+[</div>
+                {/* i18n */}
+                Perfil <div className="ml-auto">⌘+[</div>
               </DropdownMenu.Item>
               <DropdownMenu.Item disabled>
-                Billing <div className="ml-auto">⌘+]</div>
+                {/* i18n */}
+                Cobrança <div className="ml-auto">⌘+]</div>
               </DropdownMenu.Item>
               <DropdownMenu.Item>
-                Settings <div className="ml-auto">⌘+R</div>
+                {/* i18n */}
+                Ajustes <div className="ml-auto">⌘+R</div>
               </DropdownMenu.Item>
-              <DropdownMenu.Item>New Team</DropdownMenu.Item>
+                {/* i18n */}
+              <DropdownMenu.Item>Novo time</DropdownMenu.Item>
               <DropdownMenu.Separator />
               <DropdownMenu.Item>
-                Log out <div className="ml-auto">⌘+R</div>
+                {/* i18n */}
+                Sair <div className="ml-auto">⌘+R</div>
               </DropdownMenu.Item>
             </DropdownMenu.Content>
           </DropdownMenu.Root>

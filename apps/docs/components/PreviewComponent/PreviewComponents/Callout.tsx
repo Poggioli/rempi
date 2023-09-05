@@ -14,7 +14,9 @@ export const CalloutPreview: FC = () => {
           <Info size={16} />
         </Callout.Icon>
         <Callout.Text>
-          You will need admin privileges to install and access this application.
+          {/* i18n */}
+          Você precisará de privilégios de administrador para instalar e acessar
+          este aplicativo.
         </Callout.Text>
       </Callout.Root>
     </Flex>

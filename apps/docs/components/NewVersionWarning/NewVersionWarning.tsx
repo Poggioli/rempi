@@ -31,7 +31,9 @@ export const NewVersionWarning: FC<NewVersionWarningProps> = ({
         <Megaphone size={16} />
       </Callout.Icon>
       <Callout.Text>
-        A newer version of {title} is available. <a href={slug}>Learn more</a>.
+        {/* i18n */}
+        Uma nova versão do {title} está disponível. <a href={slug}>Veja mais</a>
+        .
       </Callout.Text>
     </StyledCalloutRoot>
   );

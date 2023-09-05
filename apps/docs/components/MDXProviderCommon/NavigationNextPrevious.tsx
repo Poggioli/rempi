@@ -18,7 +18,7 @@ const StyledLink = styled.a`
 
 const StyledMarginLeftAuto = styled(StyledContainerLinkGap)`
   margin-left: auto;
-`
+`;
 
 export const NavigationNextPrevious: FC<any> = ({ previous, next }) => {
   return (
@@ -35,7 +35,8 @@ export const NavigationNextPrevious: FC<any> = ({ previous, next }) => {
           alignItems="flex-start"
         >
           <Typography variant="body1" color="low-contrast" fontWeight="normal">
-            Previous
+            {/* i18n */}
+            Anterior
           </Typography>
           <StyledLink
             as={(props: any) => <Typography as="a" {...props} />}
@@ -53,7 +54,8 @@ export const NavigationNextPrevious: FC<any> = ({ previous, next }) => {
           alignItems="flex-end"
         >
           <Typography variant="body1" color="low-contrast" fontWeight="normal">
-            Next
+            {/* i18n */}
+            Próximo
           </Typography>
           <StyledLink
             as={(props: any) => <Typography as="a" {...props} />}

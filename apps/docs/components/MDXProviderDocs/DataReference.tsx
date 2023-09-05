@@ -22,8 +22,10 @@ export const DataReference: FC<DataReferenceProps> = ({ data }) => {
       <Table.Root striped={false}>
         <Table.Header>
           <Table.Row>
-            <Table.Head className="w-100">Data attribute</Table.Head>
-            <Table.Head>Values</Table.Head>
+            {/* i18n */}
+            <Table.Head className="w-100">Data Atributo</Table.Head>
+            {/* i18n */}
+            <Table.Head>Valores</Table.Head>
           </Table.Row>
         </Table.Header>
         <Table.Body>

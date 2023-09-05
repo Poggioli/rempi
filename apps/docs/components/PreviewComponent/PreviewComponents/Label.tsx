@@ -5,7 +5,8 @@ import { FC } from "react";
 export const LabelPreview: FC = () => {
   return (
     <Flex justifyContent="center" style={{ padding: 2 }}>
-      <Label>Hello I'm a Label</Label>
+      {/* i18n */}
+      <Label>Olá eu sou uma Label</Label>
     </Flex>
   );
 };

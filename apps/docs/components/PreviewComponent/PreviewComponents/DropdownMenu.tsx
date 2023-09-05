@@ -13,12 +13,13 @@ export const DropdownMenuPreview: FC = () => {
     <Flex justifyContent="center" style={{ padding: 2 }}>
       <DropdownMenu.Root>
         <DropdownMenu.Trigger>
+          {/* i18n */}
           <IconButton
             style={{
               borderRadius: "var(--radii-pill)",
               padding: 12,
             }}
-            aria-label="settings"
+            aria-label="Configurações"
             variant="contained"
             shape="rounded"
             color="primary"
@@ -28,27 +29,38 @@ export const DropdownMenuPreview: FC = () => {
         </DropdownMenu.Trigger>
         <DropdownMenu.Content>
           <DropdownMenu.Item>
-            Back <div style={{ marginLeft: "auto" }}>⌘+[</div>
+            {/* i18n */}
+            Voltar <div style={{ marginLeft: "auto" }}>⌘+[</div>
           </DropdownMenu.Item>
           <DropdownMenu.Item disabled>
-            Foward <div style={{ marginLeft: "auto" }}>⌘+]</div>
+            {/* i18n */}
+            Avançar <div style={{ marginLeft: "auto" }}>⌘+]</div>
           </DropdownMenu.Item>
           <DropdownMenu.Item>
-            Reload <div style={{ marginLeft: "auto" }}>⌘+R</div>
+            {/* i18n */}
+            Recarregar <div style={{ marginLeft: "auto" }}>⌘+R</div>
           </DropdownMenu.Item>
 
           <DropdownMenu.SubMenu>
             <DropdownMenu.SubMenuTrigger>
-              More Tools
+              {/* i18n */}
+              Mais ferramentas
             </DropdownMenu.SubMenuTrigger>
             <DropdownMenu.SubMenuContent sideOffset={2} alignOffset={-5}>
               <DropdownMenu.Item>
-                Save Page As… <div style={{ marginLeft: "auto" }}>⌘+S</div>
+                {/* i18n */}
+                Salvar página como...{" "}
+                <div style={{ marginLeft: "auto" }}>⌘+S</div>
               </DropdownMenu.Item>
-              <DropdownMenu.Item>Create Shortcut…</DropdownMenu.Item>
-              <DropdownMenu.Item>Name Window…</DropdownMenu.Item>
+              {/* i18n */}
+              <DropdownMenu.Item>Criar atalho...</DropdownMenu.Item>
+              {/* i18n */}
+              <DropdownMenu.Item>Nome da janela...</DropdownMenu.Item>
               <DropdownMenu.Separator />
-              <DropdownMenu.Item>Developer Tools</DropdownMenu.Item>
+              {/* i18n */}
+              <DropdownMenu.Item>
+                Ferramentas do desenvolvedor
+              </DropdownMenu.Item>
             </DropdownMenu.SubMenuContent>
           </DropdownMenu.SubMenu>
 
@@ -58,18 +70,21 @@ export const DropdownMenuPreview: FC = () => {
             checked={bookmarksChecked}
             onCheckedChange={setBookmarksChecked}
           >
-            Show Bookmarks <div style={{ marginLeft: "auto" }}>⌘+B</div>
+            {/* i18n */}
+            Mostrar favoritos <div style={{ marginLeft: "auto" }}>⌘+B</div>
           </DropdownMenu.CheckboxItem>
           <DropdownMenu.CheckboxItem
             checked={urlsChecked}
             onCheckedChange={setUrlsChecked}
           >
-            Show Full URLs
+            {/* i18n */}
+            Mostras URLs completas
           </DropdownMenu.CheckboxItem>
 
           <DropdownMenu.Separator />
 
-          <DropdownMenu.Label>People</DropdownMenu.Label>
+          {/* i18n */}
+          <DropdownMenu.Label>Pessoas</DropdownMenu.Label>
 
           <DropdownMenu.RadioGroup value={person} onValueChange={setPerson}>
             <DropdownMenu.RadioItem value="pedro">

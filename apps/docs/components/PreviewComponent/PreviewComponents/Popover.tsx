@@ -15,7 +15,7 @@ export const PopoverPreview: FC = () => {
               borderRadius: "var(--radii-pill)",
               padding: 12,
             }}
-            aria-label="settings"
+            aria-label="Configurações"
             variant="text"
             shape="rounded"
             color="primary"
@@ -44,7 +44,8 @@ export const PopoverPreview: FC = () => {
               sollicitudin metus.
             </Typography>
           </Flex>
-          <Popover.CloseCross aria-label="Close" />
+          {/* i18n */}
+          <Popover.CloseCross aria-label="Fechar" />
           <Popover.Arrow />
         </Popover.Content>
       </Popover.Root>

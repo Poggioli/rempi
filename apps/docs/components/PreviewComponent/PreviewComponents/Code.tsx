@@ -10,7 +10,8 @@ export const CodePreview: FC = () => {
         padding: 2,
       }}
     >
-      <Code>console.log('Hello I'm a Code')</Code>
+      {/* i18n */}
+      <Code>console.log('Eu sou um Code')</Code>
     </Flex>
   );
 };

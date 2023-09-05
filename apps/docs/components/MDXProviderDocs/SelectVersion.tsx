@@ -34,14 +34,17 @@ export const SelectVersion: FC = () => {
 
   return (
     <Select.Root value={value} onValueChange={handleOnChangeValue}>
-      <Select.Trigger aria-label="Documentation version">
-        <Select.Value placeholder="Select a version" />
+      {/* i18n */}
+      <Select.Trigger aria-label="Versão da documentação">
+        {/* i18n */}
+        <Select.Value placeholder="Selecione uma versão" />
       </Select.Trigger>
       <Select.Content>
         <Select.Viewport>
           {versions.map((version, index) => (
             <Select.Item key={version} value={version}>
-              {version} {index === 0 ? "(latest)" : null}
+              {/* i18n */}
+              {version} {index === 0 ? "(última)" : null}
             </Select.Item>
           ))}
         </Select.Viewport>

@@ -24,7 +24,8 @@ export const MoreInfo: FC<any> = ({
       )}
       {...props}
     >
-      For more information access{" "}
+      {/* i18n */}
+      Para mais informações acesse{" "}
       <Typography
         as="a"
         href={componentLink}
@@ -33,8 +34,8 @@ export const MoreInfo: FC<any> = ({
         fontSize="sm"
       >
         {componentName}
-      </Typography>{" "}
-      documentation.
+      </Typography>
+      .
     </StyledTypographyP>
   );
 };

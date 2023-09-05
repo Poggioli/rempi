@@ -8,22 +8,27 @@ export const AlertDialogPreview: FC = () => {
     <Flex justifyContent="center" style={{ padding: 2 }}>
       <AlertDialog.Root>
         <AlertDialog.Trigger>
-          <Button color="error">Delete account</Button>
+          {/* i18n */}
+          <Button color="error">Deletar conta</Button>
         </AlertDialog.Trigger>
         <AlertDialog.Portal>
           <AlertDialog.Overlay />
           <AlertDialog.Content>
-            <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
+            {/* i18n */}
+            <AlertDialog.Title>Você tem certeza absoluta?</AlertDialog.Title>
             <AlertDialog.Description>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
+              {/* i18n */}
+              Essa ação não pode ser desfeita. Isso excluirá permanentemente sua
+              conta e removará seus dados de nossos servidores.
             </AlertDialog.Description>
             <AlertDialog.Footer>
               <AlertDialog.Cancel>
-                <Button variant="text">Cancel</Button>
+                {/* i18n */}
+                <Button variant="text">Cancelar</Button>
               </AlertDialog.Cancel>
               <AlertDialog.Action>
-                <Button color="error">Yes, delete account</Button>
+                {/* i18n */}
+                <Button color="error">Sim, excluir conta</Button>
               </AlertDialog.Action>
             </AlertDialog.Footer>
           </AlertDialog.Content>

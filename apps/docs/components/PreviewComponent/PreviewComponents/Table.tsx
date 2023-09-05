@@ -6,45 +6,45 @@ export const TablePreview: FC = () => {
   const INVOICES = [
     {
       invoice: "INV001",
-      paymentStatus: "Paid",
+      paymentStatus: "Pago",
       totalAmount: "$250.00",
-      paymentMethod: "Credit Card",
+      paymentMethod: "Cartão de crédito",
     },
     {
       invoice: "INV002",
-      paymentStatus: "Pending",
+      paymentStatus: "Pendente",
       totalAmount: "$150.00",
       paymentMethod: "PayPal",
     },
     {
       invoice: "INV003",
-      paymentStatus: "Unpaid",
+      paymentStatus: "Pagamento pendente",
       totalAmount: "$350.00",
-      paymentMethod: "Bank Transfer",
+      paymentMethod: "Transferência bancária",
     },
     {
       invoice: "INV004",
-      paymentStatus: "Paid",
+      paymentStatus: "Pago",
       totalAmount: "$450.00",
-      paymentMethod: "Credit Card",
+      paymentMethod: "Cartão de crédito",
     },
     {
       invoice: "INV005",
-      paymentStatus: "Paid",
+      paymentStatus: "Pago",
       totalAmount: "$550.00",
       paymentMethod: "PayPal",
     },
     {
       invoice: "INV006",
-      paymentStatus: "Pending",
+      paymentStatus: "Pendente",
       totalAmount: "$200.00",
-      paymentMethod: "Bank Transfer",
+      paymentMethod: "Transferência bancária",
     },
     {
       invoice: "INV007",
-      paymentStatus: "Unpaid",
+      paymentStatus: "Pagamento pendente",
       totalAmount: "$300.00",
-      paymentMethod: "Credit Card",
+      paymentMethod: "Cartão de crédito",
     },
   ];
 
@@ -56,7 +56,8 @@ export const TablePreview: FC = () => {
       style={{ padding: "var(--spaces-2)" }}
     >
       <Table.Root>
-        <Table.Caption>A list of your recent invoices.</Table.Caption>
+        {/* i18n */}
+        <Table.Caption>Uma lista de suas faturas recentes.</Table.Caption>
         <Table.Header>
           <Table.Row>
             <Table.Head
@@ -64,16 +65,20 @@ export const TablePreview: FC = () => {
                 width: 100,
               }}
             >
-              Invoice
+              {/* i18n */}
+              Fatura
             </Table.Head>
+            {/* i18n */}
             <Table.Head>Status</Table.Head>
-            <Table.Head>Method</Table.Head>
+            {/* i18n */}
+            <Table.Head>Método</Table.Head>
             <Table.Head
               style={{
                 textAlign: "right",
               }}
             >
-              Amount
+              {/* i18n */}
+              Quantia
             </Table.Head>
           </Table.Row>
         </Table.Header>

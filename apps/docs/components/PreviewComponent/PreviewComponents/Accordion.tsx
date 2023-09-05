@@ -6,36 +6,42 @@ export const AccordionPreview: FC = () => {
     <Accordion.Root type="single" collapsible>
       <Accordion.Item value="item-1">
         <Accordion.Header>
-          <Accordion.Trigger>Is it accessible?</Accordion.Trigger>
+          {/* i18n */}
+          <Accordion.Trigger>É acessível?</Accordion.Trigger>
         </Accordion.Header>
         <Accordion.Content>
-          Yes. It adheres to the WAI-ARIA design pattern.
+          {/* i18n */}
+          Sim. Ele segue o padrão de design WAI-ARIA.
         </Accordion.Content>
       </Accordion.Item>
       <Accordion.Item value="item-2">
         <Accordion.Header>
-          <Accordion.Trigger>Is it unstyled?</Accordion.Trigger>
+          {/* i18n */}
+          <Accordion.Trigger>Não tem estilo?</Accordion.Trigger>
         </Accordion.Header>
         <Accordion.Content>
-          Yes. It's unstyled by default, giving you freedom over the look and
-          feel.
+          {/* i18n */}
+          Sim. Não tem estilo por padrão, dando a você liberdade na estilização.
         </Accordion.Content>
       </Accordion.Item>
       <Accordion.Item value="item-3">
         <Accordion.Header>
-          <Accordion.Trigger>Can it be animated?</Accordion.Trigger>
+          {/* i18n */}
+          <Accordion.Trigger>Pode ser animado?</Accordion.Trigger>
         </Accordion.Header>
         <Accordion.Content>
-          Yes! You can animate the Accordion with CSS or JavaScript.
+          {/* i18n */}
+          Sim! Você pode animar o Accordion com CSS ou JavaScript.
         </Accordion.Content>
       </Accordion.Item>
       <Accordion.Item value="item-4" disabled>
         <Accordion.Header>
-          <Accordion.Trigger>Could be disabled?</Accordion.Trigger>
+          {/* i18n */}
+          <Accordion.Trigger>Poderia ser desativado?</Accordion.Trigger>
         </Accordion.Header>
-        <Accordion.Content>Yes. It could be disabled</Accordion.Content>
+        {/* i18n */}
+        <Accordion.Content>Sim. Poderia ser desativado</Accordion.Content>
       </Accordion.Item>
     </Accordion.Root>
   );
 };
-

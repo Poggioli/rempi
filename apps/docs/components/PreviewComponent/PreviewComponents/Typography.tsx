@@ -5,7 +5,8 @@ import { FC } from "react";
 export const TypographyPreview: FC = () => {
   return (
     <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
-      <Typography>Hello I'm a Typography</Typography>
+      {/* i18n */}
+      <Typography>Eu sou um Typography</Typography>
     </Flex>
   );
 };

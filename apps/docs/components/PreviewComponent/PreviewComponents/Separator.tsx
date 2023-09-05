@@ -11,9 +11,11 @@ export const SeparatorPreview: FC = () => {
       flexWrap="wrap"
       style={{ padding: "var(--spaces-2)" }}
     >
-      <Heading>Between us there</Heading>
+      {/* i18n */}
+      <Heading>Entre nós</Heading>
       <Separator />
-      <Heading>Is a separator</Heading>
+      {/* i18n */}
+      <Heading>é um Separator</Heading>
     </Flex>
   );
 };

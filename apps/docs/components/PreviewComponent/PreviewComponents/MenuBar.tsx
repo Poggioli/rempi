@@ -4,7 +4,11 @@ import { FC, useState } from "react";
 
 export const MenuBarPreview: FC = () => {
   const RADIO_ITEMS = ["Andy", "Benoît", "Luis"];
-  const CHECK_ITEMS = ["Always Show Bookmarks Bar", "Always Show Full URLs"];
+  // i18n
+  const CHECK_ITEMS = [
+    "Sempre mostrar barra de favoritos",
+    "Sempre mostrar URLs completas",
+  ];
 
   const [checkedSelection, setCheckedSelection] = useState([CHECK_ITEMS[1]]);
   const [radioSelection, setRadioSelection] = useState(RADIO_ITEMS[2]);
@@ -13,61 +17,82 @@ export const MenuBarPreview: FC = () => {
     <Flex justifyContent="center" style={{ padding: 2 }}>
       <Menubar.Root>
         <Menubar.Menu>
-          <Menubar.Trigger>File</Menubar.Trigger>
+          {/* i18n */}
+          <Menubar.Trigger>Arquivos</Menubar.Trigger>
           <Menubar.Content align="start">
             <Menubar.Item>
-              New Tab <div style={{ marginLeft: "auto" }}>⌘ T</div>
+              {/* i18n */}
+              Nova aba <div style={{ marginLeft: "auto" }}>⌘ T</div>
             </Menubar.Item>
             <Menubar.Item>
-              New Window <div style={{ marginLeft: "auto" }}>⌘ N</div>
+              {/* i18n */}
+              Nova janela <div style={{ marginLeft: "auto" }}>⌘ N</div>
             </Menubar.Item>
-            <Menubar.Item disabled>New Incognito Window</Menubar.Item>
+            {/* i18n */}
+            <Menubar.Item disabled>Nova janela anônima</Menubar.Item>
             <Menubar.Separator />
             <Menubar.SubMenu>
-              <Menubar.SubMenuTrigger>Share</Menubar.SubMenuTrigger>
+              {/* i18n */}
+              <Menubar.SubMenuTrigger>Compartilhar</Menubar.SubMenuTrigger>
               <Menubar.SubMenuContent alignOffset={-5}>
+                {/* i18n */}
                 <Menubar.Item>Email Link</Menubar.Item>
-                <Menubar.Item>Messages</Menubar.Item>
-                <Menubar.Item>Notes</Menubar.Item>
+                {/* i18n */}
+                <Menubar.Item>Mensagens</Menubar.Item>
+                {/* i18n */}
+                <Menubar.Item>Notas</Menubar.Item>
               </Menubar.SubMenuContent>
             </Menubar.SubMenu>
             <Menubar.Separator />
             <Menubar.Item>
-              Print… <div style={{ marginLeft: "auto" }}>⌘ P</div>
+              {/* i18n */}
+              Imprimir... <div style={{ marginLeft: "auto" }}>⌘ P</div>
             </Menubar.Item>
           </Menubar.Content>
         </Menubar.Menu>
 
         <Menubar.Menu>
-          <Menubar.Trigger>Edit</Menubar.Trigger>
+          {/* i18n */}
+          <Menubar.Trigger>Editar</Menubar.Trigger>
           <Menubar.Content align="start">
             <Menubar.Item>
-              Undo <div style={{ marginLeft: "auto" }}>⌘ Z</div>
+              {/* i18n */}
+              Desfazer <div style={{ marginLeft: "auto" }}>⌘ Z</div>
             </Menubar.Item>
             <Menubar.Item>
-              Redo <div style={{ marginLeft: "auto" }}>⇧ ⌘ Z</div>
+              {/* i18n */}
+              Refazer <div style={{ marginLeft: "auto" }}>⇧ ⌘ Z</div>
             </Menubar.Item>
             <Menubar.Separator />
             <Menubar.SubMenu>
-              <Menubar.SubMenuTrigger>Find</Menubar.SubMenuTrigger>
+              {/* i18n */}
+              <Menubar.SubMenuTrigger>Buscar</Menubar.SubMenuTrigger>
 
               <Menubar.SubMenuContent alignOffset={-5}>
-                <Menubar.Item>Search the web…</Menubar.Item>
+                {/* i18n */}
+                <Menubar.Item>Buscar na internet...</Menubar.Item>
                 <Menubar.Separator />
-                <Menubar.Item>Find…</Menubar.Item>
-                <Menubar.Item>Find Next</Menubar.Item>
-                <Menubar.Item>Find Previous</Menubar.Item>
+                {/* i18n */}
+                <Menubar.Item>Buscar</Menubar.Item>
+                {/* i18n */}
+                <Menubar.Item>Buscar próximo</Menubar.Item>
+                {/* i18n */}
+                <Menubar.Item>Buscar anterior</Menubar.Item>
               </Menubar.SubMenuContent>
             </Menubar.SubMenu>
             <Menubar.Separator />
-            <Menubar.Item>Cut</Menubar.Item>
-            <Menubar.Item>Copy</Menubar.Item>
-            <Menubar.Item>Paste</Menubar.Item>
+            {/* i18n */}
+            <Menubar.Item>Cortar</Menubar.Item>
+            {/* i18n */}
+            <Menubar.Item>Copiar</Menubar.Item>
+            {/* i18n */}
+            <Menubar.Item>Colar</Menubar.Item>
           </Menubar.Content>
         </Menubar.Menu>
 
         <Menubar.Menu>
-          <Menubar.Trigger>View</Menubar.Trigger>
+          {/* i18n */}
+          <Menubar.Trigger>Visualizar</Menubar.Trigger>
           <Menubar.Content align="start" alignOffset={-14}>
             {CHECK_ITEMS.map((item) => (
               <Menubar.CheckboxItem
@@ -86,20 +111,26 @@ export const MenuBarPreview: FC = () => {
             ))}
             <Menubar.Separator />
             <Menubar.Item>
-              Reload <div style={{ marginLeft: "auto" }}>⌘ R</div>
+              {/* i18n */}
+              Recarregar <div style={{ marginLeft: "auto" }}>⌘ R</div>
             </Menubar.Item>
             <Menubar.Item disabled>
-              Force Reload <div style={{ marginLeft: "auto" }}>⇧ ⌘ R</div>
+              {/* i18n */}
+              Recarregamento forçado{" "}
+              <div style={{ marginLeft: "auto" }}>⇧ ⌘ R</div>
             </Menubar.Item>
             <Menubar.Separator />
-            <Menubar.Item>Toggle Fullscreen</Menubar.Item>
+            {/* i18n */}
+            <Menubar.Item>Mudar para tela cheia</Menubar.Item>
             <Menubar.Separator />
-            <Menubar.Item>Hide Sidebar</Menubar.Item>
+            {/* i18n */}
+            <Menubar.Item>Esconder barra lateral</Menubar.Item>
           </Menubar.Content>
         </Menubar.Menu>
 
         <Menubar.Menu>
-          <Menubar.Trigger>Profiles</Menubar.Trigger>
+          {/* i18n */}
+          <Menubar.Trigger>Perfil</Menubar.Trigger>
           <Menubar.Content align="start" alignOffset={-14}>
             <Menubar.RadioGroup
               value={radioSelection}
@@ -111,15 +142,18 @@ export const MenuBarPreview: FC = () => {
                 </Menubar.RadioItem>
               ))}
               <Menubar.Separator />
-              <Menubar.Item>Edit…</Menubar.Item>
+              {/* i18n */}
+              <Menubar.Item>Editar</Menubar.Item>
               <Menubar.Separator />
-              <Menubar.Item>Add Profile…</Menubar.Item>
+              {/* i18n */}
+              <Menubar.Item>Adicionar perfil</Menubar.Item>
             </Menubar.RadioGroup>
           </Menubar.Content>
         </Menubar.Menu>
 
         <Menubar.Menu>
-          <Menubar.Trigger disabled>Companies</Menubar.Trigger>
+          {/* i18n */}
+          <Menubar.Trigger disabled>Empresas</Menubar.Trigger>
         </Menubar.Menu>
       </Menubar.Root>
     </Flex>
