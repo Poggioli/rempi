@@ -23,7 +23,9 @@ export const CardPreview: FC = () => {
             alignItems="center"
             style={{
               gap: 16,
-              padding: "16px 0",
+              padding: "16px",
+              borderRadius: 'var(--radii-2)',
+              border: 'var(--border-widths-1) solid var(--colors-grey6)'
             }}
           >
             <BellIcon
