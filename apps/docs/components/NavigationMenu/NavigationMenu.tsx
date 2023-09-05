@@ -1,17 +1,17 @@
+import { DocsNavigationMenu } from "@/components/DocsNavigationMenu";
 import { SocialMedias } from "@/components/SocialMedias";
-import { Button, IconButton } from "@rempi-ui/button";
+import { IconButton } from "@rempi-ui/button";
 import { styled } from "@rempi-ui/core";
-import { Dialog } from "@rempi-ui/dialog";
+import { Drawer } from "@rempi-ui/drawer";
 import { Flex } from "@rempi-ui/flex";
 import { Typography } from "@rempi-ui/typography";
+import { Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { FC } from "react";
-import { DocsNavigationMenu } from "@/components/DocsNavigationMenu";
 import {
   StyledMarginLeftAuto,
-  StyledNavigationMenuHeader,
+  StyledNavigationMenuHeader
 } from "./NavigationMenu.styles";
-import { Menu } from "lucide-react";
 
 const StyledContainer = styled.div`
   width: calc(100% - ${({ theme }) => theme.spaces[3]});
@@ -57,8 +57,8 @@ export const NavigationMenu: FC = () => {
         </nav>
       ) : (
         <>
-          <Dialog.Root>
-            <HideInDesktop as={Dialog.Trigger}>
+          <Drawer.Root>
+            <HideInDesktop as={Drawer.Trigger}>
               <IconButton
                 shape="rounded"
                 size="small"
@@ -69,19 +69,19 @@ export const NavigationMenu: FC = () => {
                 <Menu size={18} />
               </IconButton>
             </HideInDesktop>
-            <Dialog.Portal>
-              <Dialog.Overlay blur />
-              <StyledFillAllAvailableHeight as={Dialog.Content}>
+            <Drawer.Portal>
+              <Drawer.Overlay blur />
+              <StyledFillAllAvailableHeight as={Drawer.Content}>
                 <HideInTablet
-                  as={Dialog.CloseCross}
+                  as={Drawer.CloseCross}
                   aria-label="Fechar menu de navegação"
                 />
                 <StyledContainer>
                   <DocsNavigationMenu />
                 </StyledContainer>
               </StyledFillAllAvailableHeight>
-            </Dialog.Portal>
-          </Dialog.Root>
+            </Drawer.Portal>
+          </Drawer.Root>
         </>
       )}
 

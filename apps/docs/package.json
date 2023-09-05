@@ -30,6 +30,7 @@
     "@rempi-ui/context-menu": "*",
     "@rempi-ui/core": "*",
     "@rempi-ui/dialog": "*",
+    "@rempi-ui/drawer": "*",
     "@rempi-ui/dropdown-menu": "*",
     "@rempi-ui/flex": "*",
     "@rempi-ui/heading": "*",

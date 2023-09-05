@@ -25,6 +25,7 @@ import { ComboboxPreview } from "./PreviewComponents/Combobox";
 import { ContainerPreview } from "./PreviewComponents/Container";
 import { ContextMenuPreview } from "./PreviewComponents/ContextMenu";
 import { DialogPreview } from "./PreviewComponents/Dialog";
+import { DrawerPreview } from "./PreviewComponents/Drawer";
 import { DropdownMenuPreview } from "./PreviewComponents/DropdownMenu";
 import { FlexPreview } from "./PreviewComponents/Flex";
 import { HeadingPreview } from "./PreviewComponents/Heading";
@@ -96,6 +97,7 @@ const COMPONENTS: any = {
   toggle: TogglePreview,
   tooltip: TooltipPreview,
   typography: TypographyPreview,
+  drawer: DrawerPreview,
 };
 
 const StyledFlex = styled.div`

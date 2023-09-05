@@ -57,6 +57,7 @@ const menus: Menu[] = [
       { label: "Container", href: "/docs/components/container" },
       { label: "Context Menu", href: "/docs/components/context-menu" },
       { label: "Dialog", href: "/docs/components/dialog" },
+      { label: "Drawer", href: "/docs/components/drawer" },
       { label: "Dropdown Menu", href: "/docs/components/dropdown-menu" },
       { label: "Flex", href: "/docs/components/flex" },
       { label: "Heading", href: "/docs/components/heading" },
