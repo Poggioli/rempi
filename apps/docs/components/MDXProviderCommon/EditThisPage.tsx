@@ -13,7 +13,7 @@ type EditThisPageProps = {
 };
 
 export const EditThisPage: FC<EditThisPageProps> = ({ url }) => {
-  const href = `https://github.com/Poggioli/rempi/edit/docs/apps/docs/documentations/${url}`;
+  const href = `https://github.com/Poggioli/rempi/edit/main/apps/docs/documentations/${url}`;
 
   return (
     <>
