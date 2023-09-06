@@ -18,6 +18,7 @@ import { DataReference } from "./DataReference";
 import { Description } from "@/components/MDXProviderCommon/Description";
 import { MoreInfo } from "./MoreInfo";
 import { SelectVersion } from "./SelectVersion";
+import { EditThisPage } from "../MDXProviderCommon/EditThisPage";
 
 export const MDXProviderDocs: FC<PropsWithChildren<any>> = ({ children }) => {
   return (
@@ -41,6 +42,7 @@ export const MDXProviderDocs: FC<PropsWithChildren<any>> = ({ children }) => {
         DataReference,
         MoreInfo,
         SelectVersion,
+        EditThisPage
       }}
     >
       {children}

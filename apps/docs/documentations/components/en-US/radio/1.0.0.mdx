@@ -1,0 +1,267 @@
+---
+title: Radio
+slug: radio
+radixUI: https://www.radix-ui.com/primitives/docs/components/radio-group
+radixAPI: https://www.radix-ui.com/primitives/docs/components/radio-group#api-reference
+---
+
+# Radio
+
+<Description text="A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/radio-group" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/radio-group#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="radio" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/radio
+```
+
+## Usage
+
+Import the <strong>Radio</strong> and piece all composition components together.
+
+```jsx
+import { Radio } from "@rempi-ui/radio";
+import { Flex } from "@rempi-ui/flex";
+import { Heading } from "@rempi-ui/heading";
+
+() => (
+  <Flex flexDirection="column">
+    <Heading variant="6" fontWeight="normal" fontSize="xlg">
+      Select your favorite color
+    </Heading>
+    <Radio.Root>
+      <Radio.Label>
+        <Radio.Item value="green" /> Green
+      </Radio.Label>
+      <Radio.Label>
+        <Radio.Item value="purple" /> Purple
+      </Radio.Label>
+      <Radio.Label>
+        <Radio.Item value="brown" /> Brown
+      </Radio.Label>
+      <Radio.Label>
+        <Radio.Item value="white" /> White
+      </Radio.Label>
+      <Radio.Label>
+        <Radio.Item value="yellow" /> Yellow
+      </Radio.Label>
+    </Radio.Root>
+  </Flex>
+);
+```
+
+## About
+
+Rempi-UI Radio component is built on top of [Radix Radio](https://www.radix-ui.com/primitives/docs/components/radio-group).
+
+## API reference
+
+### Root
+
+It's a mix of [Rempi-UI Flex](/docs/components/flex) and [Radix Radio Root](https://www.radix-ui.com/primitives/docs/components/radio-group#root).<br /><br />
+Contains all the parts of a radio group.
+
+<MoreInfo componentName="Rempi-UI Flex" componentLink="/docs/components/flex" />
+<MoreInfo
+  componentName="Radix Radio Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/radio-group#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultValue",
+      type: "string",
+      description:
+        "The value of the radio item that should be checked when initially rendered. Use when you do not need to control the state of the radio items.",
+    },
+    {
+      name: "value",
+      type: "string",
+      description: (
+        <span>
+          The controlled value of the radio item to check. Should be used in
+          conjunction with <code>onValueChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onValueChange",
+      type: "(value: string) => void",
+      typeSimple: "function",
+      description: "Event handler called when the value changes.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with radio
+          items.
+        </span>
+      ),
+    },
+    {
+      name: "name",
+      type: "string",
+      description:
+        "The name of the group. Submitted with its owning form as part of a name/value pair.",
+    },
+    {
+      name: "required",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, indicates that the user must check a radio
+          item before the owning form can be submitted.
+        </span>
+      ),
+    },
+    {
+      name: "orientation",
+      required: false,
+      type: '"horizontal" | "vertical" | undefined',
+      typeSimple: "enum",
+      defaultValue: "undefined",
+      description: "The orientation of the component.",
+    },
+    {
+      name: "dir",
+      required: false,
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      description: (
+        <span>
+          The reading direction of the radio group. If omitted, inherits
+          globally from <code>DirectionProvider</code> or assumes LTR
+          (left-to-right) reading mode.
+        </span>
+      ),
+    },
+    {
+      name: "loop",
+      required: false,
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          When <code>true</code>, keyboard navigation will loop from last item
+          to first, and vice versa.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+### Item
+
+It's a mix of [Radix Radio Item](https://www.radix-ui.com/primitives/docs/components/radio-group#item) and [Radix Radio Indicator](https://www.radix-ui.com/primitives/docs/components/radio-group#indicator).<br/><br/>
+An item in the group that can be checked. An `input` will also render when used within a `form` to ensure events propagate correctly. Renders when the radio item is in a checked state. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
+
+<MoreInfo
+  componentName="Radix Radio Item"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/radio-group#item"
+/>
+<MoreInfo
+  componentName="Radix Radio Indicator"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/radio-group#indicator"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "value",
+      type: "string",
+      description: (
+        <span>
+          The value given as data when submitted with a <code>name</code>.
+        </span>
+      ),
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with the
+          radio item.
+        </span>
+      ),
+    },
+    {
+      name: "required",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, indicates that the user must check the radio
+          item before the owning form can be submitted.
+        </span>
+      ),
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description:
+        "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["checked", "unchecked"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+### Label
+
+Renders an accessible label associated with controls.<br />
+Rempi-UI <strong>Radio.Label</strong> component is built on top of <strong>Rempi-UI Label</strong>
+
+<MoreInfo
+  componentName="Rempi-UI Label"
+  componentLink="/docs/components/label"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "data-disabled",
+      value: "Present when disabled",
+    },
+    {
+      name: "data-invalid",
+      value: "Present when invalid",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/progress",
+    label: "Progress",
+  }}
+  next={{
+    link: "/docs/components/scroll-area",
+    label: "Scroll Area",
+  }}
+/>
+
+<EditThisPage url="components/en-US/radio/1.0.0.mdx" />

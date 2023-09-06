@@ -1,0 +1,233 @@
+---
+title: Scroll Area
+slug: scroll-area
+radixUI: https://www.radix-ui.com/primitives/docs/components/scroll-area
+radixAPI: https://www.radix-ui.com/primitives/docs/components/scroll-area#api-reference
+---
+
+# Scroll Area
+
+<Description text="Augments native scroll functionality for custom, cross-browser styling." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/scroll-area" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/scroll-area#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="scroll-area" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/scroll-area
+```
+
+## Usage
+
+Import the <strong>ScrollArea</strong> and piece all composition components together.
+
+```jsx
+import { Flex } from "@rempi-ui/Flex";
+import { ScrollArea } from "@rempi-ui/scroll-area";
+import { Separator } from "@rempi-ui/separator";
+import { Typography } from "@rempi-ui/typography";
+import { FC, Fragment } from "react";
+
+const TAGS = Array.from({ length: 50 }).map(
+  (_, i, a) => `v1.2.0-beta.${a.length - i}`
+);
+
+() => (
+  <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
+    <ScrollArea.Root style={{ height: 250 }}>
+      <ScrollArea.Viewport>
+        <div>
+          <Typography fontWeight="regular">Tags</Typography>
+          {TAGS.map((tag) => (
+            <Fragment key={tag}>
+              <Separator />
+              <Typography variant="body2">{tag}</Typography>
+            </Fragment>
+          ))}
+        </div>
+      </ScrollArea.Viewport>
+      <ScrollArea.Scrollbar orientation="vertical">
+        <ScrollArea.Thumb />
+      </ScrollArea.Scrollbar>
+      <ScrollArea.Scrollbar orientation="horizontal">
+        <ScrollArea.Thumb />
+      </ScrollArea.Scrollbar>
+      <ScrollArea.Corner />
+    </ScrollArea.Root>
+  </Flex>
+);
+```
+
+## About
+
+Rempi-UI Scroll Area component is built on top of [Radix Scroll Area](https://www.radix-ui.com/primitives/docs/components/scroll-area).
+
+## API reference
+
+### Root
+
+Contains all the parts of a scroll area.
+
+<MoreInfo
+  componentName="Radix Scroll Area Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/scroll-area#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "type",
+      type: '"auto" | "always" | "scroll" | "hover"',
+      typeSimple: "enum",
+      defaultValue: '"hover"',
+      description: (
+        <span>
+          Describes the nature of scrollbar visibility, similar to how the
+          scrollbar preferences in MacOS control visibility of native
+          scrollbars.
+          <br />
+          <br />
+          <code>"auto"</code> means that scrollbars are visible when content is overflowing
+          on the corresponding orientation.
+          <br />
+          <code>"always"</code> means that scrollbars are always visible regardless
+          of whether the content is overflowing.
+          <br />
+          <code>"scroll"</code> means that scrollbars are visible when the user is
+          scrolling along its corresponding orientation.
+          <br />
+          <code>"hover"</code> when the user is scrolling along its corresponding
+          orientation and when the user is hovering over the scroll area.
+        </span>
+      ),
+    },
+    {
+      name: "scrollHideDelay",
+      type: "number",
+      defaultValue: "600",
+      description: (
+        <span>
+          If <code>type</code> is set to either <code>"scroll"</code> or{" "}
+          <code>"hover"</code>, this prop determines the length of time, in
+          milliseconds, before the scrollbars are hidden after the user stops
+          interacting with scrollbars.
+        </span>
+      ),
+    },
+    {
+      name: "dir",
+      required: false,
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      description: (
+        <span>
+          The reading direction of the scroll area. If omitted, inherits
+          globally from <code>DirectionProvider</code> or assumes LTR
+          (left-to-right) reading mode.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+### Viewport
+
+The viewport area of the scroll area.
+
+<MoreInfo
+  componentName="Radix Scroll Area Viewport"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/scroll-area#viewport"
+/>
+
+### Scrollbar
+
+<MoreInfo
+  componentName="Radix Scroll Area Scrollbar"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/scroll-area#scrollbar"
+/>
+
+The vertical scrollbar. Add a second `Scrollbar` with an `orientation` prop to enable horizontal scrolling.
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries.
+        </span>
+      ),
+    },
+    {
+      name: "orientation",
+      required: false,
+      type: '"horizontal" | "vertical"',
+      typeSimple: "enum",
+      defaultValue: "vertical",
+      description: "The orientation of the scrollbar",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["visible", "hidden"],
+    },
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+### Thumb
+
+<MoreInfo
+  componentName="Radix Scroll Area Thumb"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/scroll-area#thumb"
+/>
+
+The thumb to be used in `ScrollArea.Scrollbar`.
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["visible", "hidden"],
+    },
+  ]}
+/>
+
+### Corner
+
+<MoreInfo
+  componentName="Radix Scroll Area corner"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/scroll-area#corner"
+/>
+
+The corner where both vertical and horizontal scrollbars meet.
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/radio",
+    label: "Radio",
+  }}
+  next={{
+    link: "/docs/components/select",
+    label: "Select",
+  }}
+/>
+
+<EditThisPage url="components/en-US/scroll-area/1.0.0.mdx" />

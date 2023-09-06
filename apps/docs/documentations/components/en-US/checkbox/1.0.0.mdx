@@ -1,0 +1,180 @@
+---
+title: Checkbox
+slug: checkbox
+radixUI: https://www.radix-ui.com/primitives/docs/components/checkbox
+radixAPI: https://www.radix-ui.com/primitives/docs/components/checkbox#api-reference
+---
+
+# Checkbox
+
+<Description text="A control that allows the user to toggle between checked and not checked." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/checkbox" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/checkbox#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="checkbox" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/checkbox
+```
+
+## Usage
+
+Import the <strong>Checkbox</strong> and piece all composition components together.
+
+```jsx
+import { Checkbox } from "@rempi-ui/checkbox";
+
+() => (
+  <Checkbox.Label>
+    <Checkbox.Check />I have read and accept the terms of use
+  </Checkbox.Label>
+);
+```
+
+## About
+
+Rempi-UI Checkbox component is built on top of [Radix Checkbox](https://www.radix-ui.com/primitives/docs/components/checkbox).
+
+## API reference
+
+### Check
+
+It's a mix of [Radix Checkbox Root](https://www.radix-ui.com/primitives/docs/components/checkbox#root) and [Radix Checkbox Indicator](https://www.radix-ui.com/primitives/docs/components/checkbox#indicator).<br/><br/>
+Contains all the parts of a checkbox. An `input` will also render when used within a `form` to ensure events propagate correctly. <br/>
+Renders when the checkbox is in a checked or indeterminate state. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
+
+<MoreInfo
+  componentName="Radix Checkbox"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/checkbox"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultChecked",
+      type: "boolean",
+      description:
+        "The checked state of the checkbox when it is initially rendered. Use when you do not need to control its checked state.",
+    },
+    {
+      name: "checked",
+      type: "boolean",
+      description: (
+        <span>
+          The controlled checked state of the checkbox. Must be used in
+          conjunction with <code>onCheckedChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onCheckedChange",
+      type: `(checked: boolean | 'indeterminate') => void`,
+      typeSimple: "function",
+      description:
+        "Event handler called when the checked state of the checkbox changes.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with the
+          checkbox.
+        </span>
+      ),
+    },
+    {
+      name: "required",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, indicates that the user must check the
+          checkbox before the owning form can be submitted.
+        </span>
+      ),
+    },
+    {
+      name: "name",
+      type: "string",
+      description:
+        "The name of the checkbox. Submitted with its owning form as part of a name/value pair.",
+    },
+    {
+      name: "value",
+      type: "string",
+      defaultValue: "on",
+      description: (
+        <span>
+          The value given as data when submitted with a <code>name</code>.
+        </span>
+      ),
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description:
+        "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["checked", "unchecked", "indeterminate"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+### Label
+
+Renders an accessible label associated with controls.<br />
+Rempi-UI <strong>Checkbox.Label</strong> component is built on top of <strong>Rempi-UI Label</strong>
+
+<MoreInfo
+  componentName="Rempi-UI Label"
+  componentLink="/docs/components/label"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "data-disabled",
+      value: "Present when disabled",
+    },
+    {
+      name: "data-invalid",
+      value: "Present when invalid",
+    },
+    {
+      name: "data-state",
+      value: ["false", "true", "indeterminate"],
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/card",
+    label: "Card",
+  }}
+  next={{
+    link: "/docs/components/code",
+    label: "Code",
+  }}
+/>
+
+<EditThisPage url="components/en-US/checkbox/1.0.0.mdx" />

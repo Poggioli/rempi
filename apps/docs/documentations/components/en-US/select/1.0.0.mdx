@@ -1,0 +1,637 @@
+---
+title: Select
+slug: select
+radixUI: https://www.radix-ui.com/primitives/docs/components/select
+radixAPI: https://www.radix-ui.com/primitives/docs/components/select#api-reference
+---
+
+# Select
+
+<Description text="Displays a list of options for the user to pick from—triggered by a button." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/select" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/select#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="select" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/select
+```
+
+## Usage
+
+Import the <strong>Select</strong> and piece all composition components together.
+
+```jsx
+import { Select } from "@rempi-ui/select";
+
+() => (
+  <Select.Root>
+    <Select.Trigger aria-label="Food">
+      <Select.Value placeholder="Select a food..." />
+    </Select.Trigger>
+    <Select.Content>
+      <Select.Viewport>
+        <Select.Group>
+          <Select.Label>Fruits</Select.Label>
+          <Select.Item value="apple">Apple</Select.Item>
+          <Select.Item disabled value="banana">
+            Banana
+          </Select.Item>
+          <Select.Item value="blueberry">Blueberry</Select.Item>
+          <Select.Item value="grapes">Grapes</Select.Item>
+          <Select.Item value="pineapple">Pineapple</Select.Item>
+        </Select.Group>
+
+        <Select.Separator />
+
+        <Select.Group>
+          <Select.Label>Vegetables</Select.Label>
+          <Select.Item value="aubergine">Aubergine</Select.Item>
+          <Select.Item value="broccoli">Broccoli</Select.Item>
+          <Select.Item value="carrot" disabled>
+            Carrot
+          </Select.Item>
+          <Select.Item value="courgette">Courgette</Select.Item>
+          <Select.Item value="leek">Leek</Select.Item>
+        </Select.Group>
+
+        <Select.Separator />
+
+        <Select.Group>
+          <Select.Label>Meat</Select.Label>
+          <Select.Item value="beef">Beef</Select.Item>
+          <Select.Item value="chicken">Chicken</Select.Item>
+          <Select.Item value="lamb">Lamb</Select.Item>
+          <Select.Item value="pork">Pork</Select.Item>
+        </Select.Group>
+      </Select.Viewport>
+    </Select.Content>
+  </Select.Root>
+);
+```
+
+## About
+
+Rempi-UI Select component is built on top of [Radix Select](https://www.radix-ui.com/primitives/docs/components/select).
+
+## API reference
+
+### Root
+
+Contains all the parts of a select.
+
+<MoreInfo
+  componentName="Radix Select Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/select#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultValue",
+      required: false,
+      type: "string",
+      description:
+        "The value of the select when initially rendered. Use when you do not need to control the state of the select.",
+    },
+    {
+      name: "value",
+      required: false,
+      type: "string",
+      description: (
+        <span>
+          The controlled value of the select. Should be used in conjunction with{" "}
+          <code>onValueChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onValueChange",
+      required: false,
+      type: "(value: string) => void",
+      typeSimple: "function",
+      description: "Event handler called when the value changes.",
+    },
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description:
+        "The open state of the select when it is initially rendered. Use when you do not need to control its open state.",
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          The controlled open state of the select. Must be used in conjunction
+          with <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the open state of the select changes.
+        </span>
+      ),
+    },
+    {
+      name: "dir",
+      required: false,
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      description: (
+        <span>
+          The reading direction of the select when applicable. If omitted,
+          inherits globally from <code>DirectionProvider</code> or assumes LTR
+          (left-to-right) reading mode.
+        </span>
+      ),
+    },
+    {
+      name: "name",
+      type: "string",
+      description:
+        "The name of the select. Submitted with its owning form as part of a name/value pair.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with
+          select.
+        </span>
+      ),
+    },
+    {
+      name: "required",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, indicates that the user must select a value
+          before the owning form can be submitted.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+### Trigger
+
+The button that toggles the select. The `Select.Content` will position itself by aligning over the trigger.
+
+<MoreInfo
+  componentName="Radix Select Trigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/select#trigger"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+    {
+      name: "[data-placeholder]",
+      value: "Present when has placeholder",
+    },
+  ]}
+/>
+
+### Value
+
+The part that reflects the selected value. By default the selected item's text will be rendered. if you require more control, you can instead control the select and pass your own `children`. It should not be styled to ensure correct positioning. An optional `placeholder` prop is also available for when the select has no value.
+
+<MoreInfo
+  componentName="Radix Select Value"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/select#value"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "placeholder",
+      required: false,
+      type: "ReactNode",
+      description: (
+        <>
+          The content that will be rendered inside the <code>Select.Value</code>{" "}
+          when no <code>value</code> or <code>defaultValue</code> is set.
+        </>
+      ),
+    },
+  ]}
+/>
+
+### Content
+
+It's a mix of [Radix-UI Select Portal](https://www.radix-ui.com/primitives/docs/components/select#portal) and [Radix-UI Select Content](https://www.radix-ui.com/primitives/docs/components/select#content).<br/><br/>
+When used, portals the content part into the `body`. The component that pops out when the select is open.
+
+<MoreInfo
+  componentName="Radix Select Portal"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/select#portal"
+/>
+
+<MoreInfo
+  componentName="Radix Select Content"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/select#content"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "container",
+      type: "HTMLElement",
+      defaultValue: "document.body",
+      description: "Specify a container element to portal the content into.",
+    },
+    {
+      name: "onCloseAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when focus moves to the trigger after closing. It
+          can be prevented by calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the escape key is down. It can be prevented
+          by calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onPointerDownOutside",
+      type: "(event: PointerDownOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when a pointer event occurs outside the bounds of
+          the component. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "position",
+      type: '"item-aligned" | "popper"',
+      typeSimple: "enum",
+      defaultValue: '"item-aligned"',
+      description: (
+        <span>
+          The positioning mode to use, <code>item-aligned</code> is the default
+          and behaves similarly to a native MacOS menu by positioning content
+          relative to the active item. <code>popper</code> positions content in
+          the same way as our other primitives, for example <code>Popover</code>{" "}
+          or <code>DropdownMenu</code>.
+        </span>
+      ),
+    },
+    {
+      name: "side",
+      type: '"top" | "right" | "bottom" | "left"',
+      typeSimple: "enum",
+      defaultValue: '"bottom"',
+      description: (
+        <span>
+          The preferred side of the anchor to render against when open. Will be
+          reversed when collisions occur and <code>avoidCollisions</code> is
+          enabled. Only available when <code>position</code> is set to{" "}
+          <code>popper</code>.
+        </span>
+      ),
+    },
+    {
+      name: "sideOffset",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          The distance in pixels from the anchor. Only available when{" "}
+          <code>position</code> is set to <code>popper</code>.
+        </span>
+      ),
+    },
+    {
+      name: "align",
+      type: '"start" | "center" | "end"',
+      typeSimple: "enum",
+      defaultValue: '"start"',
+      description: (
+        <span>
+          The preferred alignment against the anchor. May change when collisions
+          occur. Only available when <code>position</code> is set to{" "}
+          <code>popper</code>.
+        </span>
+      ),
+    },
+    {
+      name: "alignOffset",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          An offset in pixels from the <code>"start"</code> or{" "}
+          <code>"end"</code> alignment options. Only available when{" "}
+          <code>position</code> is set to <code>popper</code>.
+        </span>
+      ),
+    },
+    {
+      name: "avoidCollisions",
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          When <code>true</code>, overrides the <code>side</code> and
+          <code>align</code> preferences to prevent collisions with boundary edges.
+          Only available when <code>position</code> is set to <code>
+            popper
+          </code>.
+        </span>
+      ),
+    },
+    {
+      name: "collisionBoundary",
+      type: "Element | null | Array<Element | null>",
+      typeSimple: "Boundary",
+      defaultValue: "[]",
+      description: (
+        <span>
+          The element used as the collision boundary. By default this is the
+          viewport, though you can provide additional element(s) to be included
+          in this check. Only available when <code>position</code> is set to{" "}
+          <code>popper</code>.
+        </span>
+      ),
+    },
+    {
+      name: "collisionPadding",
+      type: "number | Partial<Record<Side, number>>",
+      typeSimple: "number | Padding",
+      defaultValue: "10",
+      description: (
+        <span>
+          The distance in pixels from the boundary edges where collision
+          detection should occur. Accepts a number (same for all sides), or a
+          partial padding object, for example: <code>{`{ top: 20, left: 20 }`}</code>
+          . Only available when <code>position</code> is set to <code>
+            popper
+          </code>.
+        </span>
+      ),
+    },
+    {
+      name: "arrowPadding",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          The padding between the arrow and the edges of the content. If your
+          content has <code>border-radius</code>, this will prevent it from
+          overflowing the corners. Only available when <code>position</code> is
+          set to <code>popper</code>.
+        </span>
+      ),
+    },
+    {
+      name: "sticky",
+      type: '"partial" | "always"',
+      typeSimple: "enum",
+      defaultValue: '"partial"',
+      description: (
+        <span>
+          The sticky behavior on the align axis. <code>"partial"</code> will
+          keep the content in the boundary as long as the trigger is at least
+          partially in the boundary whilst <code>"always"</code> will keep the
+          content in the boundary regardless. Only available when{" "}
+          <code>position</code> is set to <code>popper</code>.
+        </span>
+      ),
+    },
+    {
+      name: "hideWhenDetached",
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          Whether to hide the content when the trigger becomes fully occluded.
+          Only available when <code>position</code> is set to{" "}
+          <code>popper</code>.
+        </span>
+      ),
+    },
+    {
+      name: "condensed",
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description: "Make items more condensed than the common behavior.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-side]",
+      value: ["left", "right", "bottom", "top"],
+    },
+    {
+      name: "[data-align]",
+      value: ["start", "end", "center"],
+    },
+  ]}
+/>
+
+### Viewport
+
+<MoreInfo
+  componentName="Radix Select Viewport"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/select#viewport"
+/>
+
+The scrolling viewport that contains all of the items.
+
+### Item
+
+It's a mix of [Radix-UI Select Item](https://www.radix-ui.com/primitives/docs/components/select#item), [Radix-UI Select Item Text](https://www.radix-ui.com/primitives/docs/components/select#itemtext) and [Radix-UI Select Item Indicator](https://www.radix-ui.com/primitives/docs/components/select#itemindicator).<br/><br/>
+The component that contains the select items. The textual part of the item. It should only contain the text you want to see in the trigger when that item is selected. It should not be styled to ensure correct positioning. Renders when the item is selected. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
+
+<MoreInfo
+  componentName="Radix Select Item"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/select#item"
+/>
+
+<MoreInfo
+  componentName="Radix Select Item Text"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/select#itemtext"
+/>
+
+<MoreInfo
+  componentName="Radix Select Item Indicator"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/select#itemindicator"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "asChild",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <>
+          Change the default rendered element for the one passed as a child,
+          merging their props and behavior.
+          <br />
+          <br />
+          Read our <a href="../guides/composition">Composition</a> guide for more
+          details.
+        </>
+      ),
+    },
+    {
+      name: "value",
+      required: true,
+      type: "string",
+      description: (
+        <span>
+          The value given as data when submitted with a <code>name</code>.
+        </span>
+      ),
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with the
+          item.
+        </span>
+      ),
+    },
+    {
+      name: "textValue",
+      type: "string",
+      description: (
+        <span>
+          Optional text used for typeahead purposes. By default the typeahead
+          behavior will use the <code>.textContent</code> of the{" "}
+          <code>Select.ItemText</code> part. Use this when the content is
+          complex, or you have non-textual content inside.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["checked", "unchecked"],
+    },
+    {
+      name: "[data-highlighted]",
+      value: "Present when highlighted",
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+### Group
+
+Used to group multiple items. use in conjunction with `Select.Label` to ensure good accessibility via automatic labelling.
+
+<MoreInfo
+  componentName="Radix Select Group"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/select#group"
+/>
+
+### Label
+
+Used to render the label of a group. It won't be focusable using arrow keys.
+
+<MoreInfo
+  componentName="Radix Select Label"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/select#label"
+/>
+
+### Separator
+
+Used to visually separate items in the select.
+
+<MoreInfo
+  componentName="Radix Select Separator"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/select#separator"
+/>
+
+### Arrow
+
+An optional arrow element to render alongside the content. This can be used to help visually link the trigger with the `Select.Content`. Must be rendered inside `Select.Content`. Only available when `position` is set to `popper`.
+
+<MoreInfo
+  componentName="Radix Select Arrow"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/select#arrow"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "width",
+      type: "number",
+      defaultValue: 10,
+      description: <span>The width of the arrow in pixels.</span>,
+    },
+    {
+      name: "height",
+      type: "number",
+      defaultValue: 5,
+      description: <span>The height of the arrow in pixels.</span>,
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/scroll-area",
+    label: "Scroll Area",
+  }}
+  next={{
+    link: "/docs/components/separator",
+    label: "Separator",
+  }}
+/>
+
+<EditThisPage url="components/en-US/select/1.0.0.mdx" />
