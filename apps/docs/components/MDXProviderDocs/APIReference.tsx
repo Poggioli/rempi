@@ -30,7 +30,7 @@ export const APIReference: FC<APIReferenceProps> = ({ data }) => {
       <Table.Root striped={false}>
         <Table.Header>
           <Table.Row>
-            <Table.Head className="w-100">Prop</Table.Head>
+            <Table.Head className="w-100">Props</Table.Head>
             {/* i18n */}
             <Table.Head>Tipo</Table.Head>
             {/* i18n */}

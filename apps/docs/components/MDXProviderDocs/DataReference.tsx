@@ -23,7 +23,7 @@ export const DataReference: FC<DataReferenceProps> = ({ data }) => {
         <Table.Header>
           <Table.Row>
             {/* i18n */}
-            <Table.Head className="w-100">Data Atributo</Table.Head>
+            <Table.Head className="w-100">Atributo</Table.Head>
             {/* i18n */}
             <Table.Head>Valores</Table.Head>
           </Table.Row>
