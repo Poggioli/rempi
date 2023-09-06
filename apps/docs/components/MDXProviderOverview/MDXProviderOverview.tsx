@@ -8,6 +8,7 @@ import { NavigationNextPrevious } from "@/components/MDXProviderCommon/Navigatio
 import { Paragraph } from "./Paragraph";
 import { Pre } from "@/components/MDXProviderCommon/Pre";
 import { Step, Steps } from "@/components/MDXProviderCommon/Steps";
+import { EditThisPage } from "@/components/MDXProviderCommon/EditThisPage";
 
 export const MDXProviderOverview: FC<PropsWithChildren<any>> = ({
   children,
@@ -24,6 +25,7 @@ export const MDXProviderOverview: FC<PropsWithChildren<any>> = ({
         Steps,
         Step,
         NavigationNextPrevious,
+        EditThisPage
       }}
     >
       {children}

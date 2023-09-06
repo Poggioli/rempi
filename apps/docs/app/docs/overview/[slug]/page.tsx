@@ -4,7 +4,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { loadMdxFile } from "utils/loadMdxFile";
 
 function loadDocBySlug(slug: string) {
-  return loadMdxFile("documentations/overview/", slug);
+  return loadMdxFile("documentations/overview/pt-BR/", slug);
 }
 
 export async function generateMetadata({ params }): Promise<Metadata> {
