@@ -1,0 +1,196 @@
+---
+title: Collapsible
+slug: collapsible
+radixUI: https://www.radix-ui.com/primitives/docs/components/collapsible
+radixAPI: https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference
+---
+
+# Collapsible
+
+<Description text="Um componente interativo que expande/colapsa um painel." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/collapsible" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="collapsible" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/collapsible
+```
+
+## Uso
+
+Importe o <strong>Collapsible</strong> e junte todas as partes do componente.
+
+```jsx
+import { IconButton } from "@rempi-ui/button";
+import { Collapsible } from "@rempi-ui/collpasible";
+import { Flex } from "@rempi-ui/flex";
+import { Typography } from "@rempi-ui/typography";
+import { FoldVertical } from "lucide-react";
+
+() => (
+  <Collapsible.Root>
+    <Flex justifyContent="space-between" alignItems="center">
+      <Typography>@peduarte favoritou 3 repositórios</Typography>
+      <Collapsible.Trigger>
+        <IconButton
+          shape="rounded"
+          size="small"
+          aria-label="Abrir repositórios"
+          variant="text"
+        >
+          <FoldVertical />
+        </IconButton>
+      </Collapsible.Trigger>
+    </Flex>
+    <Flex>
+      <Typography>@radix-ui/primitives</Typography>
+    </Flex>
+    <Collapsible.Content>
+      <Flex flexDirection="column">
+        <Typography>@radix-ui/colors</Typography>
+        <Typography>@radix-ui/react</Typography>
+      </Flex>
+    </Collapsible.Content>
+  </Collapsible.Root>
+);
+```
+
+## Sobre
+
+Rempi-UI Collapsible é baseado no [Radix Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible).
+
+## API reference
+
+### Root
+
+Contém todas as partes de um Collapsible.
+
+<MoreInfo
+  componentName="Radix Collapsible Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/collapsible#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description:
+        "O estado aberto do Collapsible quando ele é inicialmente renderizado. Use quando você não precisa controlar o seu estado aberto.",
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          O estado aberto controlado do Collapsible. Deve ser usado em conjunto
+          com <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description: "Evento chamado quando o estado aberto do Collapsible muda.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          Quando <code>true</code>, impede que o usuário interaja com o elemento
+          expansível.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Presente quando desabilitado.",
+    },
+  ]}
+/>
+
+### Trigger
+
+O botão que alterna o elemento expansível.
+
+<MoreInfo
+  componentName="Radix Collapsible Trigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/collapsible#trigger"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Presente quando desabilitado.",
+    },
+  ]}
+/>
+
+### Content
+
+O componente que contém o conteúdo expansível.
+
+<MoreInfo
+  componentName="Radix Collapsible Content"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/collapsible#content"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description:
+        "Usado para forçar a montagem quando mais controle é necessário. Útil quando se está controlando a animação com bibliotecas de animação do React.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Presente quando desabilitado.",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/code",
+    label: "Code",
+  }}
+  next={{
+    link: "/docs/components/combobox",
+    label: "Combobox",
+  }}
+/>
