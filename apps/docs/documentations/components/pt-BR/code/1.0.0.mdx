@@ -1,0 +1,102 @@
+---
+title: Code
+slug: code
+---
+
+# Code
+
+<Description text="Marca o texto para indicar um pequeno fragmento de código." />
+
+<SelectVersion />
+
+<PreviewComponent name="code" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/code
+```
+
+## Uso
+
+Importe o <strong>Code</strong>.
+
+```jsx
+import { Code } from "@rempi-ui/code";
+
+() => <Code>console.log('Olá eu sou um código')</Code>;
+```
+
+## API reference
+
+### Code
+
+Contém todas as partes de um código.
+
+<APIReference
+  data={[
+    {
+      name: "fontSize",
+      required: false,
+      type: '"2xsm" | "xsm" | "sm" | "md" | "lg" | "xlg"',
+      typeSimple: "enum",
+      description: "Define o tamanho da fonte do Code.",
+    },
+    {
+      name: "fontWeight",
+      required: false,
+      type: '"tiny" | "normal" | "regular" | "semi-bold" | "bold" | "extra-bold"',
+      typeSimple: "enum",
+      description: "Define o peso da fonte do Code.",
+    },
+    {
+      name: "lineHeight",
+      required: false,
+      type: '"1" | "2"',
+      typeSimple: "enum",
+      description: "Define a altura da linha do Code.",
+    },
+    {
+      name: "color",
+      required: false,
+      type: '"low-contrast" | "high-contrast"',
+      typeSimple: "enum",
+      description: "Define a cor da fonte do Code.",
+    },
+    {
+      name: "textAlign",
+      required: false,
+      type: '"left" | "center" | "right"',
+      typeSimple: "enum",
+      description: "Define o alinhamento de texto do Code.",
+    },
+    {
+      name: "isTruncated",
+      required: false,
+      typeSimple: "boolean",
+      description:
+        "Determina se deve adicionar uma reticência (...) ao final do texto se o conteúdo não couber.",
+    },
+    {
+      name: "variant",
+      required: false,
+      type: '"lead1" | "lead2" | "body1" | "body2" | "caption" | "subtitle"',
+      typeSimple: "enum",
+      defaultValue: '"body2"',
+      description: "Define os estilos de código.",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/checkbox",
+    label: "Checkbox",
+  }}
+  next={{
+    link: "/docs/components/collapsible",
+    label: "Collapsible",
+  }}
+/>
