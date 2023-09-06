@@ -41,7 +41,7 @@ export const DrawerPortal = forwardRef<typeof Dialog.Portal, DrawerPortalProps>(
 
 export type DrawerOverlayProps = Omit<
   HTMLRempiProps<typeof StyledDrawerOverlay>,
-  " $blur"
+  "$blur"
 > &
   Dialog.DialogOverlayProps & {
     blur?: RempiVariant<boolean>;
@@ -58,7 +58,10 @@ export const DrawerOverlay = forwardRef<
 
 export type Position = "left" | "bottom" | "right" | "top";
 
-export type DrawerContentProps = HTMLRempiProps<typeof StyledDrawerContent> &
+export type DrawerContentProps = Omit<
+  HTMLRempiProps<typeof StyledDrawerContent>,
+  "$position"
+> &
   Dialog.DialogContentProps & { position?: RempiVariant<Position> };
 
 export const DrawerContent = forwardRef<
