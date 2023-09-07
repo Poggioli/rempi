@@ -1,16 +1,10 @@
 import { styled } from "@rempi-ui/core";
+import { ScrollArea } from "@rempi-ui/scroll-area";
 import { FC } from "react";
 
 const StyledPre = styled.pre`
-  background-color: ${({ theme }) => theme.colors.grey3};
-  border: ${({ theme }) => theme.borderWidths[1]} solid
-    ${({ theme }) => theme.colors.grey6};
-  border-radius: ${({ theme }) => theme.radii[2]};
-  margin: ${({ theme }) => theme.spaces[4]} 0;
-  overflow-x: auto;
+
   padding: ${({ theme }) => theme.spaces[4]};
-  max-height: 440px;
-  overflow-y: auto;
 
   code {
     color: ${({ theme }) => theme.colors.grey12};
@@ -30,6 +24,31 @@ const StyledPre = styled.pre`
   }
 `;
 
+const StyledScrollAreaRoot = styled.div`
+  background-color: ${({ theme }) => theme.colors.grey3};
+  border: ${({ theme }) => theme.borderWidths[1]} solid
+    ${({ theme }) => theme.colors.grey6};
+  border-radius: ${({ theme }) => theme.radii[2]};
+  margin: ${({ theme }) => theme.spaces[4]} 0;
+`;
+
+const StyledViewport = styled.div`
+  max-height: 440px;
+`
+
 export const Pre: FC = ({ ...props }) => {
-  return <StyledPre {...props} />;
+  return (
+    <StyledScrollAreaRoot as={ScrollArea.Root} >
+      <StyledViewport as={ScrollArea.Viewport}>
+        <StyledPre {...props} />
+      </StyledViewport>
+      <ScrollArea.Scrollbar orientation="vertical">
+        <ScrollArea.Thumb />
+      </ScrollArea.Scrollbar>
+      <ScrollArea.Scrollbar orientation="horizontal">
+        <ScrollArea.Thumb />
+      </ScrollArea.Scrollbar>
+      <ScrollArea.Corner />
+    </StyledScrollAreaRoot>
+  )
 };
