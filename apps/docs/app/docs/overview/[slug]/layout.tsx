@@ -7,7 +7,7 @@ import { styled } from "@rempi-ui/core";
 const StyledContainerBody = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: ${(props) => props.theme.spaces[13]};
+  padding-top: ${({ theme }) => theme.spaces[13]};
   min-height: 100vh;
   width: 100%;
 `;

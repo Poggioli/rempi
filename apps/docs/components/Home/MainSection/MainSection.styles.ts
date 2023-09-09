@@ -1,11 +1,11 @@
 import { styled } from "@rempi-ui/core";
 
 export const StyledMainSection = styled.div`
-  max-width: calc(${(props) => props.theme.spaces[4]} * 61);
-  padding: ${(props) => props.theme.spaces[12]}
-    ${(props) => props.theme.spaces[4]} ${(props) => props.theme.spaces[8]}
-    ${(props) => props.theme.spaces[4]};
-  gap: ${(props) => props.theme.spaces[4]};
+  max-width: calc(${({ theme }) => theme.spaces[4]} * 61);
+  padding: ${({ theme }) => theme.spaces[12]}
+    ${({ theme }) => theme.spaces[4]} ${({ theme }) => theme.spaces[8]}
+    ${({ theme }) => theme.spaces[4]};
+  gap: ${({ theme }) => theme.spaces[4]};
 `;
 
 export const StyledMainSectionTitle = styled.div`
@@ -13,18 +13,18 @@ export const StyledMainSectionTitle = styled.div`
 `;
 
 export const StyledMainSectionLead = styled.div`
-  max-width: calc(${(props) => props.theme.spaces[4]} * 40);
+  max-width: calc(${({ theme }) => theme.spaces[4]} * 40);
 `;
 
 export const StyledMainSectionButtons = styled.div`
-  gap: ${(props) => props.theme.spaces[4]};
-  padding-bottom: ${(props) => props.theme.spaces[9]};
+  gap: ${({ theme }) => theme.spaces[4]};
+  padding-bottom: ${({ theme }) => theme.spaces[9]};
 `;
 
 export const StyledMainSectionGithubIconLink = styled.div`
-  margin-right: ${(props) => props.theme.spaces[2]};
+  margin-right: ${({ theme }) => theme.spaces[2]};
 `;
 
 export const StyledMainSectionStartLink = styled.div`
-  background-color: ${(props) => props.theme.colors.primary12};
+  background-color: ${({ theme }) => theme.colors.primary12};
 `;

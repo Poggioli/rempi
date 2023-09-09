@@ -1,7 +1,7 @@
 import { styled } from "@rempi-ui/core";
 
 export const StyledBody = styled.body`
-  background-color: ${(props) => props.theme.colors.primary1};
+  background-color: ${({ theme }) => theme.colors.primary1};
 `;
 
 export const StyledContainerBody = styled.div`
@@ -11,6 +11,6 @@ export const StyledContainerBody = styled.div`
 `;
 
 export const StyledContent = styled.div`
-  padding-top: ${(props) => props.theme.spaces[13]};
+  padding-top: ${({ theme }) => theme.spaces[13]};
   flex: 1;
 `;

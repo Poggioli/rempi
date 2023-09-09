@@ -143,7 +143,7 @@ export const StyledContainer = styled.div<{
 }>`
   box-sizing: border-box;
   max-width: 100%;
-  padding: 0 ${(props) => props.theme.spaces[4]};
+  padding: 0 ${({ theme }) => theme.spaces[4]};
 
   ${({ theme }) => theme.breakpoints[1]} {
     max-width: 540px;
