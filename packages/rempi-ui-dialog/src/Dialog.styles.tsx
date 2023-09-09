@@ -59,7 +59,7 @@ export const StyledDialogOverlay = styled(Dialog.Overlay)<{
 
 export const StyledDialogContent = styled(Dialog.Content)`
   animation: ${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: ${({ theme }) => theme.colors.primary2};
+  background-color: ${({ theme }) => theme.colors.grey1};
   box-shadow: ${({ theme }) => theme.shadows[2]};
   display: flex;
   flex-direction: column;

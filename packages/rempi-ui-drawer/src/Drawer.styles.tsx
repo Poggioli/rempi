@@ -192,13 +192,13 @@ const variants: Record<Position, RuleSet<object>> = {
       border-radius: 0 0 ${({ theme }) => theme.radii[2]}
         ${({ theme }) => theme.radii[2]};
     }
-  `,
+  `
 };
 
 export const StyledDrawerContent = styled(Dialog.Content)<{
   $position?: RempiVariant<Position>;
 }>`
-  background-color: ${({ theme }) => theme.colors.primary2};
+  background-color: ${({ theme }) => theme.colors.grey1};
   box-shadow: ${({ theme }) => theme.shadows[2]};
   display: flex;
   flex-direction: column;

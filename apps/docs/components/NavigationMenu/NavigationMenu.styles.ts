@@ -1,7 +1,7 @@
 import { styled } from "@rempi-ui/core";
 
 export const StyledNavigationMenuHeader = styled.div`
-  background-color: ${({ theme }) => theme.colors.primary1};
+  background-color: ${({ theme }) => theme.colors.grey1};
   border-bottom: ${({ theme }) => theme.borderWidths[1]} solid
     ${({ theme }) => theme.colors.grey6};
   padding: ${({ theme }) => theme.spaces[2]} ${({ theme }) => theme.spaces[4]};

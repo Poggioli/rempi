@@ -79,7 +79,7 @@ export const StyledTableBody = styled.tbody`
   }
 
   ${StyledTableRow.toString()}:hover {
-    background-color: ${({ theme }) => theme.colors.primary4} !important;
+    background-color: ${({ theme }) => theme.colors.primary3} !important;
   }
 `;
 
@@ -126,10 +126,6 @@ export const StyledTableRoot = styled.table<{
           ${StyledTableBody.toString()} ${StyledTableRow.toString()} {
             &:nth-child(even) {
               background-color: ${({ theme }) => theme.colors.primary2};
-            }
-
-            &:nth-child(odd) {
-              background-color: ${({ theme }) => theme.colors.primary3};
             }
           }
         `

@@ -215,6 +215,7 @@ export const StyledNavigationMenuViewportPosition = styled.div`
   position: absolute;
   top: 100%;
   width: 100%;
+  z-index: ${({ theme }) => theme.zIndices[1]};
 
   ${({ theme }) => theme.breakpoints[1]} {
     width: auto;
