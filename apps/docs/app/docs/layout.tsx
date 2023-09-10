@@ -10,6 +10,7 @@ const StyledSideNav = styled.aside`
   ${({ theme }) => theme.breakpoints[3]} {
     display: block;
     width: 250px;
+    min-width: 250px;
   }
 `;
 
@@ -47,7 +48,7 @@ const StyledContainer = styled.div`
   justify-content: center;
 
   ${({ theme }) => theme.breakpoints[3]} {
-    margin-left: calc((992px - 100vw) * 0.25);
+    max-width: calc(100% - 250px);
   }
 `;
 
