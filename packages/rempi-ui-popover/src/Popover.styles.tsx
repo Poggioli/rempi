@@ -86,6 +86,7 @@ export const StyledPopoverContent = styled(Popover.Content)`
   padding: ${({ theme }) => theme.spaces[4]};
   position: relative;
   will-change: transform, opacity;
+  z-index: ${({ theme }) => theme.zIndices[12]};
 
   &:has(${StyledPopoverCloseCross.toString()}) {
     padding: ${({ theme }) => theme.spaces[7]} ${({ theme }) => theme.spaces[7]}

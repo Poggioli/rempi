@@ -3,10 +3,13 @@
 - Aspect Ratio - OK
 - Avatar - OK
 - Badge - OK
+- Blockquote - OK
 - Button - OK
 - Calendar - OK
+- Callout - OK
 - Card - OK
 - Checkbox - OK
+- Code - OK
 - Collapsible - OK
 - Combobox - OK
 - Container - OK
@@ -19,6 +22,7 @@
 - Heading - OK
 - Hover Card - OK
 - Input - OK
+- Inset
 - Label - OK
 - Menubar - OK
 - Navigation Menu - OK

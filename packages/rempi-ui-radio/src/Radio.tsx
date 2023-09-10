@@ -3,13 +3,14 @@ import { forwardRef, HTMLRempiProps } from "@rempi-ui/core";
 import { Label, LabelContext, LabelProps } from "@rempi-ui/label";
 import { useContext, useEffect } from "react";
 import { StyledRadioIndicator, StyledRadioItem } from "./Radio.styles";
+import { Flex, FlexProps } from "@rempi-ui/flex";
 
 export type RadioRootProps = Omit<HTMLRempiProps<typeof Radio.Root>, "as"> &
-  Radio.RadioGroupProps;
+  Radio.RadioGroupProps & FlexProps;
 
 export const RadioRoot = forwardRef<typeof Radio.Root, RadioRootProps>(
   ({ ...props }, ref) => {
-    return <Radio.Root {...props} ref={ref} />;
+    return <Flex as={Radio.Root} {...props} ref={ref} />;
   }
 );
 

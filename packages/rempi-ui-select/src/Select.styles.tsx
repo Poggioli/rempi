@@ -117,6 +117,7 @@ export const StyledSelectContent = styled(Select.Content)<{
   box-shadow: ${({ theme }) => theme.shadows[1]};
   min-width: 220px;
   overflow: hidden;
+  z-index: ${({ theme }) => theme.zIndices[12]};
 
   ${(props) => {
     const apply = (value: boolean) => {

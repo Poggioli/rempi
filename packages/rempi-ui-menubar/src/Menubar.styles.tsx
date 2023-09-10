@@ -7,7 +7,6 @@ import {
 } from "@rempi-ui/core";
 
 export const StyledMenuBarRoot = styled(Menubar.Root)`
-  background-color: ${({ theme }) => theme.colors.primary2};
   border: ${({ theme }) => theme.borderWidths[1]} solid
     ${({ theme }) => theme.colors.grey6};
   border-radius: ${({ theme }) => theme.radii[1]};
@@ -34,7 +33,7 @@ export const StyledMenuBarTrigger = styled(Menubar.Trigger)`
   &[data-highlighted],
   &[data-state="open"] {
     color: ${({ theme }) => theme.colors.grey12};
-    background-color: ${({ theme }) => theme.colors.primary4};
+    background-color: ${({ theme }) => theme.colors.primary3};
   }
 
   &[data-disabled] {
@@ -144,6 +143,7 @@ const styleOfContentAndSubContent = css<{ $condensed?: boolean }>`
   box-shadow: ${({ theme }) => theme.shadows[1]};
   border: ${({ theme }) => theme.borderWidths[1]} solid
     ${({ theme }) => theme.colors.grey6};
+  z-index: ${({ theme }) => theme.zIndices[12]};
 
   ${(props) => {
     const apply = (value: boolean) => {

@@ -6,6 +6,15 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/pages/*": [
+        "pages/*"
+      ]
+    },
     "strictNullChecks": true
   },
   "include": [

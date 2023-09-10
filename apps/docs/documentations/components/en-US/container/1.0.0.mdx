@@ -1,0 +1,75 @@
+---
+title: Container
+slug: container
+---
+
+# Container
+
+<Description text="The container centers your content horizontally. It's the most basic layout element." />
+
+<SelectVersion />
+
+<PreviewComponent name="container" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/container
+```
+
+## Usage
+
+Import the <strong>Container</strong>.
+
+```jsx
+import { Container } from "@rempi-ui/container";
+import { Typography } from "@rempi-ui/typography";
+
+() => (
+  <Container>
+    <Typography>@rempi-ui/container</Typography>
+  </Container>
+);
+```
+
+## API reference
+
+### Container
+
+Contains all the parts of a container.<br />
+
+<APIReference
+  data={[
+    {
+      name: "variant",
+      type: '"sm" | "md" | "lg" | "xlg" | "2xlg" | "fluid"',
+      typeSimple: "enum",
+      description: "Determines what the maximum size of the container will be.",
+    },
+    {
+      name: "centered",
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          When <code>true</code>, center the content in container
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/combobox",
+    label: "Combobox",
+  }}
+  next={{
+    link: "/docs/components/context-menu",
+    label: "Context Menu",
+  }}
+/>
+
+<EditThisPage url="components/en-US/container/1.0.0.mdx" />

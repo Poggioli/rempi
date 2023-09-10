@@ -1,0 +1,158 @@
+# Getting started
+
+<Description text="A quick tutorial to get you started with Rempi-UI." />
+
+<Steps>
+
+<Step>Install the core library.</Step>
+
+Install the library from your command line.
+
+```bash
+yarn add @rempi-ui/core
+```
+
+<Step>Using the Library</Step>
+
+You <strong>must</strong> wrap your entire application with the <strong>ThemeProvider</strong> component.
+
+```jsx
+import { ThemeProvider } from "@rempi-ui/core";
+
+() => (
+  <ThemeProvider>
+    {...}
+  </ThemeProvider>
+);
+```
+
+<Step>Importing the Theme</Step>
+
+The <strong>Rempi-UI</strong> library provides a dark theme as the default.
+
+```jsx
+import { ThemeProvider, createTheme } from "@rempi-ui/core";
+
+const darkTheme = createTheme("dark-theme", {});
+
+() => (
+  <ThemeProvider theme={darkTheme.theme}>
+    {...}
+  </ThemeProvider>
+);
+```
+
+<Step>Using a Component</Step>
+
+Now you can install one of the <strong>Rempi-UI</strong> components.
+
+```bash
+yarn add @rempi-ui/button @rempi-ui/card @rempi-ui/flex @rempi-ui/switch @rempi-ui/typography lucide-react
+```
+
+```jsx
+import { ThemeProvider, createTheme } from "@rempi-ui/core";
+import { Button } from "@rempi-ui/button";
+import { Card } from "@rempi-ui/card";
+import { Flex } from "@rempi-ui/flex";
+import { Switch } from "@rempi-ui/switch";
+import { Typography } from "@rempi-ui/typography";
+import { BellIcon, Check } from "lucide-react";
+
+const darkTheme = createTheme("dark-theme", {});
+
+() => (
+<ThemeProvider theme={darkTheme.theme}>
+  <Flex justifyContent="center">
+    <Card.Root>
+      <Card.Header>
+        <Card.Title>Notifications</Card.Title>
+        <Card.Description>You have 3 unread messages</Card.Description>
+      </Card.Header>
+      <Card.Content flexDirection="column">
+        <Flex alignItems="center">
+          <BellIcon size={16} />
+          <Flex flexDirection="column">
+            <Typography
+              fontSize="sm"
+              fontWeight="semi-bold"
+              color="high-contrast"
+              lineHeight={1}
+            >
+              Push Notifications
+            </Typography>
+            <Typography
+              fontSize="sm"
+              fontWeight="regular"
+              color="low-contrast"
+              lineHeight={1}
+            >
+              Send notifications to the device.
+            </Typography>
+          </Flex>
+          <Switch.Thumb />
+        </Flex>
+        <div>
+          {[
+            {
+              title: "Your call has been confirmed.",
+              description: "1 hour ago",
+            },
+            {
+              title: "You have a new message!",
+              description: "1 hour ago",
+            },
+            {
+              title: "Your subscription will expire soon!",
+              description: "2 hours ago",
+            },
+          ].map((notification, index, ar) => (
+            <Flex key={index} flexDirection="row" alignItems="start">
+              <Typography />
+              <Flex flexDirection="column">
+                <Typography
+                  fontSize="sm"
+                  fontWeight="semi-bold"
+                  color="high-contrast"
+                  lineHeight={1}
+                >
+                  {notification.title}
+                </Typography>
+                <Typography
+                  fontSize="sm"
+                  fontWeight="regular"
+                  color="low-contrast"
+                  lineHeight={1}
+                >
+                  {notification.description}
+                </Typography>
+              </Flex>
+            </Flex>
+          ))}
+        </div>
+      </Card.Content>
+);
+```
+
+</Steps>
+
+<br />
+<br />
+
+The above steps briefly describe what's involved in using
+
+<strong>Rempi-UI</strong> in your project. In a few simple steps, we implemented
+an accessible notification card without having to worry about many of its complexities.
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/overview/introduction",
+    label: "Introdução",
+  }}
+  next={{
+    link: "/docs/components/accordion",
+    label: "Accordion",
+  }}
+/>
+
+<EditThisPage url="overview/en-US/getting-started.mdx" />

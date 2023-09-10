@@ -27,7 +27,6 @@ export const StyledAccordionRoot = styled(Accordion.Root)`
 
 export const StyledAccordionTrigger = styled(Accordion.Trigger)`
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.primary2};
   color: ${({ theme }) => theme.colors.grey12};
   display: flex;
   flex: 1;
@@ -81,7 +80,6 @@ export const StyledContent = styled.div`
 `;
 
 export const StyledAccordionContent = styled(Accordion.Content)`
-  background-color: ${({ theme }) => theme.colors.primary2};
   color: ${({ theme }) => theme.colors.grey11};
   font-size: ${({ theme }) => theme.fontSizes[4]};
   font-weight: ${({ theme }) => theme.fontWeights[3]};

@@ -1,0 +1,173 @@
+---
+title: Card
+slug: card
+---
+
+# Card
+
+<Description text="Exibe um cartão com cabeçalho, conteúdo e rodapé." />
+
+<SelectVersion />
+
+<PreviewComponent name="card" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/card
+```
+
+## Uso
+
+Importe o <strong>Card</strong> e junte todas as partes do componente.
+
+```jsx
+import { Button } from "@rempi-ui/button";
+import { Card } from "@rempi-ui/card";
+import { Flex } from "@rempi-ui/flex";
+import { Switch } from "@rempi-ui/switch";
+import { Typography } from "@rempi-ui/typography";
+import { BellIcon, Check } from "lucide-react";
+
+() => (
+  <Card.Root>
+    <Card.Header>
+      <Card.Title>Notificações</Card.Title>
+      <Card.Description>Você possuí 3 mensagens não lidas.</Card.Description>
+    </Card.Header>
+    <Card.Content flexDirection="column">
+      <Flex alignItems="center">
+        <BellIcon size={16} />
+        <Flex flexDirection="column">
+          <Typography
+            fontSize="sm"
+            fontWeight="semi-bold"
+            color="high-contrast"
+            lineHeight={1}
+          >
+            Notificações via push
+          </Typography>
+          <Typography
+            fontSize="sm"
+            fontWeight="regular"
+            color="low-contrast"
+            lineHeight={1}
+          >
+            Envie notificações para o dispositivo.
+          </Typography>
+        </Flex>
+        <Switch.Thumb />
+      </Flex>
+      <div>
+        {[
+          {
+            title: "Sua chamada foi confirmada.",
+            description: "1 hora atrás",
+          },
+          {
+            title: "Você possuí uma nova mensagem!",
+            description: "1 hora atrás",
+          },
+          {
+            title: "Sua inscrição irá expirar em breve!",
+            description: "2 horas atrás",
+          },
+        ].map((notification, index, ar) => (
+          <Flex key={index} flexDirection="row" alignItems="start">
+            <Typography />
+            <Flex flexDirection="column">
+              <Typography
+                fontSize="sm"
+                fontWeight="semi-bold"
+                color="high-contrast"
+                lineHeight={1}
+              >
+                {notification.title}
+              </Typography>
+              <Typography
+                fontSize="sm"
+                fontWeight="regular"
+                color="low-contrast"
+                lineHeight={1}
+              >
+                {notification.description}
+              </Typography>
+            </Flex>
+          </Flex>
+        ))}
+      </div>
+    </Card.Content>
+    <Card.Footer>
+      <Button>
+        <Check size={16} />
+        Marcar todas como lida
+      </Button>
+    </Card.Footer>
+  </Card.Root>
+);
+```
+
+## API reference
+
+### Root
+
+<strong>Card.Root</strong> é baseado no [Rempi-UI Flex](/docs/components/flex), acesse
+a documentação para ver todas as <strong>Props</strong>.
+
+<APIReference
+  data={[
+    {
+      name: "bordered",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description: "Determina se o cartão tem borda ou não.",
+    },
+    {
+      name: "colored",
+      required: false,
+      typeSimple: "boolean",
+      description: "Determina se o cartão tem cor de fundo ou não.",
+    },
+  ]}
+/>
+
+### Header
+
+<strong>Card.Header</strong> é baseado no [Rempi-UI Flex](/docs/components/flex),
+acesse a documentação para ver todas as <strong>Props</strong>.
+
+### Title
+
+<strong>Card.Title</strong> é baseado no [Rempi-UI Heading](/docs/components/heading),
+acesse a documentação para ver todas as <strong>Props</strong>.
+
+### Description
+
+<strong>Card.Description</strong> é baseado no [Rempi-UI Typography](/docs/components/typography),
+acesse a documentação para ver todas as <strong>Props</strong>.
+
+### Content
+
+<strong>Card.Content</strong> é baseado no [Rempi-UI Flex](/docs/components/flex),
+acesse a documentação para ver todas as <strong>Props</strong>.
+
+### Footer
+
+<strong>Card.Footer</strong> é baseado no [Rempi-UI Flex](/docs/components/flex),
+acesse a documentação para ver todas as <strong>Props</strong>.
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/callout",
+    label: "Callout",
+  }}
+  next={{
+    link: "/docs/components/checkbox",
+    label: "Checkbox",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/card/1.0.0.mdx" />

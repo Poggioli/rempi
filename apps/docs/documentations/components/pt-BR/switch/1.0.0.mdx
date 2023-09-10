@@ -1,0 +1,181 @@
+---
+title: Switch
+slug: switch
+radixUI: https://www.radix-ui.com/primitives/docs/components/switch
+radixAPI: https://www.radix-ui.com/primitives/docs/components/switch#api-reference
+---
+
+# Switch
+
+<Description text="Um controle que permite ao usuário alternar entre marcado e desmarcado." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/switch" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/switch#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="switch" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/switch
+```
+
+## Uso
+
+Importe o <strong>Switch</strong> e junte todas as partes do componente.
+
+```jsx
+import { Flex } from "@rempi-ui/Flex";
+import { Switch } from "@rempi-ui/switch";
+import { Typography } from "@rempi-ui/typography";
+import { BellIcon } from "lucide-react";
+
+() => (
+  <Switch.Label alignItems="center">
+    <BellIcon size={16} />
+    <Flex flexDirection="column">
+      <Typography
+        fontSize="sm"
+        fontWeight="semi-bold"
+        color="high-contrast"
+        lineHeight={1}
+      >
+        Notificações via push
+      </Typography>
+      <Typography
+        fontSize="sm"
+        fontWeight="regular"
+        color="low-contrast"
+        lineHeight={1}
+      >
+        Envie notificações para o dispositivo.
+      </Typography>
+    </Flex>
+    <Switch.Thumb />
+  </Switch.Label>
+);
+```
+
+## Sobre
+
+Rempi-UI Switch é baseado no [Radix Switch](https://www.radix-ui.com/primitives/docs/components/switch).
+
+## API reference
+
+### Thumb
+
+É uma mistura de [Radix Switch Root](https://www.radix-ui.com/primitives/docs/components/switch#root) e [Radix Switch Thumb](https://www.radix-ui.com/primitives/docs/components/switch#thumb).<br/><br/>
+Contém todas as partes do switch. Um `input` também será renderizado quando usado dentro de um `form` para garantir que os eventos sejam propagados corretamente. O marcador que é usado para indicar visualmente se o switch está ligado ou desligado.
+
+<MoreInfo
+  componentName="Radix Switch Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/switch#root"
+/>
+
+<MoreInfo
+  componentName="Radix Switch Thumb"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/switch#thumb"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultChecked",
+      type: "boolean",
+      description:
+        "O estado do switch quando é inicialmente renderizado. Use quando você não precisa controlar seu estado.",
+    },
+    {
+      name: "checked",
+      type: "boolean",
+      description: (
+        <span>
+          O estado controlado do switch. Deve ser usado em conjunto com{" "}
+          <code>onCheckedChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onCheckedChange",
+      type: "(checked: boolean) => void",
+      typeSimple: "function",
+      description: "Evento chamado quando o estado do switch muda.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          Quando <code>true</code>, impede o usuário de interagir com o switch.
+        </span>
+      ),
+    },
+    {
+      name: "required",
+      type: "boolean",
+      description: (
+        <span>
+          Quando <code>true</code>, indica que o usuário deve marcar o switch
+          antes que o formulário proprietário possa ser enviado.
+        </span>
+      ),
+    },
+    {
+      name: "name",
+      type: "string",
+      description:
+        "O nome do switch. Enviado com seu formulário como parte de um par nome/valor.",
+    },
+    {
+      name: "value",
+      type: "string",
+      defaultValue: "on",
+      description: (
+        <span>
+          O valor fornecido como dados quando enviado com um <code>name</code>.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["checked", "unchecked"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Presente quando desabilitado.",
+    },
+  ]}
+/>
+
+### Label
+
+Renderiza uma Label acessível associado aos controles.<br />
+Rempi-UI <strong>Switch.Label</strong> é baseado no <strong>Rempi-UI Label</strong>.
+
+<MoreInfo
+  componentName="Rempi-UI Label"
+  componentLink="/docs/components/label"
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/slider",
+    label: "Slider",
+  }}
+  next={{
+    link: "/docs/components/table",
+    label: "Table",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/switch/1.0.0.mdx" />

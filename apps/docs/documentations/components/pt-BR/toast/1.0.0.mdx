@@ -1,0 +1,378 @@
+---
+title: Toast
+slug: toast
+radixUI: https://www.radix-ui.com/primitives/docs/components/toast
+radixAPI: https://www.radix-ui.com/primitives/docs/components/toast#api-reference
+---
+
+# Toast
+
+<Description text="Uma mensagem sucinta que é exibida temporariamente." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/toast" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/toast#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="toast" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/toast
+```
+
+## Uso
+
+Importe o <strong>Toast</strong> e junte todas as partes do componente.
+
+```jsx
+import { Toast } from "@rempi-ui/toast";
+
+() => (
+  <html>
+    {...}
+    <Toast.Provider>
+      <Button
+        onClick={() => {
+          setOpen(false);
+          window.clearTimeout(timerRef.current);
+          timerRef.current = window.setTimeout(() => {
+            setOpen(true);
+          }, 100);
+        }}
+      >
+        Mostrar Toast
+      </Button>
+
+      <Toast.Root duration={3000} open={open} onOpenChange={setOpen}>
+        <Toast.Title>O usuário será excluído</Toast.Title>
+        <Toast.Description>
+          O usuário será excluído em 5 segundos
+        </Toast.Description>
+        <Toast.Action asChild altText="Desfazer ação">
+          <Button size="small">Desfazer ação</Button>
+        </Toast.Action>
+        <Toast.CloseCross aria-label="Fechar" />
+      </Toast.Root>
+      <Toast.Viewport />
+    </Toast.Provider>
+  </html>
+);
+```
+
+## Sobre
+
+<strong>Rempi-UI Toast</strong> é baseado no [Radix Toast](https://www.radix-ui.com/primitives/docs/components/toast).
+
+## API reference
+
+### Provider
+
+O `Provider` que envolve seus toasts e a área de visualização de toasts. Normalmente, ele envolve a aplicação.
+
+<MoreInfo
+  componentName="Radix Toast Provider"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#portal"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "duration",
+      type: "number",
+      defaultValue: 5000,
+      description:
+        "O tempo em milissegundos que deve decorrer antes de fechar automaticamente cada toast.",
+    },
+    {
+      name: "label",
+      required: true,
+      type: "string",
+      defaultValue: '"Notification"',
+      description:
+        "Uma Label para cada toast. Usado para ajudar os usuários de leitores de tela a associar a interrupção a um toast.",
+    },
+    {
+      name: "swipeDirection",
+      type: '"right" | "left" | "up" | "down"',
+      typeSimple: "enum",
+      defaultValue: '"right"',
+      description:
+        "A direção do gesto de deslize do ponteiro que deve fechar o toast.",
+    },
+    {
+      name: "swipeThreshold",
+      type: "number",
+      defaultValue: 50,
+      description:
+        "A distância em pixels que o gesto de deslize deve percorrer antes que o fechamento seja acionado.",
+    },
+  ]}
+/>
+
+### Viewport
+
+A área fixa onde os toasts aparecem. Os usuários podem acessar a área de visualização pressionando uma tecla de atalho. É responsabilidade sua garantir a descoberta da tecla de atalho para os usuários de teclado.
+
+<MoreInfo
+  componentName="Radix Toast Viewport"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#viewport"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "hotkey",
+      type: "string[]",
+      defaultValue: '["F8"]',
+      description: (
+        <span>
+          As teclas a serem usadas como atalho de teclado para mover o foco para
+          a área de visualização de toasts. Use o valor <code>event.code</code>{" "}
+          para cada tecla em{" "}
+          <a href="https://keycode.info/" target="_blank">
+            keycode.info
+          </a>
+          . Para teclas de metadados, use <code>ctrlKey</code>, <code>
+            shiftKey
+          </code>, <code>altKey</code> e/ou <code>metaKey</code>.
+        </span>
+      ),
+    },
+    {
+      name: "label",
+      type: "string",
+      defaultValue: '"Notifications ({hotkey})"',
+      description:
+        "Uma Label para a região de toasts a fim de fornecer contexto para os usuários de leitores de tela ao navegar pelos marcos da página. O marcador de posição `{hotkey}` estará disponível para substituição.",
+    },
+  ]}
+/>
+
+### Root
+
+O toast que se fecha automaticamente. Ele não deve ser mantido aberto para aguardar uma resposta do usuário.
+
+<MoreInfo
+  componentName="Radix Toast Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "type",
+      type: '"foreground" | "background"',
+      typeSimple: "enum",
+      defaultValue: '"foreground"',
+      description: (
+        <span>
+          Controle a sensibilidade do toast para fins de acessibilidade. Para
+          toasts que são o resultado de uma ação do usuário, escolha{" "}
+          <code>foreground</code>. Toasts gerados a partir de tarefas em segundo
+          plano devem usar <code>background</code>.
+        </span>
+      ),
+    },
+    {
+      name: "duration",
+      type: "number",
+      description:
+        "O tempo em milissegundos que deve decorrer antes de fechar automaticamente o toast. Isso substituirá o valor fornecido ao provedor.",
+    },
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      defaultValue: "true",
+      description:
+        "O estado aberto do toast quando é inicialmente renderizado. Use quando você não precisa controlar seu estado aberto.",
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          O estado aberto controlado do toast. Deve ser usado em conjunto com{" "}
+          <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description: "Evento chamado quando o estado aberto do toast muda.",
+    },
+    {
+      name: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando a tecla <code>Esc</code> está pressionada. Pode
+          ser evitado chamando <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onPause",
+      type: "() => void",
+      typeSimple: "function",
+      description:
+        "Evento chamado quando o temporizador de fechamento é pausado. Isso ocorre quando o ponteiro é movido sobre a área de visualização, a área de visualização é focada ou quando a janela perde o foco.",
+    },
+    {
+      name: "onResume",
+      type: "() => void",
+      typeSimple: "function",
+      description:
+        "Evento chamado quando o temporizador de fechamento é retomado. Isso ocorre quando o ponteiro é afastado da área de visualização, a área de visualização perde o foco ou quando a janela é focada.",
+    },
+    {
+      name: "onSwipeStart",
+      type: "(event: SwipeEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado ao iniciar uma interação de deslize. Pode ser impedido
+          chamando <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onSwipeMove",
+      type: "(event: SwipeEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado durante uma interação de deslize. Pode ser impedido
+          chamando <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onSwipeEnd",
+      type: "(event: SwipeEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado no final de uma interação de deslize. Pode ser impedido
+          chamando <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description:
+        "Usado para forçar a montagem quando se precisa de mais controle. Útil quando se está controlando animações com bibliotecas de animação React.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-swipe]",
+      value: ["start", "move", "cancel", "end"],
+    },
+    {
+      name: "[data-swipe-direction]",
+      value: ["up", "down", "left", "right"],
+    },
+  ]}
+/>
+
+### Title
+
+Um título opcional para o toast.
+
+<MoreInfo
+  componentName="Radix Toast Title"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#title"
+/>
+
+### Description
+
+Uma descrição opcional para o toast.
+
+<MoreInfo
+  componentName="Radix Toast Description"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#description"
+/>
+
+### Action
+
+Uma ação que é segura de ser ignorada para garantir que os usuários não sejam obrigados a concluir tarefas com efeitos colaterais inesperados como resultado de um [limite de tempo](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html).
+Quando for necessário obter uma resposta do usuário, insira um [`AlertDialog`](/docs/components/alert-dialog) estilizado como um toast na área de visualização.
+
+<MoreInfo
+  componentName="Radix Toast Action"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#action"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "altText",
+      required: true,
+      type: "string",
+      description: (
+        <>
+          Descreva uma{" "}
+          <a href="https://www.radix-ui.com/primitives/docs/components/toast#alternative-action">
+            maneira alternativa de alcançar a ação
+          </a>{" "}
+          para os usuários de leitores de tela que não podem acessar facilmente
+          o toast.
+        </>
+      ),
+    },
+  ]}
+/>
+
+### Close
+
+Um botão que permite aos usuários fechar o toast antes que sua duração tenha decorrido.
+
+<MoreInfo
+  componentName="Radix Toast Close"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toast#close"
+/>
+
+### CloseCross
+
+O botão com o ícone X que fecha o toast.
+
+<APIReference
+  data={[
+    {
+      name: "aria-label",
+      required: true,
+      type: "string",
+      description:
+        "aria-label a ser anunciado quando um leitor de tela está ativo.",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/textarea",
+    label: "Textarea",
+  }}
+  next={{
+    link: "/docs/components/toggle",
+    label: "Toggle",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/toast/1.0.0.mdx" />

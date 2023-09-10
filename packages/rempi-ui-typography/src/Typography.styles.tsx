@@ -341,4 +341,10 @@ export const StyledTypography = styled.span<{
       props.$isTruncated
     );
   }};
+
+  & > a,
+  & > a:visited {
+    color: ${({ theme }) => theme.colors.primary12};
+    text-decoration: underline;
+  }
 `;

@@ -3,7 +3,7 @@ import {
   ApplyResponsiveVariant,
   css,
   RempiConfig,
-  styled
+  styled,
 } from "@rempi-ui/core";
 
 const styledOfItems = css`
@@ -106,6 +106,7 @@ const styleOfContentAndSubContent = css<{ $condensed?: boolean }>`
   box-shadow: ${({ theme }) => theme.shadows[1]};
   border: ${({ theme }) => theme.borderWidths[1]} solid
     ${({ theme }) => theme.colors.grey6};
+  z-index: ${({ theme }) => theme.zIndices[12]};
 
   ${(props) => {
     const apply = (value: boolean) => {

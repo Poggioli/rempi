@@ -1,0 +1,411 @@
+---
+title: Hover Card
+slug: hover-card
+radixUI: https://www.radix-ui.com/primitives/docs/components/hover-card
+radixAPI: https://www.radix-ui.com/primitives/docs/components/hover-card#api-reference
+---
+
+# Hover Card
+
+<Description text="For sighted users to preview content available behind a link." />
+
+<SelectVersion />
+
+<PreviewComponent name="hover-card" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/hover-card
+```
+
+## Usage
+
+Import the <strong>HoverCard</strong> and piece all composition components together.
+
+```jsx
+import { HoverCard } from "@rempi-ui/hover-card";
+import { Typography } from "@rempi-ui/typography";
+
+() => (
+  <HoverCard.Root>
+    <HoverCard.Trigger>
+      <a
+        href="https://twitter.com/_Poggioli"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <img
+          src="https://pbs.twimg.com/profile_images/1639359724691808262/UErOMnL2_400x400.jpg"
+          alt="_Poggioli Twitter photo"
+        />
+      </a>
+    </HoverCard.Trigger>
+    <HoverCard.Content>
+      <Flex flexDirection="column">
+        <img
+          src="https://pbs.twimg.com/profile_images/1639359724691808262/UErOMnL2_400x400.jpg"
+          alt="_Poggioli Twitter photo"
+        />
+        <Flex flexDirection="column">
+          <Flex flexDirection="column">
+            <Typography
+              as="h6"
+              color="high-contrast"
+              fontWeight="bold"
+              fontSize="md"
+              lineHeight={2}
+            >
+              Poggioli
+            </Typography>
+            <Typography color="low-contrast" fontSize="sm" lineHeight={2}>
+              @_Poggioli
+            </Typography>
+          </Flex>
+          <Typography color="high-contrast" fontSize="md" lineHeight={1}>
+            Dev Frontend; A11Y web enthusiast; I love birds, especially my
+            cockatiel; I love my angry girlfriend;
+          </Typography>
+          <Flex alignItems="center">
+            <Flex alignItems="center">
+              <Typography
+                color="high-contrast"
+                fontWeight="bold"
+                fontSize="md"
+                lineHeight={2}
+              >
+                282
+              </Typography>
+              <Typography color="low-contrast" fontSize="sm" lineHeight={2}>
+                Following
+              </Typography>
+            </Flex>
+            <Flex alignItems="center">
+              <Typography
+                color="high-contrast"
+                fontWeight="bold"
+                fontSize="md"
+                lineHeight={2}
+              >
+                454
+              </Typography>
+              <Typography color="low-contrast" fontSize="sm" lineHeight={2}>
+                Followers
+              </Typography>
+            </Flex>
+          </Flex>
+        </Flex>
+      </Flex>
+      <HoverCard.Arrow />
+    </HoverCard.Content>
+  </HoverCard.Root>
+);
+```
+
+## About
+
+Rempi-UI Hover Card component is built on top of [Radix Hover Card](https://www.radix-ui.com/primitives/docs/components/hover-card).
+
+## API reference
+
+### Root
+
+Contains all the parts of a hover card.
+
+<MoreInfo
+  componentName="Radix Hover Card Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/hover-card#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description: (
+        <span>
+          The open state of the hover card when it is initially rendered. Use
+          when you do not need to control its open state.
+        </span>
+      ),
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          The controlled open state of the hover card. Must be used in
+          conjunction with <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the open state of the hover card changes.
+        </span>
+      ),
+    },
+    {
+      name: "openDelay",
+      type: "number",
+      defaultValue: 700,
+      description:
+        "The duration from when the mouse enters the trigger until the hover card opens.",
+    },
+    {
+      name: "closeDelay",
+      type: "number",
+      defaultValue: 300,
+      description:
+        "The duration from when the mouse leaves the trigger or content until the hover card closes.",
+    },
+  ]}
+/>
+
+### Trigger
+
+The link that opens the hover card when hovered.
+
+<MoreInfo
+  componentName="Radix Hover Card Trigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/hover-card#trigger"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### Content
+
+It's a mix of [Radix Hover Card Content](https://www.radix-ui.com/primitives/docs/components/hover-card#content) and [Radix Hover Card Portal](https://www.radix-ui.com/primitives/docs/components/hover-card#portal).<br/><br/>
+When used, portals the content part into the `body`. The component that pops out when the hover card is open.
+
+<MoreInfo
+  componentName="Radix Hover Card Content"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/hover-card#content"
+/>
+
+<MoreInfo
+  componentName="Radix Hover Card Portal"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/hover-card#portal"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. If used on this
+          part, it will be inherited by <code>HoverCard.Content</code>.
+        </span>
+      ),
+    },
+    {
+      name: "container",
+      type: "HTMLElement",
+      defaultValue: "document.body",
+      description: "Specify a container element to portal the content into.",
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. It inherits from{" "}
+          <code>HoverCard.Portal</code>.
+        </span>
+      ),
+    },
+    {
+      name: "side",
+      type: '"top" | "right" | "bottom" | "left"',
+      typeSimple: "enum",
+      defaultValue: '"bottom"',
+      description: (
+        <span>
+          The preferred side of the trigger to render against when open. Will be
+          reversed when collisions occur and <code>avoidCollisions</code> is
+          enabled.
+        </span>
+      ),
+    },
+    {
+      name: "sideOffset",
+      type: "number",
+      defaultValue: "5",
+      description: (
+        <span>
+          <span>The distance in pixels from the trigger.</span>
+        </span>
+      ),
+    },
+    {
+      name: "align",
+      type: '"start" | "center" | "end"',
+      typeSimple: "enum",
+      defaultValue: '"center"',
+      description: (
+        <span>
+          The preferred alignment against the trigger. May change when
+          collisions occur.
+        </span>
+      ),
+    },
+    {
+      name: "alignOffset",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          An offset in pixels from the <code>"start"</code> or{" "}
+          <code>"end"</code> alignment options.
+        </span>
+      ),
+    },
+    {
+      name: "avoidCollisions",
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          When <code>true</code>, overrides the <code>side</code> and
+          <code>align</code> preferences to prevent collisions with boundary edges.
+        </span>
+      ),
+    },
+    {
+      name: "collisionBoundary",
+      type: "Element | null | Array<Element | null>",
+      typeSimple: "Boundary",
+      defaultValue: "[]",
+      description: (
+        <span>
+          The element used as the collision boundary. By default this is the
+          viewport, though you can provide additional element(s) to be included
+          in this check.
+        </span>
+      ),
+    },
+    {
+      name: "collisionPadding",
+      type: "number | Partial<Record<Side, number>>",
+      typeSimple: "number | Padding",
+      defaultValue: "16",
+      description: (
+        <span>
+          The distance in pixels from the boundary edges where collision
+          detection should occur. Accepts a number (same for all sides), or a
+          partial padding object, for example: <code>{`{ top: 20, left: 20 }`}</code>
+          .
+        </span>
+      ),
+    },
+    {
+      name: "arrowPadding",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          The padding between the arrow and the edges of the content. If your
+          content has <code>border-radius</code>, this will prevent it from
+          overflowing the corners.
+        </span>
+      ),
+    },
+    {
+      name: "sticky",
+      type: '"partial" | "always"',
+      typeSimple: "enum",
+      defaultValue: '"partial"',
+      description: (
+        <span>
+          The sticky behavior on the align axis. <code>"partial"</code> will
+          keep the content in the boundary as long as the trigger is at least
+          partially in the boundary whilst <code>"always"</code> will keep the
+          content in the boundary regardless.
+        </span>
+      ),
+    },
+    {
+      name: "hideWhenDetached",
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          Whether to hide the content when the trigger becomes fully occluded.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-side]",
+      value: ["left", "right", "bottom", "top"],
+    },
+    {
+      name: "[data-align]",
+      value: ["start", "end", "center"],
+    },
+  ]}
+/>
+
+### Arrow
+
+An optional arrow element to render alongside the hover card. This can be used to help visually link the trigger with the `HoverCard.Content`. Must be rendered inside `HoverCard.Content`.
+
+<MoreInfo
+  componentName="Radix Hover Card Arrow"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/hover-card#arrow"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "width",
+      type: "number",
+      defaultValue: 10,
+      description: <span>The width of the arrow in pixels.</span>,
+    },
+    {
+      name: "height",
+      type: "number",
+      defaultValue: 5,
+      description: <span>The height of the arrow in pixels.</span>,
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/heading",
+    label: "Heading",
+  }}
+  next={{
+    link: "/docs/components/input",
+    label: "Input",
+  }}
+/>
+
+<EditThisPage url="components/en-US/hover-card/1.0.0.mdx" />

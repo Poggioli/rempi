@@ -453,6 +453,7 @@ export const rempiDefaultConfig: RempiConfig = {
     12: 1012,
   },
   breakpoints: {
+    initial: "@media only screen and (max-width: 575px)",
     1: "@media only screen and (min-width: 576px)",
     2: "@media only screen and (min-width: 768px)",
     3: "@media only screen and (min-width: 992px)",
@@ -1138,6 +1139,10 @@ export function createTheme(selector: string, theme: RempiConfigCreateTheme) {
     },
     breakpoints: {
       ...(theme.breakpoints || {}),
+      initial: useValue(
+        theme.breakpoints?.initial,
+        rempiDefaultConfig.breakpoints.initial
+      ) as string,
       1: useValue(
         theme.breakpoints?.[1],
         rempiDefaultConfig.breakpoints[1]

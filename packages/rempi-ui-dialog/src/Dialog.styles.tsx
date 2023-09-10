@@ -37,6 +37,7 @@ export const StyledDialogOverlay = styled(Dialog.Overlay)<{
   background-color: ${({ theme }) => theme.colors.black10};
   inset: 0;
   position: fixed;
+  z-index: ${({ theme }) => theme.zIndices[1]};
 
   ${(props) => {
     const apply = (value: boolean) => {
@@ -58,22 +59,22 @@ export const StyledDialogOverlay = styled(Dialog.Overlay)<{
 
 export const StyledDialogContent = styled(Dialog.Content)`
   animation: ${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: ${({ theme }) => theme.colors.primary2};
+  background-color: ${({ theme }) => theme.colors.grey1};
   box-shadow: ${({ theme }) => theme.shadows[2]};
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: auto;
   left: 50%;
   padding: ${({ theme }) => theme.spaces[6]};
   position: fixed;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+  z-index: ${({ theme }) => theme.zIndices[1]};
 
   ${({ theme }) => theme.breakpoints[1]} {
     border-radius: ${({ theme }) => theme.radii[2]};
     display: block;
-    height: auto;
     max-height: 85vh;
     width: min(90vw, 576px);
   }

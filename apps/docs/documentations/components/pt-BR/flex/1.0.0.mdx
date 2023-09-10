@@ -1,0 +1,99 @@
+---
+title: Flex
+slug: flex
+---
+
+# Flex
+
+<Description text="Componente para criar layouts flexíveis." />
+
+<SelectVersion />
+
+<PreviewComponent name="flex" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/flex
+```
+
+## Uso
+
+Importe o <strong>Flex</strong>.
+
+```jsx
+import { Flex } from "@rempi-ui/flex";
+import { Typography } from "@rempi-ui/typography";
+
+() => (
+  <Flex alignItems="center" justifyContents="center">
+    <Typography>Flex</Typography>
+  </Flex>
+);
+```
+
+## API reference
+
+### Flex
+
+Este componente é baseado no elemento `<div />`.
+
+<APIReference
+  data={[
+    {
+      name: "flexDirection",
+      required: false,
+      type: '"column" | "column-reverse" | "inherit" | "initial" | "revert" | "row" | "row-reverse" | "unset"',
+      typeSimple: "enum",
+      defaultValue: '"row"',
+    },
+    {
+      name: "flexWrap",
+      required: false,
+      type: '"inherit" | "initial" | "nowrap" | "revert" | "unset" | "wrap" | "wrap-reverse"',
+      typeSimple: "enum",
+      defaultValue: '"wrap"',
+    },
+    {
+      name: "justifyContent",
+      required: false,
+      type: '"center" | "end" | "flex-end" | "flex-start" | "inherit" | "initial" | "left" | "normal" | "revert" | "right" | "space-around" | "space-between" | "space-evenly" | "start" | "stretch" | "unset"',
+      typeSimple: "enum",
+      defaultValue: '"flex-start"',
+    },
+    {
+      name: "alignItems",
+      required: false,
+      type: '"baseline" | "center" | "end" | "flex-end" | "flex-start" | "inherit" | "initial" | "normal" | "revert" | "self-end" | "self-start" | "start" | "stretch" | "unset"',
+      typeSimple: "enum",
+      defaultValue: '"flex-start"',
+    },
+    {
+      name: "alignContents",
+      required: false,
+      type: '"baseline" | "center" | "end" | "flex-end" | "flex-start" | "inherit" | "initial" | "normal" | "revert" | "space-around" | "space-between" | "space-evenly" | "start" | "stretch" | "unset"',
+      typeSimple: "enum",
+    },
+    {
+      name: "alignSelf",
+      required: false,
+      type: '"auto" | "baseline" | "center" | "end" | "flex-end" | "flex-start" | "inherit" | "initial" | "normal" | "revert" | "self-end" | "self-start" | "start" | "stretch" | "unset"',
+      typeSimple: "enum",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/dropdown-menu",
+    label: "Dropdown Menu",
+  }}
+  next={{
+    link: "/docs/components/heading",
+    label: "Heading",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/flex/1.0.0.mdx" />

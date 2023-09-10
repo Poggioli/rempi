@@ -37,6 +37,7 @@ export const StyledAlertDialogOverlay = styled(AlertDialog.Overlay)<{
   background-color: ${({ theme }) => theme.colors.black10};
   inset: 0;
   position: fixed;
+  z-index: ${({ theme }) => theme.zIndices[1]};
 
   ${(props) => {
     const apply = (value: boolean) => {
@@ -58,7 +59,7 @@ export const StyledAlertDialogOverlay = styled(AlertDialog.Overlay)<{
 
 export const StyledAlertDialogContent = styled(AlertDialog.Content)`
   animation: ${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: ${({ theme }) => theme.colors.primary2};
+  background-color: ${({ theme }) => theme.colors.grey1};
   box-shadow: ${({ theme }) => theme.shadows[2]};
   display: flex;
   flex-direction: column;
@@ -69,6 +70,7 @@ export const StyledAlertDialogContent = styled(AlertDialog.Content)`
   top: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+  z-index: ${({ theme }) => theme.zIndices[1]};
 
   ${({ theme }) => theme.breakpoints[1]} {
     border-radius: ${({ theme }) => theme.radii[2]};

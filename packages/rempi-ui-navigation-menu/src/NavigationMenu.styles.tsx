@@ -78,7 +78,6 @@ export const StyledNavigationMenuRoot = styled(NavigationMenu.Root)`
   display: flex;
   justify-content: center;
   position: relative;
-  z-index: 1;
   width: 100%;
 `;
 
@@ -159,6 +158,7 @@ export const StyledNavigationMenuContent = styled(NavigationMenu.Content)`
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: ${({ theme }) => theme.zIndices[12]};
 
   ${({ theme }) => theme.breakpoints[1]} {
     width: auto;
@@ -215,4 +215,9 @@ export const StyledNavigationMenuViewportPosition = styled.div`
   position: absolute;
   top: 100%;
   width: 100%;
+  z-index: ${({ theme }) => theme.zIndices[1]};
+
+  ${({ theme }) => theme.breakpoints[1]} {
+    width: auto;
+  }
 `;

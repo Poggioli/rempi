@@ -1,0 +1,221 @@
+---
+title: Slider
+slug: slider
+radixUI: https://www.radix-ui.com/primitives/docs/components/slider
+radixAPI: https://www.radix-ui.com/primitives/docs/components/slider#api-reference
+---
+
+# Slider
+
+<Description text="Um campo de entrada onde o usuário seleciona um valor dentro de um intervalo específico." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/slider" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/slider#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="slider" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/slider
+```
+
+## Uso
+
+Importe o <strong>Slider</strong> e junte todas as partes do componente.
+
+```jsx
+import { Slider } from "@rempi-ui/slider";
+
+() => (
+  <Slider.Root defaultValue={[50]} max={100} step={1}>
+    <Slider.Thumb aria-label="Volume" />
+  </Slider.Root>
+);
+```
+
+## Sobre
+
+Rempi-UI Slider é baseado no [Radix Slider](https://www.radix-ui.com/primitives/docs/components/slider).
+
+## API reference
+
+### Root
+
+Contém todas as partes do controle slider. Ele renderizará um elemento `input` para cada controle quando usado dentro de um `form` para garantir que os eventos se propaguem corretamente.
+
+<MoreInfo
+  componentName="Radix Slider"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/slider#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultValue",
+      required: false,
+      type: "number[]",
+      description:
+        "O valor do controle slider quando inicialmente renderizado. Use quando você não precisa controlar o estado do controle slider.",
+    },
+    {
+      name: "value",
+      required: false,
+      type: "number[]",
+      description: (
+        <span>
+          O valor controlado do controle slider. Deve ser usado em conjunto com{" "}
+          <code>onValueChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onValueChange",
+      required: false,
+      type: "onValueChange?(value: number[]): void",
+      typeSimple: "function",
+      description: "Evento chamado quando o valor muda.",
+    },
+    {
+      name: "onValueCommit",
+      required: false,
+      type: "onValueCommit?(value: number[]): void",
+      typeSimple: "function",
+      description:
+        "Evento chamado quando o valor muda no final de uma interação. Útil quando você só precisa capturar um valor final, por exemplo, para atualizar um serviço backend.",
+    },
+    {
+      name: "name",
+      required: false,
+      type: "string",
+      description:
+        "O nome do controle slider. Enviado com o seu formulário proprietário como parte de um par nome/valor.",
+    },
+    {
+      name: "disabled",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          Quando <code>true</code>, impede que o usuário interaja com o controle
+          slider.
+        </span>
+      ),
+    },
+    {
+      name: "orientation",
+      required: false,
+      type: '"horizontal" | "vertical"',
+      typeSimple: "enum",
+      defaultValue: '"horizontal"',
+      description: "A orientação do controle slider.",
+    },
+    {
+      name: "dir",
+      required: false,
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      description: (
+        <span>
+          A direção de leitura do controle slider. Se omitido, herda globalmente
+          do <code>DirectionProvider</code> ou assume o modo de leitura da
+          esquerda para a direita (LTR, left-to-right).
+        </span>
+      ),
+    },
+    {
+      name: "inverted",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: "Se o controle slider está visualmente invertido.",
+    },
+    {
+      name: "min",
+      required: false,
+      type: "number",
+      defaultValue: "0",
+      description: "O valor mínimo para o intervalo.",
+    },
+    {
+      name: "max",
+      required: false,
+      type: "number",
+      defaultValue: "100",
+      description: "O valor máximo para o intervalo.",
+    },
+    {
+      name: "step",
+      required: false,
+      type: "number",
+      defaultValue: "1",
+      description: "O intervalo de passo.",
+    },
+    {
+      name: "minStepsBetweenThumbs",
+      required: false,
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          O número mínimo permitido de <code>etapas</code> entre vários
+          marcadores.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-disabled]",
+      value: "Presente quando desabilitado.",
+    },
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+### Thumb
+
+Você pode renderizar vários Thumbs.
+
+<MoreInfo
+  componentName="Radix Slider Thumb"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/slider#thumb"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-disabled]",
+      value: "Presente quando desabilitado.",
+    },
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/skeleton",
+    label: "Skeleton",
+  }}
+  next={{
+    link: "/docs/components/switch",
+    label: "Switch",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/slider/1.0.0.mdx" />

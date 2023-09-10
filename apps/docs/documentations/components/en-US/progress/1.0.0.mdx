@@ -1,0 +1,117 @@
+---
+title: Progress
+slug: progress
+radixUI: https://www.radix-ui.com/primitives/docs/components/progress
+radixAPI: https://www.radix-ui.com/primitives/docs/components/progress#api-reference
+---
+
+# Progress
+
+<Description text="Displays an indicator showing the completion progress of a task, typically displayed as a progress bar." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/progress" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/progress#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="progress" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/progress
+```
+
+## Usage
+
+Import the <strong>Progress</strong>.
+
+```jsx
+import { Progress } from "@rempi-ui/progress";
+
+() => <Progress value={75} />;
+```
+
+## About
+
+<strong>Rempi-UI Progress</strong> component is built on top of [Radix Progress](https://www.radix-ui.com/primitives/docs/components/progress).
+
+## API reference
+
+### Progress
+
+It's a mix of [Radix Progress Root](https://www.radix-ui.com/primitives/docs/components/progress#root) and [Radix Progress Indicator](https://www.radix-ui.com/primitives/docs/components/progress#indicator).<br/><br/>
+
+Contains all of the progress parts. Used to show the progress visually. It also makes progress accessible to assistive technologies.
+
+<MoreInfo
+  componentName="Radix Progress Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/progress#root"
+/>
+<MoreInfo
+  componentName="Radix Progress Indicator"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/progress#indicator"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "value",
+      type: "number | null",
+      description: "The progress value.",
+    },
+    {
+      name: "max",
+      type: "number",
+      description: "The maximum progress value.",
+    },
+    {
+      name: "getValueLabel",
+      type: "(value: number, max: number) => string",
+      typeSimple: "function",
+      description:
+        "A function to get the accessible label text representing the current value in a human-readable format. If not provided, the value label will be read as the numeric value as a percentage of the max value.",
+    },
+    {
+      name: "size",
+      required: false,
+      type: '"small" | "standard" | "large"',
+      typeSimple: "enum",
+      defaultValue: '"standard"',
+      description: "Set the container size of Progress bar.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["complete", "indeterminate", "loading"],
+    },
+    {
+      name: "[data-value]",
+      value: "The current value",
+    },
+    {
+      name: "[data-max]",
+      value: "The max value",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/popover",
+    label: "Popover",
+  }}
+  next={{
+    link: "/docs/components/radio",
+    label: "Radio",
+  }}
+/>
+
+<EditThisPage url="components/en-US/progress/1.0.0.mdx" />

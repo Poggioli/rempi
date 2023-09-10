@@ -60,6 +60,7 @@ export const StyledHoverCardContent = styled(HoverCard.Content)`
   min-width: 220px;
   padding: ${({ theme }) => theme.spaces[4]};
   will-change: transform, opacity;
+  z-index: ${({ theme }) => theme.zIndices[12]};
 
   &[data-side="top"] {
     animation-name: ${slideDownAndFade};
