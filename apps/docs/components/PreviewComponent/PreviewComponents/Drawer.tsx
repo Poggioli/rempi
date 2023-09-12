@@ -2,9 +2,12 @@ import { Button } from "@rempi-ui/button";
 import { Drawer } from "@rempi-ui/drawer";
 import { Flex } from "@rempi-ui/flex";
 import { Input } from "@rempi-ui/input";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 export const DrawerPreview: FC = () => {
+  const t = useTranslations("preview.drawer");
+
   return (
     <Flex
       justifyContent="center"
@@ -12,20 +15,14 @@ export const DrawerPreview: FC = () => {
     >
       <Drawer.Root>
         <Drawer.Trigger>
-          {/* i18n */}
-          <Button>Drawer esquerdo</Button>
+          <Button>{t("trigger-left")}</Button>
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Overlay blur />
           <Drawer.Content position="left">
-            <Drawer.CloseCross aria-label="Fechar" />
-            {/* i18n */}
-            <Drawer.Title>Editar perfil</Drawer.Title>
-            <Drawer.Description>
-              {/* i18n */}
-              Faça alterações em seu perfil aqui. Clique em salvar quando
-              terminar.
-            </Drawer.Description>
+            <Drawer.CloseCross aria-label={t("close-cross")} />
+            <Drawer.Title>{t("title")}</Drawer.Title>
+            <Drawer.Description>{t("description")}</Drawer.Description>
             <Flex
               flexDirection="column"
               flexWrap="wrap"
@@ -37,12 +34,10 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                {/* i18n */}
-                Nome
-                {/* i18n */}
+                {t("input-label-name")}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Digite seu nome"
+                  placeholder={t("input-placeholder-name")}
                 />
               </Input.Label>
               <Input.Label
@@ -50,23 +45,21 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                {/* i18n */}
-                Nome de usuário
-                {/* i18n */}
+                {t("input-label-username")}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Digite seu nome de usuário"
+                  placeholder={t("input-placeholder-username")}
                 />
               </Input.Label>
             </Flex>
             <Drawer.Footer>
               <Drawer.Close>
                 <Button color="primary" variant="text">
-                  Cancelar
+                  {t("cancel")}
                 </Button>
               </Drawer.Close>
               <Drawer.Close>
-                <Button color="success">Salvar</Button>
+                <Button color="success">{t("save")}</Button>
               </Drawer.Close>
             </Drawer.Footer>
           </Drawer.Content>
@@ -74,19 +67,14 @@ export const DrawerPreview: FC = () => {
       </Drawer.Root>
       <Drawer.Root>
         <Drawer.Trigger>
-          <Button>Drawer topo</Button>
+          <Button>{t("trigger-top")}</Button>
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Overlay blur />
           <Drawer.Content position="top">
-            <Drawer.CloseCross aria-label="Fechar" />
-            {/* i18n */}
-            <Drawer.Title>Editar perfil</Drawer.Title>
-            <Drawer.Description>
-              {/* i18n */}
-              Faça alterações em seu perfil aqui. Clique em salvar quando
-              terminar.
-            </Drawer.Description>
+            <Drawer.CloseCross aria-label={t("close-cross")} />
+            <Drawer.Title>{t("title")}</Drawer.Title>
+            <Drawer.Description>{t("description")}</Drawer.Description>
             <Flex
               flexDirection="column"
               flexWrap="wrap"
@@ -98,12 +86,10 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                {/* i18n */}
-                Nome
-                {/* i18n */}
+                {t("input-label-name")}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Digite seu nome"
+                  placeholder={t("input-placeholder-name")}
                 />
               </Input.Label>
               <Input.Label
@@ -111,23 +97,21 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                {/* i18n */}
-                Nome de usuário
-                {/* i18n */}
+                {t("input-label-username")}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Digite seu nome de usuário"
+                  placeholder={t("input-placeholder-username")}
                 />
               </Input.Label>
             </Flex>
             <Drawer.Footer>
               <Drawer.Close>
                 <Button color="primary" variant="text">
-                  Cancelar
+                  {t("cancel")}
                 </Button>
               </Drawer.Close>
               <Drawer.Close>
-                <Button color="success">Salvar</Button>
+                <Button color="success">{t("save")}</Button>
               </Drawer.Close>
             </Drawer.Footer>
           </Drawer.Content>
@@ -135,19 +119,14 @@ export const DrawerPreview: FC = () => {
       </Drawer.Root>
       <Drawer.Root>
         <Drawer.Trigger>
-          <Button>Drawer direito</Button>
+          <Button>{t("trigger-right")}</Button>
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Overlay blur />
           <Drawer.Content position="right">
-            <Drawer.CloseCross aria-label="Fechar" />
-            {/* i18n */}
-            <Drawer.Title>Editar perfil</Drawer.Title>
-            <Drawer.Description>
-              {/* i18n */}
-              Faça alterações em seu perfil aqui. Clique em salvar quando
-              terminar.
-            </Drawer.Description>
+            <Drawer.CloseCross aria-label={t("close-cross")} />
+            <Drawer.Title>{t("title")}</Drawer.Title>
+            <Drawer.Description>{t("description")}</Drawer.Description>
             <Flex
               flexDirection="column"
               flexWrap="wrap"
@@ -159,12 +138,10 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                {/* i18n */}
-                Nome
-                {/* i18n */}
+                {t("input-label-name")}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Digite seu nome"
+                  placeholder={t("input-placeholder-name")}
                 />
               </Input.Label>
               <Input.Label
@@ -172,23 +149,21 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                {/* i18n */}
-                Nome de usuário
-                {/* i18n */}
+                {t("input-label-username")}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Digite seu nome de usuário"
+                  placeholder={t("input-placeholder-username")}
                 />
               </Input.Label>
             </Flex>
             <Drawer.Footer>
               <Drawer.Close>
                 <Button color="primary" variant="text">
-                  Cancelar
+                  {t("cancel")}
                 </Button>
               </Drawer.Close>
               <Drawer.Close>
-                <Button color="success">Salvar</Button>
+                <Button color="success">{t("save")}</Button>
               </Drawer.Close>
             </Drawer.Footer>
           </Drawer.Content>
@@ -196,19 +171,14 @@ export const DrawerPreview: FC = () => {
       </Drawer.Root>
       <Drawer.Root>
         <Drawer.Trigger>
-          <Button>Drawer abaixo</Button>
+          <Button>{t("trigger-bottom")}</Button>
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Overlay blur />
           <Drawer.Content position="bottom">
-            <Drawer.CloseCross aria-label="Fechar" />
-            {/* i18n */}
-            <Drawer.Title>Editar perfil</Drawer.Title>
-            <Drawer.Description>
-              {/* i18n */}
-              Faça alterações em seu perfil aqui. Clique em salvar quando
-              terminar.
-            </Drawer.Description>
+            <Drawer.CloseCross aria-label={t("close-cross")} />
+            <Drawer.Title>{t("title")}</Drawer.Title>
+            <Drawer.Description>{t("description")}</Drawer.Description>
             <Flex
               flexDirection="column"
               flexWrap="wrap"
@@ -220,12 +190,10 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                {/* i18n */}
-                Nome
-                {/* i18n */}
+                {t("input-label-name")}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Digite seu nome"
+                  placeholder={t("input-placeholder-name")}
                 />
               </Input.Label>
               <Input.Label
@@ -233,23 +201,21 @@ export const DrawerPreview: FC = () => {
                 flexDirection="column"
                 style={{ width: "100%" }}
               >
-                {/* i18n */}
-                Nome de usuário
-                {/* i18n */}
+                {t("input-label-username")}
                 <Input.Root
                   style={{ maxWidth: "50%" }}
-                  placeholder="Digite seu nome de usuário"
+                  placeholder={t("input-placeholder-username")}
                 />
               </Input.Label>
             </Flex>
             <Drawer.Footer>
               <Drawer.Close>
                 <Button color="primary" variant="text">
-                  Cancelar
+                  {t("cancel")}
                 </Button>
               </Drawer.Close>
               <Drawer.Close>
-                <Button color="success">Salvar</Button>
+                <Button color="success">{t("save")}</Button>
               </Drawer.Close>
             </Drawer.Footer>
           </Drawer.Content>

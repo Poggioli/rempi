@@ -1,6 +1,7 @@
 import { styled } from "@rempi-ui/core";
 import { Separator } from "@rempi-ui/separator";
 import { Typography } from "@rempi-ui/typography";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 const StyledSeparator = styled.div`
@@ -14,11 +15,11 @@ type EditThisPageProps = {
 
 export const EditThisPage: FC<EditThisPageProps> = ({ url }) => {
   const href = `https://github.com/Poggioli/rempi/edit/main/apps/docs/documentations/${url}`;
+  const t = useTranslations("edit-this-page");
 
   return (
     <>
       <StyledSeparator as={Separator} />
-      {/* i18n */}
       <Typography
         as="a"
         href={href}
@@ -26,7 +27,7 @@ export const EditThisPage: FC<EditThisPageProps> = ({ url }) => {
         variant="body2"
         color="low-contrast"
       >
-        Edite esta página no Github.
+        {t("label")}
       </Typography>
     </>
   );

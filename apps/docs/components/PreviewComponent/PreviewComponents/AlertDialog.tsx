@@ -1,34 +1,31 @@
 import { AlertDialog } from "@rempi-ui/alert-dialog";
 import { Button } from "@rempi-ui/button";
 import { Flex } from "@rempi-ui/flex";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 export const AlertDialogPreview: FC = () => {
+  const t = useTranslations("preview.alert-dialog");
+
   return (
     <Flex justifyContent="center" style={{ padding: 2 }}>
       <AlertDialog.Root>
         <AlertDialog.Trigger>
-          {/* i18n */}
-          <Button color="error">Deletar conta</Button>
+          <Button color="error">{t("button")}</Button>
         </AlertDialog.Trigger>
         <AlertDialog.Portal>
           <AlertDialog.Overlay />
           <AlertDialog.Content>
-            {/* i18n */}
-            <AlertDialog.Title>Você tem certeza absoluta?</AlertDialog.Title>
+            <AlertDialog.Title>{t("title")}</AlertDialog.Title>
             <AlertDialog.Description>
-              {/* i18n */}
-              Essa ação não pode ser desfeita. Isso excluirá permanentemente sua
-              conta e removará seus dados de nossos servidores.
+              {t("description")}
             </AlertDialog.Description>
             <AlertDialog.Footer>
               <AlertDialog.Cancel>
-                {/* i18n */}
-                <Button variant="text">Cancelar</Button>
+                <Button variant="text">{t("cancel")}</Button>
               </AlertDialog.Cancel>
               <AlertDialog.Action>
-                {/* i18n */}
-                <Button color="error">Sim, excluir conta</Button>
+                <Button color="error">{t("action")}</Button>
               </AlertDialog.Action>
             </AlertDialog.Footer>
           </AlertDialog.Content>

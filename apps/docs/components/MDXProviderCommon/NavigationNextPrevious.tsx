@@ -1,6 +1,7 @@
 import { styled } from "@rempi-ui/core";
 import { Flex } from "@rempi-ui/flex";
 import { Typography } from "@rempi-ui/typography";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 const StyledContainerNextPrevious = styled.div`
@@ -21,6 +22,8 @@ const StyledMarginLeftAuto = styled(StyledContainerLinkGap)`
 `;
 
 export const NavigationNextPrevious: FC<any> = ({ previous, next }) => {
+  const t = useTranslations("navigation-next-previous");
+
   return (
     <StyledContainerNextPrevious
       as={Flex}
@@ -35,8 +38,7 @@ export const NavigationNextPrevious: FC<any> = ({ previous, next }) => {
           alignItems="flex-start"
         >
           <Typography variant="body1" color="low-contrast" fontWeight="normal">
-            {/* i18n */}
-            Anterior
+            {t("previous")}
           </Typography>
           <StyledLink
             as={(props: any) => <Typography as="a" {...props} />}
@@ -54,8 +56,7 @@ export const NavigationNextPrevious: FC<any> = ({ previous, next }) => {
           alignItems="flex-end"
         >
           <Typography variant="body1" color="low-contrast" fontWeight="normal">
-            {/* i18n */}
-            Próximo
+            {t("next")}
           </Typography>
           <StyledLink
             as={(props: any) => <Typography as="a" {...props} />}

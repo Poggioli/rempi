@@ -2,6 +2,7 @@ import { Card } from "@rempi-ui/card";
 import { styled } from "@rempi-ui/core";
 import { Flex } from "@rempi-ui/flex";
 import { Typography } from "@rempi-ui/typography";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 const StyledNPS = styled.span`
@@ -17,11 +18,12 @@ const StyledCardRoot = styled.div`
 `;
 
 export const DashboardCostumerValue: FC = () => {
+  const t = useTranslations("dashboard-customers");
+
   return (
     <StyledCardRoot as={Card.Root}>
       <Card.Header>
-                {/* i18n */}
-        <Card.Title>Clientes</Card.Title>
+        <Card.Title>{t("customers")}</Card.Title>
       </Card.Header>
       <Card.Content
         flexDirection={{
@@ -32,7 +34,7 @@ export const DashboardCostumerValue: FC = () => {
         justifyContent="space-evenly"
         alignItems="center"
       >
-        <Flex flexDirection="column">
+        <Flex flexDirection="column" alignItems="center">
           <StyledLineHeight1
             as={Typography}
             fontSize="xlg"
@@ -44,7 +46,7 @@ export const DashboardCostumerValue: FC = () => {
             LTV
           </Typography>
         </Flex>
-        <Flex flexDirection="column">
+        <Flex flexDirection="column" alignItems="center">
           <StyledLineHeight1
             as={Typography}
             fontSize="xlg"
@@ -56,18 +58,17 @@ export const DashboardCostumerValue: FC = () => {
             CAC
           </Typography>
         </Flex>
-        <Flex flexDirection="column">
+        <Flex flexDirection="column" alignItems="center">
           <StyledLineHeight1
             as={Typography}
             fontSize="xlg"
             fontWeight="semi-bold"
           >
-                {/* i18n */}
-            <StyledNPS as={StyledLineHeight1}>18</StyledNPS>meses
+            <StyledNPS as={StyledLineHeight1}>18{" "}</StyledNPS>
+            {t("month")}
           </StyledLineHeight1>
           <Typography variant="body2" color="low-contrast">
-                {/* i18n */}
-            Tempo médio de vida
+            {t("avg-life-time")}
           </Typography>
         </Flex>
       </Card.Content>

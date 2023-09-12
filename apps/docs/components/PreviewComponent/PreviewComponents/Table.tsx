@@ -1,50 +1,53 @@
 import { Flex } from "@rempi-ui/Flex";
 import { Table } from "@rempi-ui/table";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 export const TablePreview: FC = () => {
+  const t = useTranslations("preview.table");
+
   const INVOICES = [
     {
       invoice: "INV001",
-      paymentStatus: "Pago",
+      paymentStatus: t("invoices.0.payment-status"),
       totalAmount: "$250.00",
-      paymentMethod: "Cartão de crédito",
+      paymentMethod: t("invoices.0.payment-method"),
     },
     {
       invoice: "INV002",
-      paymentStatus: "Pendente",
+      paymentStatus: t("invoices.1.payment-status"),
       totalAmount: "$150.00",
-      paymentMethod: "PayPal",
+      paymentMethod: t("invoices.1.payment-method"),
     },
     {
       invoice: "INV003",
-      paymentStatus: "Pagamento pendente",
+      paymentStatus: t("invoices.2.payment-status"),
       totalAmount: "$350.00",
-      paymentMethod: "Transferência bancária",
+      paymentMethod: t("invoices.2.payment-method"),
     },
     {
       invoice: "INV004",
-      paymentStatus: "Pago",
+      paymentStatus: t("invoices.3.payment-status"),
       totalAmount: "$450.00",
-      paymentMethod: "Cartão de crédito",
+      paymentMethod: t("invoices.3.payment-method"),
     },
     {
       invoice: "INV005",
-      paymentStatus: "Pago",
+      paymentStatus: t("invoices.4.payment-status"),
       totalAmount: "$550.00",
-      paymentMethod: "PayPal",
+      paymentMethod: t("invoices.4.payment-method"),
     },
     {
       invoice: "INV006",
-      paymentStatus: "Pendente",
+      paymentStatus: t("invoices.5.payment-status"),
       totalAmount: "$200.00",
-      paymentMethod: "Transferência bancária",
+      paymentMethod: t("invoices.5.payment-method"),
     },
     {
       invoice: "INV007",
-      paymentStatus: "Pagamento pendente",
+      paymentStatus: t("invoices.6.payment-status"),
       totalAmount: "$300.00",
-      paymentMethod: "Cartão de crédito",
+      paymentMethod: t("invoices.6.payment-method"),
     },
   ];
 
@@ -56,8 +59,7 @@ export const TablePreview: FC = () => {
       style={{ padding: "var(--spaces-2)" }}
     >
       <Table.Root>
-        {/* i18n */}
-        <Table.Caption>Uma lista de suas faturas recentes.</Table.Caption>
+        <Table.Caption>{t("caption")}</Table.Caption>
         <Table.Header>
           <Table.Row>
             <Table.Head
@@ -65,44 +67,42 @@ export const TablePreview: FC = () => {
                 width: 100,
               }}
             >
-              {/* i18n */}
-              Fatura
+              {t("invoice-header")}
             </Table.Head>
-            {/* i18n */}
-            <Table.Head>Status</Table.Head>
-            {/* i18n */}
-            <Table.Head>Método</Table.Head>
+            <Table.Head>{t("status-header")}</Table.Head>
+            <Table.Head>{t("method-header")}</Table.Head>
             <Table.Head
               style={{
                 textAlign: "right",
               }}
             >
-              {/* i18n */}
-              Quantia
+              {t("value-header")}
             </Table.Head>
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {INVOICES.map((invoice) => (
-            <Table.Row key={invoice.invoice}>
-              <Table.Cell
-                style={{
-                  fontWeight: "var(--font-weights-3)",
-                }}
-              >
-                {invoice.invoice}
-              </Table.Cell>
-              <Table.Cell>{invoice.paymentStatus}</Table.Cell>
-              <Table.Cell>{invoice.paymentMethod}</Table.Cell>
-              <Table.Cell
-                style={{
-                  textAlign: "right",
-                }}
-              >
-                {invoice.totalAmount}
-              </Table.Cell>
-            </Table.Row>
-          ))}
+          {INVOICES.map(
+            ({ invoice, paymentStatus, paymentMethod, totalAmount }) => (
+              <Table.Row key={invoice}>
+                <Table.Cell
+                  style={{
+                    fontWeight: "var(--font-weights-3)",
+                  }}
+                >
+                  {invoice}
+                </Table.Cell>
+                <Table.Cell>{paymentStatus}</Table.Cell>
+                <Table.Cell>{paymentMethod}</Table.Cell>
+                <Table.Cell
+                  style={{
+                    textAlign: "right",
+                  }}
+                >
+                  {totalAmount}
+                </Table.Cell>
+              </Table.Row>
+            )
+          )}
         </Table.Body>
       </Table.Root>
     </Flex>

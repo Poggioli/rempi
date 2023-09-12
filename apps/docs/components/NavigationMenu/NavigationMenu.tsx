@@ -6,11 +6,12 @@ import { Drawer } from "@rempi-ui/drawer";
 import { Flex } from "@rempi-ui/flex";
 import { Typography } from "@rempi-ui/typography";
 import { Menu } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { FC } from "react";
 import {
   StyledMarginLeftAuto,
-  StyledNavigationMenuHeader
+  StyledNavigationMenuHeader,
 } from "./NavigationMenu.styles";
 
 const StyledContainer = styled.div`
@@ -37,6 +38,7 @@ const StyledFillAllAvailableHeight = styled.div`
 export const NavigationMenu: FC = () => {
   const pathname = usePathname();
   const isDocPages = pathname.includes("docs");
+  const t = useTranslations("navigation-menu");
 
   return (
     <StyledNavigationMenuHeader
@@ -52,7 +54,7 @@ export const NavigationMenu: FC = () => {
             color="low-contrast"
             fontWeight="semi-bold"
           >
-            Documentação
+            {t("documentation")}
           </Typography>
         </nav>
       ) : (
@@ -62,7 +64,7 @@ export const NavigationMenu: FC = () => {
               <IconButton
                 shape="rounded"
                 size="small"
-                aria-label="Abrir menu de navegação"
+                aria-label={t("open")}
                 variant="text"
                 style={{ padding: 8 }}
               >
@@ -74,7 +76,7 @@ export const NavigationMenu: FC = () => {
               <StyledFillAllAvailableHeight as={Drawer.Content}>
                 <HideInTablet
                   as={Drawer.CloseCross}
-                  aria-label="Fechar menu de navegação"
+                  aria-label={t("close")}
                 />
                 <StyledContainer>
                   <DocsNavigationMenu />

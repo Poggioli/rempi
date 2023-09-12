@@ -12,6 +12,7 @@ import {
   ListStyled,
   SeparatorStyled,
 } from "./DocsNavigationMenu.styles";
+import { useTranslations } from "next-intl";
 
 type MenuItem = {
   label: string;
@@ -25,73 +26,70 @@ type Menu = {
 
 const menus: Menu[] = [
   {
-    // i18n
-    title: "Visão geral",
+    title: "0.title",
     items: [
       {
-        // i18n
-        label: "Introdução",
+        label: "0.items.0",
         href: "/docs/overview/introduction",
       },
       {
-        // i18n
-        label: "Tutorial",
+        label: "0.items.1",
         href: "/docs/overview/getting-started",
       },
     ],
   },
   {
-    // i18n
-    title: "Componentes",
+    title: "1.title",
     items: [
-      { label: "Accordion", href: "/docs/components/accordion" },
-      { label: "Alert Dialog", href: "/docs/components/alert-dialog" },
-      { label: "Aspect Ratio", href: "/docs/components/aspect-ratio" },
-      { label: "Avatar", href: "/docs/components/avatar" },
-      { label: "Badge", href: "/docs/components/badge" },
-      { label: "Blockquote", href: "/docs/components/blockquote" },
-      { label: "Button", href: "/docs/components/button" },
-      { label: "Calendar", href: "/docs/components/calendar" },
-      { label: "Callout", href: "/docs/components/callout" },
-      { label: "Card", href: "/docs/components/card" },
-      { label: "Checkbox", href: "/docs/components/checkbox" },
-      { label: "Code", href: "/docs/components/code" },
-      { label: "Collapsible", href: "/docs/components/collapsible" },
-      { label: "Combobox", href: "/docs/components/combobox" },
-      { label: "Container", href: "/docs/components/container" },
-      { label: "Context Menu", href: "/docs/components/context-menu" },
-      { label: "Dialog", href: "/docs/components/dialog" },
-      { label: "Drawer", href: "/docs/components/drawer" },
-      { label: "Dropdown Menu", href: "/docs/components/dropdown-menu" },
-      { label: "Flex", href: "/docs/components/flex" },
-      { label: "Heading", href: "/docs/components/heading" },
-      { label: "Hover Card", href: "/docs/components/hover-card" },
-      { label: "Input", href: "/docs/components/input" },
-      { label: "Label", href: "/docs/components/label" },
-      { label: "Menubar", href: "/docs/components/menubar" },
-      { label: "Navigation Menu", href: "/docs/components/navigation-menu" },
-      { label: "Popover", href: "/docs/components/popover" },
-      { label: "Progress", href: "/docs/components/progress" },
-      { label: "Radio", href: "/docs/components/radio" },
-      { label: "Scroll Area", href: "/docs/components/scroll-area" },
-      { label: "Select", href: "/docs/components/select" },
-      { label: "Separator", href: "/docs/components/separator" },
-      { label: "Skeleton", href: "/docs/components/skeleton" },
-      { label: "Slider", href: "/docs/components/slider" },
-      { label: "Switch", href: "/docs/components/switch" },
-      { label: "Table", href: "/docs/components/table" },
-      { label: "Tabs", href: "/docs/components/tabs" },
-      { label: "Textarea", href: "/docs/components/textarea" },
-      { label: "Toast", href: "/docs/components/toast" },
-      { label: "Toggle", href: "/docs/components/toggle" },
-      { label: "Tooltip", href: "/docs/components/tooltip" },
-      { label: "Typography", href: "/docs/components/typography" },
+      { label: "1.items.0", href: "/docs/components/accordion" },
+      { label: "1.items.1", href: "/docs/components/alert-dialog" },
+      { label: "1.items.2", href: "/docs/components/aspect-ratio" },
+      { label: "1.items.3", href: "/docs/components/avatar" },
+      { label: "1.items.4", href: "/docs/components/badge" },
+      { label: "1.items.5", href: "/docs/components/blockquote" },
+      { label: "1.items.6", href: "/docs/components/button" },
+      { label: "1.items.7", href: "/docs/components/calendar" },
+      { label: "1.items.8", href: "/docs/components/callout" },
+      { label: "1.items.9", href: "/docs/components/card" },
+      { label: "1.items.10", href: "/docs/components/checkbox" },
+      { label: "1.items.11", href: "/docs/components/code" },
+      { label: "1.items.12", href: "/docs/components/collapsible" },
+      { label: "1.items.13", href: "/docs/components/combobox" },
+      { label: "1.items.14", href: "/docs/components/container" },
+      { label: "1.items.15", href: "/docs/components/context-menu" },
+      { label: "1.items.16", href: "/docs/components/dialog" },
+      { label: "1.items.17", href: "/docs/components/drawer" },
+      { label: "1.items.18", href: "/docs/components/dropdown-menu" },
+      { label: "1.items.19", href: "/docs/components/flex" },
+      { label: "1.items.20", href: "/docs/components/heading" },
+      { label: "1.items.21", href: "/docs/components/hover-card" },
+      { label: "1.items.22", href: "/docs/components/input" },
+      { label: "1.items.23", href: "/docs/components/label" },
+      { label: "1.items.24", href: "/docs/components/menubar" },
+      { label: "1.items.25", href: "/docs/components/navigation-menu" },
+      { label: "1.items.26", href: "/docs/components/popover" },
+      { label: "1.items.27", href: "/docs/components/progress" },
+      { label: "1.items.28", href: "/docs/components/radio" },
+      { label: "1.items.29", href: "/docs/components/scroll-area" },
+      { label: "1.items.30", href: "/docs/components/select" },
+      { label: "1.items.31", href: "/docs/components/separator" },
+      { label: "1.items.32", href: "/docs/components/skeleton" },
+      { label: "1.items.33", href: "/docs/components/slider" },
+      { label: "1.items.34", href: "/docs/components/switch" },
+      { label: "1.items.35", href: "/docs/components/table" },
+      { label: "1.items.36", href: "/docs/components/tabs" },
+      { label: "1.items.37", href: "/docs/components/textarea" },
+      { label: "1.items.38", href: "/docs/components/toast" },
+      { label: "1.items.39", href: "/docs/components/toggle" },
+      { label: "1.items.40", href: "/docs/components/tooltip" },
+      { label: "1.items.41", href: "/docs/components/typography" },
     ],
   },
 ];
 
 export const DocsNavigationMenu: FC = () => {
   const pathname = usePathname();
+  const t = useTranslations("docs-navigation-menu");
 
   return (
     <ScrollArea.Root
@@ -109,7 +107,7 @@ export const DocsNavigationMenu: FC = () => {
                 fontSize="xlg"
                 fontWeight="semi-bold"
               >
-                {title}
+                {t(title)}
               </ListHeadingStyled>
               {items.map(({ label, href }) => (
                 <LinkStyled
@@ -118,7 +116,7 @@ export const DocsNavigationMenu: FC = () => {
                   href={href}
                 >
                   <ListItemStyled key={href} $active={pathname.includes(href)}>
-                    {label}
+                    {t(label)}
                   </ListItemStyled>
                 </LinkStyled>
               ))}

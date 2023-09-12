@@ -2,9 +2,12 @@ import { Flex } from "@rempi-ui/Flex";
 import { Switch } from "@rempi-ui/switch";
 import { Typography } from "@rempi-ui/typography";
 import { BellIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 export const SwitchPreview: FC = () => {
+  const t = useTranslations("preview.switch");
+
   return (
     <Flex
       alignItems="center"
@@ -41,8 +44,7 @@ export const SwitchPreview: FC = () => {
             color="high-contrast"
             lineHeight={1}
           >
-            {/* i18n */}
-            Notificações via push
+            {t("title")}
           </Typography>
           <Typography
             fontSize="sm"
@@ -50,8 +52,7 @@ export const SwitchPreview: FC = () => {
             color="low-contrast"
             lineHeight={1}
           >
-            {/* i18n */}
-            Envie notificações para o dispositivo.
+            {t("description")}
           </Typography>
         </Flex>
         <Switch.Thumb />

@@ -5,6 +5,7 @@ import { Popover } from "@rempi-ui/popover";
 import { Table } from "@rempi-ui/table";
 import { Typography } from "@rempi-ui/typography";
 import { HelpCircleIcon, Minus } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 type PropDef = {
@@ -25,16 +26,16 @@ const StyledMarginTop = styled.div`
 `;
 
 export const APIReference: FC<APIReferenceProps> = ({ data }) => {
+  const t = useTranslations("api-reference");
+
   return (
     <StyledMarginTop>
       <Table.Root striped={false}>
         <Table.Header>
           <Table.Row>
-            <Table.Head className="w-100">Props</Table.Head>
-            {/* i18n */}
-            <Table.Head>Tipo</Table.Head>
-            {/* i18n */}
-            <Table.Head>Valor padrão</Table.Head>
+            <Table.Head className="w-100">{t("props")}</Table.Head>
+            <Table.Head>{t("type")}</Table.Head>
+            <Table.Head>{t("default-value")}</Table.Head>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -52,9 +53,8 @@ export const APIReference: FC<APIReferenceProps> = ({ data }) => {
                   {description && (
                     <Popover.Root>
                       <Popover.Trigger>
-                        {/* i18n */}
                         <IconButton
-                          aria-label="Descrição da prop"
+                          aria-label={t("help-label-description")}
                           variant="text"
                           size="small"
                           style={{ verticalAlign: "middle" }}
@@ -83,9 +83,8 @@ export const APIReference: FC<APIReferenceProps> = ({ data }) => {
                   {Boolean(typeSimple) && Boolean(type) && (
                     <Popover.Root>
                       <Popover.Trigger>
-                        {/* i18n */}
                         <IconButton
-                          aria-label="Ver a tipagem completa"
+                          aria-label={t("help-label-type")}
                           variant="text"
                           size="small"
                           style={{ verticalAlign: "middle" }}

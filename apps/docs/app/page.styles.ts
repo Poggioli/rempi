@@ -1,9 +1,5 @@
 import { styled } from "@rempi-ui/core";
 
-export const StyledBody = styled.body`
-  background-color: ${({ theme }) => theme.colors.grey1};
-`;
-
 export const StyledContainerBody = styled.div`
   display: flex;
   flex-direction: column;

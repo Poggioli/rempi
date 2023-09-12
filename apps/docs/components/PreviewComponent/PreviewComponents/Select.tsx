@@ -1,8 +1,11 @@
 import { Flex } from "@rempi-ui/Flex";
 import { Select } from "@rempi-ui/select";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 export const SelectPreview: FC = () => {
+  const t = useTranslations("preview.select");
+
   return (
     <Flex
       alignItems="center"
@@ -11,62 +14,53 @@ export const SelectPreview: FC = () => {
       style={{ padding: "var(--spaces-2)" }}
     >
       <Select.Root>
-        {/* i18n */}
-        <Select.Trigger aria-label="Comida">
-          {/* i18n */}
-          <Select.Value placeholder="Selecione a comida..." />
+        <Select.Trigger aria-label={t("aria-label")}>
+          <Select.Value placeholder={t("placeholder")} />
         </Select.Trigger>
         <Select.Content>
           <Select.Viewport>
             <Select.Group>
-              {/* i18n */}
-              <Select.Label>Frutas</Select.Label>
-              {/* i18n */}
-              <Select.Item value="apple">Maçã</Select.Item>
-              {/* i18n */}
+              <Select.Label>{t("groups.0.title")}</Select.Label>
+              <Select.Item value="apple">{t("groups.0.items.0")}</Select.Item>
               <Select.Item disabled value="banana">
-                Banana
+                {t("groups.0.items.1")}
               </Select.Item>
-              {/* i18n */}
-              <Select.Item value="blueberry">Mirtilo</Select.Item>
-              {/* i18n */}
-              <Select.Item value="grapes">Uva</Select.Item>
-              {/* i18n */}
-              <Select.Item value="pineapple">Abacaxi</Select.Item>
+              <Select.Item value="blueberry">
+                {t("groups.0.items.2")}
+              </Select.Item>
+              <Select.Item value="grapes">{t("groups.0.items.3")}</Select.Item>
+              <Select.Item value="pineapple">
+                {t("groups.0.items.4")}
+              </Select.Item>
             </Select.Group>
 
             <Select.Separator />
 
             <Select.Group>
-              {/* i18n */}
-              <Select.Label>Vegetais</Select.Label>
-              {/* i18n */}
-              <Select.Item value="aubergine">Berinjela</Select.Item>
-              {/* i18n */}
-              <Select.Item value="broccoli">Brócolis</Select.Item>
-              {/* i18n */}
+              <Select.Label>{t("groups.1.title")}</Select.Label>
+              <Select.Item value="aubergine">
+                {t("groups.1.items.0")}
+              </Select.Item>
+              <Select.Item value="broccoli">
+                {t("groups.1.items.1")}
+              </Select.Item>
               <Select.Item value="carrot" disabled>
-                Cenoura
+                {t("groups.1.items.2")}
               </Select.Item>
-              {/* i18n */}
-              <Select.Item value="courgette">Abobrinha</Select.Item>
-              {/* i18n */}
-              <Select.Item value="leek">Alho-poró</Select.Item>
+              <Select.Item value="courgette">
+                {t("groups.1.items.3")}
+              </Select.Item>
+              <Select.Item value="leek">{t("groups.1.items.4")}</Select.Item>
             </Select.Group>
 
             <Select.Separator />
 
             <Select.Group>
-              {/* i18n */}
-              <Select.Label>Carnes</Select.Label>
-              {/* i18n */}
-              <Select.Item value="beef">Carne bovina</Select.Item>
-              {/* i18n */}
-              <Select.Item value="chicken">Frango</Select.Item>
-              {/* i18n */}
-              <Select.Item value="lamb">Ovelha</Select.Item>
-              {/* i18n */}
-              <Select.Item value="pork">Carne suína</Select.Item>
+              <Select.Label>{t("groups.2.title")}</Select.Label>
+              <Select.Item value="beef">{t("groups.2.items.0")}</Select.Item>
+              <Select.Item value="chicken">{t("groups.2.items.1")}</Select.Item>
+              <Select.Item value="lamb">{t("groups.2.items.2")}</Select.Item>
+              <Select.Item value="pork">{t("groups.2.items.3")}</Select.Item>
             </Select.Group>
           </Select.Viewport>
         </Select.Content>

@@ -1,11 +1,13 @@
 import { Button } from "@rempi-ui/button";
 import { Flex } from "@rempi-ui/Flex";
 import { Toast } from "@rempi-ui/toast";
+import { useTranslations } from "next-intl";
 import { FC, useRef, useState } from "react";
 
 export const ToastPreview: FC = () => {
   const [open, setOpen] = useState(false);
   const timerRef = useRef(0);
+  const t = useTranslations("preview.toast");
 
   return (
     <Flex
@@ -22,23 +24,16 @@ export const ToastPreview: FC = () => {
           }, 100);
         }}
       >
-        {/* i18n */}
-        Mostrar Toast
+        {t("trigger")}
       </Button>
 
       <Toast.Root duration={3000} open={open} onOpenChange={setOpen}>
-        {/* i18n */}
-        <Toast.Title>O usuário será excluído</Toast.Title>
-        <Toast.Description>
-          {/* i18n */}O usuário será excluído em 5 segundos
-        </Toast.Description>
-        {/* i18n */}
-        <Toast.Action asChild altText="Desfazer ação">
-          {/* i18n */}
-          <Button size="small">Desfazer ação</Button>
+        <Toast.Title>{t("title")}</Toast.Title>
+        <Toast.Description>{t("description")}</Toast.Description>
+        <Toast.Action asChild altText={t("action")}>
+          <Button size="small">{t("action")}</Button>
         </Toast.Action>
-        {/* i18n */}
-        <Toast.CloseCross aria-label="Fechar" />
+        <Toast.CloseCross aria-label={t("close")} />
       </Toast.Root>
       <Toast.Viewport />
     </Flex>

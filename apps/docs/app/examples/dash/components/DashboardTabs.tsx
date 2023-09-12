@@ -7,6 +7,7 @@ import {
   SearchIcon,
   TagIcon,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 import { DashboardCard } from "./DashboardCards";
 import { DashboardCostumerValue } from "./DashboardCostumerValue";
@@ -63,62 +64,61 @@ const StyledContentGap = styled.div`
 
 const cards: any[] = [
   {
-    // i18n
-    title: "Pesquisa de marca",
+    title: (index: number) => `cards.${index}.title`,
     mainInfo: "+5.540",
     Icon: SearchIcon,
-    // i18n
-    captionMainInfo: "+54.7% do mês passado",
+    captionMainInfo: (index: number) => `cards.${index}.caption`,
+    value: "+54.7%",
   },
   {
-    // i18n
-    title: "Pedidos",
+    title: (index: number) => `cards.${index}.title`,
     mainInfo: "+5749",
     Icon: TagIcon,
-    // i18n
-    captionMainInfo: "+392.1% do mês passado",
+    captionMainInfo: (index: number) => `cards.${index}.caption`,
+    value: "+392.1%",
   },
   {
-    // i18n
-    title: "Vendas",
+    title: (index: number) => `cards.${index}.title`,
     mainInfo: "+11.938",
     Icon: CreditCardIcon,
-    // i18n
-    captionMainInfo: "+30% do mês passado",
+    captionMainInfo: (index: number) => `cards.${index}.caption`,
+    value: "+30%",
   },
   {
-    // i18n
-    title: "Ativos agora",
-    mainInfo: "-1060",
+    title: (index: number) => `cards.${index}.title`,
+    mainInfo: "1060",
     Icon: LineChartIcon,
-    // i18n
-    captionMainInfo: "-201 desde a última hora",
+    captionMainInfo: (index: number) => `cards.${index}.caption`,
+    value: "-201",
   },
 ];
 
 export const DashboardTabs: FC = () => {
+  const t = useTranslations("dashboard-tabs");
+
   return (
     <Tabs.Root value="overview">
       <StyledTabsList as={Tabs.List}>
-        {/* i18n */}
-        <Tabs.Trigger value="overview">Visão geral</Tabs.Trigger>
+        <Tabs.Trigger value="overview">{t("overview")}</Tabs.Trigger>
         <Tabs.Trigger value="analytics" disabled>
-          {/* i18n */}
-          Analytics
+          {t("analytics")}
         </Tabs.Trigger>
         <Tabs.Trigger value="reports" disabled>
-          {/* i18n */}
-          Relatórios
+          {t("reports")}
         </Tabs.Trigger>
         <Tabs.Trigger value="notifications" disabled>
-          {/* i18n */}
-          Notificações
+          {t("notifications")}
         </Tabs.Trigger>
       </StyledTabsList>
       <StyledContentGap as={Tabs.Content} value="overview">
         <StyledCardContainer>
-          {cards.map((card) => (
-            <DashboardCard key={card.title} {...card} />
+          {cards.map(({ title, captionMainInfo, value, ...card }, index) => (
+            <DashboardCard
+              key={card.title}
+              {...card}
+              title={t(title(index))}
+              captionMainInfo={t(captionMainInfo(index), { value })}
+            />
           ))}
         </StyledCardContainer>
         <StyledFlexFullWidthWithGapAndFlexChild

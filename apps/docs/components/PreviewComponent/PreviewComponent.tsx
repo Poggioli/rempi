@@ -5,6 +5,7 @@ import { Flex } from "@rempi-ui/flex";
 import { Heading } from "@rempi-ui/heading";
 import { Tabs } from "@rempi-ui/tabs";
 import { Typography } from "@rempi-ui/typography";
+import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { FC, PropsWithChildren, useContext } from "react";
 import { VersionContext } from "../VersionProvider";
@@ -153,6 +154,7 @@ const PreviewContainer: FC<PropsWithChildren> = ({ children }) => {
 export const PreviewComponent: FC<PreviewComponentProps> = ({ name }) => {
   const { versions } = useContext(VersionContext);
   const searchParams = useSearchParams();
+  const t = useTranslations("preview-component");
 
   if (
     searchParams.get("v") &&
@@ -168,10 +170,7 @@ export const PreviewComponent: FC<PreviewComponentProps> = ({ name }) => {
     return (
       <StyledMarginTop>
         <PreviewContainer>
-          <StyledTypography as={Typography}>
-            {/* i18n */}
-            Componente não encontrado!
-          </StyledTypography>
+          <StyledTypography as={Typography}>{t("not-found")}</StyledTypography>
         </PreviewContainer>
       </StyledMarginTop>
     );
@@ -183,16 +182,13 @@ export const PreviewComponent: FC<PreviewComponentProps> = ({ name }) => {
         as={(props: any) => <Heading {...props} as="h2" />}
         variant="2"
       >
-        {/* i18n */}
-        Exemplo
+        {t("example")}
       </StyledHeadingLvl2>
       <StyledTabRoot as={Tabs.Root} defaultValue="example">
         <Tabs.List>
-          {/* i18n */}
-          <Tabs.Trigger value="example">Exemplo</Tabs.Trigger>
+          <Tabs.Trigger value="example">{t("example-tab")}</Tabs.Trigger>
           <Tabs.Trigger value="code" disabled>
-            {/* i18n */}
-            Código
+            {t("code-tab")}
           </Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="example">

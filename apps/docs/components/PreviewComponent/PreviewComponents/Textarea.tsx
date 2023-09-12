@@ -1,8 +1,11 @@
 import { Flex } from "@rempi-ui/Flex";
 import { Textarea } from "@rempi-ui/textarea";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 export const TextareaPreview: FC = () => {
+  const t = useTranslations("preview.textarea");
+
   return (
     <Flex
       alignItems="center"
@@ -10,10 +13,8 @@ export const TextareaPreview: FC = () => {
       style={{ padding: "var(--spaces-1)" }}
     >
       <Textarea.Label alignItems="flex-start" flexDirection="column">
-        {/* i18n */}
-        Mensagem
-        {/* i18n */}
-        <Textarea.Root placeholder="Digite sua mensagem aqui" />
+        {t("label")}
+        <Textarea.Root placeholder={t("placeholder")} />
       </Textarea.Label>
     </Flex>
   );

@@ -1,14 +1,16 @@
 import { Checkbox } from "@rempi-ui/checkbox";
 import { Flex } from "@rempi-ui/flex";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 export const CheckboxPreview: FC = () => {
+  const t = useTranslations("preview.checkbox");
+
   return (
     <Flex justifyContent="center" style={{ padding: 2 }}>
       <Checkbox.Label>
-        {/* i18n */}
         <Checkbox.Check />
-        Eu li e aceito os termos de uso.
+        {t("label")}
       </Checkbox.Label>
     </Flex>
   );

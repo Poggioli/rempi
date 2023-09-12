@@ -1,8 +1,11 @@
 import { Flex } from "@rempi-ui/Flex";
 import { Input } from "@rempi-ui/input";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 export const InputPreview: FC = () => {
+  const t = useTranslations("preview.input");
+
   return (
     <Flex
       alignItems="center"
@@ -10,10 +13,8 @@ export const InputPreview: FC = () => {
       style={{ padding: "var(--spaces-1)" }}
     >
       <Input.Label alignItems="flex-start" flexDirection="column">
-        {/* i18n */}
-        Nome
-        {/* i18n */}
-        <Input.Root placeholder="Digite seu nome" />
+        {t("label")}
+        <Input.Root placeholder={t("placeholder")} />
       </Input.Label>
     </Flex>
   );

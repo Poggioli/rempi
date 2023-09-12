@@ -1,5 +1,6 @@
 import { styled } from "@rempi-ui/core";
 import { Typography } from "@rempi-ui/typography";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 const StyledTypographyP = styled.p`
@@ -17,6 +18,8 @@ export const MoreInfo: FC<any> = ({
   componentLink,
   ...props
 }) => {
+  const t = useTranslations("more-info");
+
   return (
     <StyledTypographyP
       as={(props: any) => (
@@ -24,8 +27,7 @@ export const MoreInfo: FC<any> = ({
       )}
       {...props}
     >
-      {/* i18n */}
-      Para mais informações acesse{" "}
+      {t("label")}
       <Typography
         as="a"
         href={componentLink}

@@ -2,6 +2,7 @@ import { Avatar } from "@rempi-ui/avatar";
 import { Card } from "@rempi-ui/card";
 import { styled } from "@rempi-ui/core";
 import { Table } from "@rempi-ui/table";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 const data: any[] = [
@@ -69,13 +70,13 @@ export const DashboardDeals: FC = () => {
   const orderedData = data.sort(
     (dataOne, dataTwo) => dataTwo.amount - dataOne.amount
   );
+  const t = useTranslations("dashboard-deals");
 
   return (
     <StyledFullWidth as={Card.Root}>
       <Card.Header>
         <Card.Title fontWeight="regular" fontSize="lg">
-          {/* i18n */}
-          Maiores ofertas deste mês
+          {t("biggest-deals")}
         </Card.Title>
       </Card.Header>
       <Card.Content>
@@ -83,15 +84,12 @@ export const DashboardDeals: FC = () => {
           <Table.Header>
             <Table.Row>
               <StyledWidth80 as={Table.Head}>#</StyledWidth80>
-              {/* i18n */}
-              <Table.Head>Nome</Table.Head>
+              <Table.Head>{t("table-header-name")}</Table.Head>
               <StyledRightAlign as={Table.Head}>
-                {/* i18n */}
-                Valor da oferta
+                {t("table-header-deal-value")}
               </StyledRightAlign>
               <StyledRightAlign as={Table.Head}>
-                {/* i18n */}
-                Melhor valor do negócio
+                {t("table-header-best-deal-value")}
               </StyledRightAlign>
             </Table.Row>
           </Table.Header>

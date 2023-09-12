@@ -1,6 +1,7 @@
 import { Code } from "@rempi-ui/code";
 import { styled } from "@rempi-ui/core";
 import { Table } from "@rempi-ui/table";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 type PropDef = {
@@ -17,15 +18,15 @@ const StyledMarginTop = styled.div`
 `;
 
 export const DataReference: FC<DataReferenceProps> = ({ data }) => {
+  const t = useTranslations("data-reference");
+
   return (
     <StyledMarginTop>
       <Table.Root striped={false}>
         <Table.Header>
           <Table.Row>
-            {/* i18n */}
-            <Table.Head className="w-100">Atributo</Table.Head>
-            {/* i18n */}
-            <Table.Head>Valores</Table.Head>
+            <Table.Head className="w-100">{t("attr")}</Table.Head>
+            <Table.Head>{t("value")}</Table.Head>
           </Table.Row>
         </Table.Header>
         <Table.Body>
