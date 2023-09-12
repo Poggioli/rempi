@@ -40,6 +40,7 @@ const darkTheme = createTheme("dark-theme", {
     primary12: '#dddffe',
   }
 });
+
 const lightTheme = createTheme("light-theme", {
   colors: {
     error1: "#fffcfc",

@@ -7,6 +7,396 @@ slug: customization
 
 <Description text="Rempi-UI was designed so that you can customize tokens and make the library look like your product." />
 
+<Steps>
+
+<Step>Create the theme</Step>
+
+To create a custom theme, you must import the <strong>createTheme</strong> function
+from the <strong>@rempi-ui/core</strong> library.
+
+<Step>Using the createTheme function</Step>
+
+The first parameter that the <strong>createTheme</strong> function receives is the name
+of the theme you are creating, in this example we will create a clear theme.
+
+```jsx
+import { createTheme } from "@rempi-ui/core";
+
+const lightTheme = createTheme("light-theme", {});
+```
+
+<Step>Replacing the tokens</Step>
+
+The second parameter that the <strong>createTheme</strong> function receives are the tokens
+that we are going to overwrite, let's learn a little more about the structure of tokens:
+
+```typescript
+type Color = {
+  primary1: string;
+  primary2: string;
+  primary3: string;
+  primary4: string;
+  primary5: string;
+  primary6: string;
+  primary7: string;
+  primary8: string;
+  primary9: string;
+  primary10: string;
+  primary11: string;
+  primary12: string;
+  secondary1: string;
+  secondary2: string;
+  secondary3: string;
+  secondary4: string;
+  secondary5: string;
+  secondary6: string;
+  secondary7: string;
+  secondary8: string;
+  secondary9: string;
+  secondary10: string;
+  secondary11: string;
+  secondary12: string;
+  error1: string;
+  error2: string;
+  error3: string;
+  error4: string;
+  error5: string;
+  error6: string;
+  error7: string;
+  error8: string;
+  error9: string;
+  error10: string;
+  error11: string;
+  error12: string;
+  success1: string;
+  success2: string;
+  success3: string;
+  success4: string;
+  success5: string;
+  success6: string;
+  success7: string;
+  success8: string;
+  success9: string;
+  success10: string;
+  success11: string;
+  success12: string;
+  warning1: string;
+  warning2: string;
+  warning3: string;
+  warning4: string;
+  warning5: string;
+  warning6: string;
+  warning7: string;
+  warning8: string;
+  warning9: string;
+  warning10: string;
+  warning11: string;
+  warning12: string;
+  info1: string;
+  info2: string;
+  info3: string;
+  info4: string;
+  info5: string;
+  info6: string;
+  info7: string;
+  info8: string;
+  info9: string;
+  info10: string;
+  info11: string;
+  info12: string;
+  black1: string;
+  black2: string;
+  black3: string;
+  black4: string;
+  black5: string;
+  black6: string;
+  black7: string;
+  black8: string;
+  black9: string;
+  black10: string;
+  black11: string;
+  black12: string;
+  white1: string;
+  white2: string;
+  white3: string;
+  white4: string;
+  white5: string;
+  white6: string;
+  white7: string;
+  white8: string;
+  white9: string;
+  white10: string;
+  white11: string;
+  white12: string;
+  grey1: string;
+  grey2: string;
+  grey3: string;
+  grey4: string;
+  grey5: string;
+  grey6: string;
+  grey7: string;
+  grey8: string;
+  grey9: string;
+  grey10: string;
+  grey11: string;
+  grey12: string;
+} & {
+  [key: string]: string;
+};
+
+type Spaces = {
+  0: string | number;
+  1: string | number;
+  2: string | number;
+  3: string | number;
+  4: string | number;
+  5: string | number;
+  6: string | number;
+  7: string | number;
+  8: string | number;
+  9: string | number;
+  10: string | number;
+  11: string | number;
+  12: string | number;
+  13: string | number;
+  14: string | number;
+  15: string | number;
+  16: string | number;
+  17: string | number;
+  18: string | number;
+} & {
+  [key: string]: string | number;
+};
+
+type FontSizes = {
+  1: string | number;
+  2: string | number;
+  3: string | number;
+  4: string | number;
+  5: string | number;
+  6: string | number;
+  7: string | number;
+  8: string | number;
+  9: string | number;
+  10: string | number;
+  11: string | number;
+  12: string | number;
+} & {
+  [key: string]: string | number;
+};
+
+type FontWeights = {
+  1: string | number;
+  2: string | number;
+  3: string | number;
+  4: string | number;
+  5: string | number;
+  6: string | number;
+} & {
+  [key: string]: string | number;
+};
+
+type LineHeights = {
+  1: string | number;
+  2: string | number;
+} & {
+  [key: string]: string | number;
+};
+
+type BorderWidths = {
+  1: string | number;
+  2: string | number;
+} & {
+  [key: string]: string | number;
+};
+
+type Radiis = {
+  1: string | number;
+  2: string | number;
+  3: string | number;
+  4: string | number;
+  pill: string | number;
+} & {
+  [key: string]: string | number;
+};
+
+type Shadows = {
+  1: string;
+  2: string;
+  3: string;
+  4: string;
+} & {
+  [key: string]: string;
+};
+
+type ZIndices = {
+  1: number;
+  2: number;
+  3: number;
+  4: number;
+  5: number;
+  6: number;
+  7: number;
+  8: number;
+  9: number;
+  10: number;
+  11: number;
+  12: number;
+} & {
+  [key: string]: number;
+};
+
+type Breakpoints = {
+  1: string;
+  2: string;
+  3: string;
+  4: string;
+  5: string;
+} & {
+  [key: string]: string;
+};
+
+type RempiConfigCreateTheme = Partial<{
+  colors: Partial<Color>;
+  spaces: Partial<Spaces>;
+  fontSizes: Partial<FontSizes>;
+  fonts: Partial<any>;
+  fontWeights: Partial<FontWeights>;
+  lineHeights: Partial<LineHeights>;
+  letterSpacings: Partial<any>;
+  borderWidths: Partial<BorderWidths>;
+  radii: Partial<Radiis>;
+  shadows: Partial<Shadows>;
+  zIndices: Partial<ZIndices>;
+  breakpoints: Breakpoints;
+}>;
+```
+
+This is the current structure of the tokens, the second parameter of the function reflects the
+type <strong>RempiConfigCreateTheme</strong>. Therefore, you are not obliged
+to pass all tokens to customize a theme, but keep in mind that the <strong>Rempi-UI</strong> library
+will default to the values not informed by the session tokens.
+[Tokens](/docs/overview/tokens).
+
+This is why it is important to provide all tokens from the same group, e.g.
+of the primary colors, so that the library functions correctly.
+
+The colors used were taken from the library [Radix Colors](https://www.radix-ui.com/colors).
+
+<Step>Creating the Light Theme</Step>
+
+In this example we will create a clear theme, the same one used on this documentation site.
+
+```typescript
+import { createTheme } from "@rempi-ui/core";
+
+const lightTheme = createTheme("light-theme", {
+  colors: {
+    error1: "#fffcfc",
+    error2: "#fff8f8",
+    error3: "#ffefef",
+    error4: "#ffe5e5",
+    error5: "#fdd8d8",
+    error6: "#f9c6c6",
+    error7: "#f3aeaf",
+    error8: "#eb9091",
+    error9: "#e5484d",
+    error10: "#dc3d43",
+    error11: "#cd2b31",
+    error12: "#381316",
+
+    primary1: "#fdfcfd",
+    primary2: "#f9f8f9",
+    primary3: "#f4f2f4",
+    primary4: "#eeedef",
+    primary5: "#e9e8ea",
+    primary6: "#e4e2e4",
+    primary7: "#dcdbdd",
+    primary8: "#c8c7cb",
+    primary9: "#908e96",
+    primary10: "#86848d",
+    primary11: "#6f6e77",
+    primary12: "#1a1523",
+
+    secondary1: "#fdfcfe",
+    secondary2: "#fbfaff",
+    secondary3: "#f5f2ff",
+    secondary4: "#ede9fe",
+    secondary5: "#e4defc",
+    secondary6: "#d7cff9",
+    secondary7: "#c4b8f3",
+    secondary8: "#aa99ec",
+    secondary9: "#6e56cf",
+    secondary10: "#644fc1",
+    secondary11: "#5746af",
+    secondary12: "#20134b",
+
+    success1: "#fbfefb",
+    success2: "#f3fcf3",
+    success3: "#ebf9eb",
+    success4: "#dff3df",
+    success5: "#ceebcf",
+    success6: "#b7dfba",
+    success7: "#97cf9c",
+    success8: "#65ba75",
+    success9: "#46a758",
+    success10: "#3d9a50",
+    success11: "#297c3b",
+    success12: "#1b311e",
+
+    warning1: "#fefcfb",
+    warning2: "#fef8f4",
+    warning3: "#fff1e7",
+    warning4: "#ffe8d7",
+    warning5: "#ffdcc3",
+    warning6: "#ffcca7",
+    warning7: "#ffb381",
+    warning8: "#fa934e",
+    warning9: "#f76808",
+    warning10: "#ed5f00",
+    warning11: "#bd4b00",
+    warning12: "#451e11",
+
+    info1: "#fbfdff",
+    info2: "#f5faff",
+    info3: "#edf6ff",
+    info4: "#e1f0ff",
+    info5: "#cee7fe",
+    info6: "#b7d9f8",
+    info7: "#96c7f2",
+    info8: "#5eb0ef",
+    info9: "#0091ff",
+    info10: "#0081f1",
+    info11: "#006adc",
+    info12: "#00254d",
+
+    grey1: "#fbfcfd",
+    grey2: "#f8f9fa",
+    grey3: "#f1f3f5",
+    grey4: "#eceef0",
+    grey5: "#e6e8eb",
+    grey6: "#dfe3e6",
+    grey7: "#d7dbdf",
+    grey8: "#c1c8cd",
+    grey9: "#889096",
+    grey10: "#7e868c",
+    grey11: "#687076",
+    grey12: "#11181c",
+  },
+});
+```
+
+<Step>Applying the new theme</Step>
+
+To apply the new theme, simply follow the step-by-step instructions in the
+[Getting Started](/docs/overview/getting-started).
+
+</Steps>
+
+With these steps above it is possible to create different themes for multiple products,
+In the <strong>Rempi-UI</strong> documentation we have an example of this applied in
+dark theme and light theme.
+
 <NavigationNextPrevious
   previous={{
     link: "/docs/overview/tokens",
