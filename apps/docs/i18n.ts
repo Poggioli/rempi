@@ -1,6 +1,6 @@
 import { AbstractIntlMessages } from "next-intl";
 
-export const locales: string[] = ["pt-BR", "en-US"];
+export const locales: string[] = ["en-US", "pt-BR"];
 const localesInUpperCase: string[] = locales.map((locale) =>
   locale.toUpperCase()
 );
