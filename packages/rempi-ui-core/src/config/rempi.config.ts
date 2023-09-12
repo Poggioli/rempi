@@ -988,9 +988,6 @@ export function createTheme(selector: string, theme: RempiConfigCreateTheme) {
     },
     fontSizes: {
       ...(theme.fontSizes || {}),
-      0: convertToPxIfValueIsNumber(
-        useValue(theme.fontSizes?.[0], rempiDefaultConfig.fontSizes[0])
-      ),
       1: convertToPxIfValueIsNumber(
         useValue(theme.fontSizes?.[1], rempiDefaultConfig.fontSizes[1])
       ),

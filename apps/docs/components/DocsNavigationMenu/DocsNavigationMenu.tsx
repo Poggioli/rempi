@@ -36,6 +36,10 @@ const menus: Menu[] = [
         label: "0.items.1",
         href: "/docs/overview/getting-started",
       },
+      {
+        label: "0.items.2",
+        href: "/docs/overview/tokens",
+      },
     ],
   },
   {

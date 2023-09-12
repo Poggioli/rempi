@@ -13,7 +13,7 @@
   "docs-navigation-menu": [
     {
       "title": "Overview",
-      "items": ["Introduction", "Getting started"]
+      "items": ["Introduction", "Getting started", "Tokens"]
     },
     {
       "title": "Components",

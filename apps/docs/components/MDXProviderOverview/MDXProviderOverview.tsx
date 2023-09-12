@@ -9,6 +9,7 @@ import { Paragraph } from "./Paragraph";
 import { Pre } from "@/components/MDXProviderCommon/Pre";
 import { Step, Steps } from "@/components/MDXProviderCommon/Steps";
 import { EditThisPage } from "@/components/MDXProviderCommon/EditThisPage";
+import { TableOverview } from "./TableOverview";
 
 export const MDXProviderOverview: FC<PropsWithChildren<any>> = ({
   children,
@@ -25,7 +26,8 @@ export const MDXProviderOverview: FC<PropsWithChildren<any>> = ({
         Steps,
         Step,
         NavigationNextPrevious,
-        EditThisPage
+        EditThisPage,
+        Table: TableOverview
       }}
     >
       {children}
