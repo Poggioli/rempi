@@ -33,11 +33,63 @@ The <strong>Rempi-UI</strong> library provides a dark theme as the default.
 ```jsx
 import { ThemeProvider, createTheme } from "@rempi-ui/core";
 
-const darkTheme = createTheme("dark-theme", {});
+const { theme } = createTheme("dark-theme", {});
 
 () => (
-  <ThemeProvider theme={darkTheme.theme}>
+  <ThemeProvider theme={theme}>
     {...}
+  </ThemeProvider>
+);
+```
+
+<Step>Adding the CSS variables</Step>
+
+You should add the className provided by the theme as a class to your HTML element,
+as well as a <strong>style</strong> tag with the variables provided by
+the <strong>getCssText</strong> method.
+
+```jsx
+import { ThemeProvider, createTheme } from "@rempi-ui/core";
+
+const { theme, className, getCssText } = createTheme("dark-theme", {});
+
+() => (
+  <ThemeProvider theme={theme}>
+    <html lang="en" className={`${className}`}>
+      <head>
+        <style
+          id="rempi"
+          dangerouslySetInnerHTML={{ __html: getCssText() }}
+        ></style>
+      </head>
+      {...}
+    </html>
+  </ThemeProvider>
+);
+```
+
+<Step>Reset css</Step>
+
+We advise you to use our CSS reset file so that the library works better. Just import
+it along with the <strong>ThemeProvider</strong>.
+
+```jsx
+import { ThemeProvider, createTheme } from "@rempi-ui/core";
+import "@rempi-ui/core/src/config/global-reset.scss";
+
+const { theme, className, getCssText } = createTheme("dark-theme", {});
+
+() => (
+  <ThemeProvider theme={theme}>
+    <html lang="en" className={`${className}`}>
+      <head>
+        <style
+          id="rempi"
+          dangerouslySetInnerHTML={{ __html: getCssText() }}
+        ></style>
+      </head>
+      {...}
+    </html>
   </ThemeProvider>
 );
 ```
@@ -62,87 +114,151 @@ import { BellIcon, Check } from "lucide-react";
 const darkTheme = createTheme("dark-theme", {});
 
 () => (
-<ThemeProvider theme={darkTheme.theme}>
-  <Flex justifyContent="center">
-    <Card.Root>
-      <Card.Header>
-        <Card.Title>Notifications</Card.Title>
-        <Card.Description>You have 3 unread messages</Card.Description>
-      </Card.Header>
-      <Card.Content flexDirection="column">
-        <Flex alignItems="center">
-          <BellIcon size={16} />
-          <Flex flexDirection="column">
-            <Typography
-              fontSize="sm"
-              fontWeight="semi-bold"
-              color="high-contrast"
-              lineHeight={1}
+  <ThemeProvider theme={darkTheme.theme}>
+    <Flex justifyContent="center" style={{ padding: "var(--spaces-0)" }}>
+      <Card.Root>
+        <Card.Header>
+          <Card.Title>Notifications</Card.Title>
+          <Card.Description>You have 3 unread messages</Card.Description>
+        </Card.Header>
+        <Card.Content flexDirection="column">
+          <Flex
+            alignItems="center"
+            style={{
+              gap: "var(--spaces-4)",
+              padding: "var(--spaces-4)",
+              borderRadius: "var(--radii-2)",
+              border: "var(--border-widths-1) solid var(--colors-grey6)",
+            }}
+          >
+            <BellIcon
+              size={16}
+              style={{
+                color: "var(--colors-grey12)",
+              }}
+            />
+            <Flex
+              flexDirection="column"
+              style={{
+                gap: "var(--spaces-1)",
+                flex: 1,
+              }}
             >
-              Push Notifications
-            </Typography>
-            <Typography
-              fontSize="sm"
-              fontWeight="regular"
-              color="low-contrast"
-              lineHeight={1}
-            >
-              Send notifications to the device.
-            </Typography>
-          </Flex>
-          <Switch.Thumb />
-        </Flex>
-        <div>
-          {[
-            {
-              title: "Your call has been confirmed.",
-              description: "1 hour ago",
-            },
-            {
-              title: "You have a new message!",
-              description: "1 hour ago",
-            },
-            {
-              title: "Your subscription will expire soon!",
-              description: "2 hours ago",
-            },
-          ].map((notification, index, ar) => (
-            <Flex key={index} flexDirection="row" alignItems="start">
-              <Typography />
-              <Flex flexDirection="column">
-                <Typography
-                  fontSize="sm"
-                  fontWeight="semi-bold"
-                  color="high-contrast"
-                  lineHeight={1}
-                >
-                  {notification.title}
-                </Typography>
-                <Typography
-                  fontSize="sm"
-                  fontWeight="regular"
-                  color="low-contrast"
-                  lineHeight={1}
-                >
-                  {notification.description}
-                </Typography>
-              </Flex>
+              <Typography
+                fontSize="sm"
+                fontWeight="semi-bold"
+                color="high-contrast"
+                lineHeight={1}
+              >
+                Push Notifications
+              </Typography>
+              <Typography
+                fontSize="sm"
+                fontWeight="regular"
+                color="low-contrast"
+                lineHeight={1}
+              >
+                Send notifications to the device.
+              </Typography>
             </Flex>
-          ))}
-        </div>
-      </Card.Content>
+            <Switch.Thumb />
+          </Flex>
+          <div>
+            {[
+              {
+                title: "Your call has been confirmed.",
+                description: "1 hour ago",
+              },
+              {
+                title: "You have a new message!",
+                description: "1 hour ago",
+              },
+              {
+                title: "Your subscription will expire soon!",
+                description: "2 hours ago",
+              },
+            ].map((notification, index, ar) => (
+              <Flex
+                key={index}
+                flexDirection="row"
+                alignItems="start"
+                style={{
+                  gap: "var(--spaces-3)",
+                  marginBottom: ar.length === index + 1 ? 0 : "var(--spaces-4)",
+                  paddingBottom:
+                    ar.length === index + 1 ? 0 : "var(--spaces-4)",
+                }}
+              >
+                <Typography
+                  style={{
+                    borderRadius: "var(--radii-pill)",
+                    width: "var(--spaces-2)",
+                    height: "var(--spaces-2)",
+                    backgroundColor: "var(--colors-info9)",
+                    transform: "translate(0, var(--spaces-1))",
+                  }}
+                />
+                <Flex
+                  flexDirection="column"
+                  style={{
+                    gap: "var(--spaces-1)",
+                  }}
+                >
+                  <Typography
+                    fontSize="sm"
+                    fontWeight="semi-bold"
+                    color="high-contrast"
+                    lineHeight={1}
+                  >
+                    {notification.title}
+                  </Typography>
+                  <Typography
+                    fontSize="sm"
+                    fontWeight="regular"
+                    color="low-contrast"
+                    lineHeight={1}
+                  >
+                    {notification.description}
+                  </Typography>
+                </Flex>
+              </Flex>
+            ))}
+          </div>
+        </Card.Content>
+        <Card.Footer>
+          <Button
+            style={{
+              width: "100%",
+            }}
+          >
+            <Check
+              size={16}
+              style={{
+                marginRight: "var(--spaces-3)",
+              }}
+            />
+            Mark all as read
+          </Button>
+        </Card.Footer>
+      </Card.Root>
+    </Flex>
+  </ThemeProvider>
 );
 ```
+
+<Step>Font</Step>
+
+The <strong>Rempi-UI</strong> library was designed and developed with the font [Inter](https://fonts.google.com/specimen/Inter),
+you can import it as you wish.
 
 </Steps>
 
 <br />
 <br />
 
-The above steps briefly describe what's involved in using
-
-<strong>Rempi-UI</strong> in your project. In a few simple steps, we implemented
-an accessible notification card without having to worry about many of its complexities.
+The above steps briefly describe what's involved in using <strong>Rempi-UI</strong>
+in your project. In a few simple steps, we implemented an accessible notification
+card without having to worry about many of its complexities.
 
 <NavigationNextPrevious
   previous={{

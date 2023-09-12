@@ -2,9 +2,12 @@ import { Avatar } from "@rempi-ui/avatar";
 import { Flex } from "@rempi-ui/flex";
 import { Tabs } from "@rempi-ui/tabs";
 import { Typography } from "@rempi-ui/typography";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 export const TabsPreview: FC = () => {
+  const t = useTranslations("preview.tabs");
+
   return (
     <Flex justifyContent="center" style={{ padding: 2 }}>
       <Tabs.Root
@@ -14,13 +17,12 @@ export const TabsPreview: FC = () => {
         }}
       >
         <Tabs.List>
-          {/* i18n */}
-          <Tabs.Trigger value="photos">Fotos</Tabs.Trigger>
-          {/* i18n */}
-          <Tabs.Trigger value="description">Descrição</Tabs.Trigger>
-          {/* i18n */}
+          <Tabs.Trigger value="photos">{t("photo-tab")}</Tabs.Trigger>
+          <Tabs.Trigger value="description">
+            {t("description-tab")}
+          </Tabs.Trigger>
           <Tabs.Trigger value="personal-settings" disabled>
-            Configurações pessoais
+            {t("personal-settings-tab")}
           </Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="photos">
@@ -37,26 +39,23 @@ export const TabsPreview: FC = () => {
             }}
           >
             <Avatar.Root size="large">
-              {/* i18n */}
               <Avatar.Image
                 src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
-                alt="Menino"
+                alt={t("alt-img-1")}
               />
               <Avatar.Fallback delayMs={600}>B</Avatar.Fallback>
             </Avatar.Root>
             <Avatar.Root size="large">
-              {/* i18n */}
               <Avatar.Image
                 src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80"
-                alt="Menina"
+                alt={t("alt-img-2")}
               />
               <Avatar.Fallback delayMs={600}>G</Avatar.Fallback>
             </Avatar.Root>
             <Avatar.Root size="large">
-              {/* i18n */}
               <Avatar.Image
                 src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80"
-                alt="Cachorro"
+                alt={t("alt-img-3")}
               />
               <Avatar.Fallback delayMs={600}>D</Avatar.Fallback>
             </Avatar.Root>

@@ -1,9 +1,8 @@
 "use client";
 
-import { Footer } from "@/components/Footer";
 import { Home } from "@/components/Home";
 import { Container } from "@rempi-ui/container";
-import { StyledContainerBody, StyledContent } from "./layout.styles";
+import { StyledContainerBody, StyledContent } from "./page.styles";
 
 export default function Page() {
   return (
@@ -11,7 +10,6 @@ export default function Page() {
       <StyledContent>
         <Home />
       </StyledContent>
-      <Footer />
     </StyledContainerBody>
   );
 }

@@ -2,9 +2,12 @@ import { IconButton } from "@rempi-ui/button";
 import { Flex } from "@rempi-ui/Flex";
 import { Tooltip } from "@rempi-ui/tooltip";
 import { HelpCircle } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 export const TooltipPreview: FC = () => {
+  const t = useTranslations("preview.tooltip");
+
   return (
     <Flex
       alignItems="center"
@@ -13,9 +16,8 @@ export const TooltipPreview: FC = () => {
     >
       <Tooltip.Root>
         <Tooltip.Trigger>
-          {/* i18n */}
           <IconButton
-            aria-label="Configurações"
+            aria-label={t("trigger")}
             variant="text"
             shape="rounded"
             color="primary"
@@ -25,8 +27,7 @@ export const TooltipPreview: FC = () => {
           </IconButton>
         </Tooltip.Trigger>
         <Tooltip.Content>
-          {/* i18n */}
-          Adicionar biblioteca
+          {t("title")}
           <Tooltip.Arrow />
         </Tooltip.Content>
       </Tooltip.Root>

@@ -3,31 +3,28 @@ import { Collapsible } from "@rempi-ui/collpasible";
 import { Flex } from "@rempi-ui/flex";
 import { Typography } from "@rempi-ui/typography";
 import { FoldVertical, XIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { FC, useState } from "react";
 
 export const CollapsiblePreview: FC = () => {
+  const t = useTranslations("preview.collapsible");
   const [open, setOpen] = useState<boolean>(false);
 
   return (
     <Flex justifyContent="center" style={{ padding: 2 }}>
       <Collapsible.Root open={open} onOpenChange={setOpen}>
         <Flex
+          flexWrap="nowrap"
           justifyContent="space-between"
           alignItems="center"
           style={{ gap: 24, padding: "0 4px 0 16px" }}
         >
-          {/* i18n */}
-          <Typography>@peduarte favoritou 3 repositórios</Typography>
+          <Typography>{t("label", { value: "@peduarte" })}</Typography>
           <Collapsible.Trigger>
-            {/* i18n */}
             <IconButton
               shape="rounded"
               size="small"
-              aria-label={
-                !open
-                  ? "Abrir repositórios favoritados"
-                  : "Fechar repositórios favoritados"
-              }
+              aria-label={!open ? t("open") : t("close")}
               variant="outlined"
               style={{ padding: 8 }}
             >

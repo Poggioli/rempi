@@ -3,9 +3,12 @@ import { Flex } from "@rempi-ui/Flex";
 import { Popover } from "@rempi-ui/popover";
 import { Typography } from "@rempi-ui/typography";
 import { SlidersHorizontal } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 export const PopoverPreview: FC = () => {
+  const t = useTranslations("preview.popover");
+
   return (
     <Flex alignItems="center" justifyContent="center">
       <Popover.Root>
@@ -15,7 +18,7 @@ export const PopoverPreview: FC = () => {
               borderRadius: "var(--radii-pill)",
               padding: 12,
             }}
-            aria-label="Configurações"
+            aria-label={t("trigger")}
             variant="text"
             shape="rounded"
             color="primary"
@@ -44,8 +47,7 @@ export const PopoverPreview: FC = () => {
               sollicitudin metus.
             </Typography>
           </Flex>
-          {/* i18n */}
-          <Popover.CloseCross aria-label="Fechar" />
+          <Popover.CloseCross aria-label={t("close")} />
           <Popover.Arrow />
         </Popover.Content>
       </Popover.Root>

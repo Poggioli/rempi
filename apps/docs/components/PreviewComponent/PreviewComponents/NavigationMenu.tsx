@@ -1,6 +1,7 @@
 import { forwardRef, HTMLRempiProps, styled } from "@rempi-ui/core";
 import { Flex } from "@rempi-ui/flex";
 import { NavigationMenu } from "@rempi-ui/navigation-menu";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 type ListItemProps = HTMLRempiProps<"a"> & { title: string };
@@ -15,7 +16,7 @@ const StyledItemLink = styled.a`
   font-size: ${({ theme }) => theme.fontSizes[4]};
   line-height: ${({ theme }) => theme.lineHeights[1]};
 
-  :hover {
+  &:hover {
     background-color: ${({ theme }) => theme.colors.grey3};
   }
 `;
@@ -76,12 +77,13 @@ const StyledUlOne = styled.ul`
 `;
 
 export const NavigationMenuPreview: FC = () => {
+  const t = useTranslations("preview.navigation-menu");
+
   return (
     <Flex justifyContent="center" style={{ padding: 2 }}>
       <NavigationMenu.Root>
         <NavigationMenu.Item>
-          {/* i18n */}
-          <NavigationMenu.Trigger>Aprenda</NavigationMenu.Trigger>
+          <NavigationMenu.Trigger>{t("learn")}</NavigationMenu.Trigger>
           <NavigationMenu.Content>
             <StyledUlOne>
               <li style={{ gridRow: "span 3 / auto" }}>
@@ -133,133 +135,116 @@ export const NavigationMenuPreview: FC = () => {
                         lineHeight: "var(--line-heights-1)",
                       }}
                     >
-                      {/* i18n */}
-                      Componentes acessíveis e sem estilo para React.
+                      {t("learn-first-item")}
                     </p>
                   </a>
                 </NavigationMenu.Link>
               </li>
 
-              <ListItem href="https://stitches.dev/" title="Stitches">
-                {/* i18n */}
-                CSS-in-JS com a melhor experiência de desenvolvedor da
-                categoria.
+              <ListItem
+                href="https://stitches.dev/"
+                title={t("learn-second-item-title")}
+              >
+                {t("learn-second-item")}
               </ListItem>
-              {/* i18n */}
-              <ListItem href="/colors" title="Cores">
-                {/* i18n */}
-                Paletas lindas e bem pensadas com modo escuro automático.
+              <ListItem href="/colors" title={t("learn-third-item-title")}>
+                {t("learn-third-item")}
               </ListItem>
-              {/* i18n */}
-              <ListItem href="https://icons.radix-ui.com/" title="Icones">
-                {/* i18n */}
-                Um conjunto nítido de ícones 15x15, equilibrados e consistentes.
+              <ListItem
+                href="https://icons.radix-ui.com/"
+                title={t("learn-fourth-item-title")}
+              >
+                {t("learn-fourth-item")}
               </ListItem>
             </StyledUlOne>
           </NavigationMenu.Content>
         </NavigationMenu.Item>
 
         <NavigationMenu.Item>
-          {/* i18n */}
-          <NavigationMenu.Trigger>Visão geral</NavigationMenu.Trigger>
+          <NavigationMenu.Trigger>{t("overview")}</NavigationMenu.Trigger>
           <NavigationMenu.Content>
             <StyledUlTwo>
               <ListItem
-                title="Introdução"
+                title={t("overview-first-item-title")}
                 href="https://www.radix-ui.com/docs/primitives/overview/introduction"
               >
-                {/* i18n */}
-                Crie sistemas de design e aplicativos da web acessíveis e de
-                alta qualidade.
+                {t("overview-first-item")}
               </ListItem>
               <ListItem
-                title="Tutorial"
+                title={t("overview-second-item-title")}
                 href="https://www.radix-ui.com/docs/primitives/overview/getting-started"
               >
-                {/* i18n */}
-                Um tutorial rápido para você começar a usar o Radix Primitives.
+                {t("overview-second-item")}
               </ListItem>
               <ListItem
-                title="Estilo"
+                title={t("overview-third-item-title")}
                 href="https://www.radix-ui.com/docs/primitives/guides/styling"
               >
-                {/* i18n */}
-                Sem estilo e compatível com qualquer solução de estilo.
+                {t("overview-third-item")}
               </ListItem>
               <ListItem
-                title="Animações"
+                title={t("overview-fourth-item-title")}
                 href="https://www.radix-ui.com/docs/primitives/guides/animation"
               >
-                {/* i18n */}
-                Use quadros-chave CSS ou qualquer biblioteca de animação de sua
-                escolha.
+                {t("overview-fourth-item")}
               </ListItem>
               <ListItem
-                title="Acessibilidade"
+                title={t("overview-fifth-item-title")}
                 href="https://www.radix-ui.com/docs/primitives/overview/accessibility"
               >
-                {/* i18n */}
-                Testado em vários navegadores e tecnologias assistivas.
+                {t("overview-fifth-item")}
               </ListItem>
               <ListItem
-                title="Lançamentos"
+                title={t("overview-sixth-item-title")}
                 href="https://www.radix-ui.com/docs/primitives/overview/releases"
               >
-                {/* i18n */}
-                Lançamentos do Radix Primitives e seus changelogs.
+                {t("overview-sixth-item")}
               </ListItem>
             </StyledUlTwo>
           </NavigationMenu.Content>
         </NavigationMenu.Item>
 
         <NavigationMenu.Item>
-          {/* i18n */}
-          <NavigationMenu.Trigger disabled>Desabilitado</NavigationMenu.Trigger>
+          <NavigationMenu.Trigger disabled>
+            {t("disabled")}
+          </NavigationMenu.Trigger>
           <NavigationMenu.Content>
             <StyledUlTwo>
               <ListItem
-                title="Introdução"
+                title={t("overview-first-item-title")}
                 href="https://www.radix-ui.com/docs/primitives/overview/introduction"
               >
-                {/* i18n */}
-                Crie sistemas de design e aplicativos da web acessíveis e de
-                alta qualidade.
+                {t("overview-first-item")}
               </ListItem>
               <ListItem
-                title="Tutorial"
+                title={t("overview-second-item-title")}
                 href="https://www.radix-ui.com/docs/primitives/overview/getting-started"
               >
-                {/* i18n */}
-                Um tutorial rápido para você começar a usar o Radix Primitives.
+                {t("overview-second-item")}
               </ListItem>
               <ListItem
-                title="Estilo"
+                title={t("overview-third-item-title")}
                 href="https://www.radix-ui.com/docs/primitives/guides/styling"
               >
-                {/* i18n */}
-                Sem estilo e compatível com qualquer solução de estilo.
+                {t("overview-third-item")}
               </ListItem>
               <ListItem
-                title="Animações"
+                title={t("overview-fourth-item-title")}
                 href="https://www.radix-ui.com/docs/primitives/guides/animation"
               >
-                {/* i18n */}
-                Use quadros-chave CSS ou qualquer biblioteca de animação de sua
-                escolha.
+                {t("overview-fourth-item")}
               </ListItem>
               <ListItem
-                title="Acessibilidade"
+                title={t("overview-fifth-item-title")}
                 href="https://www.radix-ui.com/docs/primitives/overview/accessibility"
               >
-                {/* i18n */}
-                Testado em vários navegadores e tecnologias assistivas.
+                {t("overview-fifth-item")}
               </ListItem>
               <ListItem
-                title="Lançamentos"
+                title={t("overview-sixth-item-title")}
                 href="https://www.radix-ui.com/docs/primitives/overview/releases"
               >
-                {/* i18n */}
-                Lançamentos do Radix Primitives e seus changelogs.
+                {t("overview-sixth-item")}
               </ListItem>
             </StyledUlTwo>
           </NavigationMenu.Content>
@@ -267,7 +252,7 @@ export const NavigationMenuPreview: FC = () => {
 
         <NavigationMenu.Item>
           <NavigationMenu.Link href="https://github.com/radix-ui">
-            Github
+            {t("github")}
           </NavigationMenu.Link>
         </NavigationMenu.Item>
       </NavigationMenu.Root>

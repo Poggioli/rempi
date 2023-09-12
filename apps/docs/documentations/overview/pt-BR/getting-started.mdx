@@ -33,11 +33,64 @@ A biblioteca <strong>Rempi-UI</strong> disponibiliza um tema escuro como padrão
 ```jsx
 import { ThemeProvider, createTheme } from "@rempi-ui/core";
 
-const darkTheme = createTheme("dark-theme", {});
+const { theme } = createTheme("dark-theme", {});
 
 () => (
-  <ThemeProvider theme={darkTheme.theme}>
+  <ThemeProvider theme={theme}>
     {...}
+  </ThemeProvider>
+);
+```
+
+<Step>Adicionando as variáveis css</Step>
+
+Você deve adicionar o className fornecido pelo tema como classe do seu elemento
+html e também uma tag <strong>style</strong> com as variáveis fornecidas pelo
+método <strong>getCssText</strong>.
+
+```jsx
+import { ThemeProvider, createTheme } from "@rempi-ui/core";
+
+const { theme, className, getCssText } = createTheme("dark-theme", {});
+
+() => (
+  <ThemeProvider theme={theme}>
+    <html lang="en" className={`${className}`}>
+      <head>
+        <style
+          id="rempi"
+          dangerouslySetInnerHTML={{ __html: getCssText() }}
+        ></style>
+      </head>
+      {...}
+    </html>
+  </ThemeProvider>
+);
+```
+
+<Step>Reset css</Step>
+
+Nós aconselhamos você a utilizar o nosso arquivo de reset css para que a
+biblioteca funcione de uma maneira melhor. Basta importá-lo junto
+do <strong>ThemeProvider</strong>
+
+```jsx
+import { ThemeProvider, createTheme } from "@rempi-ui/core";
+import "@rempi-ui/core/src/config/global-reset.scss";
+
+const { theme, className, getCssText } = createTheme("dark-theme", {});
+
+() => (
+  <ThemeProvider theme={theme}>
+    <html lang="en" className={`${className}`}>
+      <head>
+        <style
+          id="rempi"
+          dangerouslySetInnerHTML={{ __html: getCssText() }}
+        ></style>
+      </head>
+      {...}
+    </html>
   </ThemeProvider>
 );
 ```
@@ -63,16 +116,35 @@ const darkTheme = createTheme("dark-theme", {});
 
 () => (
   <ThemeProvider theme={darkTheme.theme}>
-    <Flex justifyContent="center">
+    <Flex justifyContent="center" style={{ padding: "var(--spaces-0)" }}>
       <Card.Root>
         <Card.Header>
           <Card.Title>Notificações</Card.Title>
           <Card.Description>Você possuí 3 mensagens não lidas</Card.Description>
         </Card.Header>
         <Card.Content flexDirection="column">
-          <Flex alignItems="center">
-            <BellIcon size={16} />
-            <Flex flexDirection="column">
+          <Flex
+            alignItems="center"
+            style={{
+              gap: "var(--spaces-4)",
+              padding: "var(--spaces-4)",
+              borderRadius: "var(--radii-2)",
+              border: "var(--border-widths-1) solid var(--colors-grey6)",
+            }}
+          >
+            <BellIcon
+              size={16}
+              style={{
+                color: "var(--colors-grey12)",
+              }}
+            />
+            <Flex
+              flexDirection="column"
+              style={{
+                gap: "var(--spaces-1)",
+                flex: 1,
+              }}
+            >
               <Typography
                 fontSize="sm"
                 fontWeight="semi-bold"
@@ -107,9 +179,32 @@ const darkTheme = createTheme("dark-theme", {});
                 description: "2 horas atrás",
               },
             ].map((notification, index, ar) => (
-              <Flex key={index} flexDirection="row" alignItems="start">
-                <Typography />
-                <Flex flexDirection="column">
+              <Flex
+                key={index}
+                flexDirection="row"
+                alignItems="start"
+                style={{
+                  gap: "var(--spaces-3)",
+                  marginBottom: ar.length === index + 1 ? 0 : "var(--spaces-4)",
+                  paddingBottom:
+                    ar.length === index + 1 ? 0 : "var(--spaces-4)",
+                }}
+              >
+                <Typography
+                  style={{
+                    borderRadius: "var(--radii-pill)",
+                    width: "var(--spaces-2)",
+                    height: "var(--spaces-2)",
+                    backgroundColor: "var(--colors-info9)",
+                    transform: "translate(0, var(--spaces-1))",
+                  }}
+                />
+                <Flex
+                  flexDirection="column"
+                  style={{
+                    gap: "var(--spaces-1)",
+                  }}
+                >
                   <Typography
                     fontSize="sm"
                     fontWeight="semi-bold"
@@ -132,8 +227,18 @@ const darkTheme = createTheme("dark-theme", {});
           </div>
         </Card.Content>
         <Card.Footer>
-          <Button>
-            <Check size={16} /> Marcar todas como lidas
+          <Button
+            style={{
+              width: "100%",
+            }}
+          >
+            <Check
+              size={16}
+              style={{
+                marginRight: "var(--spaces-3)",
+              }}
+            />
+            Marcar todas como lidas
           </Button>
         </Card.Footer>
       </Card.Root>
@@ -141,6 +246,11 @@ const darkTheme = createTheme("dark-theme", {});
   </ThemeProvider>
 );
 ```
+
+<Step>Fonte</Step>
+
+A biblioteca <strong>Rempi-UI</strong> foi pensada e desenvolvida com a fonte [Inter](https://fonts.google.com/specimen/Inter),
+você pode importá-la como desejar.
 
 </Steps>
 

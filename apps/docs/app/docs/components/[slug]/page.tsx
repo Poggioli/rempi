@@ -1,6 +1,7 @@
 import { MDXWrapper } from "@/components/MDXWrapper";
 import { NewVersionWarning } from "@/components/NewVersionWarning";
 import { VersionProvider } from "@/components/VersionProvider/VersionProvider";
+import { getCurrentLocale } from "i18n";
 import { Metadata } from "next";
 import { serialize } from "next-mdx-remote/serialize";
 import semverSort from "semver-sort";
@@ -8,7 +9,7 @@ import { loadMdxFile, readAllFilesInPath } from "utils/loadMdxFile";
 
 function loadAvailableVersions(slug: string) {
   const docs: string[] = readAllFilesInPath(
-    `documentations/components/pt-BR/${slug}`
+    `documentations/components/${getCurrentLocale()}/${slug}`
   );
   const docsWithoutExt = docs.map((doc) => doc.replace(".mdx", ""));
   const docsSortedMoreRecentFirst = semverSort.desc(docsWithoutExt);
@@ -20,10 +21,16 @@ function loadDocBySlug(slug: string, version?: string) {
   const versions = loadAvailableVersions(slug);
 
   if (version && versions.includes(version)) {
-    return loadMdxFile(`documentations/components/pt-BR/${slug}`, version);
+    return loadMdxFile(
+      `documentations/components/${getCurrentLocale()}/${slug}`,
+      version
+    );
   }
 
-  return loadMdxFile(`documentations/components/pt-BR/${slug}`, versions[0]);
+  return loadMdxFile(
+    `documentations/components/${getCurrentLocale()}/${slug}`,
+    versions[0]
+  );
 }
 
 export async function generateMetadata({

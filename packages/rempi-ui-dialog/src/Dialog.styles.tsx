@@ -63,7 +63,7 @@ export const StyledDialogContent = styled(Dialog.Content)`
   box-shadow: ${({ theme }) => theme.shadows[2]};
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: 100%;
   left: 50%;
   padding: ${({ theme }) => theme.spaces[6]};
   position: fixed;
@@ -74,6 +74,7 @@ export const StyledDialogContent = styled(Dialog.Content)`
 
   ${({ theme }) => theme.breakpoints[1]} {
     border-radius: ${({ theme }) => theme.radii[2]};
+    height: auto;
     display: block;
     max-height: 85vh;
     width: min(90vw, 576px);

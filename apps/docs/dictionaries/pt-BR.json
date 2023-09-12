@@ -1,0 +1,480 @@
+{
+  "home": {
+    "title": "Construa interfaces amigáveis.",
+    "description": "Componentes acessíveis e bonitos. Desenvolvimento rápido, design bonito, experiência agradável para todos os usuários.",
+    "start": "Iniciar",
+    "github": "Github"
+  },
+  "navigation-menu": {
+    "documentation": "Documentação",
+    "open": "Abrir menu de navegação",
+    "close": "Fechar menu de navegação"
+  },
+  "docs-navigation-menu": [
+    {
+      "title": "Visão geral",
+      "items": ["Introdução", "Tutorial"]
+    },
+    {
+      "title": "Componentes",
+      "items": [
+        "Accordion",
+        "Alert Dialog",
+        "Aspect Ratio",
+        "Avatar",
+        "Badge",
+        "Blockquote",
+        "Button",
+        "Calendar",
+        "Callout",
+        "Card",
+        "Checkbox",
+        "Code",
+        "Collapsible",
+        "Combobox",
+        "Container",
+        "Context Menu",
+        "Dialog",
+        "Drawer",
+        "Dropdown Menu",
+        "Flex",
+        "Heading",
+        "Hover Card",
+        "Input",
+        "Label",
+        "Menubar",
+        "Navigation Menu",
+        "Popover",
+        "Progress",
+        "Radio",
+        "Scroll Area",
+        "Select",
+        "Separator",
+        "Skeleton",
+        "Slider",
+        "Switch",
+        "Table",
+        "Tabs",
+        "Textarea",
+        "Toast",
+        "Toggle",
+        "Tooltip",
+        "Typography"
+      ]
+    }
+  ],
+  "dashboard": {
+    "select-team": "Selecione um time",
+    "search-team": "Busque pelo time",
+    "not-found": "Nenhum time encontrado.",
+    "personal-account": "Conta pessoal",
+    "team": "times",
+    "search": "Buscar...",
+    "profile": "Perfil",
+    "billing": "Cobrança",
+    "settings": "Configurações",
+    "new-team": "Novo time",
+    "logout": "Sair"
+  },
+  "dashboard-body-header": {
+    "title": "Dashboard",
+    "select": "Selecione um período",
+    "download": "Download"
+  },
+  "dashboard-customers": {
+    "customers": "Clientes",
+    "month": "meses",
+    "avg-life-time": "Vida útil média"
+  },
+  "dashboard-deals": {
+    "biggest-deals": "Maiores ofertas deste mês",
+    "table-header-name": "Nome",
+    "table-header-deal-value": "Valor do acordo",
+    "table-header-best-deal-value": "Melhor valor do acordo"
+  },
+  "dashboard-tabs": {
+    "overview": "Visão geral",
+    "analytics": "Analytics",
+    "reports": "Relatórios",
+    "notifications": "Notificações",
+    "cards": [
+      {
+        "title": "Pesquisa de marca",
+        "caption": "{value} do mês passado"
+      },
+      {
+        "title": "Pedidos",
+        "caption": "{value} do mês passado"
+      },
+      {
+        "title": "Vendas",
+        "caption": "{value} do mês passado"
+      },
+      {
+        "title": "Ativos agora",
+        "caption": "{value} desde a última hora"
+      }
+    ]
+  },
+  "edit-this-page": {
+    "label": "Edite esta página no Github."
+  },
+  "navigation-next-previous": {
+    "previous": "Anterior",
+    "next": "Próximo"
+  },
+  "api-reference": {
+    "props": "Props",
+    "type": "Tipo",
+    "default-value": "Valor padrão",
+    "help-label-description": "Descrição da prop",
+    "help-label-type": "Ver a tipagem completa"
+  },
+  "data-reference": {
+    "attr": "Atributo",
+    "value": "Valores"
+  },
+  "more-info": {
+    "label": "Para mais informações acesse "
+  },
+  "radix-api": {
+    "label": "Referência da API"
+  },
+  "select-version": {
+    "aria-label": "Versão da documentação",
+    "placeholder": "Selecione uma versão",
+    "latest": "(última)"
+  },
+  "new-version": {
+    "text": "Uma nova versão do {title} está disponível. ",
+    "learn-more": "Veja mais"
+  },
+  "preview-component": {
+    "not-found": "Componente não encontrado!",
+    "example": "Exemplo",
+    "example-tab": "Exemplo",
+    "code-tab": "Código"
+  },
+  "preview": {
+    "accordion": {
+      "items": [
+        {
+          "title": "É acessível?",
+          "content": "Sim. Ele segue o padrão de design WAI-ARIA."
+        },
+        {
+          "title": "Não tem estilo?",
+          "content": "Sim. Não tem estilo por padrão, dando a você liberdade na estilização."
+        },
+        {
+          "title": "Pode ser animado?",
+          "content": "Sim! Você pode animar o Accordion com CSS ou JavaScript."
+        },
+        {
+          "title": "Poderia ser desativado?",
+          "content": "Sim. Poderia ser desativado"
+        }
+      ]
+    },
+    "alert-dialog": {
+      "button": "Deletar conta",
+      "title": "Você tem certeza absoluta?",
+      "description": "Essa ação não pode ser desfeita. Isso excluirá permanentemente sua conta e removará seus dados de nossos servidores.",
+      "cancel": "Cancelar",
+      "action": "Sim, excluir conta"
+    },
+    "aspect-ratio": {
+      "label": "Fotografia de paisagem por {value}"
+    },
+    "badge": {
+      "label": "Olá sou um Badge"
+    },
+    "blockquote": {
+      "label": "Olá eu sou um Blockquote"
+    },
+    "button": {
+      "label": "Olá eu sou um botão",
+      "aria-label": "Baixe o conteúdo"
+    },
+    "callout": {
+      "label": "Você precisará de privilégios de administrador para instalar e acessar este aplicativo."
+    },
+    "card": {
+      "title": "Notificações",
+      "description": "Você possuí 3 mensagens não lidas.",
+      "notifications-alert": {
+        "title": "Notificações via push",
+        "description": "Envie notificações para o dispositivo."
+      },
+      "notifications": [
+        {
+          "title": "Sua chamada foi confirmada.",
+          "description": "1 hora atrás"
+        },
+        {
+          "title": "Você possuí uma nova mensagem!",
+          "description": "1 hora atrás"
+        },
+        {
+          "title": "Sua inscrição irá expirar em breve!",
+          "description": "2 hora atrás"
+        }
+      ],
+      "mark-all-as-read": "Marcar todas como lida"
+    },
+    "checkbox": {
+      "label": "Eu li e aceito os termos de uso."
+    },
+    "code": {
+      "label": "console.log('Eu sou um Code')"
+    },
+    "collapsible": {
+      "label": "{value} favoritou 3 repositórios",
+      "open": "Abrir repositórios favoritados",
+      "close": "Fechar repositórios favoritados"
+    },
+    "combobox": {
+      "trigger-placeholder": "Selecione um framework",
+      "input-placeholder": "Busque por um framework",
+      "not-found": "Framework não encontrado."
+    },
+    "context-menu": {
+      "trigger": "Clique com o botão direito aqui",
+      "item-back": "Voltar",
+      "item-forward": "Avançar",
+      "item-reload": "Recarregar",
+      "item-more-tools": "Mais ferramentas",
+      "item-save": "Salvar página como...",
+      "item-create-shortcut": "Criar um atalho",
+      "item-window-name": "Nome da janela",
+      "item-developer-tools": "Ferramentas do desenvolvedor",
+      "item-show-bookmarks": "Mostrar favoritos",
+      "item-show-full-url": "Mostrar URLs completas",
+      "item-peoples": "Pessoas"
+    },
+    "dialog": {
+      "trigger": "Editar perfil",
+      "close-cross": "Fechar",
+      "title": "Editar perfil",
+      "description": "Faça alterações em seu perfil aqui. Clique em salvar quando terminar.",
+      "input-label-name": "Nome",
+      "input-placeholder-name": "Digite seu nome",
+      "input-label-username": "Nome de usuário",
+      "input-placeholder-username": "Digite seu nome de usuário",
+      "cancel": "Cancelar",
+      "save": "Salvar"
+    },
+    "drawer": {
+      "trigger-left": "Drawer esquerdo",
+      "trigger-right": "Drawer direito",
+      "trigger-bottom": "Drawer abaixo",
+      "trigger-top": "Drawer topo",
+      "close-cross": "Fechar",
+      "title": "Editar perfil",
+      "description": "Faça alterações em seu perfil aqui. Clique em salvar quando terminar.",
+      "input-label-name": "Nome",
+      "input-placeholder-name": "Digite seu nome",
+      "input-label-username": "Nome de usuário",
+      "input-placeholder-username": "Digite seu nome de usuário",
+      "cancel": "Cancelar",
+      "save": "Salvar"
+    },
+    "dropdown-menu": {
+      "trigger": "Configurações",
+      "item-back": "Voltar",
+      "item-forward": "Avançar",
+      "item-reload": "Recarregar",
+      "item-more-tools": "Mais ferramentas",
+      "item-save": "Salvar página como...",
+      "item-create-shortcut": "Criar um atalho",
+      "item-window-name": "Nome da janela",
+      "item-developer-tools": "Ferramentas do desenvolvedor",
+      "item-show-bookmarks": "Mostrar favoritos",
+      "item-show-full-url": "Mostrar URLs completas",
+      "item-peoples": "Pessoas"
+    },
+    "heading": {
+      "label": "Olá eu sou um Heading"
+    },
+    "hover-card": {
+      "img-profile-trigger": "foto de perfil do Twitter de {value}",
+      "img-profile-card": "foto de perfil do Twitter de {value}",
+      "followers": "Seguindo",
+      "following": "Seguidores"
+    },
+    "input": {
+      "label": "Nome",
+      "placeholder": "Digite seu nome"
+    },
+    "label": {
+      "label": "Olá eu sou uma Label"
+    },
+    "menu-bar": {
+      "files": "Arquivos",
+      "new-tab": "Nova aba",
+      "new-window": "Nova janela",
+      "new-window-incognito": "Nova janela anônima",
+      "share": "Compartilhar",
+      "email-link": "Email Link",
+      "messages": "Mensagens",
+      "notes": "Notas",
+      "print": "Imprimir...",
+      "edit": "Editar",
+      "undo": "Desfazer",
+      "reundo": "Refazer",
+      "find": "Buscar",
+      "find-web": "Buscar na internet...",
+      "find-next": "Buscar próximo",
+      "find-previous": "Buscar anterior",
+      "cut": "Cortar",
+      "copy": "Copiar",
+      "paste": "Colar",
+      "view": "Visualizar",
+      "reload": "Recarregar",
+      "reload-forced": "Recarregamento forçado",
+      "full-screen": "Mudar para tela cheia",
+      "hide-sidebar": "Esconder barra lateral",
+      "profile": "Perfil",
+      "add-profile": "Adicionar perfil",
+      "companies": "Empresas",
+      "always-show-bookmarks": "Sempre mostrar barra de favoritos",
+      "always-show-full-url": "Sempre mostrar URLs completas"
+    },
+    "navigation-menu": {
+      "learn": "Aprenda",
+      "learn-first-item": "Componentes acessíveis e sem estilo para React.",
+      "learn-first-item-title": "Stitches",
+      "learn-second-item": "CSS-in-JS com a melhor experiência de desenvolvedor da categoria.",
+      "learn-second-item-title": "Stitches",
+      "learn-third-item": "Paletas lindas e bem pensadas com modo escuro automático.",
+      "learn-third-item-title": "Cores",
+      "learn-forth-item": "Um conjunto nítido de ícones 15x15, equilibrados e consistentes.",
+      "learn-forth-item-title": "Icones",
+      "overview": "Visão geral",
+      "overview-first-item": "Crie sistemas de design e aplicativos da web acessíveis e de alta qualidade.",
+      "overview-first-item-title": "Introdução",
+      "overview-second-item": "Um tutorial rápido para você começar a usar o Radix Primitives.",
+      "overview-second-item-title": "Tutorial",
+      "overview-third-item": "Sem estilo e compatível com qualquer solução de estilo.",
+      "overview-third-item-title": "Estilo",
+      "overview-forth-item": "Use quadros-chave CSS ou qualquer biblioteca de animação de sua escolha.",
+      "overview-forth-item-title": "Animações",
+      "overview-fifth-item": "Testado em vários navegadores e tecnologias assistivas.",
+      "overview-fifth-item-title": "Acessibilidade",
+      "overview-sixth-item": "Lançamentos do Radix Primitives e seus changelogs.",
+      "overview-sixth-item-title": "Lançamentos",
+      "disabled": "Desabilitado",
+      "github": "Github"
+    },
+    "popover": {
+      "trigger": "Configurações",
+      "close": "Fechar"
+    },
+    "radio": {
+      "label": "Selecione sua cor favorita",
+      "values": ["Verde", "Roxa", "Marrom", "Branco", "Amarelo"]
+    },
+    "select": {
+      "aria-label": "Comida",
+      "placeholder": "Selecione a comida",
+      "groups": [
+        {
+          "title": "Frutas",
+          "items": ["Maçã", "Banana", "Mirtilo", "Uva", "Abacaxi"]
+        },
+        {
+          "title": "Vegetais",
+          "items": [
+            "Berinjela",
+            "Brócolis",
+            "Cenoura",
+            "Abobrinha",
+            "Alho-poró"
+          ]
+        },
+        {
+          "title": "Carnes",
+          "items": ["Carne bovina", "Frango", "Ovelha", "Carne suína"]
+        }
+      ]
+    },
+    "separator": {
+      "first-label": "Entre nós",
+      "second-label": "há um Separator"
+    },
+    "slider": {
+      "label": "Volume"
+    },
+    "switch": {
+      "title": "Notificações via push",
+      "description": "Envie notificações para o dispositivo."
+    },
+    "table": {
+      "caption": "Uma lista de suas faturas recentes.",
+      "invoice-header": "Fatura",
+      "status-header": "Status",
+      "method-header": "Método de pagamento",
+      "value-header": "Quantia",
+      "invoices": [
+        {
+          "payment-status": "Pago",
+          "payment-method": "Cartão de crédito"
+        },
+        {
+          "payment-status": "Pendente",
+          "payment-method": "PayPal"
+        },
+        {
+          "payment-status": "Pagamento pendente",
+          "payment-method": "Transferência bancária"
+        },
+        {
+          "payment-status": "Pago",
+          "payment-method": "Cartão de crédito"
+        },
+        {
+          "payment-status": "Pago",
+          "payment-method": "PayPal"
+        },
+        {
+          "payment-status": "Pendente",
+          "payment-method": "Transferência bancária"
+        },
+        {
+          "payment-status": "Pagamento pendente",
+          "payment-method": "Cartão de crédito"
+        }
+      ]
+    },
+    "tabs": {
+      "photo-tab": "Fotos",
+      "description-tab": "Descrição",
+      "personal-settings-tab": "Configurações pessoais",
+      "alt-img-1": "Menino",
+      "alt-img-2": "Menina",
+      "alt-img-3": "Cachorro"
+    },
+    "textarea": {
+      "label": "Mensagem",
+      "placeholder": "Digite sua mensagem aqui"
+    },
+    "toast": {
+      "trigger": "Mostrar Toast",
+      "title": "O usuário será excluído",
+      "description": "O usuário será excluído em 5 segundos",
+      "action": "Desfazer ação",
+      "close": "Fechar"
+    },
+    "tooltip": {
+      "trigger": "Configurações",
+      "title": "Adicionar biblioteca"
+    },
+    "typography": {
+      "label": "Eu sou um Typography"
+    }
+  },
+  "theme-selector": {
+    "label": "Tema",
+    "items": ["Escuro", "Claro"]
+  }
+}

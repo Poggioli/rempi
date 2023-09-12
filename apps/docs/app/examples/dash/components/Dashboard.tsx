@@ -5,6 +5,7 @@ import { Combobox } from "@rempi-ui/combobox";
 import { DropdownMenu } from "@rempi-ui/dropdown-menu";
 import { Flex } from "@rempi-ui/flex";
 import { Input } from "@rempi-ui/input";
+import { useTranslations } from "next-intl";
 import { FC, useState } from "react";
 import {
   StyledDashboard,
@@ -17,6 +18,7 @@ import { DashboardTabs } from "./DashboardTabs";
 
 const Dashboard: FC = () => {
   const [selectedValue, setSelectedValue] = useState("john-stone");
+  const t = useTranslations("dashboard");
 
   return (
     <StyledDashboard as={Flex} flexDirection="column">
@@ -30,15 +32,15 @@ const Dashboard: FC = () => {
       >
         <Combobox.Root value={selectedValue} onValueChange={setSelectedValue}>
           <Combobox.Trigger>
-            <Combobox.Value placeholder="Selecione um time" />
+            <Combobox.Value placeholder={t("select-team")} />
           </Combobox.Trigger>
           <Combobox.Content>
-            <Combobox.Input placeholder="Busque pelo time" />
-            <Combobox.Empty>Nenhum time encontrado.</Combobox.Empty>
-            <Combobox.Label>Conta pessoal</Combobox.Label>
+            <Combobox.Input placeholder={t("search-team")} />
+            <Combobox.Empty>{t("not-found")}</Combobox.Empty>
+            <Combobox.Label>{t("personal-account")}</Combobox.Label>
             <Combobox.Item value="john-stone">John Stone</Combobox.Item>
             <Combobox.Separator />
-            <Combobox.Label>Times</Combobox.Label>
+            <Combobox.Label>{t("team")}</Combobox.Label>
             <Combobox.Item value="acme-inc">Acme Inc.</Combobox.Item>
             <Combobox.Item value="monsters-inc">Monsters Inc.</Combobox.Item>
             <Combobox.Item disabled value="angels-inc">
@@ -48,7 +50,7 @@ const Dashboard: FC = () => {
         </Combobox.Root>
 
         <StyledDashboardSearch as={Flex} alignItems="center">
-          <Input.Root placeholder="Buscar..." />
+          <Input.Root placeholder={t("search")} />
           <DropdownMenu.Root>
             <DropdownMenu.Trigger>
               <Avatar.Root size="small">
@@ -61,23 +63,18 @@ const Dashboard: FC = () => {
             </DropdownMenu.Trigger>
             <DropdownMenu.Content align="end">
               <DropdownMenu.Item>
-                {/* i18n */}
-                Perfil <div className="ml-auto">⌘+[</div>
+                {t("profile")} <div className="ml-auto">⌘+[</div>
               </DropdownMenu.Item>
               <DropdownMenu.Item disabled>
-                {/* i18n */}
-                Cobrança <div className="ml-auto">⌘+]</div>
+                {t("billing")} <div className="ml-auto">⌘+]</div>
               </DropdownMenu.Item>
               <DropdownMenu.Item>
-                {/* i18n */}
-                Ajustes <div className="ml-auto">⌘+R</div>
+                {t("settings")} <div className="ml-auto">⌘+R</div>
               </DropdownMenu.Item>
-                {/* i18n */}
-              <DropdownMenu.Item>Novo time</DropdownMenu.Item>
+              <DropdownMenu.Item>{t("new-team")}</DropdownMenu.Item>
               <DropdownMenu.Separator />
               <DropdownMenu.Item>
-                {/* i18n */}
-                Sair <div className="ml-auto">⌘+R</div>
+                {t("logout")} <div className="ml-auto">⌘+R</div>
               </DropdownMenu.Item>
             </DropdownMenu.Content>
           </DropdownMenu.Root>

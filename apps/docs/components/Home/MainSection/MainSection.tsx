@@ -3,6 +3,7 @@ import { Flex } from "@rempi-ui/flex";
 import { Heading } from "@rempi-ui/heading";
 import { Typography } from "@rempi-ui/typography";
 import { Github } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 import {
   StyledMainSection,
@@ -10,10 +11,12 @@ import {
   StyledMainSectionGithubIconLink,
   StyledMainSectionLead,
   StyledMainSectionStartLink,
-  StyledMainSectionTitle
+  StyledMainSectionTitle,
 } from "./MainSection.styles";
 
 export const MainSection: FC = () => {
+  const t = useTranslations("home");
+
   return (
     <StyledMainSection
       as={(props: any) => <Flex {...props} as="section" />}
@@ -24,7 +27,7 @@ export const MainSection: FC = () => {
         fontWeight="semi-bold"
         lineHeight={1}
       >
-        Construa interfaces amigáveis.
+        {t("title")}
       </StyledMainSectionTitle>
       <StyledMainSectionLead
         as={Typography}
@@ -32,8 +35,7 @@ export const MainSection: FC = () => {
         color="low-contrast"
         fontWeight="normal"
       >
-        Componentes acessíveis e bonitos. Desenvolvimento suave, design bonito,
-        experiência agradável para todos os usuários.
+        {t("description")}
       </StyledMainSectionLead>
       <StyledMainSectionButtons as={Flex} flexDirection="row">
         <StyledMainSectionStartLink
@@ -42,7 +44,7 @@ export const MainSection: FC = () => {
           variant="solid"
           color="primary"
         >
-          Iniciar
+          {t("start")}
         </StyledMainSectionStartLink>
         <Button
           as="a"
@@ -52,7 +54,7 @@ export const MainSection: FC = () => {
           color="primary"
         >
           <StyledMainSectionGithubIconLink as={Github} size={16} />
-          GitHub
+          {t("github")}
         </Button>
       </StyledMainSectionButtons>
     </StyledMainSection>

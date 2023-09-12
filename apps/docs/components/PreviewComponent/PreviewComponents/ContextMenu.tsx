@@ -3,12 +3,14 @@
 import { ContextMenu } from "@rempi-ui/context-menu";
 import { Flex } from "@rempi-ui/flex";
 import { Typography } from "@rempi-ui/typography";
+import { useTranslations } from "next-intl";
 import { FC, useState } from "react";
 
 export const ContextMenuPreview: FC = () => {
   const [bookmarksChecked, setBookmarksChecked] = useState(true);
   const [urlsChecked, setUrlsChecked] = useState(true);
   const [person, setPerson] = useState("pedro");
+  const t = useTranslations("preview.context-menu");
 
   return (
     <ContextMenu.Root>
@@ -22,14 +24,12 @@ export const ContextMenuPreview: FC = () => {
             border: "var(--border-widths-2) dashed var(--colors-grey9)",
           }}
         >
-          {/* i18n */}
-          <Typography>Clique com o botão direito aqui</Typography>
+          <Typography>{t("trigger")}</Typography>
         </Flex>
       </ContextMenu.Trigger>
       <ContextMenu.Content>
         <ContextMenu.Item>
-          {/* i18n */}
-          Voltar
+          {t("item-back")}
           <div
             style={{
               marginLeft: "auto",
@@ -39,8 +39,7 @@ export const ContextMenuPreview: FC = () => {
           </div>
         </ContextMenu.Item>
         <ContextMenu.Item disabled>
-          {/* i18n */}
-          Avançar
+          {t("item-forward")}
           <div
             style={{
               marginLeft: "auto",
@@ -50,8 +49,7 @@ export const ContextMenuPreview: FC = () => {
           </div>
         </ContextMenu.Item>
         <ContextMenu.Item>
-          {/* i18n */}
-          Recarregar
+          {t("item-reload")}
           <div
             style={{
               marginLeft: "auto",
@@ -63,13 +61,11 @@ export const ContextMenuPreview: FC = () => {
 
         <ContextMenu.SubMenu>
           <ContextMenu.SubMenuTrigger>
-            {/* i18n */}
-            Mais ferramentas
+            {t("item-more-tools")}
           </ContextMenu.SubMenuTrigger>
           <ContextMenu.SubMenuContent sideOffset={2} alignOffset={-5}>
             <ContextMenu.Item>
-              {/* i18n */}
-              Salvar página como...
+              {t("item-save")}
               <div
                 style={{
                   marginLeft: "auto",
@@ -78,13 +74,10 @@ export const ContextMenuPreview: FC = () => {
                 ⌘+S
               </div>
             </ContextMenu.Item>
-            {/* i18n */}
-            <ContextMenu.Item>Criar um atalho</ContextMenu.Item>
-            {/* i18n */}
-            <ContextMenu.Item>Nome da janela</ContextMenu.Item>
+            <ContextMenu.Item>{t("item-create-shortcut")}</ContextMenu.Item>
+            <ContextMenu.Item>{t("item-window-name")}</ContextMenu.Item>
             <ContextMenu.Separator />
-            {/* i18n */}
-            <ContextMenu.Item>Ferramentas do desenvolvedor</ContextMenu.Item>
+            <ContextMenu.Item>{t("item-developer-tools")}</ContextMenu.Item>
           </ContextMenu.SubMenuContent>
         </ContextMenu.SubMenu>
 
@@ -94,8 +87,7 @@ export const ContextMenuPreview: FC = () => {
           checked={bookmarksChecked}
           onCheckedChange={setBookmarksChecked}
         >
-          {/* i18n */}
-          Mostrar favoritos
+          {t("item-show-bookmarks")}
           <div
             style={{
               marginLeft: "auto",
@@ -108,14 +100,12 @@ export const ContextMenuPreview: FC = () => {
           checked={urlsChecked}
           onCheckedChange={setUrlsChecked}
         >
-          {/* i18n */}
-          Mostrar URLs completas
+          {t("item-show-full-url")}
         </ContextMenu.CheckboxItem>
 
         <ContextMenu.Separator />
 
-        {/* i18n */}
-        <ContextMenu.Label>Pessoas</ContextMenu.Label>
+        <ContextMenu.Label>{t("item-peoples")}</ContextMenu.Label>
 
         <ContextMenu.RadioGroup value={person} onValueChange={setPerson}>
           <ContextMenu.RadioItem value="pedro">

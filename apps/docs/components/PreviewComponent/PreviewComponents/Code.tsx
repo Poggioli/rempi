@@ -1,8 +1,11 @@
 import { Code } from "@rempi-ui/code";
 import { Flex } from "@rempi-ui/flex";
+import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 export const CodePreview: FC = () => {
+  const t = useTranslations("preview.code");
+
   return (
     <Flex
       justifyContent="center"
@@ -10,8 +13,7 @@ export const CodePreview: FC = () => {
         padding: 2,
       }}
     >
-      {/* i18n */}
-      <Code>console.log('Eu sou um Code')</Code>
+      <Code>{t("label")}</Code>
     </Flex>
   );
 };
