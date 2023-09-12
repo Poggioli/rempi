@@ -13,7 +13,7 @@
   "docs-navigation-menu": [
     {
       "title": "Visão geral",
-      "items": ["Introdução", "Tutorial", "Tokens"]
+      "items": ["Introdução", "Tutorial", "Tokens", "Customização"]
     },
     {
       "title": "Componentes",

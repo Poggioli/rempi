@@ -40,6 +40,10 @@ const menus: Menu[] = [
         label: "0.items.2",
         href: "/docs/overview/tokens",
       },
+      {
+        label: "0.items.3",
+        href: "/docs/overview/customization",
+      },
     ],
   },
   {
