@@ -48,7 +48,7 @@ export type DrawerOverlayProps = Omit<
   };
 
 export const DrawerOverlay = forwardRef<
-  typeof StyledDrawerOverlay,
+  typeof Dialog.Overlay,
   DrawerOverlayProps
 >(({ blur, ...props }, ref) => {
   return <StyledDrawerOverlay {...props} ref={ref} $blur={blur} />;
@@ -65,7 +65,7 @@ export type DrawerContentProps = Omit<
   Dialog.DialogContentProps & { position?: RempiVariant<Position> };
 
 export const DrawerContent = forwardRef<
-  typeof StyledDrawerContent,
+  typeof Dialog.Content,
   DrawerContentProps
 >(({ position = "left", ...props }, ref) => {
   return <StyledDrawerContent {...props} $position={position} ref={ref} />;

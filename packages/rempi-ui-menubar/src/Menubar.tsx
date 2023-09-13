@@ -77,7 +77,7 @@ export type MenubarContentProps = Omit<
   };
 
 export const MenubarContent = forwardRef<
-  typeof StyledMenubarContent,
+  typeof Menubar.Content,
   MenubarContentProps
 >(
   (
@@ -256,7 +256,7 @@ export type MenubarSubMenuContentProps = Omit<
   MenubarPortalProps;
 
 export const MenubarSubMenuContent = forwardRef<
-  typeof StyledMenubarSubContent,
+  typeof Menubar.SubContent,
   MenubarSubMenuContentProps
 >(({ children, forceMount, container, ...props }, ref) => {
   return (

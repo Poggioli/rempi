@@ -17,7 +17,7 @@ export type CardProps = Omit<
   colored?: RempiVariant<boolean>;
 } & FlexProps;
 
-export const Card = forwardRef<typeof StyledCardRoot, CardProps>(
+export const Card = forwardRef<"div", CardProps>(
   ({ bordered = true, colored, flexDirection = "column", ...props }, ref) => {
     return (
       <StyledCardRoot

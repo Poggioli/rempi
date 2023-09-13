@@ -49,7 +49,7 @@ export type DropdownMenuContentProps = Omit<
   };
 
 export const DropdownMenuContent = forwardRef<
-  typeof StyledDropdownMenuContent,
+  typeof DropdownMenu.Content,
   DropdownMenuContentProps
 >(
   (
@@ -234,7 +234,7 @@ export type DropdownMenuSubMenuContentProps = Omit<
   DropdownMenuPortalProps;
 
 export const DropdownMenuSubMenuContent = forwardRef<
-  typeof StyledDropdownMenuSubContent,
+  typeof DropdownMenu.SubContent,
   DropdownMenuSubMenuContentProps
 >(({ children, forceMount, container, ...props }, ref) => {
   return (

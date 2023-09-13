@@ -20,8 +20,11 @@ export type TableProps = Omit<
   bordered?: RempiVariant<boolean>;
 };
 
-export const Table = forwardRef<typeof StyledTableRoot, TableProps>(
-  ({ children, striped = true, condensed = true, bordered = true, ...props }, ref) => {
+export const Table = forwardRef<"table", TableProps>(
+  (
+    { children, striped = true, condensed = true, bordered = true, ...props },
+    ref
+  ) => {
     return (
       <StyledTableWrapper $bordered={bordered}>
         <StyledTableRoot

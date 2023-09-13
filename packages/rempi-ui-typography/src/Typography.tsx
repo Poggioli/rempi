@@ -44,7 +44,7 @@ export type TypographyProps = Omit<
   variant?: RempiVariant<Variant>;
 };
 
-export const Typography = forwardRef<typeof StyledTypography, TypographyProps>(
+export const Typography = forwardRef<"span", TypographyProps>(
   (
     {
       color,

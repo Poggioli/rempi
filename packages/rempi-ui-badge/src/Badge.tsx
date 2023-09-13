@@ -10,7 +10,7 @@ export type BadgeProps = Omit<
   variant?: RempiVariant<Variant>;
 };
 
-export const Badge = forwardRef<typeof StyledBadge, BadgeProps>(
+export const Badge = forwardRef<"div", BadgeProps>(
   ({ children, variant = "primary", ...props }, ref) => {
     return (
       <StyledBadge $variant={variant} {...props} ref={ref}>

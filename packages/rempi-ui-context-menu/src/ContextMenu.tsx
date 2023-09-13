@@ -49,7 +49,7 @@ export type ContextMenuContentProps = Omit<
   };
 
 export const ContextMenuContent = forwardRef<
-  typeof StyledContextMenuContent,
+  typeof ContextMenu.Content,
   ContextMenuContentProps
 >(
   (

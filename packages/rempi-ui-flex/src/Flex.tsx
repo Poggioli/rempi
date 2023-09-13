@@ -105,11 +105,11 @@ export type FlexProps = Omit<
   alignSelf?: RempiVariant<AlignSelf>;
 };
 
-export const Flex = forwardRef<typeof StyledFlex, FlexProps>(
+export const Flex = forwardRef<"div", FlexProps>(
   (
     {
       flexDirection = "row",
-      flexWrap= "wrap",
+      flexWrap = "wrap",
       justifyContent = "flex-start",
       alignItems = "flex-start",
       alignContents,

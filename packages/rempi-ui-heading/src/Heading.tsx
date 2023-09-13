@@ -38,7 +38,7 @@ export type HeadingProps = Omit<
   variant?: RempiVariant<Variant>;
 };
 
-export const Heading = forwardRef<typeof StyledHeading, HeadingProps>(
+export const Heading = forwardRef<"h1", HeadingProps>(
   (
     {
       color,

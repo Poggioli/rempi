@@ -83,7 +83,7 @@ export type SelectContentProps = Omit<
   };
 
 export const SelectContent = forwardRef<
-  typeof StyledSelectContent,
+  typeof SelectRadix.Content,
   SelectContentProps
 >(({ children, container, condensed = true, ...props }, ref) => {
   return (

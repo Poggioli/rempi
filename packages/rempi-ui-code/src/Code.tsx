@@ -44,7 +44,7 @@ export type CodeProps = Omit<
   variant?: RempiVariant<Variant>;
 };
 
-export const Code = forwardRef<typeof StyledCode, CodeProps>(
+export const Code = forwardRef<"code", CodeProps>(
   (
     {
       color,

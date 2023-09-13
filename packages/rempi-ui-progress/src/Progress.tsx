@@ -12,7 +12,7 @@ export type ProgressProps = Omit<
     size?: RempiVariant<Size>;
   };
 
-export const Progress = forwardRef<typeof StyledProgessRoot, ProgressProps>(
+export const Progress = forwardRef<typeof ProgressRadix.Root, ProgressProps>(
   ({ value, max = 100, size = "standard", ...props }, ref) => {
     return (
       <StyledProgessRoot
@@ -22,7 +22,9 @@ export const Progress = forwardRef<typeof StyledProgessRoot, ProgressProps>(
         max={max}
         ref={ref}
       >
-        <StyledProgressBar style={{ transform: `translateX(-${100 - (value || 0)}%)` }} />
+        <StyledProgressBar
+          style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
+        />
       </StyledProgessRoot>
     );
   }

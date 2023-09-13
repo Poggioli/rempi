@@ -44,7 +44,7 @@ export type BlockquoteProps = Omit<
   variant?: RempiVariant<Variant>;
 };
 
-export const Blockquote = forwardRef<typeof StyledBlockquote, BlockquoteProps>(
+export const Blockquote = forwardRef<"blockquote", BlockquoteProps>(
   (
     {
       color = "low-contrast",

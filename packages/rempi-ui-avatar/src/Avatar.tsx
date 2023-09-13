@@ -14,7 +14,7 @@ export type AvatarRootProps = Omit<
 > &
   Avatar.AvatarProps & { size?: RempiVariant<Size> };
 
-export const AvatarRoot = forwardRef<typeof StyledAvatarRoot, AvatarRootProps>(
+export const AvatarRoot = forwardRef<typeof Avatar.Root, AvatarRootProps>(
   ({ size = "standard", ...props }, ref) => {
     return <StyledAvatarRoot {...props} ref={ref} $size={size} />;
   }

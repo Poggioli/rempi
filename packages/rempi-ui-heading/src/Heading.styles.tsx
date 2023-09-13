@@ -230,8 +230,6 @@ const color: Record<Color, RuleSet<object>> = {
   `,
 };
 
-
-// Is not ommiting
 export const StyledHeading = styled.h1<{
   $fontSize?: RempiVariant<FontSize>;
   $fontWeight?: RempiVariant<FontWeight>;

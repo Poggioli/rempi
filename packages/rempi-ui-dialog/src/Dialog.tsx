@@ -48,7 +48,7 @@ export type DialogOverlayProps = Omit<
   };
 
 export const DialogOverlay = forwardRef<
-  typeof StyledDialogOverlay,
+  typeof Dialog.Overlay,
   DialogOverlayProps
 >(({ blur, ...props }, ref) => {
   return <StyledDialogOverlay {...props} ref={ref} $blur={blur} />;
