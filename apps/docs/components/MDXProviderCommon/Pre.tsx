@@ -19,8 +19,7 @@ const StyledPre = styled.pre`
     -webkit-box-decoration-break: clone;
     font-size: ${({ theme }) => theme.fontSizes[3]};
     line-height: ${({ theme }) => theme.lineHeights[1]};
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      Liberation Mono, Courier New, monospace;
+    font-family: monospace;
   }
 `;
 
