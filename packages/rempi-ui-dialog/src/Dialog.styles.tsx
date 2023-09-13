@@ -4,6 +4,7 @@ import {
   css,
   keyframes,
   RempiConfig,
+  RempiVariant,
   styled,
 } from "@rempi-ui/core";
 import { X } from "lucide-react";
@@ -31,7 +32,7 @@ const contentShow = keyframes`
 `;
 
 export const StyledDialogOverlay = styled(Dialog.Overlay)<{
-  $blur?: boolean;
+  $blur?: RempiVariant<boolean>;
 }>`
   animation: ${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
   background-color: ${({ theme }) => theme.colors.black10};

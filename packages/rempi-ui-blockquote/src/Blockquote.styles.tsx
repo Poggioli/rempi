@@ -2,6 +2,7 @@ import {
   ApplyResponsiveVariant,
   css,
   RempiConfig,
+  RempiVariant,
   RuleSet,
   styled,
 } from "@rempi-ui/core";
@@ -232,13 +233,13 @@ const color: Record<Color, RuleSet<object>> = {
 };
 
 export const StyledBlockquote = styled.blockquote<{
-  $fontSize?: FontSize;
-  $fontWeight?: FontWeight;
-  $lineHeight?: LineHeight;
-  $color?: Color;
-  $variant?: Variant;
-  $textAlign?: TextAlign;
-  $isTruncated?: boolean;
+  $fontSize?: RempiVariant<FontSize>;
+  $fontWeight?: RempiVariant<FontWeight>;
+  $lineHeight?: RempiVariant<LineHeight>;
+  $color?: RempiVariant<Color>;
+  $variant?: RempiVariant<Variant>;
+  $textAlign?: RempiVariant<TextAlign>;
+  $isTruncated?: RempiVariant<boolean>;
 }>`
   -webkit-font-smoothing: antialiased;
   color: ${({ theme }) => theme.colors.grey12};

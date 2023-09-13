@@ -3,6 +3,7 @@ import {
   ApplyResponsiveVariant,
   css,
   RempiConfig,
+  RempiVariant,
   styled,
 } from "@rempi-ui/core";
 
@@ -97,7 +98,7 @@ export const StyledDropdownMenuSubMenuTrigger = styled(DropdownMenu.SubTrigger)`
   }
 `;
 
-const styleOfContentAndSubContent = css<{ $condensed?: boolean }>`
+const styleOfContentAndSubContent = css<{ $condensed?: RempiVariant<boolean> }>`
   min-width: 220px;
   background-color: ${({ theme }) => theme.colors.grey2};
   border-radius: ${({ theme }) => theme.radii[2]};
@@ -167,13 +168,13 @@ export const StyledDropdownMenuItemIndicator = styled(
 `;
 
 export const StyledDropdownMenuContent = styled(DropdownMenu.Content)<{
-  $condensed?: boolean;
+  $condensed?: RempiVariant<boolean>;
 }>`
   ${styleOfContentAndSubContent}
 `;
 
 export const StyledDropdownMenuSubContent = styled(DropdownMenu.SubContent)<{
-  $condensed?: boolean;
+  $condensed?: RempiVariant<boolean>;
 }>`
   ${styleOfContentAndSubContent}
 `;

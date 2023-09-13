@@ -2,6 +2,7 @@ import {
   ApplyResponsiveVariant,
   css,
   RempiConfig,
+  RempiVariant,
   styled,
 } from "@rempi-ui/core";
 
@@ -26,8 +27,8 @@ export const StyledCardFooter = styled.div`
 `;
 
 export const StyledCardRoot = styled.div<{
-  $bordered?: boolean;
-  $colored?: boolean;
+  $bordered?: RempiVariant<boolean>;
+  $colored?: RempiVariant<boolean>;
 }>`
   border-radius: ${({ theme }) => theme.radii[2]};
 

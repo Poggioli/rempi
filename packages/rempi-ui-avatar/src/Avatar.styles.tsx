@@ -3,6 +3,7 @@ import {
   ApplyResponsiveVariant,
   css,
   RempiConfig,
+  RempiVariant,
   RuleSet,
   styled,
 } from "@rempi-ui/core";
@@ -48,7 +49,7 @@ const size: Record<Size, RuleSet<object>> = {
 };
 
 export const StyledAvatarRoot = styled(Avatar.Root)<{
-  $size?: Size;
+  $size?: RempiVariant<Size>;
 }>`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.black3};

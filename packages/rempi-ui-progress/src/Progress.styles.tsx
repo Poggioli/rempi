@@ -3,6 +3,7 @@ import {
   ApplyResponsiveVariant,
   css,
   RempiConfig,
+  RempiVariant,
   RuleSet,
   styled,
 } from "@rempi-ui/core";
@@ -20,7 +21,7 @@ const sizes: Record<Size, RuleSet<object>> = {
   `,
 };
 
-export const StyledProgessRoot = styled(Progress.Root)<{ $size?: Size }>`
+export const StyledProgessRoot = styled(Progress.Root)<{ $size?: RempiVariant<Size> }>`
   background-color: ${({ theme }) => theme.colors.black6};
   border-radius: ${({ theme }) => theme.radii.pill};
   overflow: hidden;

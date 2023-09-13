@@ -2,6 +2,7 @@ import {
   ApplyResponsiveVariant,
   css,
   RempiConfig,
+  RempiVariant,
   RuleSet,
   styled,
 } from "@rempi-ui/core";
@@ -258,12 +259,12 @@ const alignSelf: Record<AlignSelf, RuleSet<object>> = {
 };
 
 export const StyledFlex = styled.div<{
-  $flexDirection?: FlexDirection;
-  $flexWrap?: FlexWrap;
-  $justifyContent?: JustifyContent;
-  $alignItems?: AlignItems;
-  $alignContents?: AlignContent;
-  $alignSelf?: AlignSelf;
+  $flexDirection?: RempiVariant<FlexDirection>;
+  $flexWrap?: RempiVariant<FlexWrap>;
+  $justifyContent?: RempiVariant<JustifyContent>;
+  $alignItems?: RempiVariant<AlignItems>;
+  $alignContents?: RempiVariant<AlignContent>;
+  $alignSelf?: RempiVariant<AlignSelf>;
 }>`
   box-sizing: border-box;
   display: flex;

@@ -3,6 +3,7 @@ import {
   ApplyResponsiveVariant,
   css,
   RempiConfig,
+  RempiVariant,
   styled,
 } from "@rempi-ui/core";
 
@@ -108,7 +109,7 @@ export const StyledSelectTrigger = styled(Select.Trigger)`
 `;
 
 export const StyledSelectContent = styled(Select.Content)<{
-  $condensed?: boolean;
+  $condensed?: RempiVariant<boolean>;
 }>`
   background-color: ${({ theme }) => theme.colors.grey2};
   border: ${({ theme }) => theme.borderWidths[1]} solid

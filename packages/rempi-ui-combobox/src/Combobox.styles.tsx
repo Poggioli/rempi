@@ -2,6 +2,7 @@ import {
   ApplyResponsiveVariant,
   css,
   RempiConfig,
+  RempiVariant,
   styled,
 } from "@rempi-ui/core";
 import { Popover } from "@rempi-ui/popover";
@@ -157,7 +158,7 @@ export const StyledComboboxEmpty = styled.div`
 `;
 
 export const StyledComboboxContent = styled(Popover.Content)<{
-  $condensed?: boolean;
+  $condensed?: RempiVariant<boolean>;
 }>`
   background-color: ${({ theme }) => theme.colors.grey2};
   border: ${({ theme }) => theme.borderWidths[1]} solid

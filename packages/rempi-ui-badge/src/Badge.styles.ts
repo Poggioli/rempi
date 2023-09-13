@@ -2,6 +2,7 @@ import {
   ApplyResponsiveVariant,
   css,
   RempiConfig,
+  RempiVariant,
   RuleSet,
   styled,
 } from "@rempi-ui/core";
@@ -56,7 +57,7 @@ const variant: Record<Variant, RuleSet<object>> = {
 };
 
 export const StyledBadge = styled.div<{
-  $variant?: Variant;
+  $variant?: RempiVariant<Variant>;
 }>`
   -webkit-font-smoothing: antialiased;
   align-items: center;

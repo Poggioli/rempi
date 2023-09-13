@@ -2,6 +2,7 @@ import {
   ApplyResponsiveVariant,
   css,
   RempiConfig,
+  RempiVariant,
   RuleSet,
   styled,
 } from "@rempi-ui/core";
@@ -21,7 +22,7 @@ const size: Record<Size, RuleSet<object>> = {
   `,
 };
 
-export const StyledInput = styled.input<{ $size?: Size }>`
+export const StyledInput = styled.input<{ $size?: RempiVariant<Size> }>`
   -webkit-font-smoothing: antialiased;
   background-color: transparent;
   border-color: ${({ theme }) => theme.colors.grey11};

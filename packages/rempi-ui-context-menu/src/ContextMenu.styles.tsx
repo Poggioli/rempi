@@ -3,6 +3,7 @@ import {
   ApplyResponsiveVariant,
   css,
   RempiConfig,
+  RempiVariant,
   styled,
 } from "@rempi-ui/core";
 
@@ -97,7 +98,7 @@ export const StyledContextMenuSubMenuTrigger = styled(ContextMenu.SubTrigger)`
   }
 `;
 
-const styleOfContentAndSubContent = css<{ $condensed?: boolean }>`
+const styleOfContentAndSubContent = css<{ $condensed?: RempiVariant<boolean> }>`
   min-width: 220px;
   background-color: ${({ theme }) => theme.colors.grey2};
   border-radius: ${({ theme }) => theme.radii[2]};

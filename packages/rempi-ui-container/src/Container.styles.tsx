@@ -138,7 +138,7 @@ const variants: Record<Variant, RuleSet<object>> = {
 };
 
 export const StyledContainer = styled.div<{
-  $variant?: Variant;
+  $variant?: RempiVariant<Variant>;
   $centered: RempiVariant<boolean>;
 }>`
   box-sizing: border-box;
