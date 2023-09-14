@@ -13,7 +13,7 @@ module.exports = {
       file: packageJson.main,
       format: "cjs",
       sourcemap: true,
-      name: "react-lib",
+      name: packageJson.name,
     },
     {
       file: packageJson.module,
