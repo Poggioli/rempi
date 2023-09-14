@@ -6,9 +6,9 @@ import { Heading } from "@rempi-ui/heading";
 import { Tabs } from "@rempi-ui/tabs";
 import { Typography } from "@rempi-ui/typography";
 import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
-import { FC, PropsWithChildren, useContext } from "react";
-import { VersionContext } from "../VersionProvider";
+import { ReadonlyURLSearchParams, useSearchParams } from "next/navigation";
+import { FC, PropsWithChildren } from "react";
+import { useVersionContext } from "../VersionProvider";
 import { AccordionPreview } from "./PreviewComponents/Accordion";
 import { AlertDialogPreview } from "./PreviewComponents/AlertDialog";
 import { AspectRatioPreview } from "./PreviewComponents/AspectRatio";
@@ -152,8 +152,8 @@ const PreviewContainer: FC<PropsWithChildren> = ({ children }) => {
 };
 
 export const PreviewComponent: FC<PreviewComponentProps> = ({ name }) => {
-  const { versions } = useContext(VersionContext);
-  const searchParams = useSearchParams();
+  const { versions } = useVersionContext();
+  const searchParams = useSearchParams() as ReadonlyURLSearchParams;
   const t = useTranslations("preview-component");
 
   if (

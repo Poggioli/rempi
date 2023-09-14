@@ -7,6 +7,7 @@ import {
   FC,
   PropsWithChildren,
   SetStateAction,
+  useContext,
   useState,
 } from "react";
 
@@ -26,19 +27,19 @@ export const FriendlyThemeName: Record<string, string> = {
 
 const darkTheme = createTheme("dark-theme", {
   colors: {
-    primary1: '#131620',
-    primary2: '#15192d',
-    primary3: '#1a2242',
-    primary4: '#1e284f',
-    primary5: '#202d5c',
-    primary6: '#24366e',
-    primary7: '#2c438f',
-    primary8: '#3b5dce',
-    primary9: '#3e63dd',
-    primary10: '#5c73e7',
-    primary11: '#99a2ff',
-    primary12: '#dddffe',
-  }
+    primary1: "#131620",
+    primary2: "#15192d",
+    primary3: "#1a2242",
+    primary4: "#1e284f",
+    primary5: "#202d5c",
+    primary6: "#24366e",
+    primary7: "#2c438f",
+    primary8: "#3b5dce",
+    primary9: "#3e63dd",
+    primary10: "#5c73e7",
+    primary11: "#99a2ff",
+    primary12: "#dddffe",
+  },
 });
 
 const lightTheme = createTheme("light-theme", {
@@ -230,7 +231,9 @@ const indigoPinkTheme = createTheme("indigo-pink-theme", {
   },
 });
 
-export const ThemeProviderContext = createContext<ThemeProviderProps>(null);
+const ThemeProviderContext = createContext<ThemeProviderProps | undefined>(
+  undefined
+);
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
   const availableThemes = [darkTheme, lightTheme, indigoPinkTheme];
@@ -241,4 +244,14 @@ export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
       {children}
     </ThemeProviderContext.Provider>
   );
+};
+
+export const useThemeProvider = (): ThemeProviderProps => {
+  const context = useContext(ThemeProviderContext);
+
+  if (!context) {
+    throw new Error("useThemeProvider should be used whitin ThemeProvider");
+  }
+
+  return context as ThemeProviderProps;
 };

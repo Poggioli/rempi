@@ -96,7 +96,7 @@ const menus: Menu[] = [
 ];
 
 export const DocsNavigationMenu: FC = () => {
-  const pathname = usePathname();
+  const pathname = usePathname() as string;
   const t = useTranslations("docs-navigation-menu");
 
   return (

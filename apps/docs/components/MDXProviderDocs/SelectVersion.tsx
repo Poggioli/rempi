@@ -1,16 +1,21 @@
+import { useVersionContext } from "@/components/VersionProvider/VersionProvider";
 import { Select } from "@rempi-ui/select";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { FC, useContext, useState } from "react";
-import { VersionContext } from "@/components/VersionProvider/VersionProvider";
 import { useTranslations } from "next-intl";
+import {
+  ReadonlyURLSearchParams,
+  usePathname,
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
+import { FC, useState } from "react";
 
 export const SelectVersion: FC = () => {
   const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const pathname = usePathname() as string;
+  const searchParams = useSearchParams() as ReadonlyURLSearchParams;
   const t = useTranslations("select-version");
 
-  const { versions } = useContext(VersionContext);
+  const { versions } = useVersionContext();
 
   if (versions.length <= 1) {
     return null;

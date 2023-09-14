@@ -1,8 +1,10 @@
+"use client";
+
 import { Select } from "@rempi-ui/select";
-import { ThemeProviderContext } from "app/ThemeProvider";
+import { useThemeProvider } from "app/ThemeProvider";
 import { MoonStar, Palette, Sun } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { FC, useContext, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { StyledTrigger } from "./ThemeSelector.styles";
 
 const themes: Record<string, any> = {
@@ -12,7 +14,7 @@ const themes: Record<string, any> = {
 
 export const ThemeSelector: FC = () => {
   const t = useTranslations("theme-selector");
-  const { setTheme, availableThemes } = useContext(ThemeProviderContext);
+  const { setTheme, availableThemes } = useThemeProvider();
   const [theme, setSelectTheme] = useState(
     localStorage.getItem("theme") ?? "indigo-pink-theme"
   );

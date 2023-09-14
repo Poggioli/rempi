@@ -114,7 +114,7 @@ export const DashboardTabs: FC = () => {
         <StyledCardContainer>
           {cards.map(({ title, captionMainInfo, value, ...card }, index) => (
             <DashboardCard
-              key={card.title}
+              key={title(index)}
               {...card}
               title={t(title(index))}
               captionMainInfo={t(captionMainInfo(index), { value })}

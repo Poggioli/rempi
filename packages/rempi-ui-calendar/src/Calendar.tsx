@@ -87,7 +87,6 @@ export const Calendar = forwardRef<typeof DayPicker, CalendarProps>(
               name,
               ...props
             }) => {
-              console.log({ children });
               return (
                 <Select.Root
                   name={name}

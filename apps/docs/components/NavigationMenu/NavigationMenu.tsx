@@ -36,7 +36,7 @@ const StyledFillAllAvailableHeight = styled.div`
 `;
 
 export const NavigationMenu: FC = () => {
-  const pathname = usePathname();
+  const pathname = usePathname() as string;
   const isDocPages = pathname.includes("docs");
   const t = useTranslations("navigation-menu");
 
@@ -74,10 +74,7 @@ export const NavigationMenu: FC = () => {
             <Drawer.Portal>
               <Drawer.Overlay blur />
               <StyledFillAllAvailableHeight as={Drawer.Content}>
-                <HideInTablet
-                  as={Drawer.CloseCross}
-                  aria-label={t("close")}
-                />
+                <HideInTablet as={Drawer.CloseCross} aria-label={t("close")} />
                 <StyledContainer>
                   <DocsNavigationMenu />
                 </StyledContainer>
