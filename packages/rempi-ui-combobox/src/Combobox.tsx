@@ -14,7 +14,6 @@ import {
   composeEventHandlers,
   useControllableState,
 } from "@rempi-ui/utils";
-import classNames from "classnames";
 import { Check, LucideIcon, LucideProps } from "lucide-react";
 import {
   ChangeEvent,
@@ -395,7 +394,6 @@ export const ComboboxItem = forwardRef<
                 {...props}
                 ref={ref}
                 role="option"
-                className={classNames("rempi-combobox__item")}
                 onPointerUp={composeEventHandlers(
                   props.onPointerUp,
                   handleSelect
@@ -491,7 +489,6 @@ const ComboboxItemText = forwardRef<"span", ScopedProps<ComboboxItemTextProps>>(
         <span
           {...props}
           ref={composedRefs}
-          className={classNames("rempi-combobox__item-text", className)}
         />
         {itemContext.isSelected &&
         context.valueNode &&

@@ -6,8 +6,7 @@
   "private": true,
   "scripts": {},
   "dependencies": {
-    "@radix-ui/react-hover-card": "^1.0.6",
-    "classnames": "^2.3.2"
+    "@radix-ui/react-hover-card": "^1.0.6"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
