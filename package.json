@@ -4,6 +4,8 @@
     "build": "turbo run build",
     "dev": "turbo run dev --concurrency 100",
     "lint": "turbo run lint",
+    "clear": "turbo run clear && rimraf .turbo node_modules dist",
+    "bootstrap": "yarn run clear && yarn && yarn run build",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
@@ -14,6 +16,7 @@
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "prettier": "^2.5.1",
+    "rimraf": "^5.0.1",
     "rollup": "^3.29.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",

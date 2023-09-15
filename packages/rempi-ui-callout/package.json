@@ -5,7 +5,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "clear": "rimraf .turbo node_modules dist"
   },
   "dependencies": {
     "@rempi-ui/flex": "*",
