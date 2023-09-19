@@ -7,11 +7,9 @@
   "scripts": {
     "build": "rollup -c"
   },
-  "dependencies": { },
+  "dependencies": {},
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
-    "eslint-config-custom": "*",
-    "sass": "^1.63.6",
     "styled-components": "^6.0.7",
     "tsconfig": "*",
     "typescript": "^4.5.3"

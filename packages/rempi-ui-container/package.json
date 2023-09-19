@@ -8,9 +8,8 @@
     "build": "rollup -c",
     "clear": "rimraf .turbo node_modules dist"
   },
-  "dependencies": { },
+  "dependencies": {},
   "devDependencies": {
-    "eslint-config-custom": "*",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },

@@ -14,7 +14,6 @@
     "@rempi-ui/label": "*"
   },
   "devDependencies": {
-    "eslint-config-custom": "*",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },

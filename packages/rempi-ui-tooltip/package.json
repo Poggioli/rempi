@@ -12,7 +12,6 @@
     "@radix-ui/react-tooltip": "^1.0.6"
   },
   "devDependencies": {
-    "eslint-config-custom": "*",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },
