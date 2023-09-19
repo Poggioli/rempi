@@ -75,17 +75,18 @@ const { theme, className, getCssText } = createTheme("dark-theme", {});
 
 <Step>Reset css</Step>
 
-We advise you to use our CSS reset file so that the library works better. Just import
+We advise you to use our CSS reset Component so that the library works better. Just import
 it along with the <strong>ThemeProvider</strong>.
 
 ```jsx
-import { ThemeProvider, createTheme } from "@rempi-ui/core";
+import { ThemeProvider, createTheme, GlobalStyles } from "@rempi-ui/core";
 import "@rempi-ui/core/src/config/global-reset.scss";
 
 const { theme, className, getCssText } = createTheme("dark-theme", {});
 
 () => (
   <ThemeProvider theme={theme}>
+    <GlobalStyles />
     <html lang="en" className={`${className}`}>
       <head>
         <style
