@@ -119,11 +119,12 @@ export const DocsNavigationMenu: FC = () => {
               </ListHeadingStyled>
               {items.map(({ label, href }) => (
                 <LinkStyled
+                  key={href}
                   as={(props: any) => <Typography {...props} as="a" />}
                   fontSize="sm"
                   href={href}
                 >
-                  <ListItemStyled key={href} $active={pathname.includes(href)}>
+                  <ListItemStyled $active={pathname.includes(href)}>
                     {t(label)}
                   </ListItemStyled>
                 </LinkStyled>

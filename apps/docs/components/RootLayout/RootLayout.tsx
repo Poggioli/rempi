@@ -1,7 +1,10 @@
 "use client";
 
 import { NavigationMenu } from "@/components/NavigationMenu";
-import { ThemeProvider as ThemeProviderCore } from "@rempi-ui/core";
+import {
+  GlobalStyles,
+  ThemeProvider as ThemeProviderCore,
+} from "@rempi-ui/core";
 import "@rempi-ui/core/src/config/global-reset.scss";
 import { Toast } from "@rempi-ui/toast";
 import { Tooltip } from "@rempi-ui/tooltip";
@@ -43,6 +46,7 @@ const Html: FC<PropsWithChildren<RootLayoutProps>> = ({
 
   return (
     <ThemeProviderCore theme={theme}>
+      <GlobalStyles />
       <Tooltip.Provider>
         <Toast.Provider>
           <html lang={locale} className={`${className} ${inter.className}`}>

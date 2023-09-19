@@ -1,4 +1,3 @@
-import "@rempi-ui/core/src/config/global-reset.scss";
 import { extractAcceptedLanguage, getCurrentLocale, getMessagesBundle } from "i18n";
 import { headers } from 'next/headers';
 import { RootLayout as RootLayoutComp } from '@/components/RootLayout';
