@@ -4,7 +4,6 @@ on:
     workflows: ["CI"]
     types:
       - completed
-  push:
     branches:
       - "main"
   workflow_dispatch:
