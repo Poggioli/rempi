@@ -8,14 +8,14 @@ on:
     branches:
       - "main"
   workflow_dispatch:
-  
+
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   publish:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Publish packages
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
