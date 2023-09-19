@@ -8,6 +8,10 @@
   "scripts": {
     "build": "rollup -c"
   },
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
   "dependencies": {},
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
