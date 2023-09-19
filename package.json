@@ -6,6 +6,7 @@
     "lint": "turbo run lint",
     "clear": "turbo run clear && rimraf .turbo node_modules dist",
     "bootstrap": "yarn run clear && yarn && yarn run build",
+    "release": "yarn run build && changeset publish",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {

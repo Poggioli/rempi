@@ -1,6 +1,13 @@
 name: Publish
 on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
   push:
+    branches:
+      - "main"
+  merge:
     branches:
       - "main"
 
@@ -14,18 +21,21 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version-file: .nvmrc
           cache: "yarn"
+
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
+
       - name: Create Release Pull Request or Publish
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: yarn build
+          publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
