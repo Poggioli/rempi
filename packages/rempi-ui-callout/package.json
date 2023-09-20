@@ -9,7 +9,7 @@
     "clear": "rimraf .turbo node_modules dist"
   },
   "dependencies": {
-    "@rempi-ui/flex": "*",
+    "@rempi-ui/flex": "^1.0.0",
     "@rempi-ui/heading": "*",
     "@rempi-ui/typography": "*"
   },

@@ -32,7 +32,7 @@
     "@rempi-ui/dialog": "*",
     "@rempi-ui/drawer": "*",
     "@rempi-ui/dropdown-menu": "*",
-    "@rempi-ui/flex": "*",
+    "@rempi-ui/flex": "^1.0.0",
     "@rempi-ui/heading": "*",
     "@rempi-ui/hover-card": "*",
     "@rempi-ui/input": "*",

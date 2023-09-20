@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.0.2",
-    "@rempi-ui/flex": "*"
+    "@rempi-ui/flex": "^1.0.0"
   },
   "devDependencies": {
     "tsconfig": "*",
