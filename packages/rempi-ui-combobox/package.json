@@ -10,10 +10,10 @@
   "dependencies": {
     "@radix-ui/react-collection": "^1.0.3",
     "@radix-ui/react-context": "^1.0.1",
-    "@rempi-ui/popover": "*",
-    "@rempi-ui/separator": "*",
-    "@rempi-ui/input": "*",
-    "@rempi-ui/utils": "*",
+    "@rempi-ui/popover": "^1.0.0",
+    "@rempi-ui/separator": "^1.0.0",
+    "@rempi-ui/input": "^1.0.0",
+    "@rempi-ui/utils": "^1.0.0",
     "lucide-react": "^0.258.0"
   },
   "devDependencies": {

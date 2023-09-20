@@ -9,7 +9,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@rempi-ui/label": "*",
+    "@rempi-ui/label": "^1.0.0",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },

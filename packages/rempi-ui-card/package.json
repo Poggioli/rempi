@@ -8,9 +8,9 @@
     "clear": "rimraf .turbo node_modules dist"
   },
   "dependencies": {
-    "@rempi-ui/flex": "*",
-    "@rempi-ui/heading": "*",
-    "@rempi-ui/typography": "*"
+    "@rempi-ui/flex": "^1.0.0",
+    "@rempi-ui/heading": "^1.0.0",
+    "@rempi-ui/typography": "^1.0.0"
   },
   "devDependencies": {
     "tsconfig": "*",
