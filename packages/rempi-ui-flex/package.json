@@ -3,10 +3,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "version": "0.0.0",
-  "publishConfig": {
-    "access": "public",
-    "tag": "latest"
-  },
+  "private": true,
   "scripts": {
     "build": "rollup -c",
     "clear": "rimraf .turbo node_modules dist"
