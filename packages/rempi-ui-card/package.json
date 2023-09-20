@@ -2,22 +2,22 @@
   "name": "@rempi-ui/card",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "scripts": {
     "build": "rollup -c",
     "clear": "rimraf .turbo node_modules dist"
   },
   "dependencies": {
-    "@rempi-ui/flex": "^1.0.0",
-    "@rempi-ui/heading": "^1.0.0",
-    "@rempi-ui/typography": "^1.0.0"
+    "@rempi-ui/flex": "*",
+    "@rempi-ui/heading": "*",
+    "@rempi-ui/typography": "*"
   },
   "devDependencies": {
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },
   "peerDependencies": {
-    "@rempi-ui/core": "^1.0.0",
+    "@rempi-ui/core": "*",
     "react": ">=^18.2.0"
   }
 }

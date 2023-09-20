@@ -4,8 +4,6 @@ on:
     workflows: ["CI"]
     types:
       - completed
-    branches:
-      - "main"
   workflow_dispatch:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
