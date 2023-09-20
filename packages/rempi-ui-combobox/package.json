@@ -21,7 +21,7 @@
     "typescript": "^4.5.3"
   },
   "peerDependencies": {
-    "@rempi-ui/core": "*",
+    "@rempi-ui/core": "^1.0.0",
     "react": ">=^18.2.0"
   }
 }
