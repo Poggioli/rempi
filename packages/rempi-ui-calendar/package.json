@@ -9,7 +9,7 @@
     "clear": "rimraf .turbo node_modules dist"
   },
   "dependencies": {
-    "@rempi-ui/select": "*",
+    "@rempi-ui/select": "^1.0.0",
     "date-fns": "^2.30.0",
     "lucide-react": "^0.258.0",
     "react-day-picker": "^8.8.0"
