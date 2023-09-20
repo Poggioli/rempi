@@ -9,12 +9,17 @@ on:
   workflow_dispatch:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
+permissions: {}
 
 jobs:
   publish:
     name: Publish packages
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
