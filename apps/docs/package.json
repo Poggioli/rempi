@@ -28,7 +28,7 @@
     "@rempi-ui/combobox": "*",
     "@rempi-ui/container": "*",
     "@rempi-ui/context-menu": "*",
-    "@rempi-ui/core": "*",
+    "@rempi-ui/core": "^1.0.0",
     "@rempi-ui/dialog": "*",
     "@rempi-ui/drawer": "*",
     "@rempi-ui/dropdown-menu": "*",
