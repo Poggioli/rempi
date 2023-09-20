@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.0.4",
-    "@rempi-ui/label": "*",
+    "@rempi-ui/label": "^1.0.0",
     "lucide-react": "^0.258.0"
   },
   "devDependencies": {

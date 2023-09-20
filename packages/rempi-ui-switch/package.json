@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-switch": "^1.0.3",
-    "@rempi-ui/label": "*"
+    "@rempi-ui/label": "^1.0.0"
   },
   "devDependencies": {
     "tsconfig": "*",

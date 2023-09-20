@@ -11,7 +11,7 @@
   "dependencies": {
     "@radix-ui/react-radio-group": "^1.1.3",
     "@rempi-ui/flex": "^1.0.0",
-    "@rempi-ui/label": "*"
+    "@rempi-ui/label": "^1.0.0"
   },
   "devDependencies": {
     "tsconfig": "*",
