@@ -1,0 +1,117 @@
+---
+title: Progress
+slug: progress
+radixUI: https://www.radix-ui.com/primitives/docs/components/progress
+radixAPI: https://www.radix-ui.com/primitives/docs/components/progress#api-reference
+---
+
+# Progress
+
+<Description text="Exibe um indicador que mostra o progresso de conclusão de uma tarefa, geralmente exibido como uma barra de progresso." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/progress" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/progress#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="progress" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/progress
+```
+
+## Uso
+
+Importe o <strong>Progress</strong>.
+
+```jsx
+import { Progress } from "@rempi-ui/progress";
+
+() => <Progress value={75} />;
+```
+
+## Sobre
+
+<strong>Rempi-UI Progress</strong> é baseado no [Radix Progress](https://www.radix-ui.com/primitives/docs/components/progress).
+
+## API reference
+
+### Progress
+
+É uma mistura de [Radix Progress Root](https://www.radix-ui.com/primitives/docs/components/progress#root) e [Radix Progress Indicator](https://www.radix-ui.com/primitives/docs/components/progress#indicator).<br/><br/>
+
+Contém todas as partes do progresso. Usado para mostrar o progresso visualmente. Também torna o progresso acessível às tecnologias assistivas.
+
+<MoreInfo
+  componentName="Radix Progress Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/progress#root"
+/>
+<MoreInfo
+  componentName="Radix Progress Indicator"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/progress#indicator"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "value",
+      type: "number | null",
+      description: "O valor de progresso.",
+    },
+    {
+      name: "max",
+      type: "number",
+      description: "O valor máximo de progresso.",
+    },
+    {
+      name: "getValueLabel",
+      type: "(value: number, max: number) => string",
+      typeSimple: "function",
+      description:
+        "Uma função para obter o texto da etiqueta acessível que representa o valor atual em um formato legível por humanos. Se não for fornecida, a etiqueta de valor será lida como o valor numérico como uma porcentagem do valor máximo.",
+    },
+    {
+      name: "size",
+      required: false,
+      type: '"small" | "standard" | "large"',
+      typeSimple: "enum",
+      defaultValue: '"standard"',
+      description: "Define o tamanho do contêiner da barra de progresso.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["complete", "indeterminate", "loading"],
+    },
+    {
+      name: "[data-value]",
+      value: "O valor atual.",
+    },
+    {
+      name: "[data-max]",
+      value: "O valor máximo.",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/popover",
+    label: "Popover",
+  }}
+  next={{
+    link: "/docs/components/radio",
+    label: "Radio",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/progress/1.0.1.mdx" />

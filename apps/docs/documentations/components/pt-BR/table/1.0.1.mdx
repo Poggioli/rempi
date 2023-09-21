@@ -1,0 +1,144 @@
+---
+title: Table
+slug: table
+---
+
+# Table
+
+<Description text="Um componente de tabela responsivo." />
+
+<SelectVersion />
+
+<PreviewComponent name="table" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/table
+```
+
+## Uso
+
+Importe o <strong>Table</strong> e junte todas as partes do componente.
+
+```jsx
+import { Table } from "@rempi-ui/table";
+
+() => (
+  <Table.Root>
+    <Table.Caption>Uma lista das suas faturas recentes.</Table.Caption>
+    <Table.Header>
+      <Table.Row>
+        <Table.Head>Fatura</Table.Head>
+        <Table.Head>Status</Table.Head>
+        <Table.Head>Método</Table.Head>
+        <Table.Head>Valor</Table.Head>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>INV001</Table.Cell>
+        <Table.Cell>Pago</Table.Cell>
+        <Table.Cell>$250.00</Table.Cell>
+        <Table.Cell>Cartão de crédito</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>INV002</Table.Cell>
+        <Table.Cell>Pagamento pendente</Table.Cell>
+        <Table.Cell>$150.00</Table.Cell>
+        <Table.Cell>Paypal</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>INV003</Table.Cell>
+        <Table.Cell>Não pago</Table.Cell>
+        <Table.Cell>$350.00</Table.Cell>
+        <Table.Cell>Transferência bancária</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>INV004</Table.Cell>
+        <Table.Cell>Pago</Table.Cell>
+        <Table.Cell>$450.00</Table.Cell>
+        <Table.Cell>Cartão de crédito</Table.Cell>
+      </Table.Row>
+    </Table.Body>
+  </Table.Root>
+);
+```
+
+## API reference
+
+### Root
+
+Uma tabela HTML consiste em um elemento `<table>` e um ou mais elementos `<Table.Header />`, `<Table.Body />`, `<Table.Footer />`, `<Table.Row />`, `<Table.Head />`, `<Table.Cell />` e `<Table.Caption />`.
+
+<APIReference
+  data={[
+    {
+      name: "striped",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description:
+        "Faz com que as linhas da tabela tenham listras (alternem cores) para facilitar a leitura.",
+    },
+    {
+      name: "condensed",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description:
+        "Tornar os itens mais condensados do que o comportamento comum.",
+    },
+    {
+      name: "bordered",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description: "Determina se possui borda ou não.",
+    },
+  ]}
+/>
+
+### Header
+
+O elemento `<Table.Header />` é usado em conjunto com os elementos `<Table.Body />` e `<Table.Footer />` para especificar cada parte de uma tabela (cabeçalho, corpo, rodapé).
+
+### Body
+
+O elemento `<Table.Body />` é usado em conjunto com os elementos `<Table.Header />` e `<Table.Footer />` para especificar cada parte de uma tabela (corpo, cabeçalho, rodapé).
+
+### Footer
+
+O elemento `<Table.Footer />` é usado em conjunto com os elementos `<Table.Header />` e `<Table.Body />` para especificar cada parte de uma tabela (rodapé, cabeçalho, corpo).
+
+### Row
+
+A tag `<Table.Row />` define uma linha em uma tabela HTML. <br />
+Um elemento `<Table.Row />` contém um ou mais elementos `<Table.Head>` ou `<Table.Cell />`.
+
+### Head
+
+A tag `<Table.Head>` define uma célula de cabeçalho em uma tabela HTML.
+
+### Cell
+
+A tag `<Table.Cell />` define uma célula de dados padrão em uma tabela HTML.
+
+### Caption
+
+A tag `<Table.Caption />` define uma legenda para uma tabela e deve ser inserida imediatamente após a tag `<Table.Root />`.
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/switch",
+    label: "Switch",
+  }}
+  next={{
+    link: "/docs/components/tabs",
+    label: "Tabs",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/table/1.0.1.mdx" />

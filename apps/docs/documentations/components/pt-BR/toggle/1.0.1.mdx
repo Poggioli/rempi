@@ -1,0 +1,134 @@
+---
+title: Toggle
+slug: toggle
+radixUI: https://www.radix-ui.com/primitives/docs/components/toggle
+radixAPI: https://www.radix-ui.com/primitives/docs/components/toggle#api-reference
+---
+
+# Toggle
+
+<Description text="Um botão de dois estados que pode estar ligado ou desligado." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/toggle" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/toggle#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="toggle" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/toggle
+```
+
+## Uso
+
+Importe o <strong>Toggle</strong>.
+
+```jsx
+import { Flex } from "@rempi-ui/Flex";
+import { Toggle } from "@rempi-ui/toggle";
+import { Italic } from "lucide-react";
+
+() => (
+  <Flex alignItems="center" justifyContent="center">
+    <Toggle>
+      <Italic size={16} />
+    </Toggle>
+
+    <Toggle defaultPressed>
+      <Italic size={16} />
+    </Toggle>
+
+    <Toggle disabled>
+      <Italic size={16} />
+    </Toggle>
+
+    <Toggle disabled defaultPressed>
+      <Italic size={16} />
+    </Toggle>
+  </Flex>
+);
+```
+
+## Sobre
+
+<strong>Rempi-UI Toggle</strong> é baseado no [Radix Toggle](https://www.radix-ui.com/primitives/docs/components/toggle).
+
+## API reference
+
+### Root
+
+O toggle.
+
+<MoreInfo
+  componentName="Radix Toggle"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/toggle#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultPressed",
+      type: "boolean",
+      description:
+        "O estado pressionado do Toggle quando ele é inicialmente renderizado. Use quando você não precisa controlar o estado pressionado dele.",
+    },
+    {
+      name: "pressed",
+      type: "boolean",
+      description: (
+        <span>
+          O estado pressionado controlado do Toggle. Deve ser usado em conjunto
+          com <code>onPressedChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onPressedChange",
+      type: "(pressed: boolean) => void",
+      typeSimple: "function",
+      description: "Evento chamado quando o estado pressionado do Toggle muda.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          Quando <code>true</code>, impede que o usuário interaja com o
+          Toggle.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["on", "off"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Presente quando desabilitado.",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/toast",
+    label: "Toast",
+  }}
+  next={{
+    link: "/docs/components/tooltip",
+    label: "Tooltip",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/toggle/1.0.1.mdx" />

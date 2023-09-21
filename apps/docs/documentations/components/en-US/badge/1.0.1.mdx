@@ -1,0 +1,62 @@
+---
+title: Badge
+slug: badge
+---
+
+# Badge
+
+<Description text="Are compact elements that represent an input, attribute, or action." />
+
+<SelectVersion />
+
+<PreviewComponent name="badge" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/badge
+```
+
+## Usage
+
+Import the <strong>Badge</strong>.
+
+```jsx
+import { Badge } from "@rempi-ui/badge";
+
+() => <Badge>Hello I'm a Badge</Badge>;
+```
+
+## API reference
+
+### Root
+
+Contains all the parts of an badge.
+
+<APIReference
+  data={[
+    {
+      name: "variant",
+      required: false,
+      type: '"primary" | "secondary" | "outlined" | "destructive"',
+      typeSimple: "enum",
+      defaultValue: '"primary"',
+      description: "Set the Badge styles.",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/avatar",
+    label: "Avatar",
+  }}
+  next={{
+    link: "/docs/components/blockquote",
+    label: "Blockquote",
+  }}
+/>
+
+<EditThisPage url="components/en-US/badge/1.0.1.mdx" />

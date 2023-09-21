@@ -1,0 +1,392 @@
+---
+title: Drawer
+slug: drawer
+radixUI: https://www.radix-ui.com/primitives/docs/components/dialog
+radixAPI: https://www.radix-ui.com/primitives/docs/components/dialog#api-reference
+---
+
+# Drawer
+
+<Description text="Os Drawers (ou 'sidebars') fornecem um acesso ergonômico a destinos em um site ou funcionalidades de aplicativos, como a troca de contas." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/dialog" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/dialog#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="drawer" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/drawer
+```
+
+## Uso
+
+Importe o <strong>Drawer</strong> e junte todas as partes do componente.
+
+```jsx
+import { Button } from "@rempi-ui/button";
+import { Drawer } from "@rempi-ui/drawer";
+import { Flex } from "@rempi-ui/flex";
+import { Input } from "@rempi-ui/input";
+
+() => (
+  <Drawer.Root>
+    <Drawer.Trigger>
+      <Button>Editar perfil</Button>
+    </Drawer.Trigger>
+    <Drawer.Portal>
+      <Drawer.Overlay blur />
+      <Drawer.Content>
+        <Drawer.CloseCross aria-label="Fechar" />
+        <Drawer.Title>Editar perfil</Drawer.Title>
+        <Drawer.Description>
+          Faça alterações em seu perfil aqui. Clique em salvar quando terminar.
+        </Drawer.Description>
+        <Flex
+          flexDirection="column"
+          flexWrap="wrap"
+          justifyContent="space-between"
+        >
+          <Input.Label alignItems="flex-start" flexDirection="column">
+            Nome
+            <Input.Root placeholder="Digite seu nome" />
+          </Input.Label>
+          <Input.Label alignItems="flex-start" flexDirection="column">
+            Nome de usuário
+            <Input.Root placeholder="Digite seu nome de usuário" />
+          </Input.Label>
+        </Flex>
+        <Drawer.Footer>
+          <Drawer.Close>
+            <Button color="primary" variant="text">
+              Cancelar
+            </Button>
+          </Drawer.Close>
+          <Drawer.Close>
+            <Button color="success">Salvar</Button>
+          </Drawer.Close>
+        </Drawer.Footer>
+      </Drawer.Content>
+    </Drawer.Portal>
+  </Drawer.Root>
+);
+```
+
+## Sobre
+
+<strong>Rempi-UI Drawer</strong> é baseado no [Radix Dialog](https://www.radix-ui.com/primitives/docs/components/dialog).
+
+## API reference
+
+### Root
+
+Contém todas as partes do drawer.
+
+<MoreInfo
+  componentName="Radix Dialog Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description: (
+        <span>
+          O estado aberto do diálogo quando ele é inicialmente renderizado. Use
+          quando você não precisa controlar o estado aberto dele.
+        </span>
+      ),
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          O estado aberto controlado do diálogo. Deve ser usado em conjunto com{" "}
+          <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description: (
+        <span>Evento chamado quando o estado aberto do diálogo muda.</span>
+      ),
+    },
+    {
+      name: "modal",
+      required: false,
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          A modalidade do diálogo. Quando definida como <code>true</code>, a
+          interação com elementos externos será desativada e apenas o conteúdo
+          do diálogo será visível para leitores de tela.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+### Trigger
+
+O botão que abre o drawer.
+
+<MoreInfo
+  componentName="Radix Dialog Trigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#trigger"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### Portal
+
+Quando usado, insere suas partes de sobreposição e conteúdo em um "portal" para o elemento `body`.
+
+<MoreInfo
+  componentName="Radix Dialog Portal"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#portal"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Usado para forçar a montagem quando mais controle é necessário. Útil
+          ao controlar animações com bibliotecas de animação React. Se usado
+          nesta parte, será herdado por <code>Dialog.Overlay</code> and{" "}
+          <code>Dialog.Content</code>.
+        </span>
+      ),
+    },
+    {
+      name: "container",
+      type: "HTMLElement",
+      defaultValue: "document.body",
+      description:
+        "Especifique um elemento de contêiner para portar o conteúdo para dentro.",
+    },
+  ]}
+/>
+
+### Overlay
+
+Uma camada que cobre a parte inerte da visualização quando a caixa de diálogo está aberta.
+
+<MoreInfo
+  componentName="Radix Dialog Overlay"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#overlay"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Usado para forçar a montagem quando mais controle é necessário. Útil
+          ao controlar animações com bibliotecas de animação React. Ele herda de
+          <code>Dialog.Portal</code>.
+        </span>
+      ),
+    },
+    {
+      name: "blur",
+      type: "boolean",
+      description: (
+        <span>
+          Quando <code>true</code>, torna o plano de fundo embaçado.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### Content
+
+Contém o conteúdo a ser renderizado na caixa de diálogo aberta.
+
+<MoreInfo
+  componentName="Radix Dialog Content"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#content"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "position",
+      type: '"left" | "right" | "top" | "bottom"',
+      typeSimple: "string",
+      description: <span>Define o lado que o Drawer irá aparecer.</span>,
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Usado para forçar a montagem quando mais controle é necessário. Útil
+          ao controlar animações com bibliotecas de animação React. Ele herda de
+          <code>Dialog.Portal</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando o foco se move para o componente após a
+          abertura. Pode ser impedido chamando <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onCloseAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando o foco se move para o acionador após o
+          fechamento. Pode ser impedido chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando a tecla <code>Esc</code> está pressionada. Pode
+          ser evitado chamando <code>event.preventDefault</code>..
+        </span>
+      ),
+    },
+    {
+      name: "onPointerDownOutside",
+      type: "(event: PointerDownOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando ocorre um evento de ponteiro fora dos limites do
+          componente. Isso pode ser evitado chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onInteractOutside",
+      type: "(event: React.FocusEvent | MouseEvent | TouchEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando ocorre uma interação (evento de ponteiro ou
+          foco) fora dos limites do componente. Isso pode ser evitado chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### CloseCross
+
+O botão com o ícone X que fecha a caixa de diálogo.
+
+<APIReference
+  data={[
+    {
+      name: "aria-label",
+      required: true,
+      type: "string",
+      description:
+        "aria-label a ser anunciado quando um leitor de tela está ativo.",
+    },
+  ]}
+/>
+
+### Close
+
+O botão que fecha a caixa de diálogo.
+
+<MoreInfo
+  componentName="Radix Dialog Close"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#close"
+/>
+
+### Title
+
+Um título acessível a ser anunciado quando a caixa de diálogo é aberta.
+
+<MoreInfo
+  componentName="Radix Dialog Title"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#title"
+/>
+
+### Description
+
+Uma descrição acessível opcional a ser anunciada quando a caixa de diálogo é aberta.
+
+<MoreInfo
+  componentName="Radix Dialog Description"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#description"
+/>
+
+### Footer
+
+Uma `<div/>` que, em resolução de desktop, está alinhada no canto inferior direito e, em resolução de celular, está alinhada no centro.
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/dialog",
+    label: "Dialog",
+  }}
+  next={{
+    link: "/docs/components/dropdown-menu",
+    label: "Dropdown Menu",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/drawer/1.0.1.mdx" />

@@ -1,0 +1,386 @@
+---
+title: Dialog
+slug: dialog
+radixUI: https://www.radix-ui.com/primitives/docs/components/dialog
+radixAPI: https://www.radix-ui.com/primitives/docs/components/dialog#api-reference
+---
+
+# Dialog
+
+<Description text="A window overlaid on either the primary window or another dialog window, rendering the content underneath inert." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/dialog" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/dialog#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="dialog" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/dialog
+```
+
+## Usage
+
+Import the <strong>Dialog</strong> and piece all composition components together.
+
+```jsx
+import { Button } from "@rempi-ui/button";
+import { Dialog } from "@rempi-ui/dialog";
+import { Flex } from "@rempi-ui/flex";
+import { Input } from "@rempi-ui/input";
+
+() => (
+  <Dialog.Root>
+    <Dialog.Trigger>
+      <Button>Edit profile</Button>
+    </Dialog.Trigger>
+    <Dialog.Portal>
+      <Dialog.Overlay blur />
+      <Dialog.Content>
+        <Dialog.CloseCross aria-label="Close" />
+        <Dialog.Title>Edit profile</Dialog.Title>
+        <Dialog.Description>
+          Make changes to your profile here. Click save when you're done.
+        </Dialog.Description>
+        <Flex
+          flexDirection="column"
+          flexWrap="wrap"
+          justifyContent="space-between"
+        >
+          <Input.Label alignItems="flex-start" flexDirection="column">
+            Name
+            <Input.Root placeholder="Enter your name" />
+          </Input.Label>
+          <Input.Label alignItems="flex-start" flexDirection="column">
+            Username
+            <Input.Root placeholder="Enter your username" />
+          </Input.Label>
+        </Flex>
+        <Dialog.Footer>
+          <Dialog.Close>
+            <Button color="primary" variant="text">
+              Cancel
+            </Button>
+          </Dialog.Close>
+          <Dialog.Close>
+            <Button color="success">Save changes</Button>
+          </Dialog.Close>
+        </Dialog.Footer>
+      </Dialog.Content>
+    </Dialog.Portal>
+  </Dialog.Root>
+);
+```
+
+## About
+
+<strong>Rempi-UI Dialog</strong> component is built on top of [Radix Dialog](https://www.radix-ui.com/primitives/docs/components/dialog).
+
+## API reference
+
+### Root
+
+Contains all the parts of a dialog.
+
+<MoreInfo
+  componentName="Radix Dialog Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description: (
+        <span>
+          The open state of the dialog when it is initially rendered. Use when
+          you do not need to control its open state.
+        </span>
+      ),
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          The controlled open state of the dialog. Must be used in conjunction
+          with <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the open state of the dialog changes.
+        </span>
+      ),
+    },
+    {
+      name: "modal",
+      required: false,
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          The modality of the dialog. When set to <code>true</code>, interaction
+          with outside elements will be disabled and only dialog content will be
+          visible to screen readers.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+### Trigger
+
+The button that opens the dialog.
+
+<MoreInfo
+  componentName="Radix Dialog Trigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#trigger"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### Portal
+
+When used, portals your overlay and content parts into the `body`.
+
+<MoreInfo
+  componentName="Radix Dialog Portal"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#portal"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. If used on this
+          part, it will be inherited by <code>Dialog.Overlay</code> and{" "}
+          <code>Dialog.Content</code>.
+        </span>
+      ),
+    },
+    {
+      name: "container",
+      type: "HTMLElement",
+      defaultValue: "document.body",
+      description: "Specify a container element to portal the content into.",
+    },
+  ]}
+/>
+
+### Overlay
+
+A layer that covers the inert portion of the view when the dialog is open.
+
+<MoreInfo
+  componentName="Radix Dialog Overlay"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#overlay"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. It inherits from{" "}
+          <code>Dialog.Portal</code>.
+        </span>
+      ),
+    },
+    {
+      name: "blur",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, makes the background blurry.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### Content
+
+Contains content to be rendered in the open dialog.
+
+<MoreInfo
+  componentName="Radix Dialog Content"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#content"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. It inherits from{" "}
+          <code>Dialog.Portal</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when focus moves into the component after
+          opening. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onCloseAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when focus moves to the trigger after closing. It
+          can be prevented by calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the escape key is down. It can be prevented
+          by calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onPointerDownOutside",
+      type: "(event: PointerDownOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when a pointer event occurs outside the bounds of
+          the component. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onInteractOutside",
+      type: "(event: React.FocusEvent | MouseEvent | TouchEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when an interaction (pointer or focus event)
+          happens outside the bounds of the component. It can be prevented by
+          calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### CloseCross
+
+The button with X icon that closes the dialog.
+
+<APIReference
+  data={[
+    {
+      name: "aria-label",
+      required: true,
+      type: "string",
+      description: "aria-label to be announced when screen reader is active",
+    },
+  ]}
+/>
+
+### Close
+
+The button that closes the dialog.
+
+<MoreInfo
+  componentName="Radix Dialog Close"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#close"
+/>
+
+### Title
+
+An accessible title to be announced when the dialog is opened.
+
+<MoreInfo
+  componentName="Radix Dialog Title"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#title"
+/>
+
+### Description
+
+An optional accessible description to be announced when the dialog is opened.
+
+<MoreInfo
+  componentName="Radix Dialog Description"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dialog#description"
+/>
+
+### Footer
+
+A `<div/>` that in desktop resolution is aligned to the lower right corner and in mobile resolution is aligned to the center.
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/context-menu",
+    label: "Context Menu",
+  }}
+  next={{
+    link: "/docs/components/drawer",
+    label: "Drawer",
+  }}
+/>
+
+<EditThisPage url="components/en-US/dialog/1.0.1.mdx" />

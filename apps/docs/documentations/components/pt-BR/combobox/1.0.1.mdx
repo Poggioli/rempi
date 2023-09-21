@@ -1,0 +1,244 @@
+---
+title: Combobox
+slug: combobox
+---
+
+# Combobox
+
+<Description text="Combobox com uma lista de sugestões." />
+
+<SelectVersion />
+
+<PreviewComponent name="combobox" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/combobox
+```
+
+## Uso
+
+Importe o <strong>Combobox</strong> e junte todas as partes do componente.
+
+```jsx
+import { Combobox } from "@rempi-ui/combobox";
+
+() => (
+  <Combobox.Root>
+    <Combobox.Trigger>
+      <Combobox.Value placeholder="Selecione framework..." />
+    </Combobox.Trigger>
+    <Combobox.Content>
+      <Combobox.Input placeholder="Busque framework..." />
+      <Combobox.Empty>
+        Framework não encontrado.
+      </Combobox.Empty>
+      <Combobox.Label>Backend</Combobox.Label>
+      <Combobox.Item value="spring-boot">SpringBoot</Combobox.Item>
+      <Combobox.Item value="django" disabled>
+        Django
+      </Combobox.Item>
+      <Combobox.Item value="laravel">Laravel</Combobox.Item>
+      <Combobox.Item value="express-js">Express.js</Combobox.Item>
+      <Combobox.Item value="ruby-on-rails">Ruby on Rails</Combobox.Item>
+      <Combobox.Separator />
+      <Combobox.Label>Frontend</Combobox.Label>
+      <Combobox.Item value="next-js">Next.js</Combobox.Item>
+      <Combobox.Item value="svelte-kit">SvelteKit</Combobox.Item>
+      <Combobox.Item value="remix">Remix</Combobox.Item>
+      <Combobox.Item value="astro">Astro</Combobox.Item>
+    </Combobox.Content>
+  </Combobox.Root>
+);
+```
+
+## API reference
+
+### Root
+
+É uma mistura de [Rempi-UI Popover Root](/docs/components/popover) e um componente personalizado. <br /><br />
+Contém todas as partes de um Combobox.
+
+<MoreInfo
+  componentName="Rempi-UI Popover Root"
+  componentLink="/docs/components/popover"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultValue",
+      required: false,
+      typeSimple: "string",
+      description:
+        "O valor do item selecionado. Use quando você não precisa controlar o estado dos itens selecionados.",
+    },
+    {
+      name: "value",
+      required: false,
+      typeSimple: "string",
+      description: (
+        <span>
+          O valor controlado do item selecionado. Deve ser usado em conjunto com{" "}
+          <code>onValueChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onValueChange",
+      required: false,
+      type: "(value: string) => void",
+      typeSimple: "function",
+      description: "Evento chamado quando o estado selecionado muda.",
+    },
+    {
+      name: "name",
+      required: false,
+      typeSimple: "string",
+      description: "O nome do combobox.",
+    },
+    {
+      name: "disabled",
+      required: false,
+      typeSimple: "boolean",
+      description: (
+        <span>
+          Quando <code>true</code>, impede que o usuário interaja com o
+          combobox.
+        </span>
+      ),
+    },
+    {
+      name: "required",
+      required: false,
+      typeSimple: "boolean",
+      description: (
+        <span>
+          Quando <code>true</code>, indica que o usuário deve selecionar um item
+          antes que o formulário possa ser enviado.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+### Trigger
+
+O elemento que ativa o popover. Por padrão, o <code>Popover.Content</code> se posicionará em relação ao gatilho.
+
+<MoreInfo
+  componentName="Rempi-UI Popover Trigger"
+  componentLink="/docs/components/popover"
+/>
+
+### Value
+
+A parte que reflete o valor selecionado. Por padrão, o texto do item selecionado será renderizado. Se você precisar de mais controle,
+pode controlar o select e passar seus próprios filhos. Não deve ser estilizado para garantir um posicionamento correto. Uma propriedade
+de espaço reservado opcional também está disponível quando o select não tem valor.
+
+<APIReference
+  data={[
+    {
+      name: "placeholder",
+      required: false,
+      typeSimple: "ReactNode",
+      description: (
+        <span>
+          O conteúdo que será renderizado dentro do <code>Combobox.Value</code>{" "}
+          quando nenhum <code>value</code> ou <code>defaultValue</code> for
+          definido.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+### Content
+
+O componente que surge quando o popover está aberto.
+
+<MoreInfo
+  componentName="Rempi-UI Popover Content"
+  componentLink="/docs/components/popover"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "condensed",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description:
+        "Tornar os itens mais condensados do que o comportamento comum.",
+    },
+  ]}
+/>
+
+### Item
+
+O componente que contém os itens selecionáveis do select.
+
+<APIReference
+  data={[
+    {
+      name: "disabled",
+      required: false,
+      typeSimple: "boolean",
+      description: (
+        <span>
+          Quando <code>true</code>, impede que o usuário interaja com o item.
+        </span>
+      ),
+    },
+    {
+      name: "value",
+      required: true,
+      typeSimple: "string",
+      description: "O valor fornecido como dados quando submetido.",
+    },
+  ]}
+/>
+
+### Separator
+
+Usado para separar visualmente itens na seleção.
+
+<MoreInfo
+  componentName="Rempi-UI Separator"
+  componentLink="/docs/components/separator"
+/>
+
+### Input
+
+Usado para que o usuário insira o valor a ser pesquisado.
+
+<MoreInfo
+  componentName="Rempi-UI Input"
+  componentLink="/docs/components/input"
+/>
+
+### Empty
+
+Usado para indicar quando o valor pesquisado não encontrou nenhuma correspondência.
+
+### Label
+
+Usado para renderizar o rótulo de um grupo. Não será focável usando as teclas de seta.
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/collapsible",
+    label: "Collapsible",
+  }}
+  next={{
+    link: "/docs/components/container",
+    label: "Container",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/combobox/1.0.1.mdx" />

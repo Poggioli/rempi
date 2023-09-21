@@ -1,0 +1,199 @@
+---
+title: Collapsible
+slug: collapsible
+radixUI: https://www.radix-ui.com/primitives/docs/components/collapsible
+radixAPI: https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference
+---
+
+# Collapsible
+
+<Description text="An interactive component which expands/collapses a panel." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/collapsible" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/collapsible#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="collapsible" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/collapsible
+```
+
+## Usage
+
+Import the <strong>Collapsible</strong> and piece all composition components together.
+
+```jsx
+import { IconButton } from "@rempi-ui/button";
+import { Collapsible } from "@rempi-ui/collpasible";
+import { Flex } from "@rempi-ui/flex";
+import { Typography } from "@rempi-ui/typography";
+import { FoldVertical } from "lucide-react";
+
+() => (
+  <Collapsible.Root>
+    <Flex justifyContent="space-between" alignItems="center">
+      <Typography>@peduarte starred 3 repositories</Typography>
+      <Collapsible.Trigger>
+        <IconButton
+          shape="rounded"
+          size="small"
+          aria-label="open repos"
+          variant="text"
+        >
+          <FoldVertical />
+        </IconButton>
+      </Collapsible.Trigger>
+    </Flex>
+    <Flex>
+      <Typography>@radix-ui/primitives</Typography>
+    </Flex>
+    <Collapsible.Content>
+      <Flex flexDirection="column">
+        <Typography>@radix-ui/colors</Typography>
+        <Typography>@radix-ui/react</Typography>
+      </Flex>
+    </Collapsible.Content>
+  </Collapsible.Root>
+);
+```
+
+## About
+
+Rempi-UI Collapsible component is built on top of [Radix Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible).
+
+## API reference
+
+### Root
+
+Contains all the parts of a collapsible.
+
+<MoreInfo
+  componentName="Radix Collapsible Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/collapsible#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description:
+        "The open state of the collapsible when it is initially rendered. Use when you do not need to control its open state.",
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          The controlled open state of the collapsible. Must be used in
+          conjunction with <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description:
+        "Event handler called when the open state of the collapsible changes.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with the
+          collapsible.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+### Trigger
+
+The button that toggles the collapsible.
+
+<MoreInfo
+  componentName="Radix Collapsible Trigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/collapsible#trigger"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+### Content
+
+The component that contains the collapsible content.
+
+<MoreInfo
+  componentName="Radix Collapsible Content"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/collapsible#content"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description:
+        "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/code",
+    label: "Code",
+  }}
+  next={{
+    link: "/docs/components/combobox",
+    label: "Combobox",
+  }}
+/>
+
+<EditThisPage url="components/en-US/collapsible/1.0.1.mdx" />

@@ -1,0 +1,1062 @@
+---
+title: Dropdown Menu
+slug: dropdown-menu
+radixUI: https://www.radix-ui.com/primitives/docs/components/dropdown-menu
+radixAPI: https://www.radix-ui.com/primitives/docs/components/dropdown-menu#api-reference
+---
+
+# Dropdown Menu
+
+<Description text="Apresenta um menu para o usuário, como um conjunto de ações ou funções, acionado por um botão." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="dropdown-menu" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/dropdown-menu
+```
+
+## Uso
+
+Importe o <strong>DropdownMenu</strong> e junte todas as partes do componente.
+
+```jsx
+import { DropdownMenu } from "@rempi-ui/dropdown-menu";
+import { IconButton } from "@rempi-ui/button";
+import { SlidersHorizontal } from "lucide-react";
+
+() => (
+  <DropdownMenu.Root>
+    <DropdownMenu.Trigger>
+      <IconButton
+        aria-label="Configurações"
+        variant="contained"
+        shape="rounded"
+        color="primary"
+      >
+        <SlidersHorizontal size={16} />
+      </IconButton>
+    </DropdownMenu.Trigger>
+    <DropdownMenu.Content>
+      <DropdownMenu.Item>
+        Voltar <div>⌘+[</div>
+      </DropdownMenu.Item>
+      <DropdownMenu.Item disabled>
+        Avançar <div>⌘+]</div>
+      </DropdownMenu.Item>
+      <DropdownMenu.Item>
+        Recarregar <div>⌘+R</div>
+      </DropdownMenu.Item>
+
+      <DropdownMenu.SubMenu>
+        <DropdownMenu.SubMenuTrigger>
+          Mais ferramentas
+        </DropdownMenu.SubMenuTrigger>
+        <DropdownMenu.SubMenuContent sideOffset={2} alignOffset={-5}>
+          <DropdownMenu.Item>
+            Salvar página como... <div>⌘+S</div>
+          </DropdownMenu.Item>
+          <DropdownMenu.Item>Criar atalho...</DropdownMenu.Item>
+          <DropdownMenu.Item>Nome da janela...</DropdownMenu.Item>
+          <DropdownMenu.Separator />
+          <DropdownMenu.Item>Ferramentas do desenvolvedor</DropdownMenu.Item>
+        </DropdownMenu.SubMenuContent>
+      </DropdownMenu.SubMenu>
+
+      <DropdownMenu.Separator />
+
+      <DropdownMenu.CheckboxItem
+        checked={bookmarksChecked}
+        onCheckedChange={setBookmarksChecked}
+      >
+        Mostrar favoritos <div>⌘+B</div>
+      </DropdownMenu.CheckboxItem>
+      <DropdownMenu.CheckboxItem
+        checked={urlsChecked}
+        onCheckedChange={setUrlsChecked}
+      >
+        Mostras URLs completas
+      </DropdownMenu.CheckboxItem>
+
+      <DropdownMenu.Separator />
+
+      <DropdownMenu.Label>Pessoas</DropdownMenu.Label>
+
+      <DropdownMenu.RadioGroup value={person} onValueChange={setPerson}>
+        <DropdownMenu.RadioItem value="pedro">
+          Pedro Duarte
+        </DropdownMenu.RadioItem>
+        <DropdownMenu.RadioItem value="colm">Colm Tuite</DropdownMenu.RadioItem>
+      </DropdownMenu.RadioGroup>
+    </DropdownMenu.Content>
+  </DropdownMenu.Root>
+);
+```
+
+## Sobre
+
+<strong>Rempi-UI Dropdown Menu</strong> é baseado no [Radix Dropdown Menu](https://www.radix-ui.com/primitives/docs/components/dropdown-menu).
+
+## API reference
+
+### Root
+
+Contém todas as partes do dropdown menu.
+
+<MoreInfo
+  componentName="Radix Dropdown Menu Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description: (
+        <span>
+          O estado aberto do dropdown menu quando ele é inicialmente
+          renderizado. Use quando você não precisa controlar seu estado aberto.
+        </span>
+      ),
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          O estado aberto controlado do dropdown menu. Deve ser usado em
+          conjunto com <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando o estado aberto do dropdown menu muda.
+        </span>
+      ),
+    },
+    {
+      name: "modal",
+      required: false,
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          A modalidade do dropdown menu. Quando definido como <code>true</code>,
+          a interação com elementos externos será desabilitada e apenas o
+          conteúdo do menu será visível para leitores de tela.
+        </span>
+      ),
+    },
+    {
+      name: "dir",
+      required: false,
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      description: (
+        <span>
+          A direção de leitura dos submenus, quando aplicável. Se omitido, herda
+          globalmente de <code>DirectionProvider</code> ou assume o modo de
+          leitura da esquerda para a direita (LTR).
+        </span>
+      ),
+    },
+  ]}
+/>
+
+### Trigger
+
+O botão que abre e fecha o dropdown menu. Por padrão, o `DropdownMenu.Content` se posicionará em relação ao gatilho.
+
+<MoreInfo
+  componentName="Radix Dropdown Menu Trigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#trigger"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-disabled]",
+      value: "Presente quando desabilitado.",
+    },
+  ]}
+/>
+
+### Content
+
+É uma mistura de [Radix-UI Dropdown Menu Portal](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#portal) e [Radix-UI Dropdown Menu Content](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#content).<br/><br/>
+Quando usado, move a parte de conteúdo para o elemento `body`. O componente que aparece quando o dropdown menu está aberto.
+
+<MoreInfo
+  componentName="Radix Dropdown Menu Portal"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#portal"
+/>
+
+<MoreInfo
+  componentName="Radix Dropdown Menu Content"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#content"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Usado para forçar a montagem quando mais controle é necessário. Útil
+          ao controlar animações com bibliotecas de animação React. Se usado
+          nesta parte, será herdado por <code>DropdownMenu.Content</code> e{" "}
+          <code>DropdownMenu.SubContent</code>, respectivamente.
+        </span>
+      ),
+    },
+    {
+      name: "container",
+      type: "HTMLElement",
+      defaultValue: "document.body",
+      description:
+        "Especifique um elemento de contêiner para portar o conteúdo para dentro.",
+    },
+    {
+      name: "loop",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          Quando <code>true</code>, a navegação pelo teclado fará um loop do
+          último item para o primeiro e vice-versa.
+        </span>
+      ),
+    },
+    {
+      name: "onCloseAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando o foco se move para o acionador após o
+          fechamento. Pode ser impedido chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando a tecla <code>Esc</code> está pressionada. Pode
+          ser evitado chamando <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onPointerDownOutside",
+      type: "(event: PointerDownOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando ocorre um evento de ponteiro fora dos limites do
+          componente. Isso pode ser evitado chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onFocusOutside",
+      type: "(event: FocusOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando o foco se move para fora dos limites do
+          componente. Isso pode ser evitado chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onInteractOutside",
+      type: "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando ocorre uma interação (evento de ponteiro ou
+          foco) fora dos limites do componente. Isso pode ser evitado chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Usado para forçar a montagem quando mais controle é necessário. Útil
+          ao controlar animações com bibliotecas de animação React. Ele herda de
+          <code>DropdownMenu.Portal</code>.
+        </span>
+      ),
+    },
+    {
+      name: "side",
+      type: '"top" | "right" | "bottom" | "left"',
+      typeSimple: "enum",
+      defaultValue: '"bottom"',
+      description: (
+        <span>
+          O lado preferido do gatilho para renderizar quando estiver aberto.
+          Será invertido quando ocorrerem colisões e{" "}
+          <code>avoidCollisions</code> estiver ativado.
+        </span>
+      ),
+    },
+    {
+      name: "sideOffset",
+      type: "number",
+      defaultValue: "0",
+      description: <span>A distância em pixels a partir do gatilho.</span>,
+    },
+    {
+      name: "align",
+      type: '"start" | "center" | "end"',
+      typeSimple: "enum",
+      defaultValue: '"center"',
+      description: (
+        <span>
+          O alinhamento preferido em relação ao gatilho. Pode ser alterado
+          quando ocorrem colisões.
+        </span>
+      ),
+    },
+    {
+      name: "alignOffset",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          Um deslocamento em pixels a partir das opções de alinhamento{" "}
+          <code>"start"</code> ou <code>"end"</code>.
+        </span>
+      ),
+    },
+    {
+      name: "avoidCollisions",
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          Quando <code>true</code>, substitui as preferências de{" "}
+          <code>side</code> e <code>align</code> para evitar colisões com as
+          bordas da fronteira.
+        </span>
+      ),
+    },
+    {
+      name: "collisionBoundary",
+      type: "Element | null | Array<Element | null>",
+      typeSimple: "Boundary",
+      defaultValue: "[]",
+      description: (
+        <span>
+          O elemento usado como limite de colisão. Por padrão, isso é a janela
+          de visualização (viewport), embora você possa fornecer elemento(s)
+          adicional(is) a serem incluído(s) nesta verificação.
+        </span>
+      ),
+    },
+    {
+      name: "collisionPadding",
+      type: "number | Partial<Record<Side, number>>",
+      typeSimple: "number | Padding",
+      defaultValue: "0",
+      description: (
+        <span>
+          A distância em pixels das bordas da fronteira onde a detecção de
+          colisão deve ocorrer. Aceita um número (o mesmo para todos os lados)
+          ou um objeto de preenchimento parcial, por exemplo: <code>{`{ top: 20, left: 20 }`}</code>
+          .
+        </span>
+      ),
+    },
+    {
+      name: "arrowPadding",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          O espaçamento entre a seta e as bordas do conteúdo. Se o seu conteúdo
+          tiver <code>border-radius</code>, isso evitará que ele transborde
+          pelos cantos.
+        </span>
+      ),
+    },
+    {
+      name: "sticky",
+      type: '"partial" | "always"',
+      typeSimple: "enum",
+      defaultValue: '"partial"',
+      description: (
+        <span>
+          O comportamento de aderência no eixo de alinhamento.{" "}
+          <code>"partial"</code> manterá o conteúdo dentro do limite enquanto o
+          gatilho estiver pelo menos parcialmente dentro do limite, enquanto{" "}
+          <code>"always"</code> manterá o conteúdo dentro do limite
+          independentemente.
+        </span>
+      ),
+    },
+    {
+      name: "hideWhenDetached",
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          Se deve ocultar o conteúdo quando o gatilho ficar completamente
+          oculto.
+        </span>
+      ),
+    },
+    {
+      name: "condensed",
+      required: false,
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description:
+        "Tornar os itens mais condensados do que o comportamento comum.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-side]",
+      value: ["left", "right", "bottom", "top"],
+    },
+    {
+      name: "[data-align]",
+      value: ["start", "end", "center"],
+    },
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+### Item
+
+O componente que contém os itens do dropdown menu.
+
+<MoreInfo
+  componentName="Radix Dropdown Menu Item"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#item"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          Quando <code>true</code>, impede que o usuário interaja com o item.
+        </span>
+      ),
+    },
+    {
+      name: "onSelect",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando o usuário seleciona um item (via mouse ou
+          teclado). Chamar <code>event.preventDefault</code> neste evento
+          evitará que o dropdown menu seja fechado ao selecionar esse item.
+        </span>
+      ),
+    },
+    {
+      name: "textValue",
+      type: "string",
+      description: (
+        <span>
+          Texto opcional usado para fins de digitação automática (typeahead).
+          Por padrão, o comportamento de digitação automática usará o{" "}
+          <code>.textContent</code> do item. Use isso quando o conteúdo for
+          complexo ou quando houver conteúdo não textual dentro do item.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+    {
+      name: "[data-highlighted]",
+      value: "Presente quando destacado.",
+    },
+    {
+      name: "[data-disabled]",
+      value: "Presente quando desabilitado.",
+    },
+  ]}
+/>
+
+### Group
+
+Usado para agrupar vários `DropdownMenu.Item`s.
+
+<MoreInfo
+  componentName="Radix Dropdown Menu Group"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#group"
+/>
+
+### Label
+
+Usado para renderizar um rótulo. Ele não será focável usando as teclas de seta.
+
+<MoreInfo
+  componentName="Radix Dropdown Menu Label"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#label"
+/>
+
+### CheckboxItem
+
+Um item que pode ser controlado e renderizado como uma caixa de seleção.
+
+<MoreInfo
+  componentName="Radix Dropdown Menu CheckboxItem"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#checkboxitem"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "checked",
+      type: `boolean | 'indeterminate'`,
+      description: (
+        <span>
+          O estado controlado de verificação (checked) do item. Deve ser usado
+          em conjunto com <code>onCheckedChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onCheckedChange",
+      type: `(checked: boolean) => void`,
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando o estado de verificação (checked) muda.
+        </span>
+      ),
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          Quando <code>true</code>, impede que o usuário interaja com o item.
+        </span>
+      ),
+    },
+    {
+      name: "onSelect",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando o usuário seleciona um item (via mouse ou
+          teclado). Chamar <code>event.preventDefault</code> neste evento
+          impedirá que o dropdown menu seja fechado ao selecionar esse item.
+        </span>
+      ),
+    },
+    {
+      name: "textValue",
+      type: "string",
+      description: (
+        <span>
+          Texto opcional usado para fins de digitação automática (typeahead).
+          Por padrão, o comportamento de digitação automática usará o{" "}
+          <code>.textContent</code> do item. Use isso quando o conteúdo for
+          complexo ou quando houver conteúdo não textual dentro do item.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["checked", "unchecked", "indeterminate"],
+    },
+    {
+      name: "[data-highlighted]",
+      value: "Presente quando destacado.",
+    },
+    {
+      name: "[data-disabled]",
+      value: "Presente quando desabilitado.",
+    },
+  ]}
+/>
+
+### RadioGroup
+
+Usado para agrupar vários `DropdownMenu.RadioItem`s.
+
+<MoreInfo
+  componentName="Radix Dropdown Menu RadioGroup"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#radiogroup"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "value",
+      type: "string",
+      description: "O valor do item selecionado no grupo.",
+    },
+    {
+      name: "onValueChange",
+      type: "(value: string) => void",
+      typeSimple: "function",
+      description: "Evento chamado quando o valor muda.",
+    },
+  ]}
+/>
+
+### RadioItem
+
+É uma mistura de [Radix-UI Dropdown Menu RadioItem](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#radioitem) e [Radix-UI Dropdown Menu ItemIndicator](https://www.radix-ui.com/primitives/docs/components/dropdown-menu#itemindicator).<br /><br />
+Um item que pode ser controlado e renderizado como um rádio. É renderizado quando o pai `DropdownMenu.CheckboxItem` ou `DropdownMenu.RadioItem` é marcado.
+
+<MoreInfo
+  componentName="Radix Dropdown Menu RadioItem"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#radioitem"
+/>
+
+<MoreInfo
+  componentName="Radix Dropdown Menu ItemIndicator"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#itemindicator"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "value",
+      type: "string",
+      required: true,
+      description: "O valor único do item.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          Quando <code>true</code>, impede que o usuário interaja com o item.
+        </span>
+      ),
+    },
+    {
+      name: "onSelect",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando o usuário seleciona um item (via mouse ou
+          teclado). Chamar <code>event.preventDefault</code> neste evento
+          impedirá que o dropdown menu seja fechado ao selecionar esse item.
+        </span>
+      ),
+    },
+    {
+      name: "textValue",
+      type: "string",
+      description: (
+        <span>
+          Texto opcional usado para fins de digitação automática (typeahead).
+          Por padrão, o comportamento de digitação automática usará o{" "}
+          <code>.textContent</code> do item. Use isso quando o conteúdo for
+          complexo ou quando houver conteúdo não textual dentro do item.
+        </span>
+      ),
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Usado para forçar a montagem quando mais controle é necessário. Útil
+          ao controlar animações com bibliotecas de animação React.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["checked", "unchecked", "indeterminate"],
+    },
+    {
+      name: "[data-highlighted]",
+      value: "Presente quando destacado.",
+    },
+    {
+      name: "[data-disabled]",
+      value: "Presente quando desabilitado.",
+    },
+  ]}
+/>
+
+### Separator
+
+Usado para separar visualmente os itens no dropdown menu.
+
+<MoreInfo
+  componentName="Radix Dropdown Menu Separator"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#separator"
+/>
+
+### SubMenu
+
+Contém todas as partes do submenu.
+
+<MoreInfo
+  componentName="Radix Dropdown Menu SubMenu"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#sub"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description: (
+        <span>
+          O estado de abertura do submenu quando ele é inicialmente renderizado.
+          Use quando você não precisa controlar o estado de abertura dele.
+        </span>
+      ),
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          O estado controlado de abertura do submenu. Deve ser usado em conjunto
+          com <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description: (
+        <span>Evento chamado quando o estado de abertura do submenu muda.</span>
+      ),
+    },
+  ]}
+/>
+
+### SubMenuTrigger
+
+Um item que abre um submenu. Deve ser renderizado dentro de `DropdownMenu.Sub`.
+
+<MoreInfo
+  componentName="Radix Dropdown Menu SubMenuTrigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#subtrigger"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          Quando <code>true</code>, impede que o usuário interaja com o item.
+        </span>
+      ),
+    },
+    {
+      name: "textValue",
+      type: "string",
+      description: (
+        <span>
+          Texto opcional usado para fins de digitação automática (typeahead).
+          Por padrão, o comportamento de digitação automática usará o{" "}
+          <code>.textContent</code> do item. Use isso quando o conteúdo for
+          complexo ou quando houver conteúdo não textual dentro do item.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-highlighted]",
+      value: "Presente quando destacado.",
+    },
+    {
+      name: "[data-disabled]",
+      value: "Presente quando desabilitado.",
+    },
+  ]}
+/>
+
+### SubMenuContent
+
+O componente que aparece quando um submenu está aberto. Deve ser renderizado dentro de `DropdownMenu.Sub`.
+
+<MoreInfo
+  componentName="Radix Dropdown Menu SubMenuContent"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#subcontent"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "loop",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          Quando <code>true</code>, a navegação pelo teclado fará um loop do
+          último item para o primeiro e vice-versa.
+        </span>
+      ),
+    },
+    {
+      name: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando a tecla <code>Esc</code> está pressionada. Pode
+          ser evitado chamando <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onPointerDownOutside",
+      type: "(event: PointerDownOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando ocorre um evento de ponteiro fora dos limites do
+          componente. Isso pode ser evitado chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onFocusOutside",
+      type: "(event: FocusOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando o foco se move para fora dos limites do
+          componente. Isso pode ser evitado chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onInteractOutside",
+      type: "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando ocorre uma interação (evento de ponteiro ou
+          foco) fora dos limites do componente. Isso pode ser evitado chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Usado para forçar a montagem quando mais controle é necessário. Útil
+          ao controlar animações com bibliotecas de animação React. Ele herda de
+          <code>DropdownMenu.Portal</code>.
+        </span>
+      ),
+    },
+    {
+      name: "sideOffset",
+      type: "number",
+      defaultValue: "0",
+      description: <span>A distância em pixels a partir do gatilho.</span>,
+    },
+    {
+      name: "alignOffset",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          Um deslocamento em pixels a partir das opções de alinhamento{" "}
+          <code>"start"</code> ou <code>"end"</code>.
+        </span>
+      ),
+    },
+    {
+      name: "avoidCollisions",
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          Quando <code>true</code>, substitui as preferências de{" "}
+          <code>side</code> e <code>align</code> para evitar colisões com as
+          bordas da fronteira.
+        </span>
+      ),
+    },
+    {
+      name: "collisionBoundary",
+      type: "Element | null | Array<Element | null>",
+      typeSimple: "Boundary",
+      defaultValue: "[]",
+      description: (
+        <span>
+          O elemento usado como limite de colisão. Por padrão, isso é a janela
+          de visualização (viewport), embora você possa fornecer elemento(s)
+          adicional(is) a serem incluído(s) nesta verificação.
+        </span>
+      ),
+    },
+    {
+      name: "collisionPadding",
+      type: "number | Partial<Record<Side, number>>",
+      typeSimple: "number | Padding",
+      defaultValue: "0",
+      description: (
+        <span>
+          A distância em pixels das bordas da fronteira onde a detecção de
+          colisão deve ocorrer. Aceita um número (o mesmo para todos os lados)
+          ou um objeto de preenchimento parcial, por exemplo: <code>{`{ top: 20, left: 20 }`}</code>
+          .
+        </span>
+      ),
+    },
+    {
+      name: "arrowPadding",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          O espaçamento entre a seta e as bordas do conteúdo. Se o seu conteúdo
+          tiver <code>border-radius</code>, isso evitará que ele transborde
+          pelos cantos.
+        </span>
+      ),
+    },
+    {
+      name: "sticky",
+      type: '"partial" | "always"',
+      typeSimple: "enum",
+      defaultValue: '"partial"',
+      description: (
+        <span>
+          O comportamento de aderência no eixo de alinhamento.{" "}
+          <code>"partial"</code> manterá o conteúdo dentro do limite enquanto o
+          gatilho estiver pelo menos parcialmente dentro do limite, enquanto{" "}
+          <code>"always"</code> manterá o conteúdo dentro do limite
+          independentemente.
+        </span>
+      ),
+    },
+    {
+      name: "hideWhenDetached",
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          Se deve ocultar o conteúdo quando o gatilho ficar completamente
+          oculto.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-side]",
+      value: ["left", "right", "bottom", "top"],
+    },
+    {
+      name: "[data-align]",
+      value: ["start", "end", "center"],
+    },
+    {
+      name: "[data-orientation]",
+      value: ["vertical", "horizontal"],
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/drawer",
+    label: "Drawer",
+  }}
+  next={{
+    link: "/docs/components/flex",
+    label: "Flex",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/dropdown-menu/1.0.1.mdx" />
