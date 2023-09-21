@@ -2,7 +2,7 @@
   "name": "@rempi-ui/callout",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -12,16 +12,16 @@
     "clear": "rimraf .turbo node_modules dist"
   },
   "dependencies": {
-    "@rempi-ui/flex": "^1.0.0",
-    "@rempi-ui/heading": "^1.0.0",
-    "@rempi-ui/typography": "^1.0.0"
+    "@rempi-ui/flex": "^1.0.1",
+    "@rempi-ui/heading": "^1.0.1",
+    "@rempi-ui/typography": "^1.0.1"
   },
   "devDependencies": {
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },
   "peerDependencies": {
-    "@rempi-ui/core": "^1.0.0",
+    "@rempi-ui/core": "^1.0.1",
     "react": ">=^18.2.0"
   }
 }
