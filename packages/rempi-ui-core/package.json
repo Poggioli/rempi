@@ -4,12 +4,12 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "version": "1.0.0",
-  "scripts": {
-    "build": "rollup -c"
-  },
   "publishConfig": {
     "access": "public",
     "tag": "latest"
+  },
+  "scripts": {
+    "build": "rollup -c"
   },
   "dependencies": {},
   "devDependencies": {
