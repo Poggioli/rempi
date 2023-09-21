@@ -2,8 +2,11 @@
   "name": "@rempi-ui/utils",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.1",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
   "scripts": {
     "build": "rollup -c",
     "clear": "rimraf .turbo node_modules dist"

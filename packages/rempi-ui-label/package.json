@@ -2,22 +2,25 @@
   "name": "@rempi-ui/label",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.1",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
   "scripts": {
     "build": "rollup -c",
     "clear": "rimraf .turbo node_modules dist"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.0.2",
-    "@rempi-ui/flex": "*"
+    "@rempi-ui/flex": "^1.0.1"
   },
   "devDependencies": {
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },
   "peerDependencies": {
-    "@rempi-ui/core": "*",
+    "@rempi-ui/core": "^1.0.1",
     "react": ">=^18.2.0"
   }
 }
