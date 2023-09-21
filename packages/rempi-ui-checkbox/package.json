@@ -2,7 +2,7 @@
   "name": "@rempi-ui/checkbox",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.0.4",
-    "@rempi-ui/label": "^1.0.0",
+    "@rempi-ui/label": "^1.0.1",
     "lucide-react": "^0.258.0"
   },
   "devDependencies": {
@@ -21,7 +21,7 @@
     "typescript": "^4.5.3"
   },
   "peerDependencies": {
-    "@rempi-ui/core": "^1.0.0",
+    "@rempi-ui/core": "^1.0.1",
     "react": ">=^18.2.0"
   }
 }
