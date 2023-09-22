@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@rempi-ui/button";
 import { Flex } from "@rempi-ui/flex";
 import { Heading } from "@rempi-ui/heading";

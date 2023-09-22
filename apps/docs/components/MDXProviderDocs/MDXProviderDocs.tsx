@@ -3,7 +3,6 @@ import { PreviewComponent } from "@/components/PreviewComponent";
 import { MDXProvider } from "@mdx-js/react";
 import { Flex } from "@rempi-ui/flex";
 import { FC, PropsWithChildren } from "react";
-// import { Code } from "./Code";
 import { Heading1 } from "./Heading1";
 import { Heading2 } from "./Heading2";
 import { Heading3 } from "./Heading3";
