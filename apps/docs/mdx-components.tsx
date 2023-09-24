@@ -1,5 +1,3 @@
-import { Heading } from "@rempi-ui/heading";
-import { Typography } from "@rempi-ui/typography";
 import type { MDXComponents } from "mdx/types";
 
 // This file allows you to provide custom React components

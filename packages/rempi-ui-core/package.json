@@ -20,6 +20,6 @@
   },
   "peerDependencies": {
     "styled-components": ">=^6.0.7",
-    "react": ">=^18.2.0"
+    "react": "18.x"
   }
 }
