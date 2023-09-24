@@ -1,4 +1,4 @@
-import { Flex } from "@rempi-ui/Flex";
+import { Flex } from "@rempi-ui/flex";
 import { Typography } from "@rempi-ui/typography";
 import { useTranslations } from "next-intl";
 import { FC } from "react";

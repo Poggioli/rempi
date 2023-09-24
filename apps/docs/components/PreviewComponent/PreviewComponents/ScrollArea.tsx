@@ -1,4 +1,4 @@
-import { Flex } from "@rempi-ui/Flex";
+import { Flex } from "@rempi-ui/flex";
 import { ScrollArea } from "@rempi-ui/scroll-area";
 import { Separator } from "@rempi-ui/separator";
 import { Typography } from "@rempi-ui/typography";

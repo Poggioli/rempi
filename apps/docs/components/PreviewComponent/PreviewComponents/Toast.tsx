@@ -1,5 +1,5 @@
 import { Button } from "@rempi-ui/button";
-import { Flex } from "@rempi-ui/Flex";
+import { Flex } from "@rempi-ui/flex";
 import { Toast } from "@rempi-ui/toast";
 import { useTranslations } from "next-intl";
 import { FC, useRef, useState } from "react";

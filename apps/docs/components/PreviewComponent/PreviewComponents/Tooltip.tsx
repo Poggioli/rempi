@@ -1,5 +1,5 @@
 import { IconButton } from "@rempi-ui/button";
-import { Flex } from "@rempi-ui/Flex";
+import { Flex } from "@rempi-ui/flex";
 import { Tooltip } from "@rempi-ui/tooltip";
 import { HelpCircle } from "lucide-react";
 import { useTranslations } from "next-intl";

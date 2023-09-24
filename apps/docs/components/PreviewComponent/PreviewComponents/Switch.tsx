@@ -1,4 +1,4 @@
-import { Flex } from "@rempi-ui/Flex";
+import { Flex } from "@rempi-ui/flex";
 import { Switch } from "@rempi-ui/switch";
 import { Typography } from "@rempi-ui/typography";
 import { BellIcon } from "lucide-react";

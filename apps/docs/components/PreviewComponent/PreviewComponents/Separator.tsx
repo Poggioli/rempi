@@ -1,4 +1,4 @@
-import { Flex } from "@rempi-ui/Flex";
+import { Flex } from "@rempi-ui/flex";
 import { Heading } from "@rempi-ui/heading";
 import { Separator } from "@rempi-ui/separator";
 import { useTranslations } from "next-intl";

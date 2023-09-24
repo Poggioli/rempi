@@ -1,5 +1,5 @@
 import { IconButton } from "@rempi-ui/button";
-import { Flex } from "@rempi-ui/Flex";
+import { Flex } from "@rempi-ui/flex";
 import { Popover } from "@rempi-ui/popover";
 import { Typography } from "@rempi-ui/typography";
 import { SlidersHorizontal } from "lucide-react";

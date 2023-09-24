@@ -1,4 +1,4 @@
-import { Flex } from "@rempi-ui/Flex";
+import { Flex } from "@rempi-ui/flex";
 import { Toggle } from "@rempi-ui/toggle";
 import { Italic } from "lucide-react";
 import { FC } from "react";
