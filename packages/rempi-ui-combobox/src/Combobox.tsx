@@ -275,7 +275,7 @@ export const ComboboxContent = forwardRef<
   }, []);
 
   if (!context.open) {
-    const frag = fragment as Element | undefined;
+    const frag = fragment as unknown as Element | undefined;
     return frag
       ? createPortal(
           <ComboboxContentContextProvider
@@ -374,7 +374,7 @@ export const ComboboxItem = forwardRef<
     contentContext.searchValue &&
     !filterSearch(contentContext.searchValue, textValue)
   ) {
-    const frag = fragment as Element | undefined;
+    const frag = fragment as unknown as Element | undefined;
     return frag
       ? createPortal(
           <ComboboxItemContextProvider

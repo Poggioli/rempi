@@ -36,6 +36,9 @@ function loadDocBySlug(slug: string, version?: string) {
 export async function generateMetadata({
   params,
   searchParams,
+}: {
+  params: { [key: string]: any };
+  searchParams: { [key: string]: any };
 }): Promise<Metadata> {
   const { slug } = params;
   const { v } = searchParams;
@@ -49,7 +52,13 @@ export async function generateMetadata({
   };
 }
 
-async function SlugPage({ params, searchParams }) {
+async function SlugPage({
+  params,
+  searchParams,
+}: {
+  params: { [key: string]: any };
+  searchParams: { [key: string]: any };
+}) {
   const { slug } = params;
   const { v } = searchParams;
 

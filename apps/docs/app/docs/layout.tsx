@@ -3,6 +3,7 @@
 import { DocsNavigationMenu } from "@/components/DocsNavigationMenu";
 import { styled } from "@rempi-ui/core";
 import { Flex } from "@rempi-ui/flex";
+import { FC, PropsWithChildren } from "react";
 
 const StyledSideNav = styled.aside`
   display: none;
@@ -52,7 +53,7 @@ const StyledContainer = styled.div`
   }
 `;
 
-export default function DocsPage({ children }) {
+const DocsPage: FC<PropsWithChildren<any>> = ({ children }) => {
   return (
     <Flex justifyContent="flex-start" flexWrap="initial">
       <StyledSideNav>
@@ -66,3 +67,5 @@ export default function DocsPage({ children }) {
     </Flex>
   );
 }
+
+export default DocsPage

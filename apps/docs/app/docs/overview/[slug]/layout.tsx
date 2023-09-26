@@ -3,6 +3,7 @@
 import { MDXProviderOverview } from "@/components/MDXProviderOverview";
 import { Container } from "@rempi-ui/container";
 import { styled } from "@rempi-ui/core";
+import { FC, PropsWithChildren } from "react";
 
 const StyledContainerBody = styled.div`
   display: flex;
@@ -20,7 +21,7 @@ const StyledContainer = styled.div`
   }
 `;
 
-export default function DocsPage({ children }) {
+const DocsPage: FC<PropsWithChildren<any>> = ({ children }) => {
   return (
     <StyledContainerBody>
       <StyledContainer
@@ -31,4 +32,6 @@ export default function DocsPage({ children }) {
       </StyledContainer>
     </StyledContainerBody>
   );
-}
+};
+
+export default DocsPage;

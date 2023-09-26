@@ -8,7 +8,11 @@ function loadDocBySlug(slug: string) {
   return loadMdxFile(`documentations/overview/${getCurrentLocale()}/`, slug);
 }
 
-export async function generateMetadata({ params }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { [key: string]: any };
+}): Promise<Metadata> {
   const { slug } = params;
 
   const {
@@ -20,7 +24,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   };
 }
 
-async function SlugPage({ params }) {
+async function SlugPage({ params }: { params: { [key: string]: any } }) {
   const { slug } = params;
 
   const source = loadDocBySlug(slug);

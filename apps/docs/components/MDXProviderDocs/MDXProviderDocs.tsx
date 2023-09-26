@@ -1,23 +1,23 @@
-import { APIReference } from "./APIReference";
+import { Description } from "@/components/MDXProviderCommon/Description";
+import { EditThisPage } from "@/components/MDXProviderCommon/EditThisPage";
+import { NavigationNextPrevious } from "@/components/MDXProviderCommon/NavigationNextPrevious";
+import { Pre } from "@/components/MDXProviderCommon/Pre";
+import { Step, Steps } from "@/components/MDXProviderCommon/Steps";
 import { PreviewComponent } from "@/components/PreviewComponent";
 import { MDXProvider } from "@mdx-js/react";
 import { Flex } from "@rempi-ui/flex";
 import { FC, PropsWithChildren } from "react";
+import { APIReference } from "./APIReference";
+import { CodeComp } from "./Code";
+import { DataReference } from "./DataReference";
 import { Heading1 } from "./Heading1";
 import { Heading2 } from "./Heading2";
 import { Heading3 } from "./Heading3";
-import { NavigationNextPrevious } from "@/components/MDXProviderCommon/NavigationNextPrevious";
+import { MoreInfo } from "./MoreInfo";
 import { Paragraph } from "./Paragraph";
-import { Pre } from "@/components/MDXProviderCommon/Pre";
 import { RadixAPI } from "./RadixAPI";
 import { RadixUI } from "./RadixUI";
-import { Step, Steps } from "@/components/MDXProviderCommon/Steps";
-import { Code } from "@rempi-ui/code";
-import { DataReference } from "./DataReference";
-import { Description } from "@/components/MDXProviderCommon/Description";
-import { MoreInfo } from "./MoreInfo";
 import { SelectVersion } from "./SelectVersion";
-import { EditThisPage } from "@/components/MDXProviderCommon/EditThisPage";
 
 export const MDXProviderDocs: FC<PropsWithChildren<any>> = ({ children }) => {
   return (
@@ -31,7 +31,7 @@ export const MDXProviderDocs: FC<PropsWithChildren<any>> = ({ children }) => {
         Steps,
         Step,
         pre: Pre,
-        code: Code,
+        code: CodeComp,
         Flex,
         RadixUI,
         RadixAPI,
@@ -41,7 +41,7 @@ export const MDXProviderDocs: FC<PropsWithChildren<any>> = ({ children }) => {
         DataReference,
         MoreInfo,
         SelectVersion,
-        EditThisPage
+        EditThisPage,
       }}
     >
       {children}
