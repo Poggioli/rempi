@@ -66,7 +66,7 @@ export const APIReference: FC<APIReferenceProps> = ({ data }) => {
                         side="top"
                         align="center"
                         style={{ maxWidth: 350 }}
-                        onOpenAutoFocus={(event) => {
+                        onOpenAutoFocus={(event: Event) => {
                           event.preventDefault();
                           (event.currentTarget as HTMLElement)?.focus();
                         }}
