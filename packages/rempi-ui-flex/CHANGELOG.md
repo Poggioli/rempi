@@ -1,5 +1,11 @@
 # @rempi-ui/flex
 
+## 1.0.2
+
+### Patch Changes
+
+- 27acf5f: fix publish of dist folder
+
 ## 1.0.1
 
 ### Patch Changes
