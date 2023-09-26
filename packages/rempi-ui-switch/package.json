@@ -6,7 +6,7 @@
   ],
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -17,14 +17,14 @@
   },
   "dependencies": {
     "@radix-ui/react-switch": "^1.0.3",
-    "@rempi-ui/label": "^1.0.2"
+    "@rempi-ui/label": "^1.0.3"
   },
   "devDependencies": {
     "tsconfig": "*",
     "typescript": "^4.5.3"
   },
   "peerDependencies": {
-    "@rempi-ui/core": "^1.0.2",
+    "@rempi-ui/core": "^1.0.3",
     "react": "18.x"
   }
 }

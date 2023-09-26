@@ -1,5 +1,17 @@
 # @rempi-ui/combobox
 
+## 1.0.3
+
+### Patch Changes
+
+- a197242: add types to all packages
+- Updated dependencies [a197242]
+  - @rempi-ui/separator@1.0.3
+  - @rempi-ui/popover@1.0.3
+  - @rempi-ui/input@1.0.3
+  - @rempi-ui/utils@1.0.3
+  - @rempi-ui/core@1.0.3
+
 ## 1.0.2
 
 ### Patch Changes
