@@ -1,5 +1,7 @@
 {
   "name": "@rempi-ui/context-menu",
+  "license": "MIT",
+  "files": ["dist"],
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "version": "1.0.1",
@@ -9,7 +11,7 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "clear": "rimraf .turbo node_modules dist"
+    "clear": "rimraf .turbo node_modules dist .next"
   },
   "dependencies": {
     "@radix-ui/react-context-menu": "^2.1.4",

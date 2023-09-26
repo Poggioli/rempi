@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clear": "rimraf .turbo node_modules dist .next"
   },
   "dependencies": {
     "next": "^13.4.1",
