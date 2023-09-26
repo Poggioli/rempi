@@ -1,0 +1,956 @@
+---
+title: Context Menu
+slug: context-menu
+radixUI: https://www.radix-ui.com/primitives/docs/components/context-menu
+radixAPI: https://www.radix-ui.com/primitives/docs/components/context-menu#api-reference
+---
+
+# Context Menu
+
+<Description text="Displays a menu located at the pointer, triggered by a right-click or a long-press." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/context-menu" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/context-menu#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="context-menu" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/context-menu
+```
+
+## Usage
+
+Import the <strong>ContextMenu</strong> and piece all composition components together.
+
+```jsx
+import { ContextMenu } from "@rempi-ui/context-menu";
+import { Flex } from "@rempi-ui/flex";
+import { Typography } from "@rempi-ui/typography";
+
+() => (
+  <ContextMenu.Root>
+    <ContextMenu.Trigger>
+      <Flex flexDirection="row" alignItems="center" justifyContent="center">
+        <Typography>Right click here</Typography>
+      </Flex>
+    </ContextMenu.Trigger>
+    <ContextMenu.Content>
+      <ContextMenu.Item>Back</ContextMenu.Item>
+      <ContextMenu.Item disabled>Foward</ContextMenu.Item>
+      <ContextMenu.Item>Reload</ContextMenu.Item>
+
+      <ContextMenu.SubMenu>
+        <ContextMenu.SubMenuTrigger>More Tools</ContextMenu.SubMenuTrigger>
+        <ContextMenu.SubMenuContent sideOffset={2} alignOffset={-5}>
+          <ContextMenu.Item>Save Page As…</ContextMenu.Item>
+          <ContextMenu.Item>Create Shortcut…</ContextMenu.Item>
+          <ContextMenu.Item>Name Window…</ContextMenu.Item>
+          <ContextMenu.Separator />
+          <ContextMenu.Item>Developer Tools</ContextMenu.Item>
+        </ContextMenu.SubMenuContent>
+      </ContextMenu.SubMenu>
+      <ContextMenu.Separator />
+      <ContextMenu.CheckboxItem>Show Bookmarks</ContextMenu.CheckboxItem>
+      <ContextMenu.CheckboxItem>Show Full URLs</ContextMenu.CheckboxItem>
+      <ContextMenu.Separator />
+      <ContextMenu.Label>People</ContextMenu.Label>
+      <ContextMenu.RadioGroup>
+        <ContextMenu.RadioItem value="pedro">
+          Pedro Duarte
+        </ContextMenu.RadioItem>
+        <ContextMenu.RadioItem value="colm">Colm Tuite</ContextMenu.RadioItem>
+      </ContextMenu.RadioGroup>
+    </ContextMenu.Content>
+  </ContextMenu.Root>
+);
+```
+
+## About
+
+<strong>Rempi-UI Context Menu</strong> component is built on top of [Radix Context
+Menu](https://www.radix-ui.com/primitives/docs/components/context-menu).
+
+## API reference
+
+### Root
+
+Contains all the parts of a context menu.
+
+<MoreInfo
+  componentName="Radix Context Menu Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "dir",
+      required: false,
+      type: '"ltr" | "rtl"',
+      typeSimple: "enum",
+      description: (
+        <span>
+          The reading direction of submenus when applicable. If omitted,
+          inherits globally from <code>DirectionProvider</code> or assumes LTR
+          (left-to-right) reading mode.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description:
+        "Event handler called when the open state of the context menu changes.",
+    },
+    {
+      name: "modal",
+      required: false,
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          The modality of the context menu. When set to <code>true</code>,
+          interaction with outside elements will be disabled and only menu
+          content will be visible to screen readers.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+### Trigger
+
+The area that opens the context menu. Wrap it around the target you want the context menu to open from when right-clicking (or using the relevant keyboard shortcuts).
+
+<MoreInfo
+  componentName="Radix Context Menu Trigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#trigger"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "disabled",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          When <code>true</code>, the context menu won't open when
+          right-clicking. Note that this will also restore the native context
+          menu.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### Content
+
+It's a mix of [Radix-UI Context Menu Portal](https://www.radix-ui.com/primitives/docs/components/context-menu#portal) and [Radix-UI Context Menu Content](https://www.radix-ui.com/primitives/docs/components/context-menu#content).<br/><br/>
+When used, portals the content part into the `body`. The component that pops out in an open context menu.
+
+<MoreInfo
+  componentName="Radix Context Menu Portal"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#portal"
+/>
+
+<MoreInfo
+  componentName="Radix Context Menu Content"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#content"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. If used on this
+          part, it will be inherited by <code>ContextMenu.Content</code> and{" "}
+          <code>ContextMenu.SubContent</code> respectively.
+        </span>
+      ),
+    },
+    {
+      name: "container",
+      type: "HTMLElement",
+      defaultValue: "document.body",
+      description: "Specify a container element to portal the content into.",
+    },
+    {
+      name: "loop",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          When <code>true</code>, keyboard navigation will loop from last item
+          to first, and vice versa.
+        </span>
+      ),
+    },
+    {
+      name: "onCloseAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when focus moves back after closing. It can be
+          prevented by calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the escape key is down. It can be prevented
+          by calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onPointerDownOutside",
+      type: "(event: PointerDownOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when a pointer event occurs outside the bounds of
+          the component. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onFocusOutside",
+      type: "(event: FocusOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when focus moves outside the bounds of the
+          component. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onInteractOutside",
+      type: "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when an interaction (pointer or focus event)
+          happens outside the bounds of the component. It can be prevented by
+          calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. It inherits from{" "}
+          <code>ContextMenu.Portal</code>.
+        </span>
+      ),
+    },
+    {
+      name: "alignOffset",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>The vertical distance in pixels from the anchor.</span>
+      ),
+    },
+    {
+      name: "avoidCollisions",
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          When <code>true</code>, overrides the <code>side</code> and
+          <code>align</code> preferences to prevent collisions with boundary edges.
+        </span>
+      ),
+    },
+    {
+      name: "collisionBoundary",
+      type: "Element | null | Array<Element | null>",
+      typeSimple: "Boundary",
+      defaultValue: "[]",
+      description: (
+        <span>
+          The element used as the collision boundary. By default this is the
+          viewport, though you can provide additional element(s) to be included
+          in this check.
+        </span>
+      ),
+    },
+    {
+      name: "collisionPadding",
+      type: "number | Partial<Record<Side, number>>",
+      typeSimple: "number | Padding",
+      defaultValue: "0",
+      description: (
+        <span>
+          The distance in pixels from the boundary edges where collision
+          detection should occur. Accepts a number (same for all sides), or a
+          partial padding object, for example: <code>{`{ top: 20, left: 20 }`}</code>
+          .
+        </span>
+      ),
+    },
+    {
+      name: "sticky",
+      type: '"partial" | "always"',
+      typeSimple: "enum",
+      defaultValue: '"partial"',
+      description: (
+        <span>
+          The sticky behavior on the align axis. <code>"partial"</code> will
+          keep the content in the boundary as long as the trigger is at least
+          partially in the boundary whilst <code>"always"</code> will keep the
+          content in the boundary regardless.
+        </span>
+      ),
+    },
+    {
+      name: "hideWhenDetached",
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          Whether to hide the content when the trigger becomes fully occluded.
+        </span>
+      ),
+    },
+    {
+      name: "condensed",
+      typeSimple: "boolean",
+      defaultValue: "true",
+      description: "Make items more condensed than the common behavior.",
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-side]",
+      value: ["left", "right", "bottom", "top"],
+    },
+    {
+      name: "[data-align]",
+      value: ["start", "end", "center"],
+    },
+  ]}
+/>
+
+### Item
+
+The component that contains the context menu items.
+
+<MoreInfo
+  componentName="Radix Context Menu Item"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#item"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with the
+          item.
+        </span>
+      ),
+    },
+    {
+      name: "onSelect",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the user selects an item (via mouse or
+          keyboard). Calling <code>event.preventDefault</code> in this handler
+          will prevent the context menu from closing when selecting that item.
+        </span>
+      ),
+    },
+    {
+      name: "textValue",
+      type: "string",
+      description: (
+        <span>
+          Optional text used for typeahead purposes. By default the typeahead
+          behavior will use the <code>.textContent</code> of the item. Use this
+          when the content is complex, or you have non-textual content inside.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-highlighted]",
+      value: "Present when highlighted",
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+### Group
+
+Used to group multiple `ContextMenu.Item`s.
+
+<MoreInfo
+  componentName="Radix Context Menu Group"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#group"
+/>
+
+### Label
+
+Used to render a label. It won't be focusable using arrow keys.
+
+<MoreInfo
+  componentName="Radix Context Menu Label"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#label"
+/>
+
+### CheckboxItem
+
+An item that can be controlled and rendered like a checkbox.
+
+<MoreInfo
+  componentName="Radix Context Menu CheckboxItem"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#checkboxitem"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "checked",
+      type: `boolean | 'indeterminate'`,
+      description: (
+        <span>
+          The controlled checked state of the item. Must be used in conjunction
+          with <code>onCheckedChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onCheckedChange",
+      type: `(checked: boolean) => void`,
+      typeSimple: "function",
+      description: (
+        <span>Event handler called when the checked state changes.</span>
+      ),
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with the
+          item.
+        </span>
+      ),
+    },
+    {
+      name: "onSelect",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the user selects an item (via mouse or
+          keyboard). Calling <code>event.preventDefault</code> in this handler
+          will prevent the context menu from closing when selecting that item.
+        </span>
+      ),
+    },
+    {
+      name: "textValue",
+      type: "string",
+      description: (
+        <span>
+          Optional text used for typeahead purposes. By default the typeahead
+          behavior will use the <code>.textContent</code> of the item. Use this
+          when the content is complex, or you have non-textual content inside.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["checked", "unchecked", "indeterminate"],
+    },
+    {
+      name: "[data-highlighted]",
+      value: "Present when highlighted",
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+### RadioGroup
+
+Used to group multiple `ContextMenu.RadioItem`s.
+
+<MoreInfo
+  componentName="Radix Context Menu RadioGroup"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#radiogroup"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "value",
+      type: "string",
+      description: "The value of the selected item in the group.",
+    },
+    {
+      name: "onValueChange",
+      type: "(value: string) => void",
+      typeSimple: "function",
+      description: "Event handler called when the value changes.",
+    },
+  ]}
+/>
+
+### RadioItem
+
+It's a mix of [Radix-UI Context Menu RadioItem](https://www.radix-ui.com/primitives/docs/components/context-menu#radioitem) and [Radix-UI Context Menu ItemIndicator](https://www.radix-ui.com/primitives/docs/components/context-menu#itemindicator).<br /><br />
+An item that can be controlled and rendered like a radio. Renders when the parent `ContextMenu.CheckboxItem` or `ContextMenu.RadioItem` is checked.
+
+<MoreInfo
+  componentName="Radix Context Menu RadioItem"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#radioitem"
+/>
+
+<MoreInfo
+  componentName="Radix Context Menu ItemIndicator"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#itemindicator"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "value",
+      type: "string",
+      required: true,
+      description: "The unique value of the item.",
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with the
+          item.
+        </span>
+      ),
+    },
+    {
+      name: "onSelect",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the user selects an item (via mouse or
+          keyboard). Calling <code>event.preventDefault</code> in this handler
+          will prevent the context menu from closing when selecting that item.
+        </span>
+      ),
+    },
+    {
+      name: "textValue",
+      type: "string",
+      description: (
+        <span>
+          Optional text used for typeahead purposes. By default the typeahead
+          behavior will use the <code>.textContent</code> of the item. Use this
+          when the content is complex, or you have non-textual content inside.
+        </span>
+      ),
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["checked", "unchecked", "indeterminate"],
+    },
+    {
+      name: "[data-highlighted]",
+      value: "Present when highlighted",
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+### Separator
+
+Used to visually separate items in the context menu.
+
+<MoreInfo
+  componentName="Radix Context Menu Separator"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#separator"
+/>
+
+### SubMenu
+
+Contains all the parts of a submenu.
+
+<MoreInfo
+  componentName="Radix Context Menu SubMenu"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#sub"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description: (
+        <span>
+          The open state of the submenu when it is initially rendered. Use when
+          you do not need to control its open state.
+        </span>
+      ),
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          The controlled open state of the submenu. Must be used in conjunction
+          with <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the open state of the submenu changes.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+### SubMenuTrigger
+
+An item that opens a submenu. Must be rendered inside `ContextMenu.Sub`.
+
+<MoreInfo
+  componentName="Radix Context Menu SubMenuTrigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#subtrigger"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "disabled",
+      type: "boolean",
+      description: (
+        <span>
+          When <code>true</code>, prevents the user from interacting with the
+          item.
+        </span>
+      ),
+    },
+    {
+      name: "textValue",
+      type: "string",
+      description: (
+        <span>
+          Optional text used for typeahead purposes. By default the typeahead
+          behavior will use the <code>.textContent</code> of the item. Use this
+          when the content is complex, or you have non-textual content inside.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-highlighted]",
+      value: "Present when highlighted",
+    },
+    {
+      name: "[data-disabled]",
+      value: "Present when disabled",
+    },
+  ]}
+/>
+
+### SubMenuContent
+
+The component that pops out when a submenu is open. Must be rendered inside `ContextMenu.Sub`.
+
+<MoreInfo
+  componentName="Radix Context Menu SubMenuContent"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/context-menu#subcontent"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "loop",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          When <code>true</code>, keyboard navigation will loop from last item
+          to first, and vice versa.
+        </span>
+      ),
+    },
+    {
+      name: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when the escape key is down. It can be prevented
+          by calling <code>event.preventDefault</code>
+        </span>
+      ),
+    },
+    {
+      name: "onPointerDownOutside",
+      type: "(event: PointerDownOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when a pointer event occurs outside the bounds of
+          the component. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onFocusOutside",
+      type: "(event: FocusOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when focus moves outside the bounds of the
+          component. It can be prevented by calling{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onInteractOutside",
+      type: "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Event handler called when an interaction (pointer or focus event)
+          happens outside the bounds of the component. It can be prevented by
+          calling <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Used to force mounting when more control is needed. Useful when
+          controlling animation with React animation libraries. It inherits from{" "}
+          <code>ContextMenu.Portal</code>.
+        </span>
+      ),
+    },
+    {
+      name: "sideOffset",
+      type: "number",
+      defaultValue: "0",
+      description: <span>The distance in pixels from the trigger.</span>,
+    },
+    {
+      name: "alignOffset",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          An offset in pixels from the <code>"start"</code> or{" "}
+          <code>"end"</code> alignment options.
+        </span>
+      ),
+    },
+    {
+      name: "avoidCollisions",
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          When <code>true</code>, overrides the <code>side</code> and
+          <code>align</code> preferences to prevent collisions with boundary edges.
+        </span>
+      ),
+    },
+    {
+      name: "collisionBoundary",
+      type: "Element | null | Array<Element | null>",
+      typeSimple: "Boundary",
+      defaultValue: "[]",
+      description: (
+        <span>
+          The element used as the collision boundary. By default this is the
+          viewport, though you can provide additional element(s) to be included
+          in this check.
+        </span>
+      ),
+    },
+    {
+      name: "collisionPadding",
+      type: "number | Partial<Record<Side, number>>",
+      typeSimple: "number | Padding",
+      defaultValue: "0",
+      description: (
+        <span>
+          The distance in pixels from the boundary edges where collision
+          detection should occur. Accepts a number (same for all sides), or a
+          partial padding object, for example: <code>{`{ top: 20, left: 20 }`}</code>
+          .
+        </span>
+      ),
+    },
+    {
+      name: "arrowPadding",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          The padding between the arrow and the edges of the content. If your
+          content has <code>border-radius</code>, this will prevent it from
+          overflowing the corners.
+        </span>
+      ),
+    },
+    {
+      name: "sticky",
+      type: '"partial" | "always"',
+      typeSimple: "enum",
+      defaultValue: '"partial"',
+      description: (
+        <span>
+          The sticky behavior on the align axis. <code>"partial"</code> will
+          keep the content in the boundary as long as the trigger is at least
+          partially in the boundary whilst <code>"always"</code> will keep the
+          content in the boundary regardless.
+        </span>
+      ),
+    },
+    {
+      name: "hideWhenDetached",
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          Whether to hide the content when the trigger becomes fully occluded.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-side]",
+      value: ["left", "right", "bottom", "top"],
+    },
+    {
+      name: "[data-align]",
+      value: ["start", "end", "center"],
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/container",
+    label: "Container",
+  }}
+  next={{
+    link: "/docs/components/dialog",
+    label: "Dialog",
+  }}
+/>
+
+<EditThisPage url="components/en-US/context-menu/1.0.1.mdx" />

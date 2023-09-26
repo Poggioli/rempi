@@ -1,0 +1,96 @@
+---
+title: Heading
+slug: heading
+---
+
+# Heading
+
+<Description text="A semantic heading element." />
+
+<SelectVersion />
+
+<PreviewComponent name="heading" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/heading
+```
+
+## Usage
+
+Import the <strong>Heading</strong>.
+
+```jsx
+import { Heading } from "@rempi-ui/heading";
+import { Typography } from "@rempi-ui/typography";
+
+() => (
+  <Heading alignItems="center" justifyContents="center">
+    <Typography>Heading</Typography>
+  </Heading>
+);
+```
+
+## API reference
+
+### Heading
+
+This component is based on the `<h1/>` element.
+
+<APIReference
+  data={[
+    {
+      name: "color",
+      type: '"low-contrast" | "high-contrast"',
+      typeSimple: "enum",
+    },
+    {
+      name: "fontSize",
+      type: '"2xsm" | "xsm" | "sm" | "md" | "lg" | "xlg"',
+      typeSimple: "enum",
+    },
+    {
+      name: "fontWeight",
+      type: '"tiny" | "normal" | "regular" | "semi-bold" | "bold" | "extra-bold"',
+      typeSimple: "enum",
+    },
+    {
+      name: "lineHeight",
+      type: "1 | 2",
+      typeSimple: "enum",
+    },
+    {
+      name: "isTruncated",
+      typeSimple: "boolean",
+      description:
+        "Determines whether to add an ellipsis to the end of the text if the content does not fit.",
+    },
+    {
+      name: "textAlign",
+      type: '"left" | "center" | "right"',
+      typeSimple: "enum",
+    },
+    {
+      name: "variant",
+      type: '"1" | "2" | "3" | "4" | "5" | "6"',
+      typeSimple: "enum",
+      defaultValue: '"1"',
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/flex",
+    label: "Flex",
+  }}
+  next={{
+    link: "/docs/components/hover-card",
+    label: "Hover Card",
+  }}
+/>
+
+<EditThisPage url="components/en-US/heading/1.0.1.mdx" />

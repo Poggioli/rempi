@@ -1,0 +1,470 @@
+---
+title: Popover
+slug: popover
+radixUI: https://www.radix-ui.com/primitives/docs/components/popover
+radixAPI: https://www.radix-ui.com/primitives/docs/components/popover#api-reference
+---
+
+# Popover
+
+<Description text="Exibe conteúdo rico em um portal, acionado por um botão." />
+
+<Flex style={{ gap: 8 }} alignItems="center">
+  <RadixUI href="https://www.radix-ui.com/primitives/docs/components/popover" />
+  <RadixAPI href="https://www.radix-ui.com/primitives/docs/components/popover#api-reference" />
+  <SelectVersion />
+</Flex>
+
+<PreviewComponent name="popover" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/popover
+```
+
+## Uso
+
+Importe o <strong>Popover</strong> e junte todas as partes do componente.
+
+```jsx
+import { IconButton } from "@rempi-ui/button";
+import { Flex } from "@rempi-ui/flex";
+import { Popover } from "@rempi-ui/popover";
+import { Typography } from "@rempi-ui/typography";
+import { SlidersHorizontal } from "lucide-react";
+
+() => (
+  <Popover.Root>
+    <Popover.Trigger asChild>
+      <IconButton
+        aria-label="settings"
+        variant="text"
+        shape="rounded"
+        color="primary"
+      >
+        <SlidersHorizontal size={16} />
+      </IconButton>
+    </Popover.Trigger>
+    <Popover.Content>
+      <Flex flexDirection="column">
+        <Typography
+          fontSize="sm"
+          fontWeight="normal"
+          color="low-contrast"
+          lineHeight={2}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut
+          vulputate elit, at efficitur tortor. Fusce at dui est. Morbi ac mauris
+          vehicula, sagittis tortor eget, ultricies erat. Vivamus suscipit, arcu
+          a lobortis eleifend, augue tellus laoreet ipsum, vitae cursus magna
+          erat sed lorem. Etiam at augue pellentesque, sollicitudin metus.
+        </Typography>
+      </Flex>
+      <Popover.CloseCross aria-label="Fechar" />
+      <Popover.Arrow />
+    </Popover.Content>
+  </Popover.Root>
+);
+```
+
+## Sobre
+
+<strong>Rempi-UI Popover</strong> é baseado no [Radix Popover](https://www.radix-ui.com/primitives/docs/components/popover).
+
+## API reference
+
+### Root
+
+Contém todas as partes do popover.
+
+<MoreInfo
+  componentName="Radix Popover Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/popover#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description: (
+        <span>
+          O estado aberto do popover quando ele é inicialmente renderizado. Use
+          quando você não precisa controlar seu estado aberto.
+        </span>
+      ),
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          O estado de abertura controlado do popover. Deve ser usado em conjunto
+          com <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description: (
+        <span>Evento chamado quando o estado aberto do popover muda.</span>
+      ),
+    },
+    {
+      name: "modal",
+      required: false,
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          A modalidade do popover. Quando definido como <code>true</code>, a
+          interação com elementos externos será desabilitada e apenas o conteúdo
+          do popover será visível para leitores de tela.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+### Trigger
+
+O botão que ativa o popover. Por padrão, o `Popover.Content` se posicionará em relação ao gatilho.
+
+<MoreInfo
+  componentName="Radix Popover Trigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/popover#trigger"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### Content
+
+É uma mistura de [Radix-UI Popover Portal](https://www.radix-ui.com/primitives/docs/components/popover#portal) e [Radix-UI Popover Content](https://www.radix-ui.com/primitives/docs/components/popover#content).<br/><br/>
+Quando usado, insere a parte de conteúdo no `body`. O componente que aparece quando o popover está aberto.
+
+<MoreInfo
+  componentName="Radix Popover Portal"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/popover#portal"
+/>
+
+<MoreInfo
+  componentName="Radix Popover Content"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/popover#content"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Usado para forçar a montagem quando mais controle é necessário. Útil
+          ao controlar animações com bibliotecas de animação React. Se usado
+          nesta parte, ela será herdada por <code>Popover.Content</code>.
+        </span>
+      ),
+    },
+    {
+      name: "container",
+      type: "HTMLElement",
+      defaultValue: "document.body",
+      description:
+        "Especifique um elemento de contêiner para portar o conteúdo para dentro.",
+    },
+    {
+      name: "onOpenAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando o foco se move para o componente após a
+          abertura. Pode ser impedido chamando <code>event.preventDefault</code>
+          .
+        </span>
+      ),
+    },
+    {
+      name: "onCloseAutoFocus",
+      type: "(event: Event) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando o foco se move para o acionador após o
+          fechamento. Pode ser impedido chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onEscapeKeyDown",
+      type: "(event: KeyboardEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando a tecla <code>Esc</code> está pressionada. Pode
+          ser evitado chamando <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onPointerDownOutside",
+      type: "(event: PointerDownOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando ocorre um evento de ponteiro fora dos limites do
+          componente. Isso pode ser evitado chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onFocusOutside",
+      type: "(event: FocusOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando o foco se move para fora dos limites do
+          componente. Isso pode ser evitado chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onInteractOutside",
+      type: "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+      typeSimple: "function",
+      description: (
+        <span>
+          Evento chamado quando ocorre uma interação (evento de ponteiro ou
+          foco) fora dos limites do componente. Isso pode ser evitado chamando{" "}
+          <code>event.preventDefault</code>.
+        </span>
+      ),
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Usado para forçar a montagem quando mais controle é necessário. Útil
+          ao controlar animações com bibliotecas de animação React. Ele herda de
+          <code>Popover.Portal</code>.
+        </span>
+      ),
+    },
+    {
+      name: "side",
+      type: '"top" | "right" | "bottom" | "left"',
+      typeSimple: "enum",
+      defaultValue: '"bottom"',
+      description: (
+        <span>
+          O lado preferido do âncora para ser renderizado quando estiver aberto.
+          Será revertido quando ocorrerem colisões e `avoidCollisions` estiver
+          ativado.
+        </span>
+      ),
+    },
+    {
+      name: "sideOffset",
+      type: "number",
+      defaultValue: "0",
+      description: <span>A distância em pixels a partir do âncora.</span>,
+    },
+    {
+      name: "align",
+      type: '"start" | "center" | "end"',
+      typeSimple: "enum",
+      defaultValue: '"center"',
+      description: (
+        <span>
+          O alinhamento preferido em relação ao âncora. Pode ser alterado quando
+          ocorrem colisões.
+        </span>
+      ),
+    },
+    {
+      name: "alignOffset",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          Um deslocamento em pixels a partir das opções de alinhamento{" "}
+          <code>"start"</code> ou <code>"end"</code>.
+        </span>
+      ),
+    },
+    {
+      name: "avoidCollisions",
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          Quando <code>true</code>, substitui as preferências de{" "}
+          <code>side</code> e <code>align</code> para evitar colisões com as
+          bordas da fronteira.
+        </span>
+      ),
+    },
+    {
+      name: "collisionBoundary",
+      type: "Element | null | Array<Element | null>",
+      typeSimple: "Boundary",
+      defaultValue: "[]",
+      description: (
+        <span>
+          O elemento usado como limite de colisão. Por padrão, isso é a janela
+          de visualização (viewport), embora você possa fornecer elemento(s)
+          adicional(is) a serem incluído(s) nesta verificação.
+        </span>
+      ),
+    },
+    {
+      name: "collisionPadding",
+      type: "number | Partial<Record<Side, number>>",
+      typeSimple: "number | Padding",
+      defaultValue: "0",
+      description: (
+        <span>
+          A distância em pixels das bordas da fronteira onde a detecção de
+          colisão deve ocorrer. Aceita um número (o mesmo para todos os lados)
+          ou um objeto de preenchimento parcial, por exemplo: <code>{`{ top: 20, left: 20 }`}</code>
+          .
+        </span>
+      ),
+    },
+    {
+      name: "arrowPadding",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          O espaçamento entre a seta e as bordas do conteúdo. Se o seu conteúdo
+          tiver <code>border-radius</code>, isso evitará que ele transborde
+          pelos cantos.
+        </span>
+      ),
+    },
+    {
+      name: "sticky",
+      type: '"partial" | "always"',
+      typeSimple: "enum",
+      defaultValue: '"partial"',
+      description: (
+        <span>
+          O comportamento de aderência no eixo de alinhamento.{" "}
+          <code>"partial"</code> manterá o conteúdo dentro do limite enquanto o
+          gatilho estiver pelo menos parcialmente dentro do limite, enquanto{" "}
+          <code>"always"</code> manterá o conteúdo dentro do limite
+          independentemente.
+        </span>
+      ),
+    },
+    {
+      name: "hideWhenDetached",
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          Se deve ocultar o conteúdo quando o gatilho ficar completamente
+          oculto.{" "}
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-side]",
+      value: ["left", "right", "bottom", "top"],
+    },
+    {
+      name: "[data-align]",
+      value: ["start", "end", "center"],
+    },
+  ]}
+/>
+
+### Arrow
+
+Um elemento de seta opcional para ser renderizado junto com o popover. Isso pode ser usado para ajudar a vincular visualmente o âncora com o `Popover.Content`. Deve ser renderizado dentro de `Popover.Content`.
+
+<MoreInfo
+  componentName="Radix Popover Arrow"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/popover#arrow"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "width",
+      type: "number",
+      defaultValue: 10,
+      description: <span>A largura da seta em pixels.</span>,
+    },
+    {
+      name: "height",
+      type: "number",
+      defaultValue: 5,
+      description: <span>A altura da seta em pixels.</span>,
+    },
+  ]}
+/>
+
+### Close
+
+O botão que fecha um popover aberto.
+
+<MoreInfo
+  componentName="Radix Popover Close"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/popover#close"
+/>
+
+### CloseCross
+
+O botão com o ícone X que fecha a caixa de diálogo.
+
+<APIReference
+  data={[
+    {
+      name: "aria-label",
+      required: true,
+      type: "string",
+      description:
+        "aria-label a ser anunciado quando um leitor de tela está ativo.",
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/navigation-menu",
+    label: "Navigation Menu",
+  }}
+  next={{
+    link: "/docs/components/progress",
+    label: "Progress",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/popover/1.0.1.mdx" />

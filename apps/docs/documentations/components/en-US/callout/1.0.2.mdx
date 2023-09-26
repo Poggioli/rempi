@@ -1,0 +1,100 @@
+---
+title: Callout
+slug: callout
+---
+
+# Callout
+
+<Description text="A short message to attract user's attention." />
+
+<SelectVersion />
+
+<PreviewComponent name="callout" />
+
+## Installation
+
+Install the component from your command line.
+
+```bash
+yarn add @rempi-ui/callout
+```
+
+## Usage
+
+Import the <strong>Callout</strong> and piece all composition components together.
+
+```jsx
+import { Callout } from "@rempi-ui/callout";
+import { Info } from "lucide-react";
+
+() => (
+  <Callout.Root>
+    <Callout.Icon>
+      <Info size={16} />
+    </Callout.Icon>
+    <Callout.Text>
+      You will need admin privileges to install and access this application.
+    </Callout.Text>
+  </Callout.Root>
+);
+```
+
+## API reference
+
+### Root
+
+The <strong>Callout.Root</strong> component is built on top of [Rempi-UI Flex](/docs/components/flex), access the documentation to see all <strong>Props</strong>. <br/>
+Groups Icon and Text parts. This component is based on the `<div />` element
+
+<MoreInfo componentName="Rempi-UI Flex" componentLink="/docs/components/flex" />
+
+<APIReference
+  data={[
+    {
+      name: "variant",
+      required: false,
+      type: '"soft" | "surface" | "outlined"',
+      typeSimple: "enum",
+      defaultValue: '"outlined"',
+      description: "Set the Callout styles.",
+    },
+    {
+      name: "size",
+      required: false,
+      type: '"small" | "standard" | "large"',
+      typeSimple: "enum",
+      defaultValue: '"standard"',
+      description: "Set the Callout size.",
+    },
+    {
+      name: "color",
+      required: false,
+      type: '"info" | "success" | "error"',
+      typeSimple: "enum",
+      defaultValue: '"info"',
+      description: "Set the Callout color.",
+    },
+  ]}
+/>
+
+### Text
+
+The <strong>Callout.Text</strong> component is built on top of [Rempi-UI Typography](/docs/components/typography), access the documentation to see all <strong>Props</strong>. <br/>
+Renders the callout text. This component is based on the `<span />` element.
+
+### Icon
+
+The <strong>Callout.Icon</strong> component is built on top of [Rempi-UI Typography](/docs/components/typography), access the documentation to see all <strong>Props</strong>. <br/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/calendar",
+    label: "Calendar",
+  }}
+  next={{
+    link: "/docs/components/card",
+    label: "Card",
+  }}
+/>
+
+<EditThisPage url="components/en-US/callout/1.0.1.mdx" />

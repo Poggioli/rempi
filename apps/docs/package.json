@@ -73,8 +73,10 @@
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "@types/semver-sort": "^0.0.1",
-    "eslint-config-custom": "*",
-    "tsconfig": "*",
+    "eslint-config-next": "^13.4.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "7.28.0",
+    "eslint-config-turbo": "^1.9.3",
     "typescript": "^4.5.3"
   }
 }

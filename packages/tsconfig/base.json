@@ -3,8 +3,8 @@
   "display": "Default",
   "compilerOptions": {
     "composite": false,
-    "declaration": true,
-    "declarationMap": true,
+    "declaration": false,
+    "declarationMap": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "inlineSources": false,
@@ -14,7 +14,16 @@
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
-    "strict": true
+    "strict": false,
+    "plugins": [{ "name": "next" }],
+    "allowJs": true,
+    "incremental": true,
+    "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "target": "es5"
   },
   "exclude": ["node_modules"]
 }

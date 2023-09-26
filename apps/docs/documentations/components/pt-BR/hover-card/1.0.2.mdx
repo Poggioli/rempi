@@ -1,0 +1,413 @@
+---
+title: Hover Card
+slug: hover-card
+radixUI: https://www.radix-ui.com/primitives/docs/components/hover-card
+radixAPI: https://www.radix-ui.com/primitives/docs/components/hover-card#api-reference
+---
+
+# Hover Card
+
+<Description text="Pré-visualização de conteúdo disponível por trás de um link." />
+
+<SelectVersion />
+
+<PreviewComponent name="hover-card" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/hover-card
+```
+
+## Uso
+
+Importe o <strong>HoverCard</strong> e junte todas as partes do componente.
+
+```jsx
+import { HoverCard } from "@rempi-ui/hover-card";
+import { Typography } from "@rempi-ui/typography";
+
+() => (
+  <HoverCard.Root>
+    <HoverCard.Trigger>
+      <a
+        href="https://twitter.com/_Poggioli"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <img
+          src="https://pbs.twimg.com/profile_images/1639359724691808262/UErOMnL2_400x400.jpg"
+          alt="foto de perfil do Twitter de @_Poggioli"
+        />
+      </a>
+    </HoverCard.Trigger>
+    <HoverCard.Content>
+      <Flex flexDirection="column">
+        <img
+          src="https://pbs.twimg.com/profile_images/1639359724691808262/UErOMnL2_400x400.jpg"
+          alt="foto de perfil do Twitter de @_Poggioli"
+        />
+        <Flex flexDirection="column">
+          <Flex flexDirection="column">
+            <Typography
+              as="h6"
+              color="high-contrast"
+              fontWeight="bold"
+              fontSize="md"
+              lineHeight={2}
+            >
+              Poggioli
+            </Typography>
+            <Typography color="low-contrast" fontSize="sm" lineHeight={2}>
+              @_Poggioli
+            </Typography>
+          </Flex>
+          <Typography color="high-contrast" fontSize="md" lineHeight={1}>
+            Dev Frontend; A11Y web enthusiast; I love birds, especially my
+            cockatiel; I love my angry girlfriend;
+          </Typography>
+          <Flex alignItems="center">
+            <Flex alignItems="center">
+              <Typography
+                color="high-contrast"
+                fontWeight="bold"
+                fontSize="md"
+                lineHeight={2}
+              >
+                282
+              </Typography>
+              <Typography color="low-contrast" fontSize="sm" lineHeight={2}>
+                Seguindo
+              </Typography>
+            </Flex>
+            <Flex alignItems="center">
+              <Typography
+                color="high-contrast"
+                fontWeight="bold"
+                fontSize="md"
+                lineHeight={2}
+              >
+                454
+              </Typography>
+              <Typography color="low-contrast" fontSize="sm" lineHeight={2}>
+                Seguidores
+              </Typography>
+            </Flex>
+          </Flex>
+        </Flex>
+      </Flex>
+      <HoverCard.Arrow />
+    </HoverCard.Content>
+  </HoverCard.Root>
+);
+```
+
+## Sobre
+
+Rempi-UI Hover Card é baseado no [Radix Hover Card](https://www.radix-ui.com/primitives/docs/components/hover-card).
+
+## API reference
+
+### Root
+
+Contém todas as partes do hover card.
+
+<MoreInfo
+  componentName="Radix Hover Card Root"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/hover-card#root"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "defaultOpen",
+      type: "boolean",
+      description: (
+        <span>
+          O estado aberto do hover card quando ele é inicialmente renderizado.
+          Use quando você não precisa controlar seu estado aberto.
+        </span>
+      ),
+    },
+    {
+      name: "open",
+      type: "boolean",
+      description: (
+        <span>
+          O estado aberto controlado do hover card. Deve ser usado em conjunto
+          com <code>onOpenChange</code>.
+        </span>
+      ),
+    },
+    {
+      name: "onOpenChange",
+      type: "(open: boolean) => void",
+      typeSimple: "function",
+      description: (
+        <span>Evento chamado quando o estado aberto do hover card muda.</span>
+      ),
+    },
+    {
+      name: "openDelay",
+      type: "number",
+      defaultValue: 700,
+      description:
+        "A duração desde o momento em que o mouse entra no gatilho até o hover card abrir.",
+    },
+    {
+      name: "closeDelay",
+      type: "number",
+      defaultValue: 300,
+      description:
+        "A duração desde o momento em que o mouse deixa o gatilho ou o conteúdo até o hover card fechar.",
+    },
+  ]}
+/>
+
+### Trigger
+
+O link que abre o hover card quando é passado o mouse por cima.
+
+<MoreInfo
+  componentName="Radix Hover Card Trigger"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/hover-card#trigger"
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+  ]}
+/>
+
+### Content
+
+É uma mistura de [Radix Hover Card Content](https://www.radix-ui.com/primitives/docs/components/hover-card#content) e [Radix Hover Card Portal](https://www.radix-ui.com/primitives/docs/components/hover-card#portal).<br/><br/>
+Quando usado, move a parte de conteúdo para o elemento `body`. O componente que aparece quando o hover card está aberto.
+
+<MoreInfo
+  componentName="Radix Hover Card Content"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/hover-card#content"
+/>
+
+<MoreInfo
+  componentName="Radix Hover Card Portal"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/hover-card#portal"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Usado para forçar a montagem quando mais controle é necessário. Útil
+          ao controlar animações com bibliotecas de animação React. Se usado
+          nesta parte, será herdado por <code>HoverCard.Content</code>.
+        </span>
+      ),
+    },
+    {
+      name: "container",
+      type: "HTMLElement",
+      defaultValue: "document.body",
+      description:
+        "Especifique um elemento de contêiner para portar o conteúdo para dentro.",
+    },
+    {
+      name: "forceMount",
+      type: "boolean",
+      description: (
+        <span>
+          Usado para forçar a montagem quando mais controle é necessário. Útil
+          ao controlar animações com bibliotecas de animação React. Ele herda de
+          <code>HoverCard.Portal</code>.
+        </span>
+      ),
+    },
+    {
+      name: "side",
+      type: '"top" | "right" | "bottom" | "left"',
+      typeSimple: "enum",
+      defaultValue: '"bottom"',
+      description: (
+        <span>
+          O lado preferido do gatilho para renderizar quando estiver aberto.
+          Será invertido quando ocorrerem colisões e{" "}
+          <code>avoidCollisions</code> estiver ativado.
+        </span>
+      ),
+    },
+    {
+      name: "sideOffset",
+      type: "number",
+      defaultValue: "5",
+      description: (
+        <span>
+          <span>A distância em pixels a partir do gatilho.</span>
+        </span>
+      ),
+    },
+    {
+      name: "align",
+      type: '"start" | "center" | "end"',
+      typeSimple: "enum",
+      defaultValue: '"center"',
+      description: (
+        <span>
+          O alinhamento preferido em relação ao gatilho. Pode ser alterado
+          quando ocorrem colisões.
+        </span>
+      ),
+    },
+    {
+      name: "alignOffset",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          Um deslocamento em pixels a partir das opções de alinhamento{" "}
+          <code>"start"</code> ou <code>"end"</code>.
+        </span>
+      ),
+    },
+    {
+      name: "avoidCollisions",
+      type: "boolean",
+      defaultValue: "true",
+      description: (
+        <span>
+          Quando <code>true</code>, substitui as preferências de{" "}
+          <code>side</code> e <code>align</code> para evitar colisões com as
+          bordas da fronteira.
+        </span>
+      ),
+    },
+    {
+      name: "collisionBoundary",
+      type: "Element | null | Array<Element | null>",
+      typeSimple: "Boundary",
+      defaultValue: "[]",
+      description: (
+        <span>
+          O elemento usado como limite de colisão. Por padrão, isso é a janela
+          de visualização (viewport), embora você possa fornecer elemento(s)
+          adicional(is) a serem incluído(s) nesta verificação.
+        </span>
+      ),
+    },
+    {
+      name: "collisionPadding",
+      type: "number | Partial<Record<Side, number>>",
+      typeSimple: "number | Padding",
+      defaultValue: "16",
+      description: (
+        <span>
+          A distância em pixels das bordas da fronteira onde a detecção de
+          colisão deve ocorrer. Aceita um número (o mesmo para todos os lados)
+          ou um objeto de preenchimento parcial, por exemplo: <code>{`{ top: 20, left: 20 }`}</code>
+          .
+        </span>
+      ),
+    },
+    {
+      name: "arrowPadding",
+      type: "number",
+      defaultValue: "0",
+      description: (
+        <span>
+          O espaçamento entre a seta e as bordas do conteúdo. Se o seu conteúdo
+          tiver <code>border-radius</code>, isso evitará que ele transborde
+          pelos cantos.
+        </span>
+      ),
+    },
+    {
+      name: "sticky",
+      type: '"partial" | "always"',
+      typeSimple: "enum",
+      defaultValue: '"partial"',
+      description: (
+        <span>
+          O comportamento de aderência no eixo de alinhamento.{" "}
+          <code>"partial"</code> manterá o conteúdo dentro do limite enquanto o
+          gatilho estiver pelo menos parcialmente dentro do limite, enquanto{" "}
+          <code>"always"</code> manterá o conteúdo dentro do limite
+          independentemente.
+        </span>
+      ),
+    },
+    {
+      name: "hideWhenDetached",
+      type: "boolean",
+      defaultValue: "false",
+      description: (
+        <span>
+          Se deve ocultar o conteúdo quando o gatilho ficar completamente
+          oculto.
+        </span>
+      ),
+    },
+  ]}
+/>
+
+<DataReference
+  data={[
+    {
+      name: "[data-state]",
+      value: ["open", "closed"],
+    },
+    {
+      name: "[data-side]",
+      value: ["left", "right", "bottom", "top"],
+    },
+    {
+      name: "[data-align]",
+      value: ["start", "end", "center"],
+    },
+  ]}
+/>
+
+### Arrow
+
+Um elemento de seta opcional para renderizar junto com o hover card. Isso pode ser usado para ajudar a vincular visualmente o disparador ao `HoverCard.Content`. Deve ser renderizado dentro de `HoverCard.Content`.
+
+<MoreInfo
+  componentName="Radix Hover Card Arrow"
+  componentLink="https://www.radix-ui.com/primitives/docs/components/hover-card#arrow"
+/>
+
+<APIReference
+  data={[
+    {
+      name: "width",
+      type: "number",
+      defaultValue: 10,
+      description: <span>A largura da seta em pixels.</span>,
+    },
+    {
+      name: "height",
+      type: "number",
+      defaultValue: 5,
+      description: <span>A altura da seta em pixels.</span>,
+    },
+  ]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/heading",
+    label: "Heading",
+  }}
+  next={{
+    link: "/docs/components/input",
+    label: "Input",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/hover-card/1.0.1.mdx" />
