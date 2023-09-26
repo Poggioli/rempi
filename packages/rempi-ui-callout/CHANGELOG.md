@@ -1,5 +1,15 @@
 # @rempi-ui/callout
 
+## 1.0.2
+
+### Patch Changes
+
+- fd5932c: fix publish of dist folder
+- Updated dependencies [fd5932c]
+  - @rempi-ui/typography@1.0.2
+  - @rempi-ui/heading@1.0.2
+  - @rempi-ui/core@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes
