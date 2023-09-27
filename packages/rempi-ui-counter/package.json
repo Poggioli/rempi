@@ -1,0 +1,27 @@
+{
+  "name": "@rempi-ui/counter",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "version": "0.0.0",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "clear": "rimraf .turbo node_modules dist .next"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tsconfig": "*",
+    "typescript": "^4.5.3"
+  },
+  "peerDependencies": {
+    "@rempi-ui/core": "^1.0.3",
+    "react": "18.x"
+  }
+}
