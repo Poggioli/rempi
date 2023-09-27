@@ -51,6 +51,7 @@ import { ToastPreview } from "./PreviewComponents/Toast";
 import { TogglePreview } from "./PreviewComponents/Toggle";
 import { TooltipPreview } from "./PreviewComponents/Tooltip";
 import { TypographyPreview } from "./PreviewComponents/Typography";
+import { CounterPreview } from "./PreviewComponents/Counter";
 
 type PreviewComponentProps = {
   name: string;
@@ -99,6 +100,7 @@ const COMPONENTS: any = {
   tooltip: TooltipPreview,
   typography: TypographyPreview,
   drawer: DrawerPreview,
+  counter: CounterPreview,
 };
 
 const StyledFlex = styled.div`

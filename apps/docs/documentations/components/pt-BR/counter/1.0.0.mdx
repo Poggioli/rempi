@@ -1,0 +1,106 @@
+---
+title: Counter
+slug: counter
+---
+
+# Counter
+
+<Description text="Gera um pequeno contador no canto dos seus componentes filhos" />
+
+<SelectVersion />
+
+<PreviewComponent name="counter" />
+
+## Instalação
+
+Instale o componente a partir da linha de comando.
+
+```bash
+yarn add @rempi-ui/counter
+```
+
+## Uso
+
+Importe o <strong>Counter</strong> e junte todas as partes do componente.
+
+```jsx
+import { Counter } from "@rempi-ui/counter";
+
+() => <Counter counter={10}>Notificações</Counter>;
+```
+
+## API reference
+
+### Counter
+
+Contém todas as partes do `Counter`.
+
+<APIReference
+  data={[
+    {
+      name: "counter",
+      required: true,
+      typeSimple: "number",
+      description: "O valor que deverá aparecer no contador.",
+    },
+    {
+      name: "color",
+      required: false,
+      type: '"primary" | "secondary" | "success" | "notification" | "warning"',
+      typeSimple: "enum",
+      defaultValue: '"notification"',
+      description: (<span>Define a cor do `counter`.</span>)
+    },
+    {
+      name: "positionX",
+      required: false,
+      type: '"right" | "left"',
+      typeSimple: "enum",
+      defaultValue: '"right"',
+      description: "Define o posicionamento do eixo X do contador.",
+    },
+    {
+      name: "positionY",
+      required: false,
+      type: '"top" | "bottom"',
+      typeSimple: "enum",
+      defaultValue: '"top"',
+      description: "Define o posicionamento do eixo Y do contador.",
+    },
+    {
+      name: "maxCounter",
+      required: false,
+      typeSimple: "number",
+      defaultValue: 99,
+      description: "Define o valor máximo do contador antes de adicionar um + na frente.",
+    },
+    {
+      name: "showZero",
+      required: false,
+      type: 'boolean',
+      defaultValue: 'false',
+      description: (<span>Quando <code>true</code> mostra o contador mesmo com valor 0.</span>),
+    },
+    {
+      name: "dot",
+      required: false,
+      type: 'boolean',
+      defaultValue: 'false',
+      description: (<span>Quando <code>true</code> mostra apenas o contador sem o número.</span>),
+    },
+
+]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/context-menu",
+    label: "Context Menu",
+  }}
+  next={{
+    link: "/docs/components/dialog",
+    label: "Dialog",
+  }}
+/>
+
+<EditThisPage url="components/pt-BR/counter/1.0.0.mdx" />

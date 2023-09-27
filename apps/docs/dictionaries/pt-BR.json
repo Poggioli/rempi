@@ -59,7 +59,8 @@
         "Toast",
         "Toggle",
         "Tooltip",
-        "Typography"
+        "Typography",
+        "Counter"
       ]
     }
   ],
@@ -156,6 +157,9 @@
     "code-tab": "Código"
   },
   "preview": {
+    "counter": {
+      "aria-label": "Notificações"
+    },
     "accordion": {
       "items": [
         {

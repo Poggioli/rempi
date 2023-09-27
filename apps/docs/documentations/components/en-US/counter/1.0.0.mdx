@@ -1,0 +1,106 @@
+---
+title: Counter
+slug: counter
+---
+
+# Counter
+
+<Description text="Generates a small counter in the corner of its child components" />
+
+<SelectVersion />
+
+<PreviewComponent name="counter" />
+
+## Installation
+
+Install the component from the command line.
+
+```bash
+yarn add @rempi-ui/counter
+```
+
+## Usage
+
+Import the <strong>Counter</strong> and piece all composition components together.
+
+```jsx
+import { Counter } from "@rempi-ui/counter";
+
+() => <Counter counter={10}>Notifications</Counter>;
+```
+
+## API reference
+
+### Counter
+
+Contains all the parts of a Counter.
+
+<APIReference
+  data={[
+    {
+      name: "counter",
+      required: true,
+      typeSimple: "number",
+      description: "The value that should appear on the counter.",
+    },
+    {
+      name: "color",
+      required: false,
+      type: '"primary" | "secondary" | "success" | "notification" | "warning"',
+      typeSimple: "enum",
+      defaultValue: '"notification"',
+      description: (<span>Sets the color of the `counter`.</span>)
+    },
+    {
+      name: "positionX",
+      required: false,
+      type: '"right" | "left"',
+      typeSimple: "enum",
+      defaultValue: '"right"',
+      description: "Defines the positioning of the counter's X axis.",
+    },
+    {
+      name: "positionY",
+      required: false,
+      type: '"top" | "bottom"',
+      typeSimple: "enum",
+      defaultValue: '"top"',
+      description: "Defines the positioning of the counter's Y axis.",
+    },
+    {
+      name: "maxCounter",
+      required: false,
+      typeSimple: "number",
+      defaultValue: 99,
+      description: "Sets the maximum counter value before adding a + in front.",
+    },
+    {
+      name: "showZero",
+      required: false,
+      type: 'boolean',
+      defaultValue: 'false',
+      description: (<span>When <code>true</code> shows the counter even with a value of 0.</span>),
+    },
+    {
+      name: "dot",
+      required: false,
+      type: 'boolean',
+      defaultValue: 'false',
+      description: (<span>When <code>true</code> only shows the counter without the number.</span>),
+    },
+
+]}
+/>
+
+<NavigationNextPrevious
+  previous={{
+    link: "/docs/components/context-menu",
+    label: "Context Menu",
+  }}
+  next={{
+    link: "/docs/components/dialog",
+    label: "Dialog",
+  }}
+/>
+
+<EditThisPage url="components/en-US/counter/1.0.0.mdx" />

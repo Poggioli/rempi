@@ -65,6 +65,7 @@ const menus: Menu[] = [
       { label: "1.items.13", href: "/docs/components/combobox" },
       { label: "1.items.14", href: "/docs/components/container" },
       { label: "1.items.15", href: "/docs/components/context-menu" },
+      { label: "1.items.42", href: "/docs/components/counter" },
       { label: "1.items.16", href: "/docs/components/dialog" },
       { label: "1.items.17", href: "/docs/components/drawer" },
       { label: "1.items.18", href: "/docs/components/dropdown-menu" },
